@@ -61,6 +61,13 @@ function eventHandler() {
 		freeModeMomentum: true,
 	});
 
+	const swiperBricklayers = new Swiper(".sContent__slider--js", {
+		...defaultSl,
+		slidesPerView: 1,
+		touchRatio: 0.2,
+		slideToClickedSlide: true,
+		// freeModeMomentum: true,
+	});
 	
 }
 if (document.readyState !== "loading") {

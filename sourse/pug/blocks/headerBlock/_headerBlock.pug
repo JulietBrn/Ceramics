@@ -1,11 +1,8 @@
-mixin headerBlock()
+mixin headerBlock(title)
 	// start headerBlock
-	+b.headerBlock.section#headerBlock&attributes(attributes)
+	+b.headerBlock--white.section#headerBlock&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 headerBlock ds dfsdfdsfsd
-				+icon('telegram')
-				+iconC('telegram')
-			.row
-						
-	// end headerBlock
+			+b.section-title
+				h1!= title
+
+	// end headerBlock header-bg-brick

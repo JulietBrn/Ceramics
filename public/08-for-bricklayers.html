@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>Каменщикам</title>
+		<meta name="description" content="о чем страница">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,  shrink-to-fit=no, viewport-fit=cover">
+		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><meta name="format-detection" content="telephone=no"> <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+		<link href="libs/@fancyapps/ui/fancybox/fancybox.css" rel="stylesheet"/>
+		<link href="css/main.min.css" rel="stylesheet"/>
+		<script>
+			function addBlock(elem) {
+				fetch(`parts/${elem}.html`)
+					.then(response => response.text())
+					.then( text => {
+						const wrap = document.querySelector(`#${elem}Wrap`);
+						wrap.insertAdjacentHTML('afterend', text);
+						wrap.previousElementSibling.remove()
+						wrap.remove();
+					});
+			}
+		</script>
+	</head>
+	<body class="main-page">
+		<div class="main-wrapper">
+			<script>addBlock(`header`)</script>
+			<div id="headerWrap"></div>
+			<main>
+				<!-- start headerBlock-->
+				<div class="headerBlock headerBlock--white section" id="headerBlock">
+					<div class="container">
+						<div class="section-title">
+							<h1>Каменщикам</h1>
+						</div>
+					</div>
+				</div>
+				<!-- end headerBlock header-bg-brick-->
+				<!-- start sContent-->
+				<section class="sContent section" id="sContent">
+					<div class="container">
+						<div class="section-title">
+						</div>
+						<div class="content-item">
+							<h2>Уважаемые каменщики!</h2>
+							<p>В строительстве фасада здания мы предлагаем использовать лицевой керамический кирпич коллекций «Мастер Керамик», «Kôningstein», «Edelhaus Klinker» и ТМ «Mod Format», соблюдая инструкцию по ведению кирпичной кладки.</p>
+							<p>Кирпич в разных поддонах может отличаться по оттенку.  Для ведения кладки обязательно смешивайте кирпич одновременно из четырех поддонов, чтобы избежать появления пятен на фасаде.</p>
+						</div>
+						<a class="video-link" data-fancybox="video-gallery" href="https://youtu.be/7AkbUfZjS5k?si=boWKeffFxOLhUsO-"><img class="object-fit-js" src="img/video-bg-brick-0.png" alt="" loading="lazy"/>
+							<div class="video-link__icon-wrapper">
+								<svg class="icon icon-play ">
+									<use xlink:href="img/svg/sprite.svg#play"></use>
+								</svg>
+								<div class="video-link__sub-text small">Смотреть видео
+								</div>
+							</div>
+						</a>
+						<div class="content-item">
+							<div class="card-item">
+								<div class="title-item">
+									<h4>Правила ведения хаотичной кладки из кирпича тм «Mod Format»</h4>
+								</div>
+								<div class="card-item__text-wrapper">
+									<p>Рекомендуем начинать кладочные работы после поступления всего объема продукции. Для максимального смешивания оттенков в кладке вести работы следует, используя 3-5 поддонов одновременно. Внимание! Кирпич в поддонах уложен лицевой стороной вверх. Используйте поочередный произвольный разбор поддонов. Для этого берите по 2-3 кирпича с разных сторон поддонов не рядами сверху, а проникая вглубь. Основное условие хаотичной кладки –произвольное расположение вертикальных швов в рядах без их повторяемости друг над другом. Для этого сочетаем в кладке целые и подрезанные при помощи каменнорезного станка кирпичи переменной длины. Перед началом кладочных работ рекомендуем выполнить небольшой фрагмент кладки «на сухую» (без раствора) для оценки ее вида и соответствия ожиданиям заказчика. В процессе работы замеряем требуемую длину кирпича для соблюдения условия бегающего шва. Производим распил кирпича требуемой длины с помощью каменнорезного станка. Чередуем кирпич цельной длины, тычки и подготовленные подрезанные элементы. Максимально перемешиваем кирпич, ведем кладку, выбирая кирпич из перемешенной партии беспорядочно и хаотично. Не следует создавать строгий рисунок. Правильное сочетание оттенков кирпича в кладке формирует правильное эстетическое восприятие. С помощью хаотичной кладки получится подчеркнуть красоту кирпича, уникальные очертания фасада и качественную архитектуру дома.</p>
+								</div>
+								<a class="card-item__btn btn btn-primary" href="#" target="_blank">Скачать инструкцию
+									<svg class="icon icon-download ">
+										<use xlink:href="img/svg/sprite.svg#download"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+						<a class="video-link" data-fancybox="video-gallery" href="https://youtu.be/7AkbUfZjS5k?si=boWKeffFxOLhUsO-"><img class="object-fit-js" src="img/video-bg-brick-1.png" alt="" loading="lazy"/>
+							<div class="video-link__icon-wrapper">
+								<svg class="icon icon-play ">
+									<use xlink:href="img/svg/sprite.svg#play"></use>
+								</svg>
+								<div class="video-link__sub-text small">Смотреть видео
+								</div>
+							</div>
+						</a>
+						<div class="content-item">
+							<div class="card-item">
+								<div class="title-item">
+									<h4>Правила ведения Баварской кладки</h4>
+								</div>
+								<div class="card-item__text-wrapper">
+									<ol>
+										<li>Желательно начинать кладку после поступления всего объёма продукции на объект. Это позволит оценить цветовую гамму кирпича.</li>
+										<li>Установить к месту ведения работ 3-5 поддонов разного оттенка. Ведение кладки из нескольких упаковок обеспечит перемешивание кирпича и равномерное распределение разных его оттенков.</li>
+										<li>Достать из каждой упаковки по 6-8 кирпичей и перемешать их между собой.</li>
+										<li>Выложить часть стены из получившейся партии (захватку). Перед началом работ рекомендуем выполнить небольшой фрагмент «на сухую» (без раствора) для оценки вида кладки и соответствия ожиданиям заказчика.</li>
+										<li>Повторять пункт 3,4 до окончания работ. Стараться максимально перемешивать кирпич, вести кладку, выбирая кирпич из перемешенной партии беспорядочно и хаотично.</li>
+										<li>Не пытаться создать строгий рисунок.</li>
+										<li>Правильное сочетание оттенков кирпича в кладке формирует правильное эстетическое восприятие.</li>
+									</ol>
+								</div>
+								<a class="card-item__btn btn btn-primary" href="#" target="_blank">Скачать инструкцию
+									<svg class="icon icon-download ">
+										<use xlink:href="img/svg/sprite.svg#download"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+						<div class="content-item">
+							<p>Внимание! В поддоне кирпич уложен лицевой стороной вверх. На задней стороне кирпича также имеется фактура, не используйте ее в качестве лицевой!</p>
+							<p>Желаем Вам удачного строительства и довольных заказчиков!</p>
+							<div class="picture-item picture-item--info">
+								<div class="picture-item__img-wrap bg-wrap"><img class="object-fit-js" src="img/bg-brick-5-1.png" alt="" loading="lazy"/>
+								</div>
+								<div class="picture-item__text text-secondary small">Лицевая и оборотная сторона кирпича
+								</div>
+							</div>
+						</div>
+						<div class="content-item">
+							<h2>Кирпич объемных возможностей</h2>
+							<p>Использование всех свойств и качеств керамического и клинкерного кирпича ModFormat позволяет применять его как отделочный материал с самыми широкими возможностями формообразования.</p>
+							<p>Для реализации нестандартных современных решений, в которых наряду с привычными плоскими фасадами применяются объемные или рельефные элементы, ажурная кирпичная кладка, арки, глубокий рисунок фасада или даже бразильская кладка, кирпич может выпускаться в выбранной цветовой гамме, но с разной пустотностью:</p>
+							<ul>
+								<li>Пустотелый</li>
+								<li>Полнотелый с пустотностью до 13% (условно-полнотелый)</li>
+								<li>Полнотелый</li>
+							</ul>
+						</div>
+						<div class="content-item">
+							<p>Это дает возможность претворять в жизнь сложный рельеф с архитектурными элементами, создавая уникальные и красивые объекты, в которых объединяются практичность и эстетика.</p>
+							<p>Создание особой пластики фасада, реализованной при помощи ритмических закономерностей, гармоничного взаимодействия плоскостных и пластических решений, в которых выразительность достигается градацией светотени, цепляют взгляд, усиливая визуальное восприятие объекта и повышая его художественную значимость.</p>
+							<p>Подчеркнуть объем на фасаде сложными архитектурными формами = добиться стильного и индивидуального фасада.</p>
+							<p>Применение полнотелого клинкерного кирпича на выступающих элементах выступает гарантом качества и долговечности фасада.</p>
+							<div class="sContent__slider sContent__slider--js">
+								<div class="swiper-wrapper">
+									<div class="sContent__slide swiper-slide">
+										<div class="sContent__img-wrap bg-wrap"><img class="object-fit-js" src="img/bg-brick-0.png" alt="" loading="lazy"/>
+										</div>
+									</div>
+									<div class="sContent__slide swiper-slide">
+										<div class="sContent__img-wrap bg-wrap"><img class="object-fit-js" src="img/bg-brick-0.png" alt="" loading="lazy"/>
+										</div>
+									</div>
+									<div class="sContent__slide swiper-slide">
+										<div class="sContent__img-wrap bg-wrap"><img class="object-fit-js" src="img/bg-brick-0.png" alt="" loading="lazy"/>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-button-hand swiper-button-hand-prev swiper-button-prev">
+									<svg class="icon icon-chevron-left ">
+										<use xlink:href="img/svg/sprite.svg#chevron-left"></use>
+									</svg>
+								</div>
+								<div class="swiper-button-hand swiper-button-hand-next swiper-button-next">
+									<svg class="icon icon-chevron-right ">
+										<use xlink:href="img/svg/sprite.svg#chevron-right"></use>
+									</svg>
+								</div>
+								<div class="sContent__text-picture text-secondary small">Объемные кладки
+								</div>
+							</div>
+						</div>
+						<div class="content-item">
+							<h2>Влияние применяемой кладки на восприятие кирпичной стены.</h2>
+							<p>Производство и применение удлиненного керамического и клинкерного кирпича связано с большой трудоемкостью, но эти затраты компенсируются совершенно неповторимым рисунком кладки из этого кирпича. Это воплощение иных пропорций.</p>
+							<p>Применяя кирпич коллекции ModFormat, можно не только создать прочное и функциональное сооружение, но и придать ему индивидуальный стиль при помощи особого расположения кирпича в кладке.</p>
+							<p>В таком случае ложковые кладки в ½, 1/3, ¼ кирпича дают стереотипное восприятие образа кирпичной стены.</p>
+							<div class="picture-item">
+								<div class="picture-item__img-wrap bg-wrap"><img class="object-fit-js" src="img/bg-brick-1.png" alt="" loading="lazy"/>
+								</div>
+								<div class="picture-item__text text-secondary small">Кладка ½, смещение на 1/3
+								</div>
+							</div>
+						</div>
+						<div class="content-item">
+							<p>Визуально вытянуть горизонталь строения, подчеркнуть индивидуальность фасада и необычный формат кирпича позволяет хаотичная кладка, в которой вертикальные швы расположены произвольно, без повторяемости друг над другом. Обеспечить это условие позволит сочетание целых кирпичей в кладке со вставками подрезанного кирпича переменной длины. Хаотичное смещение вертикального шва создает неповторимый рисунок на фасаде и позволяет использовать весь кирпич без остатка.</p>
+							<p>Особый внешний вид фасаду придает сочетание ложков и тычков в кладке. Такая перевязка может подойти для формирования изогнутых в плоскости конструкций.</p>
+							<div class="picture-item">
+								<div class="picture-item__img-wrap bg-wrap"><img class="object-fit-js" src="img/bg-brick-2.png" alt="" loading="lazy"/>
+								</div>
+								<div class="picture-item__text text-secondary small">Хаотичная кладка
+								</div>
+							</div>
+						</div>
+						<div class="content-item">
+							<p>Расставить акценты и воплотить амбициозные архитектурные проекты позволяют вертикальные кладки, в которых кирпич укладывается под углом 90°, а также диагональные кирпичные кладки, создающие оригинальный, цепляющий взгляд, рисунок перевязки.</p>
+							<div class="picture-item">
+								<div class="picture-item__img-wrap bg-wrap"><img class="object-fit-js" src="img/bg-brick-3.png" alt="" loading="lazy"/>
+								</div>
+								<div class="picture-item__text text-secondary small">Вертикальная кладка
+								</div>
+							</div>
+							<div class="sContent__img-wrap bg-wrap bg-wrap--mt"><img class="object-fit-js" src="img/bg-brick-4.png" alt="" loading="lazy"/>
+							</div>
+							<p>Работа с кирпичом — это виртуозный навык, ремесло и даже искусство. Поэтому всех так восхищают и завораживают ажурные и декоративные кладки, визуально облегчающие стену и изменяющие пространство. Это особое мастерство!</p>
+						</div>
+						<div class="content-item">
+							<h2>Шов</h2>
+							<p>Наряду с использованием разных видов кладок и перевязок кирпича придать индивидуальный внешний вид фасаду поможет изменение толщины шва.</p>
+						</div>
+						<div class="content-item">
+							<h2>Общие правила работы с кирпичом при ведении кладки. Информация для каменщиков.</h2>
+							<p>Наряду с использованием разных видов кладок и перевязок кирпича придать индивидуальный внешний вид фасаду поможет изменение толщины шва.</p>
+							<h4>Мастерство Кладки: Секреты Профессионалов</h4>
+							<p>Рекомендуем начинать кладочные работы после поступления всего объема продукции. Для максимального смешивания оттенков в кладке вести работы следует, используя 3-5 поддонов одновременно. Обращаем Ваше внимание, что кирпич в поддонах уложен лицевой стороной вверх. Используйте поочередный произвольный разбор поддонов. Для этого берите по 2-3 кирпича с разных сторон поддонов не рядами сверху, а проникая вглубь.</p>
+							<p>Перед началом кладочных работ рекомендуем выполнить небольшой фрагмент кладки «на сухую» (без раствора) для оценки ее вида и соответствия ожиданиям заказчика.</p>
+						</div>
+					</div>
+				</section>
+				<!-- end sContent-->
+			</main>
+			<script>addBlock(`footer`)</script>
+			<div id="footerWrap"></div>
+		</div>
+		<!--  start modals-->
+		<div id="modal-call" style="display: none">
+			<div class="modal-win">
+				<div class="form-wrap">
+					<form>
+						<div class="text-center">
+							<div class="form-wrap__title form-data h3 ttu">Обратный звонок
+							</div>
+							<p class="after-headline">Заполните заявку и&nbsp;мы&nbsp;с&nbsp;Вами свяжемся в&nbsp;течение 15&nbsp;минут</p>
+						</div>
+						<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="text" name="text" type="text" placeholder="Ваше Имя" required="required"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="tel" name="tel" type="tel" placeholder="Ваше телефон" required="required"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="tel" name="tel" type="tel" placeholder="Ваше телефон" required="required"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<button class="form-wrap__btn btn" type="submit">submit
+						</button>
+						<div class="form-wrap__policy">
+							<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><small class="custom-input__text text-secondary">Согласен на обработку и хранение моих персональных данных в соответствии с условиями</small>
+							</label>
+						</div>
+						<div class="form-wrap__policy">
+							<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><small class="custom-input__text text-secondary">Согласен на обработку и хранение моих персональных данных в соответствии с условиями</small>
+							</label>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- #modal-call-->
+		<!-- end modals-->
+		<script src="libs/@fancyapps/ui/fancybox/fancybox.umd.js"> </script>
+		<script type="module" src="js/common.js"></script>
+	</body>
+</html>
