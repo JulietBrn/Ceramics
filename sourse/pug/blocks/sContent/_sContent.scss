@@ -2,7 +2,7 @@
 	// start .sContent
 	.sContent {
 	
-	--sPT: #{rem(10)};
+	--sPT: #{rem(50)};
 	// --sPB: #{rem()};
 	// --sTPB: #{rem()};
 	&__row{
@@ -47,9 +47,15 @@
   }
 
   .content-item {
-    margin-bottom: rem(16);
+    margin-bottom: rem(40);
     @include media-breakpoint-up(md) {
       margin-bottom: rem(40);
+    }
+    &--big {
+      margin-bottom: rem(46);
+      @include media-breakpoint-up(md) {
+        margin-bottom: rem(64);
+      }
     }
   }
 
@@ -61,7 +67,7 @@
   ul {
     list-style-type: disc;
     padding-left: rem(27);
-    padding-top: rem(8);
+    padding-top: rem(14);
     margin-bottom: rem(40);
     li {
       padding-left: rem(6);
@@ -77,12 +83,11 @@
 
   ol {
     margin-bottom: 0;
-  }
-
-  ol li {
-    padding-left: rem(14);
-    &:last-child {
-      margin-bottom: 0;
+    li {
+      padding-left: rem(14);
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -103,9 +108,6 @@
       flex-direction: column;
       align-items:center;
       gap: rem(8);
-      @include media-breakpoint-up(md) {
-        top: 50%;
-      }
     }
 
 		&:before {
@@ -128,6 +130,7 @@
     position: relative;
     z-index: 3;
     top: rem(-10);
+    margin-bottom: rem(5);
     @include media-breakpoint-up(md) {
       top: rem(-90);
       margin-bottom: rem(-50);
@@ -159,7 +162,17 @@
     @include media-breakpoint-up(md) {
       font-size: rem(100);
     }
+  }
 
+  &__sign {
+    margin-top: rem(32);
+    @include media-breakpoint-up(md) {
+      margin-top: rem(36);
+    }
+    p {
+      margin-bottom: 0;
+      font-weight: 600;
+    }
   }
 
 
@@ -260,6 +273,7 @@
     align-items: center;
     gap: rem(40);
     padding: rem(40);
+    padding-bottom: rem(32);
     padding-top: 0;
   }
 
