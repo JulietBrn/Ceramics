@@ -1,6 +1,8 @@
-mixin headerBlock(title)
+mixin headerBlock(title, img)
 	// start headerBlock
 	+b.headerBlock--white.section#headerBlock&attributes(attributes)
+		+e.img-wrap.bg-wrap.bg
+			+img(`img/header-bg-${img}.png`, 'bg')
 		.container
 			+b.section-title
 				h1!= title

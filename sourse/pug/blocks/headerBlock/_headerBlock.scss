@@ -1,17 +1,30 @@
 // start .headerBlock
 .headerBlock {
-	// --sPT: #{rem()};
-	// --sPB: #{rem()};
+	--sPT: #{rem(0)};
+	--sPB: #{rem(0)};
 	// --sTPB: #{rem()}; 
 	// min-height: 100vh;
 	// min-height: calc(var(--vh, 1vh) * 100);
-	
+	position: relative;
 	
 	&__row{
 		// --bs-gutter-x: #{rem()};
 		--bs-gutter-y: var(--bs-gutter-x);
 
 	}
+
+  &__img-wrap {
+    
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.4) 100%);
+    }
+  }
 	.section-title {
 		position: relative;
     &::after {
@@ -23,17 +36,28 @@
       left: 0;
       bottom: 0;
       @include media-breakpoint-up(md) {
-        width: 60%;
+        width: 59%;
       }
     }
 
     h1 {
-      padding-bottom: rem(24);
+      padding-bottom: rem(29);
       @include media-breakpoint-up(md) {
-        padding-bottom: rem(34);
+        padding-bottom: rem(31);
       }
     }
 	}
+
+  .container {
+    position: absolute;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    @include media-breakpoint-up(md) {
+      top: 83%;
+    }
+  }
 	&__col{
 
 	}
