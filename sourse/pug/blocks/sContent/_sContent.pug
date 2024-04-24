@@ -111,12 +111,73 @@ mixin sCardItemList(title, ...items)
 		+e.btn.btn.btn-primary.btn-reverse(href='#', target='_blank') Скачать инструкцию
 			+icon('download')
 
+mixin cardBrand(i, icon, text)
+	+b.card-brand-item(href='#', target='_blank')
+		+e.img-wrap.bg-wrap
+			+img(`img/card-bg-${i}.png`, 'bg')
+		+e.descr
+			+img(src=`img/${icon}.svg`, alt="")
+			.wrap
+				.small!= text
+				+e.btn.btn.btn-primary Перейти в каталог
+
+mixin cardSquare(i, text, icon)
+	+b.card-square-item
+		+img(`img/card-sq-${i}.png`, 'bg')
+		.h2.text-center!= text
+		+img(src=`img/${icon}.svg`, alt="").brand
+
+mixin cardSquare2(i, icon, text)
+	+b.card-square-item--2
+		+img(`img/card-sq-${i}.png`, 'bg')
+		.wrap
+			+img(src=`img/${icon}.svg`, alt="").brand-small
+			+e.texts!= text
+
+mixin infoItem(span, title, text)
+	+b.info-item
+		p #[span!= span] #[!= title]
+		p!= text
 
 mixin sContentOvenMaker
 	// start sContent
-	+b.SECTION.sContent.section#sContent&attributes(attributes)
+	+b.SECTION.sContent.section#sContentOven&attributes(attributes)
 		.container
-			+sTitleItem('Коллекции')
+			.section-title
+				+sTitleItem('Коллекции')
+			+e.row.row
+				.col-12.col-md-6
+					+cardBrand('1', 'master-ceramic', 'Классическая коллекция полнотелого печного кирпича')
+				.col-12.col-md-6
+					+cardBrand('2', 'konigstein', 'Коллекция премиального печного кирпича')
+		.design
+			+cardSquare('1', 'Покоряет дизайном', 'konigstein')
+			+b.card-square-item--2
+				.wrap
+					+img(src=`img/crown.svg`, alt="").brand-small.d-none.d-md-block
+					+e.texts
+						p Наша палитра способна удовлетворить самые изысканные вкусы и воплотить в жизнь любые дизайнерские идеи для создания неповторимого и стильного облика вашего дома.
+						p Мы предлагаем широкий спектр цветовых решений, начиная от классических оттенков — таких как Марксбург Кварц — до современных и эксклюзивных — например Мангейм Шварц.
+						p Наши цветовые решения предлагают широкий спектр для воплощения любых архитектурных и дизайнерских идей. Каждый цвет кирпича уникален и способен придать вашему проекту особый характер.
+			+cardSquare2('4', 'master', 'Радиусный полнотелый лицевой кирпич R60')
+			+cardSquare('2', 'Вся палитра производимых оттенков в двух геометрических решениях!', 'master-ceramic')
+			+cardSquare('3', 'Свойства полнотелого кирпича Königstein', 'konigstein')
+			+b.card-square-item--2.card-square-item--3
+				.wrap
+					.wrap-2
+						+infoItem('M300', '', 'марка прочности')
+						+infoItem('8-12', '%', 'водопоглощение')
+						+b.info-item
+							p от #[span F75]
+							p морозостойкость кирпича на основе красной глины
+						+infoItem('0,66', ' Вт/м°с', 'теплопроводность')
+						+b.info-item
+							p до #[span F100]
+							p морозостойкость кирпича на основе светлой глины
+						+b.info-item
+							p размер 250х120х65
+							p вес 3.9 кг
+		.container
 			.content-item
 				h2 Письмо председателя Русского Печного Общества Серёгина Сергея Ивановича о разработке конструкции комбинированной отступки «КС-Керамик»
 				h4 Способы защиты сгораемой поверхности строительных конструкций.

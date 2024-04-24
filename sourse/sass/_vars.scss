@@ -9,7 +9,7 @@
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
+$gray-300: #F3E8DA;
 $gray-400: #A29994;
 $gray-500: #EFECEB;
 $gray-600: #D9D1CC;
@@ -153,7 +153,7 @@ $green-300: tint-color($green, 40%) !default;
 $green-400: tint-color($green, 20%) !default;
 $green-500: $green !default;
 $green-600: shade-color($green, 20%) !default;
-$green-700: shade-color($green, 40%) !default;
+$green-700: #3F2021;
 $green-800: #D98865; //visited
 $green-900: #9A6A4F; //pressed
 
