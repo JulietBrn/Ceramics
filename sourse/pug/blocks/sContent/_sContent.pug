@@ -75,7 +75,6 @@ mixin sContent
 				p Перед началом кладочных работ рекомендуем выполнить небольшой фрагмент кладки «на сухую» (без раствора) для оценки ее вида и соответствия ожиданиям заказчика.
 	// end sContent
 
-
 mixin sContentItem(title, ...texts)
 	.content-item
 		h2!= title
@@ -94,16 +93,12 @@ mixin sPictureItem(i, text)
 			+img(`img/bg-brick-${i}.png`, 'bg')
 		+e.text.text-secondary.small!= text
 
-mixin sTitleItem(text)
-	+b.title-item
-		h4!= text
-
 mixin sCardItemText(title, text)
 	+b.card-item
 		+sTitleItem(title)
 		+e.text-wrapper
 			p!= text
-		+e.btn.btn.btn-primary(href='#', target='_blank') Скачать инструкцию
+		+e.btn.btn.btn-primary.btn-reverse(href='#', target='_blank') Скачать инструкцию
 			+icon('download')
 
 mixin sCardItemList(title, ...items)
@@ -113,7 +108,7 @@ mixin sCardItemList(title, ...items)
 			ol
 				each item in items
 					li!= item
-		+e.btn.btn.btn-primary(href='#', target='_blank') Скачать инструкцию
+		+e.btn.btn.btn-primary.btn-reverse(href='#', target='_blank') Скачать инструкцию
 			+icon('download')
 
 
@@ -150,6 +145,15 @@ mixin sContentOvenMaker
 				+e.sign
 					p С уважением!<br> Серёгин Сергей Иванович
 					.small Председатель Русского Печного Общества
+			+b.attachments
+				+sTitleItem('Приложения')
+				+e.files
+					+linkFile('Заключение ФГБУ «Испытательная пожарная лаборатория по Республике Карелия» по испытаниям комбинированной отступки закрытой вентилируемой КС-Керамик.', '3,4 МБ')
+					+linkFile('Протокол испытаний отступки закрытой вентилируемой.', '3,4 МБ')
+					+linkFile('Презентация «Юридические аспекты сдачи печных объектов заказчику».', '3,4 МБ')
+					+linkFile('Письмо-рекомендация по использованию разделки КС-Керамик.', '3,4 МБ')
+				+e.btn.btn.btn-outline-secondary.btn-reverse(href='#') Скачать все приложения
+					+icon('download')
 
 mixin sContentArchitect
 	// start sContent
@@ -180,3 +184,12 @@ mixin sContentArchitect
 								+img("img/bg-brick-0.png", 'bg')
 					+arrow()
 					+e.text-picture.text-secondary.small Объемные кладки
+
+mixin linkFile(title, size)
+	// start linkFile
+	+b.link-file(href='#', target='_blank')
+		+img('img/file-pdf.svg').img
+		+e.descr.small
+			+e.title.fw-600!= title
+			+e.size!= `PDF • ${size}`
+		+icon('download')

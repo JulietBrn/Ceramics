@@ -44,3 +44,8 @@ mixin parts(elem)
 	script.
 		addBlock(`#{elem}`)
 	div(id=`${elem}Wrap`)
+
+
+mixin sTitleItem(text)
+	+b.title-item
+		h4!= text

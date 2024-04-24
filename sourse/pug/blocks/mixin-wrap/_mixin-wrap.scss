@@ -145,3 +145,21 @@
 	width: auto;
 	// margin-right: rem(32);
 }
+
+.title-item {
+  position: relative;
+  max-width: rem(504);
+  &::after {
+    content: '';
+    position: absolute;
+    width: rem(17);
+    height: rem(6);
+    background: $primary;
+    left: 0;
+    bottom: 0;
+  }
+
+  h4 {
+    padding-bottom: rem(19);
+  }
+}

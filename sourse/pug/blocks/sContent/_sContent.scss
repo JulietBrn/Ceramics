@@ -289,10 +289,6 @@
   }
 
   &__btn {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
     .icon {
       fill: none;
       stroke: $white;
@@ -304,23 +300,69 @@
 
 }
 
-.title-item {
-  position: relative;
-  max-width: rem(504);
-  &::after {
-    content: '';
-    position: absolute;
-    width: rem(17);
-    height: rem(6);
-    background: $primary;
-    left: 0;
-    bottom: 0;
+.btn-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+}
+
+.link-file {
+  display: flex;
+  border-bottom: 1px solid $gray-600;
+  align-items: center;
+  gap: rem(8);
+  padding: rem(8) 0;
+  @include media-breakpoint-up(md) {
+    gap: rem(16);
+    padding: rem(15) 0;
   }
 
-  h4 {
-    margin-bottom: rem(25);
-    @include media-breakpoint-up(md) {
-      margin-bottom: rem(18);
+  &__title {
+    color: $gray-920;
+    line-height: 133%;
+    margin-bottom: rem(4);
+  }
+  &__size {
+    color: $gray-400;
+  }
+  .img {
+    @include media-breakpoint-down(md) {
+      width: rem(32);
     }
+  }
+  .icon-download {
+    fill: none;
+    stroke-width: rem(1);
+    stroke: $dark;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+}
+
+.attachments {
+  display: grid;
+  gap: rem(16);
+  h4 {
+    margin-bottom: 0;
+  }
+  @include media-breakpoint-up(md) {
+    grid-template-columns: 1fr rem(242);
+    justify-content: space-between;
+    align-items: center;
+    gap: rem(48);
+    margin-top: rem(86);
+  }
+
+  &__files {
+    @include media-breakpoint-up(md) {
+      order: 2;
+      grid-column: span 2;
+    }
+  }
+
+  &__btn {
+    gap: rem(8);
+    padding-left: rem(8);
   }
 }

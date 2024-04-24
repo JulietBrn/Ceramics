@@ -513,3 +513,26 @@ h4 {
 		object-fit: cover;
 	}
 }
+
+.btn-outline-secondary {
+  --bs-btn-color: $dark;
+  --bs-btn-border-color: rgba(16, 24, 32, 0.3);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: rgba(16, 24, 32, 0.3);
+  --bs-btn-hover-border-color: #a29994;
+  --bs-btn-focus-shadow-rgb: 162, 153, 148;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #a29994;
+  --bs-btn-active-border-color: #a29994;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+  --bs-btn-disabled-color: #a29994;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #a29994;
+  --bs-gradient: none;
+
+  .icon {
+    fill: none;
+    stroke: $dark;
+    stroke-width: rem(1);
+  }
+}
