@@ -1,9 +1,49 @@
 mixin footer()
 	+b.FOOTER.footer.section
 		.container
-			.row
-				.col
-					
-				.col Footer
-				.col
-				.col-auto
+			+e.item
+				+e.tel(href="tel:+78003003050") 8 800 300-30-50
+				+e.schedule(href='mailto:kckeramik@kckz.ru') kckeramik@kckz.ru
+			+e.item
+				+e.row.row
+					.col-6.col-md-2
+						+e.inner-wrapper
+							+e.title Компания
+							ul
+								li: a(href="#") О компании
+								li: a(href="#", target='_blank') Реквизиты
+								li: a(href="#") Контакты
+					.col-6.col-md.order-md-1
+						+e.inner-wrapper
+							+e.title Контакты
+							ul
+								li: a(href="#") Официальные дилеры
+								li: a(href="#") Логистика и склады
+								li: a(href="#") Отдел продаж в г. Кирово-Чепецк
+					.col-6.col-md
+						+e.inner-wrapper
+							+e.title Продукция
+							ul
+								li: a(href="#") Коллекция Konigstein
+								li: a(href="#") Коллекция Edelhaus
+								li: a(href="#") Коллекция ModFormat
+								li: a(href="#") Коллекция Мастер Керамик
+								li: a(href="#") Галерея объектов
+								li: a(href="#") Каталог продукции
+								li: a(href="#") Конфигуратор
+					.col-6.col-md.order-md-2
+						+e.inner-wrapper
+							+e.title Полезная информация
+							ul
+								li: a(href="#") Для архитекторов
+								li: a(href="#") Для каменщиков
+								li: a(href="#") Для печников
+								li: a(href="#") Черный список
+			+e.item
+				.icons
+					a(href='#', target='_blank'): +icon('youtube')
+					a(href='#', target='_blank'): +icon('vk')
+				ul
+					li: a(href="#") Политика конфиденциальности
+					li: a(href="#", target='_blank') Пользовательские соглашения
+					li 2007-2024 © КС Керамик
