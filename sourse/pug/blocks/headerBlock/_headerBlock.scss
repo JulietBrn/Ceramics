@@ -2,7 +2,7 @@
 .headerBlock {
 	--sPT: #{rem(0)};
 	--sPB: #{rem(0)};
-	// --sTPB: #{rem()}; 
+	--sTPB: #{rem(0)}; 
 	// min-height: 100vh;
 	// min-height: calc(var(--vh, 1vh) * 100);
 	position: relative;
@@ -55,12 +55,12 @@
 
   .container {
     position: absolute;
-    top: 80%;
+    bottom: rem(16);
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
     @include media-breakpoint-up(md) {
-      top: 58%;
+      bottom: rem(50);
     }
   }
 	&__col{
