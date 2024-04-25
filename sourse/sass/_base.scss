@@ -452,11 +452,12 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  font-size: rem(10);
-  font-weight: 400;
+  font-size: rem(20);
+  font-weight: 500;
   line-height: 1.18;
   @include media-breakpoint-up(md) {
     font-size: rem(34);
+    font-weight: 400;
   }
 }
 
