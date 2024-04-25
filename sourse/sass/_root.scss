@@ -14,6 +14,9 @@
 	--sPB: #{rem(90 * .5)};
 	--sTPB: #{rem(40 * .5)};
 
+  @include media-breakpoint-up(xxl) {
+		--bs-body-font-size: calc(16px - 0.175rem + .12vw + .12vh);
+	}
 
 	--fancybox-content-color: var(--bs-body-color);
 		--swiperArrowSize: #{rem(68)};
