@@ -1,0 +1,25 @@
+mixin s404(data)
+	// start s404
+	+b.SECTION.s404.section#s404&attributes(attributes).bg-wrap
+		+img("img/404.png",'bg').img.picture-bg
+		.container
+			+e.row.row
+				.col-12.col-md-6
+					+b.title-item: .h1 404
+				.col-12.col-md-6
+					p Страница не найдена.<br>Она не существовала или срок публикации истёк.
+					+e.btn.btn.btn-primary(href='#') На главную
+	// end s404
+
+mixin s500(data)
+	// start s404
+	+b.SECTION.s404.section#s500&attributes(attributes).bg-wrap
+		+img("img/404.png",'bg').img.picture-bg
+		.container
+			+e.row.row
+				.col-12.col-md-6
+					+b.title-item: .h1 500
+				.col-12.col-md-6
+					p Сожалеем, но что-то пошло не так.
+					+e.btn.btn.btn-primary(href='#') На главную
+	// end s404
