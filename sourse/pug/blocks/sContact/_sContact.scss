@@ -1,13 +1,18 @@
 
 	// start .sContact
 	.sContact {
-	// --sPT: #{rem()};
-	// --sPB: #{rem()};
+	--sPT: #{rem(24)};
+	--sPB: 0;
+  
+	@include media-breakpoint-up(md) {
+    --sPT: #{rem(56)};
+  }
 	// --sTPB: #{rem()};
+	background: $gray-800;
 	&__row{
 		// --bs-gutter-x: #{rem()};
-		--bs-gutter-y: var(--bs-gutter-x);
-
+		--bs-gutter-y: #{rem(22)};
+    margin-bottom: var(--sPT);
 	}
 	.section-title{
 		
@@ -21,6 +26,97 @@
 	&__slide{
 		height: auto;
 	}
+  ul {
+    list-style-type: none;
+  }
+
+  color: $gray-400;
+
+
+  a:not(.btn) {
+    color: $gray-400;
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .row {
+    .icon {
+      fill: none;
+      stroke-width: rem(1);
+      stroke: $gray-400;
+      margin-right: rem(8);
+      transition: inherit;
+    }
+    a {
+      &:hover {
+        .icon {
+          stroke: $white;
+        }
+      }
+    }
+  }
+
+  .contacts-list {
+    li {
+      margin-bottom: rem(15);
+    }
+
+    a {
+      padding: rem(3) 0 rem(5);
+      font-size: rem(14);
+    }
+  }
+
+  .details {
+    max-width: rem(280);
+    margin-bottom: rem(10);
+    li {
+      margin-bottom: rem(8);
+      &:last-child {
+        margin-left: rem(-6);
+        margin-top: rem(16);
+      }
+    }
+    .icon {
+      margin-right: 0;
+      margin-top: rem(-2);
+    }
+  }
+
+  .modal-wrap {
+    color: $white;
+    p {
+      font-size: rem(18);
+      @include media-breakpoint-up(md) {
+        font-size: rem(20);
+      }
+    }
+    @include media-breakpoint-down(md) {
+      text-align: center;
+    }
+  }
+
+  &__map {
+    position: relative;
+    z-index: 6;
+    min-height: rem(442);
+		overflow: hidden;
+		& > * {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+  .btn {
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+  }
+
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}
