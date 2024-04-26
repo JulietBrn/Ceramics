@@ -3,6 +3,7 @@
 2. <https://megafronteam.github.io/0044Ceramics/00-modal.html>
 
 
+2. <https://megafronteam.github.io/0044Ceramics/07-contacts.html>
 2. <https://megafronteam.github.io/0044Ceramics/08-1-for-architects.html>
 2. <https://megafronteam.github.io/0044Ceramics/08-2-for-bricklayers.html>
 2. <https://megafronteam.github.io/0044Ceramics/08-3-for-oven-maker.html>
