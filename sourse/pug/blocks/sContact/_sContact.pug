@@ -65,3 +65,85 @@ mixin sContact()
 							};
 						};
 	// end sContact
+
+
+mixin sContactBranch()
+	// start sContact
+	+b.SECTION.sContact--branch.section#sContactBranch&attributes(attributes)
+		.container
+			+e.row.row
+				+e.col.col-md
+					+e.title.fw-500 Приемная
+					ul.contacts-list
+						li
+							a(href='tel:+78332247422')
+								+icon('phone')
+								| +7 (8332) 24-74-22
+						li
+							a(href='mailto:kckeramik@kckz.ru')
+								+icon('mail')
+								| kckeramik@kckz.ru
+					+e.title.fw-500 Отдел продаж
+					ul.contacts-list
+						li
+							a(href='tel:+78332247424')
+								+icon('phone')
+								| +7 (8332) 24-74-24
+				+e.col.col-md
+					+e.title.fw-500 Отдел сбыта
+					ul.contacts-list
+						li
+							a(href='mailto:oksana@kckz.ru')
+								+icon('mail')
+								| oksana@kckz.ru
+						li
+							a(href='mailto:hod@kckz.ru')
+								+icon('mail')
+								| hod@kckz.ru
+					+e.title.fw-500 Коммерческий отдел
+					ul.contacts-list
+						li
+							a(href='tel:+78332247424')
+								+icon('phone')
+								| +7 (8332) 24-74-24
+				+e.col.col-md
+					p АО «КС Керамик»
+					ul.small.details
+						li ИНН 1074312000146
+						li ОГРН 4312035292
+						li Адрес: Кировская область, Кирово-Чепецкий район, железнодорожная станция Бумкомбинат, проезд Кирпичный, 1
+						li
+							a(href="#", target='_blank')
+								+icon('download')
+								| Скачать реквизиты
+		+e.map
+			#map
+					script(src='https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=2066e304-cee0-4ed2-9cb2-5f6521d5f96c')
+					script.
+						var myMap;
+
+						ymaps.ready(init);
+
+						function init () {
+							myMap = new ymaps.Map('map', {
+								center:[58.468137,50.064164],
+								clusterize: true,
+								zoom:13.5
+							});
+							//- objectManager = new ymaps.ObjectManager({
+							//- 	clusterize: true,
+							//- 	gridSize: 34,
+							//- 	clusterDisableClickZoom: true
+							//- });
+							//- objectManager.objects.options.set({
+							//- 	iconLayout: "default#image",
+							//- 	iconImageHref: "img/pin-map.png",
+							//- 	iconImageSize: [53, 23],
+							//- 	iconImageOffset: [-5, -5]
+							//- });
+							myMap.behaviors.disable('scrollZoom');
+							if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+								myMap.behaviors.disable('drag');
+							};
+						};
+	// end sContact
