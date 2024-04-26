@@ -122,13 +122,13 @@ mixin cardBrand(i, icon, text)
 				+e.btn.btn.btn-primary Перейти в каталог
 
 mixin cardSquare(i, text, icon)
-	+b.card-square-item
+	+b.card-square-item.small-dark
 		+img(`img/card-sq-${i}.png`, 'bg')
 		.h2.text-center!= text
 		+img(src=`img/${icon}.svg`, alt="").brand
 
 mixin cardSquare2(i, icon, text)
-	+b.card-square-item--2
+	+b.card-square-item--2.small-dark
 		+img(`img/card-sq-${i}.png`, 'bg')
 		.wrap
 			+img(src=`img/${icon}.svg`, alt="").brand-small
@@ -243,25 +243,25 @@ mixin sContentArchitect
 						+albumItem('3', 'modformat', 'Текстуры «Mod Format»', 'PNG', 'attach')
 					.col-12.col-md-6
 						+albumItem('4', 'master-ceramic', 'Текстуры «Мастер Керамик»', 'PNG', 'attach')
-				+e.btn.btn.btn-outline-secondary.btn-reverse(href='#') Скачать все альбомы
+				+e.btn.btn.btn-outline-secondary.btn-reverse(href='#') Скачать все текстуры
 					+icon('download')
 			.attachments-wrapper
 				+sTitleItem('Альбомы')
 				+e.row.row
 					.col-12.col-md-6
-						+albumItem('5', 'edelhaus', 'Текстуры «Edelhaus Klinker»', 'PDF • 3,4 МБ', 'download')
+						+albumItem('5', 'edelhaus', 'Альбом «Edelhaus Klinker»', 'PDF • 3,4 МБ', 'download')
 					.col-12.col-md-6
-						+albumItem('6', 'konigstein-dark', 'Текстуры «Kôningstein»', 'PDF • 3,4 МБ', 'download')
+						+albumItem('6', 'konigstein-dark', 'Альбом «Kôningstein»', 'PDF • 3,4 МБ', 'download')
 					.col-12.col-md-6
-						+albumItem('7', 'modformat', 'Текстуры «Mod Format»', 'PDF • 3,4 МБ', 'download')
+						+albumItem('7', 'modformat', 'Альбом «Mod Format»', 'PDF • 3,4 МБ', 'download')
 					.col-12.col-md-6
-						+albumItem('8', 'master-ceramic', 'Текстуры «Мастер Керамик»', 'PDF • 3,4 МБ', 'download')
+						+albumItem('8', 'master-ceramic', 'Альбом «Мастер Керамик»', 'PDF • 3,4 МБ', 'download')
 				+e.btn.btn.btn-outline-secondary.btn-reverse(href='#') Скачать все альбомы
 					+icon('download')
 			.attachments-wrapper
 				h3 Архитектурные проекты
 				mixin architectureProject(i, title, brand, name, city)
-					+b.architecture-project
+					+b.architecture-project(data-fancybox=`project-${i}`, href='img/project-bg-1.png')
 						+e.img-wrap.bg-wrap
 							+img(`img/project-bg-${i}.png`, 'bg')
 						+e.title-wrap
@@ -270,6 +270,11 @@ mixin sContentArchitect
 						+e.name-wrap.small
 							+e.name.fw-600!= name
 							+e.city!= city
+						.d-none
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-1.png`)
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-2.png`)
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-3.png`)
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-4.png`)
 				+e.row.row
 					.col-12.col-md-6
 						+architectureProject('1', 'ТМ Кенигштайн Эрфурст Вюсте', 'edelhaus', 'GloraX Premium Белорусская', 'Москва')

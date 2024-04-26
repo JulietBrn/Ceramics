@@ -1,0 +1,49 @@
+mixin sBlackList(data)
+	// start sBlackList
+	+b.SECTION.sBlackList.section#sBlackList&attributes(attributes)
+		.container
+			+b.section-title
+				h4 Неофициальные дилеры
+			p К сожалению, существуют компании, с жалобами на которые мы сталкиваемся. Такие компании попадают в чёрный список за предоставление ложной информации о нашей продукции, нарушения своих обязательств перед заказчиками и дилерской политики АО «КС Керамик», а также за любые действия, имеющие негативные последствия для нас. Мы несём ответственность исключительно за действия официальных представителей.
+			.table-wrap
+				table
+					thead
+						tr
+							th Город
+							th Регион
+							th Наименование и адрес компании
+							th Сайт
+					tbody
+						tr
+							td Ижевск
+							td Республика Удмуртия
+							td #[span ООО «СК Уралмонолит»]<br>ул. Весенняя 6 ЖК Дубрава
+							td www.уралмонолит.рф
+						tr
+							td Ижевск
+							td Республика Удмуртия
+							td #[span ООО «Кирпичный центр»]<br>ул. 50 лет Пионерии, дом 20, 3 этаж<br>ТЦ Альфа и Бэта
+							td www.kirpichcentr.com
+						tr
+							td Киров
+							td Кировская область
+							td #[span «Кирпич 43»]<br>ул. Сурикова, 14, корпус 1
+							td www.кирпич43.рф
+
+		+e.img-wrap.bg-wrap.bg
+			+img(`img/bg-blacklist.png`, 'bg').img
+			.container-wrapper
+				+e.brands-wrap
+					+b.title-item
+						h2 Официальные<br>дилеры
+					.brands
+						a.link(href='#')
+							+img(src=`img/konigstein-2.svg`, alt="")
+						a.link(href='#')
+							+img(src=`img/master-ceramic.svg`, alt="")
+						a.link(href='#')
+							+img(src=`img/modformat.svg`, alt="")
+						a.link(href='#')
+							+img(src=`img/edelhaus-light.svg`, alt="")
+				+e.btn.btn.btn-primary(href='#') Официальные дилеры
+	// end sBlackList
