@@ -1,0 +1,17 @@
+mixin sCertificates(data)
+	// start sCertificates
+	+b.SECTION.sCertificates.section#sCertificates&attributes(attributes)
+		.container
+			+e.inner-wrapper
+				+certificateItem('1', 'Сертификат соответствия ГОСТ 530-2012 (PDF)')
+				+certificateItem('2', 'Сертификат соответствия клинкерная плитка ГОСТ-13996-2019 (PDF)')
+				+certificateItem('3', 'Сертификат соответствия кирпич клинкерный ГОСТ 530-2012 (PDF)')
+				+certificateItem('4', 'Санитарно-эпидемиологическое заключение по керамическому кирпичу (PDF)')
+				+certificateItem('5', 'Санитарно-эпидемиологическое заключение по клинкерному кирпичу (PDF)')
+	// end sCertificates
+
+mixin certificateItem(img, text)
+	+b.certificate-item(href='#' target='_blank')
+		+e.img-wrap
+			+img(src=`img/certificate-${img}.png`, 'bg')
+		+e.text.small!= text
