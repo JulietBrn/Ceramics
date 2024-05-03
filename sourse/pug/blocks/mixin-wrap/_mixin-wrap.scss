@@ -68,40 +68,33 @@
 	}
 }
 
-
-
-
 .addBlock{
-	color: var(--color, #{$primary});
-	border: 1px solid;
-	border-radius: 23px;
+	color: var(--color, #{$gray-900});
 	display: flex;
+  justify-content: space-between;
 	position: relative;
 	overflow: hidden;
+  background: $white;
 	input{
 		color: inherit;
 		text-align: center;
 		border: none;
-		height: rem(45);
+		height: rem(36);
 	}
 	&__btn{
 		color: inherit;
-		height: rem(45);
+		height: rem(36);
 		position: relative;
-		border-radius: 23px;
-		background: none !important;
 		border: none !important;
-		box-shadow: none !important;
-		outline: none !important;
-		background: transparent;
-		// padding-left: rem(8);
-		// padding-right: rem(8);
+    background: inherit;
+		padding-left: rem(8);
+		padding-right: rem(8);
 		width: rem(26);
 		&::before,
 		&::after{
 			content: '';
-			width: 10px;
-			height: 2px; 
+			width: 14px;
+			height: 1px;
 			background-color: currentColor;
 			@include a-cent;
 			position: absolute;

@@ -1,11 +1,50 @@
+mixin product-item-basket(img, title, subtext1, subtext2, cost, price)
+	+b.product-item-basket
+		+in-c()(checked)
+		+e.wrap
+			+img(src=`img/prod-small-${img}.png`, alt="")
+			+e.inner-wrapper
+				+e.descr-wrapper.small
+					+e.title=title
+					+e.subtext=subtext1
+					+e.subtext=subtext2
+				+e.wrapper.d-md-none
+					+e.cost.fw-600=cost
+					+e.price.small=price
+		+addblock()
+		+e.wrapper.d-none.d-md-block.text-end
+			+e.cost.fw-600=cost
+			+e.price.small=price
+		+e.btn-remove: +icon('trash')
+
 mixin sBasket(data)
 	// start sBasket
 	+b.SECTION.sBasket.section#sBasket&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 sBasket
-				
 			+e.row.row
+				.col-12.col-md-9
+					+e.header
+						+in-c()(checked)
+							+e.small.small.text Выбрать все
+						+e.btn-remove.btn-remove
+							.small.d-none.d-md-block Удалить выбранные
+							.small.d-md-none Удалить все
+							+icon('trash')
+					+e.supplyes
+						+product-item-basket('1', 'Марксбург Кварц', 'Арт: GT876304', '1НФ, полнотелый (пустотность меньше 12%), графитово-черный', '173 853 ₽', '81,24 ₽ / шт.')
+						+product-item-basket('2', 'Марксбург Умбра', 'Арт: GT876304', '0,63НФ, пустотелый, кремово-желтый', '27 621 ₽', '81,24 ₽ / шт.')
+						+product-item-basket('3', 'Гессен Морион', 'Арт: GT876304', '0,7НФ, пустотелый, графитово-черный', '55 894 ₽', '98,58 ₽ / шт.')
+						+product-item-basket('4', 'Мангейм Шварц', 'Арт: GT876304', '1НФ, полнотелый (пустотность меньше 12%), графитово-черный', '1 669 100 ₽', '166,91 ₽ / шт')
+				.col-12.col-md-3
+					+e.summary
+						p К оплате
+						+e.summary-price.fw-600 1 926 558 ₽
+						+e.btn.btn.btn-secondary(href='#') Оформить предзаказ
+					+e.summary.d-md-none.double
+						.container
+							p К оплате
+							+e.summary-price.fw-600 1 926 558 ₽
+							+e.btn.btn.btn-secondary(href='#') Оформить предзаказ
 	// end sBasket
 
 
