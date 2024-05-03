@@ -49,3 +49,12 @@ mixin parts(elem)
 mixin sTitleItem(text)
 	+b.title-item
 		h4!= text
+
+mixin warningText(message)
+	+b.warning-text
+		.inner-wrap.container
+			.btn-close
+			.wrap
+				+icon('info')
+				| Внимание
+			.small= message

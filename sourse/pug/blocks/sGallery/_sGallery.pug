@@ -1,0 +1,150 @@
+mixin sGallery(data)
+	// start sGallery
+	+b.SECTION.sGallery.section#sGallery&attributes(attributes)
+		.container
+			.tabs.tabs-slider--js.swiper
+				.tabs__caption.swiper-wrapper
+					.tabs__btn.swiper-slide Фотогалерея
+					.tabs__btn.swiper-slide.active Видеогалерея
+				.tabs__content
+					+sharePhotoBlock
+					+e.row.row
+						+galleryPhoto(1, 'Эгерсунн+Стокгольм г. Кострома', 'edelhaus')
+						+galleryPhoto(2, 'Эгерсунн+Стокгольм г. Кострома', 'cs-ceramic')
+						+galleryPhoto(3, 'Эгерсунн+Стокгольм г. Кострома', 'modformat-dark')
+						+galleryPhoto(4, 'Эгерсунн+Стокгольм г. Кострома', 'modformat-dark')
+						+galleryPhoto(5, 'Эгерсунн+Стокгольм г. Кострома', 'konigstein-dark-1')
+						+galleryPhoto(6, 'Эгерсунн+Стокгольм г. Кострома', 'master-ceramic-dark')
+						+galleryPhoto(7, 'Эгерсунн+Стокгольм г. Кострома', 'master-ceramic-dark')
+						+galleryPhoto(8, 'Мальмё г. Саратов', 'edelhaus')
+						+galleryPhoto(9, 'Эгерсунн+Стокгольм г. Кострома', 'edelhaus')
+						+galleryPhoto(10, 'Мальмё г. Саратов', 'edelhaus')
+						+galleryPhoto(11, 'Эгерсунн+Стокгольм г. Кострома', 'edelhaus')
+						+galleryPhoto(12, 'Мальмё г. Саратов', 'edelhaus')
+						+galleryPhoto(13, 'Эгерсунн+Стокгольм г. Кострома', 'konigstein-dark-1')
+						+galleryPhoto(14, 'Мальмё г. Саратов', 'edelhaus')
+						+galleryPhoto(15, 'Эгерсунн+Стокгольм г. Кострома', 'edelhaus')
+						+galleryPhoto(16, 'Мальмё г. Саратов', 'modformat-dark')
+					+e.btn.btn.btn-secondary(href='#') Показать еще
+				.tabs__content.active
+					+e.row.row
+						.col-12
+							+e.video-section-title Дом с характером 2 сезон
+						+galleryVideo(5, 'Дома с характером. Сезон 2. Выпуск 7. Казань', 'modformat-dark', 'Казань', 'Коттеджный поселок', 'Volga Residence')
+						+galleryVideoDarkBrown(4, 'Дома с характером. Сезон 2. Выпуск 6. Саратов', 'modformat-dark', 'Саратов', 'Частные дома', 'ModFormat')
+						+galleryVideoBezh(9, 'Дома с характером. Сезон 2. Выпуск 5. Нижний Новгород', 'edelhaus', 'Нижний Новгород', 'Жилой район', 'Шишимская горка')
+						+galleryVideoBlack(10, 'Дома с характером. Сезон 2. Выпуск 4. Екатеринбур', 'modformat-dark', 'Екатеринбург', 'Жилой район', 'Новый карлутский')
+						+galleryVideoBrown(3, 'Дома с характером. Сезон 2. Выпуск 3. Ижевск', 'master-ceramic-dark', 'Ижевск', 'Коттеджный поселок', 'Volga Residence')
+						+galleryVideo(6, 'Дома с характером. Сезон 2. Выпуск 2. Пермь', 'modformat-dark', 'Пермь', 'Жилой комплекс', 'Меридиан')
+						+galleryVideo(7, 'Дома с характером. Сезон 2. Выпуск 1. Тюмень', 'modformat-dark', 'Тюмень', 'Банный комплекс', 'городские парильни')
+					+e.row.row
+						.col-12
+							+e.video-section-title Дом с характером 2 сезон
+						+galleryVideoBrown(3, 'Дома с характером. Сезон 2. Выпуск 3. Ижевск', 'master-ceramic-dark', 'Ижевск', 'Коттеджный поселок', 'Volga Residence')
+						+galleryVideo(6, 'Дома с характером. Сезон 2. Выпуск 2. Пермь', 'modformat-dark', 'Пермь', 'Жилой комплекс', 'Меридиан')
+						+galleryVideoBezh(9, 'Дома с характером. Сезон 2. Выпуск 5. Нижний Новгород', 'edelhaus', 'Нижний Новгород', 'Жилой район', 'Шишимская горка')
+						+galleryVideoBlack(10, 'Дома с характером. Сезон 2. Выпуск 4. Екатеринбур', 'modformat-dark', 'Екатеринбург', 'Жилой район', 'Новый карлутский')
+						+galleryVideo(5, 'Дома с характером. Сезон 2. Выпуск 7. Казань', 'modformat-dark', 'Казань', 'Коттеджный поселок', 'Volga Residence')
+						+galleryVideoDarkBrown(4, 'Дома с характером. Сезон 2. Выпуск 6. Саратов', 'modformat-dark', 'Саратов', 'Частные дома', 'ModFormat')
+					+e.row.row
+						.col-12
+							+e.video-section-title Объекты
+						+galleryVideoBezh(9, 'Дома с характером. Сезон 2. Выпуск 7. Казань', 'modformat-dark', 'Казань', 'Коттеджный поселок', 'Volga Residence')
+						+galleryVideoBlack(10, 'Дома с характером. Сезон 2. Выпуск 7. Казань', 'modformat-dark', 'Казань', 'Коттеджный поселок', 'Volga Residence')
+					+e.btn.btn.btn-secondary(href='#') Показать еще
+
+	// end sGallery
+
+mixin galleryPhoto(i, title, brand)
+	+e.col-12.col-md-6
+		+b.architecture-project--photo(data-fancybox=`project-${i}`, href='img/gallery-1.png', data-caption=title)
+			+e.img-wrap.bg-wrap
+				+img(`img/gallery-${i}.png`, 'bg')
+			+e.title-wrap
+				+e.title.small!= title
+				+img(src=`img/${brand}.svg`, alt="")
+			.d-none
+				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=title)
+				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=title)
+				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=title)
+				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=title)
+
+mixin galleryVideo(i, title, brand, city, place1, place2)
+	+e.col-12.col-md-6
+		+b.architecture-project--video(href='https://youtu.be/7AkbUfZjS5k?si=boWKeffFxOLhUsO-', data-fancybox)
+			+e.img-wrap.bg-wrap
+				+img(`img/gallery-${i}.png`, 'bg')
+				+icon('youtube')
+				+e.text-wrap
+					+e.city= city
+					.wrap
+						+e.place.small!= place1
+						+e.place.small!= place2
+			+e.title-wrap
+				+e.title.small!= title
+				+img(src=`img/${brand}.svg`, alt="")
+
+mixin galleryVideoBrown(i, title, brand, city, place1, place2)
+	+e.col-12.col-md-6
+		+b.architecture-project--video.--brown(href='https://youtu.be/7AkbUfZjS5k?si=boWKeffFxOLhUsO-', data-fancybox)
+			+e.img-wrap.bg-wrap
+				+img(`img/gallery-${i}.png`, 'bg')
+				+icon('youtube')
+				+e.text-wrap
+					+e.city= city
+					.wrap
+						+e.place.small!= place1
+						+e.place.small!= place2
+			+e.title-wrap
+				+e.title.small!= title
+				+img(src=`img/${brand}.svg`, alt="")
+
+mixin galleryVideoDarkBrown(i, title, brand, city, place1, place2)
+	+e.col-12.col-md-6
+		+b.architecture-project--video.--dark-brown(href='https://youtu.be/7AkbUfZjS5k?si=boWKeffFxOLhUsO-', data-fancybox)
+			+e.img-wrap.bg-wrap
+				+img(`img/gallery-${i}.png`, 'bg')
+				+icon('youtube')
+				+e.text-wrap
+					+e.city= city
+					.wrap
+						+e.place.small!= place1
+						+e.place.small!= place2
+			+e.title-wrap
+				+e.title.small!= title
+				+img(src=`img/${brand}.svg`, alt="")
+
+mixin galleryVideoBlack(i, title, brand, city, place1, place2)
+	+e.col-12.col-md-6
+		+b.architecture-project--video.--black(href='https://youtu.be/7AkbUfZjS5k?si=boWKeffFxOLhUsO-', data-fancybox)
+			+e.img-wrap.bg-wrap
+				+img(`img/gallery-${i}.png`, 'bg')
+				+icon('youtube')
+				+e.text-wrap
+					+e.city= city
+					.wrap
+						+e.place.small!= place1
+						+e.place.small!= place2
+			+e.title-wrap
+				+e.title.small!= title
+				+img(src=`img/${brand}.svg`, alt="")
+
+mixin galleryVideoBezh(i, title, brand, city, place1, place2)
+	+e.col-12.col-md-6
+		+b.architecture-project--video.--bezh(href='https://youtu.be/7AkbUfZjS5k?si=boWKeffFxOLhUsO-', data-fancybox)
+			+e.img-wrap.bg-wrap
+				+img(`img/gallery-${i}.png`, 'bg')
+				+icon('youtube')
+				+e.text-wrap
+					+e.city= city
+					.wrap
+						+e.place.small!= place1
+						+e.place.small!= place2
+			+e.title-wrap
+				+e.title.small!= title
+				+img(src=`img/${brand}.svg`, alt="")
+
+mixin sharePhotoBlock
+	+b.share-photo
+		+e.text Поделитесь фотографией объекта
+		+e.btn.btn.btn-primary(href='#') Отправить фото объекта

@@ -261,7 +261,7 @@ mixin sContentArchitect
 			.attachments-wrapper
 				h3 Архитектурные проекты
 				mixin architectureProject(i, title, brand, name, city)
-					+b.architecture-project(data-fancybox=`project-${i}`, href='img/project-bg-1.png', data-caption=title)
+					+b.architecture-project--white(data-fancybox=`project-${i}`, href='img/project-bg-1.png', data-caption=title)
 						+e.img-wrap.bg-wrap
 							+img(`img/project-bg-${i}.png`, 'bg')
 						+e.title-wrap

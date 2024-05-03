@@ -68,6 +68,11 @@ function eventHandler() {
 		slideToClickedSlide: true,
 		// freeModeMomentum: true,
 	});
+  const swiperTabs = new Swiper('.tabs-slider--js', {
+		slidesPerView: 'auto',
+		freeMode: true,
+		watchOverflow: true
+	});
 
   const closeButton = document.querySelector('.btn-close');
   const warningText = document.querySelector('.warning-text');

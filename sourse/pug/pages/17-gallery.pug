@@ -5,7 +5,7 @@ include ../blocks/sForm/_sForm.pug
 include ../blocks/sContent/_sContent.pug
  
 include ../blocks/sContact/_sContact.pug
-include ../blocks/sForm/_sForm.pug
+include ../blocks/sGallery/_sGallery.pug
 include ../blocks/sForm/_sForm.pug
 include ../blocks/sCatalog/_sCatalog.pug
 
@@ -23,5 +23,6 @@ block pagecontent
 	+parts('header')
 	main
 		+headerBlock(title, 'gallery')
+		+sGallery
 
 	+parts('footer')

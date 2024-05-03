@@ -62,12 +62,3 @@ mixin sBasketEmpty(data)
 					p Добавьте товары в корзину. У нас вы найдете то, что вам понравится!
 					+e.btn.btn.btn-primary(href='#') В каталог
 	// end sBasket
-
-mixin warningText(message)
-	+b.warning-text
-		.inner-wrap.container
-			.btn-close
-			.wrap
-				+icon('info')
-				| Внимание
-			.small= message

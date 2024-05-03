@@ -540,13 +540,16 @@
 
 .architecture-project {
   color: $dark;
+  &--white &__title-wrap {
+    background: $white;
+  }
   &__title-wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: $white;
     padding: rem(8);
     margin-bottom: rem(8);
+    gap: rem(10);
   }
 
   &__name {
