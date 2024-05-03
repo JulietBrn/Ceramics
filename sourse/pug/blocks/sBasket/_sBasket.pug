@@ -42,9 +42,11 @@ mixin sBasket(data)
 						+e.btn.btn.btn-secondary(href='#') Оформить предзаказ
 					+e.summary.d-md-none.double
 						.container
-							p К оплате
-							+e.summary-price.fw-600 1 926 558 ₽
-							+e.btn.btn.btn-secondary(href='#') Оформить предзаказ
+							.double-wrapper
+								.descr
+									p К оплате
+									+e.summary-price.fw-600 1 926 558 ₽
+								+e.btn.btn.btn-secondary(href='#') Оформить предзаказ
 	// end sBasket
 
 

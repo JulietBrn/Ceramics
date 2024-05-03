@@ -44,12 +44,20 @@
   }
 
   .double {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
     position: fixed;
     bottom: 0;
     left: 0;
     z-index: 120;
-    border-radius: 0 !important;
     margin-bottom: 0;
+    .sBasket__summary-price {
+      margin-bottom: 0;
+    }
+  }
+  .double-wrapper {
+    display: grid;
+    grid-template-columns: .4fr .6fr;
+    align-items: center;
   }
   .col-md-3 {
     position: relative;
