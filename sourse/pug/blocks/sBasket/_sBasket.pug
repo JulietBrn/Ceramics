@@ -20,6 +20,7 @@ mixin product-item-basket(img, title, subtext1, subtext2, cost, price)
 mixin sBasket(data)
 	// start sBasket
 	+b.SECTION.sBasket.section#sBasket&attributes(attributes)
+		+warningText('Выберите хотя бы один товар, чтобы оформить предзаказ')
 		.container
 			+e.row.row
 				.col-12.col-md-9
@@ -61,3 +62,12 @@ mixin sBasketEmpty(data)
 					p Добавьте товары в корзину. У нас вы найдете то, что вам понравится!
 					+e.btn.btn.btn-primary(href='#') В каталог
 	// end sBasket
+
+mixin warningText(message)
+	+b.warning-text
+		.inner-wrap.container
+			.btn-close
+			.wrap
+				+icon('info')
+				| Внимание
+			.small= message

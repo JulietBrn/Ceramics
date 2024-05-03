@@ -68,6 +68,17 @@ function eventHandler() {
 		slideToClickedSlide: true,
 		// freeModeMomentum: true,
 	});
+
+  const closeButton = document.querySelector('.btn-close');
+  const warningText = document.querySelector('.warning-text');
+
+  if (closeButton) {
+    closeButton.addEventListener('click', function() {
+      warningText.classList.add('d-none');
+    });
+  }
+  
+
 	
 }
 if (document.readyState !== "loading") {
