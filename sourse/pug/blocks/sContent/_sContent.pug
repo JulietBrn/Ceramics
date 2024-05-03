@@ -213,7 +213,7 @@ mixin sContentOvenMaker
 					+linkFile('Протокол испытаний отступки закрытой вентилируемой.', '3,4 МБ')
 					+linkFile('Презентация «Юридические аспекты сдачи печных объектов заказчику».', '3,4 МБ')
 					+linkFile('Письмо-рекомендация по использованию разделки КС-Керамик.', '3,4 МБ')
-				+e.btn.btn.btn-outline-secondary.btn-reverse(href='#') Скачать все приложения
+				+e.btn.btn.btn-outline-secondary.btn-reverse(href='#' download) Скачать все приложения
 					+icon('download')
 
 mixin sContentArchitect
@@ -261,7 +261,7 @@ mixin sContentArchitect
 			.attachments-wrapper
 				h3 Архитектурные проекты
 				mixin architectureProject(i, title, brand, name, city)
-					+b.architecture-project(data-fancybox=`project-${i}`, href='img/project-bg-1.png')
+					+b.architecture-project(data-fancybox=`project-${i}`, href='img/project-bg-1.png', data-caption=title)
 						+e.img-wrap.bg-wrap
 							+img(`img/project-bg-${i}.png`, 'bg')
 						+e.title-wrap
@@ -271,10 +271,10 @@ mixin sContentArchitect
 							+e.name.fw-600!= name
 							+e.city!= city
 						.d-none
-							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-1.png`)
-							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-2.png`)
-							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-3.png`)
-							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-4.png`)
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-1.png`, data-caption=title)
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-2.png`, data-caption=title)
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-3.png`, data-caption=title)
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-4.png`, data-caption=title)
 				+e.row.row
 					.col-12.col-md-6
 						+architectureProject('1', 'ТМ Кенигштайн Эрфурст Вюсте', 'edelhaus', 'GloraX Premium Белорусская', 'Москва')

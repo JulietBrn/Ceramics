@@ -17,6 +17,10 @@ export default class JSCCommon {
 		const link = '[data-fancybox="modal"], .link-modal-js';
 		Fancybox.defaults.autoFocus = false;
 		Fancybox.defaults.placeFocusBack = false;
+    Fancybox.bind("[data-fancybox]", {
+      autoFocus: false,
+      placeFocusBack: false,
+    });
 
 		Fancybox.bind(link, {
 			arrows: false,

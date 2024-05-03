@@ -1,0 +1,22 @@
+mixin sBasket(data)
+	// start sBasket
+	+b.SECTION.sBasket.section#sBasket&attributes(attributes)
+		.container
+			+b.section-title.text-center
+				h2 sBasket
+				
+			+e.row.row
+	// end sBasket
+
+
+mixin sBasketEmpty(data)
+	// start sBasket
+	+b.SECTION.sBasket--padding.section#sBasket&attributes(attributes)
+		.container
+			+e.row.row
+				.col-12.col-md-6
+					+b.title-item: h4 В корзине пока ничего нет
+				.col-12.col-md-6
+					p Добавьте товары в корзину. У нас вы найдете то, что вам понравится!
+					+e.btn.btn.btn-primary(href='#') В каталог
+	// end sBasket
