@@ -321,3 +321,44 @@
     margin-left: rem(4);
   }
 }
+.fancybox__caption {
+  width: 100%;
+}
+
+.caption-with-icon {
+  display: flex;
+  justify-content: space-around;
+  gap: rem(30);
+}
+
+.fancybox__toolbar .fancybox__infobar {
+  // --f-progress-color: var(--fancybox-color, rgba(255, 255, 255, 0.94));
+  // --f-button-width: 46px;
+  // --f-button-height: 46px;
+  // --f-button-color: var(--fancybox-color);
+  // --f-button-hover-color: var(--fancybox-hover-color);
+  // --f-button-bg: rgba(24, 24, 27, 0.65);
+  // --f-button-hover-bg: rgba(70, 70, 73, 0.65);
+  // --f-button-active-bg: rgba(90, 90, 93, 0.65);
+  // --f-button-border-radius: 0;
+  // --f-button-svg-width: 24px;
+  // --f-button-svg-height: 24px;
+  // --f-button-svg-stroke-width: 1.5;
+  // --f-button-svg-filter: drop-shadow(1px 1px 1px rgba(24, 24, 27, 0.15));
+  // --f-button-svg-fill: none;
+  // --f-button-svg-disabled-opacity: 0.65;
+  color: var(--fancybox-color, currentColor);
+  color: $gray-800;
+  font-family: 'montserrat';
+  font-variant-numeric:normal;
+  text-shadow: none;
+  margin-left: rem(10);
+  span {
+    padding: 0;
+  }
+}
+
+.f-button svg {
+  stroke-width: rem(1);
+  filter: none;
+}

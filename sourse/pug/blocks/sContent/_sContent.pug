@@ -261,7 +261,7 @@ mixin sContentArchitect
 			.attachments-wrapper
 				h3 Архитектурные проекты
 				mixin architectureProject(i, title, brand, name, city)
-					+b.architecture-project--white(data-fancybox=`project-${i}`, href='img/project-bg-1.png', data-caption=title)
+					+b.architecture-project--white(data-fancybox=`project-${i}`, href='img/project-bg-1.png', data-caption=`<div class="caption-with-icon"><span>${title}</span><img src="img/${brand}.svg", alt=""></div>`)
 						+e.img-wrap.bg-wrap
 							+img(`img/project-bg-${i}.png`, 'bg')
 						+e.title-wrap
@@ -271,10 +271,10 @@ mixin sContentArchitect
 							+e.name.fw-600!= name
 							+e.city!= city
 						.d-none
-							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-1.png`, data-caption=title)
-							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-2.png`, data-caption=title)
-							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-3.png`, data-caption=title)
-							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-4.png`, data-caption=title)
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-1.png`, data-caption=`<div class="caption-with-icon"><span>${title}</span><img src="img/${brand}.svg", alt=""></div>`)
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-2.png`, data-caption=`<div class="caption-with-icon"><span>${title}</span><img src="img/${brand}.svg", alt=""></div>`)
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-3.png`, data-caption=`<div class="caption-with-icon"><span>${title}</span><img src="img/${brand}.svg", alt=""></div>`)
+							+b.architecture-project(data-fancybox=`project-${i}`, href=`img/project-bg-1-4.png`, data-caption=`<div class="caption-with-icon"><span>${title}</span><img src="img/${brand}.svg", alt=""></div>`)
 				+e.row.row
 					.col-12.col-md-6
 						+architectureProject('1', 'ТМ Кенигштайн Эрфурст Вюсте', 'edelhaus', 'GloraX Premium Белорусская', 'Москва')

@@ -20,6 +20,14 @@ export default class JSCCommon {
     Fancybox.bind("[data-fancybox]", {
       autoFocus: false,
       placeFocusBack: false,
+      Toolbar: {
+        display: {
+          left: ["infobar"],
+          right: [
+            "iterateZoom",
+            "slideshow","fullscreen", "close"],
+        },
+      },
     });
 
 		Fancybox.bind(link, {

@@ -100,17 +100,19 @@ mixin sGallery(data)
 
 mixin galleryPhoto(i, title, brand)
 	+e.col-12.col-md-6
-		+b.architecture-project--photo(data-fancybox=`project-${i}`, href='img/gallery-1.png', data-caption=title)
+		+b.architecture-project--photo(data-fancybox=`project-${i}`,
+		href='img/gallery-1.png',
+		data-caption=`<div class="caption-with-icon"><span>${title}</span><img src="img/${brand}.svg", alt=""></div>`)
 			+e.img-wrap.bg-wrap
 				+img(`img/gallery-${i}.png`, 'bg')
 			+e.title-wrap
 				+e.title.small!= title
 				+img(src=`img/${brand}.svg`, alt="")
 			.d-none
-				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=title)
-				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=title)
-				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=title)
-				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=title)
+				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=`<div class="caption-with-icon"><span>${title}</span><img src="img/${brand}.svg", alt=""></div>`)
+				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=`<div class="caption-with-icon"><span>${title}</span><img src="img/${brand}.svg", alt=""></div>`)
+				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=`<div class="caption-with-icon"><span>${title}</span><img src="img/${brand}.svg", alt=""></div>`)
+				+b.architecture-project(data-fancybox=`project-${i}`, href=`img/gallery-${i}.png`, data-caption=`<div class="caption-with-icon"><span>${title}</span><img src="img/${brand}.svg", alt=""></div>`)
 
 mixin galleryVideo(i, title, brand, city, place1, place2)
 	+e.col-12.col-md-6
