@@ -555,3 +555,57 @@ h4, .h4 {
   --bs-btn-disabled-bg: #{$green-900};
   --bs-btn-disabled-border-color: #{$green-900};
 }
+
+.btn-primary,
+.btn-secondary {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  &:hover:before, &:focus:before, &:active:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+
+.btn-primary {
+  --bs-btn-hover-bg: #{$primary};
+  --bs-btn-hover-border-color: #{$primary};
+  &:before {
+    background: $red-400;
+  }
+}
+
+.btn-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.btn-secondary {
+  --bs-btn-hover-bg: #{$green-900};
+  --bs-btn-hover-border-color: #{#b0a8a4};
+  &:before {
+    background: #b0a8a4;
+  }
+}

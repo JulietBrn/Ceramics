@@ -82,7 +82,11 @@ function eventHandler() {
       warningText.classList.add('d-none');
     });
   }
-  
+
+  var sectionTitle = document.querySelector(".headerBlock .section-title");
+  if (sectionTitle) {
+    sectionTitle.classList.add("loaded");
+  }
 
 	
 }
