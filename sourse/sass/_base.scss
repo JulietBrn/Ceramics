@@ -519,8 +519,8 @@ h4, .h4 {
 .btn-outline-secondary {
   --bs-btn-color: $dark;
   --bs-btn-border-color: rgba(16, 24, 32, 0.3);
-  --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: rgba(16, 24, 32, 0.3);
+  --bs-btn-hover-color: #{$green-900};
+  --bs-btn-hover-bg: transparent;
   --bs-btn-hover-border-color: #{$green-900};
   --bs-btn-focus-shadow-rgb: 162, 153, 148;
   --bs-btn-active-color: #000;
@@ -536,6 +536,11 @@ h4, .h4 {
     fill: none;
     stroke: $dark;
     stroke-width: rem(1);
+    transition: .3s all;
+  }
+
+  &:hover .icon {
+    stroke: #{$green-900};
   }
 }
 

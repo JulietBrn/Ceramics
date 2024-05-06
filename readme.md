@@ -16,6 +16,7 @@
 2. <https://megafronteam.github.io/0044Ceramics/16-basket.html>
 2. <https://megafronteam.github.io/0044Ceramics/16-basket-empty.html>
 2. <https://megafronteam.github.io/0044Ceramics/17-gallery.html>
+2. <https://megafronteam.github.io/0044Ceramics/17-gallery-empty.html>
 
 2. <https://megafronteam.github.io/0044Ceramics/20-404.html>
 2. <https://megafronteam.github.io/0044Ceramics/21-500.html>

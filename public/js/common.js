@@ -74,6 +74,18 @@ function eventHandler() {
 		watchOverflow: true
 	});
 
+  const swiperFilters = new Swiper('.filters-slider--js', {
+		spaceBetween: 8,
+		slidesPerView: 'auto',
+		freeMode: true,
+		watchOverflow: true,
+    breakpoints: {
+      768: {
+        spaceBetween: 0,
+      }
+    }
+	});
+
   const closeButton = document.querySelector('.btn-close');
   const warningText = document.querySelector('.warning-text');
 
@@ -88,7 +100,45 @@ function eventHandler() {
     sectionTitle.classList.add("loaded");
   }
 
-	
+	$(".form-wrap__input-wrap").each(function () {
+    let self = $(this);
+    let floatLabel;
+    // let placeholderName = $(this)[0].querySelector("select").getAttribute('data-placeholder');
+    // let floatDiv = '<div class="float-select"><span class="name">' + placeholderName + '</span></div>';
+    const tags = self.find("select").data("tags");
+    let select = self.find("select").select2({
+      dropdownParent: self,
+      language: "ru",
+    });
+
+    select.one("select2:open", function (e) {
+      // console.log(self.find("select")[0].dataset);
+
+      $("input.select2-search__field").prop(
+        "placeholder",
+        tags === true ? "Поиск или введите свой вариант ответа" : " Поиск"
+      );
+    });
+    // console.log(select2);
+  });
+  const wrapFilterPhoto = document.querySelector('.wrap-filter--photo')
+  const wrapFilterVideo = document.querySelector('.wrap-filter--video')
+  const tabs = document.querySelectorAll('.sGallery .tabs__btn')
+  tabs.forEach((tab) => {
+    if (tab) {
+      tab.addEventListener('click', () => {
+        const dataContent = tab.getAttribute('data-content')
+        if (dataContent === "photo") {
+          wrapFilterPhoto.classList.remove('d-none')
+          wrapFilterVideo.classList.add('d-none')
+        }
+        if (dataContent === "video") {
+          wrapFilterPhoto.classList.add('d-none')
+          wrapFilterVideo.classList.remove('d-none')
+        }
+      })
+    }
+  })
 }
 if (document.readyState !== "loading") {
 	eventHandler();

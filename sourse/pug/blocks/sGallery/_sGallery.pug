@@ -2,11 +2,54 @@ mixin sGallery(data)
 	// start sGallery
 	+b.SECTION.sGallery.section#sGallery&attributes(attributes)
 		.container
-			.tabs.tabs-slider--js.swiper
-				.tabs__caption.swiper-wrapper
-					.tabs__btn.swiper-slide Фотогалерея
-					.tabs__btn.swiper-slide.active Видеогалерея
-				.tabs__content
+			.tabs
+				.tabs__caption
+					.tabs__btn.swiper-slide.active(data-content="photo") Фотогалерея
+					.tabs__btn.swiper-slide(data-content="video") Видеогалерея
+					+b.wrap-filter--photo(data-content="photo")
+						+b.form-wrap.selected
+							+e.input-wrap.small
+								select(data-placeholder="Вид постройки").floating-select.form-select
+									option
+									option Многоэтажные дома
+									option Частные дома/коттеджи
+									option Печи/камины
+						+b.form-wrap.selected
+							+e.input-wrap.small
+								select(data-placeholder="Регион").floating-select.form-select
+									option
+									option Москва
+									option Санкт-Петербург
+									option Адыгея Республика
+						+b.form-wrap
+							+e.input-wrap.small
+								select(data-placeholder="Цветовая группа").floating-select.form-select
+									option
+									option Красный
+									option Светлый
+									option Тёмный
+						+b.form-wrap
+							+e.input-wrap.small
+								select(data-placeholder="Цвет").floating-select.form-select
+									option
+									option Марксбург Кварц
+									option Марксбург Серый
+									option Кёльн
+					+b.wrap-filter--video(data-content="video").d-none
+						+b.form-wrap.selected
+							+e.input-wrap.small
+								select(data-placeholder="Тема видео").floating-select.form-select
+									option
+									option Дом с характером. 1 сезон
+									option Дом с характером. 2 сезон
+									option Объекты
+				+b.brands
+					+e.item.fw-600.active(href='#') Все бренды
+					+e.item(href='#'): +img(src=`img/edelhaus.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/konigstein-dark-1.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/master-ceramic-dark.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
+				.tabs__content.active
 					+sharePhotoBlock
 					+e.row.row
 						+galleryPhoto(1, 'Эгерсунн+Стокгольм г. Кострома', 'edelhaus')
@@ -26,7 +69,7 @@ mixin sGallery(data)
 						+galleryPhoto(15, 'Эгерсунн+Стокгольм г. Кострома', 'edelhaus')
 						+galleryPhoto(16, 'Мальмё г. Саратов', 'modformat-dark')
 					+e.btn.btn.btn-secondary(href='#') Показать еще
-				.tabs__content.active
+				.tabs__content
 					+e.row.row
 						.col-12
 							+e.video-section-title Дом с характером 2 сезон
@@ -148,3 +191,112 @@ mixin sharePhotoBlock
 	+b.share-photo
 		+e.text Поделитесь фотографией объекта
 		+e.btn.btn.btn-primary(href='#') Отправить фото объекта
+
+
+mixin sGalleryEmpty(data)
+	// start sGallery
+	+b.SECTION.sGallery--empty.section#sGallery&attributes(attributes)
+		.container
+			.tabs
+				.tabs__caption
+					.tabs__btn.swiper-slide.active(data-content="photo") Фотогалерея
+					.tabs__btn.swiper-slide(data-content="video") Видеогалерея
+					+b.wrap-filter--photo(data-content="photo")
+						+b.form-wrap.selected
+							+e.input-wrap.small
+								select(data-placeholder="Вид постройки").floating-select.form-select
+									option
+									option Многоэтажные дома
+									option Частные дома/коттеджи
+									option Печи/камины
+						+b.form-wrap.selected
+							+e.input-wrap.small
+								select(data-placeholder="Регион").floating-select.form-select
+									option
+									option Москва
+									option Санкт-Петербург
+									option Адыгея Республика
+						+b.form-wrap
+							+e.input-wrap.small
+								select(data-placeholder="Цветовая группа").floating-select.form-select
+									option
+									option Красный
+									option Светлый
+									option Тёмный
+						+b.form-wrap
+							+e.input-wrap.small
+								select(data-placeholder="Цвет").floating-select.form-select
+									option
+									option Марксбург Кварц
+									option Марксбург Серый
+									option Кёльн
+					+b.wrap-filter--video(data-content="video").d-none
+						+b.form-wrap.selected
+							+e.input-wrap.small
+								select(data-placeholder="Тема видео").floating-select.form-select
+									option
+									option Дом с характером. 1 сезон
+									option Дом с характером. 2 сезон
+									option Объекты
+				+b.brands
+					+e.item.fw-600.active(href='#') Все бренды
+					+e.item(href='#'): +img(src=`img/edelhaus.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/konigstein-dark-1.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/master-ceramic-dark.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
+				.tabs__content.active
+					+sharePhotoBlock
+					.filters-slider--js.swiper
+						.filters-picked.swiper-wrapper
+							.swiper-slide
+								+b.filter-item.small(href='#') Сбросить все
+							+filterItem('Edelhaus')
+							+filterItem('Многоэтажные дома')
+							+filterItem('Архангельская область')
+							+filterItem('Светлый')
+							+filterItem('Тёмный')
+							+filterItem('Архангельская область')
+							+filterItem('Светлый')
+							+filterItem('Тёмный')
+							+filterItem('Марксбург Кварц')
+							+filterItem('Марксбург Серый')
+					+e.row.row.row-empty
+						.col-12.col-md-6
+							+b.title-item: h4 Извините, по выбранным параметрам ничего не найдено
+						.col-12.col-md-6
+							p Попробуйте изменить или сократить количество фильтров.
+							+e.btn.btn.btn-primary(href='#') В каталог
+				.tabs__content
+					+e.row.row
+						.col-12
+							+e.video-section-title Дом с характером 2 сезон
+						+galleryVideo(5, 'Дома с характером. Сезон 2. Выпуск 7. Казань', 'modformat-dark', 'Казань', 'Коттеджный поселок', 'Volga Residence')
+						+galleryVideoDarkBrown(4, 'Дома с характером. Сезон 2. Выпуск 6. Саратов', 'modformat-dark', 'Саратов', 'Частные дома', 'ModFormat')
+						+galleryVideoBezh(9, 'Дома с характером. Сезон 2. Выпуск 5. Нижний Новгород', 'edelhaus', 'Нижний Новгород', 'Жилой район', 'Шишимская горка')
+						+galleryVideoBlack(10, 'Дома с характером. Сезон 2. Выпуск 4. Екатеринбур', 'modformat-dark', 'Екатеринбург', 'Жилой район', 'Новый карлутский')
+						+galleryVideoBrown(3, 'Дома с характером. Сезон 2. Выпуск 3. Ижевск', 'master-ceramic-dark', 'Ижевск', 'Коттеджный поселок', 'Volga Residence')
+						+galleryVideo(6, 'Дома с характером. Сезон 2. Выпуск 2. Пермь', 'modformat-dark', 'Пермь', 'Жилой комплекс', 'Меридиан')
+						+galleryVideo(7, 'Дома с характером. Сезон 2. Выпуск 1. Тюмень', 'modformat-dark', 'Тюмень', 'Банный комплекс', 'городские парильни')
+					+e.row.row
+						.col-12
+							+e.video-section-title Дом с характером 2 сезон
+						+galleryVideoBrown(3, 'Дома с характером. Сезон 2. Выпуск 3. Ижевск', 'master-ceramic-dark', 'Ижевск', 'Коттеджный поселок', 'Volga Residence')
+						+galleryVideo(6, 'Дома с характером. Сезон 2. Выпуск 2. Пермь', 'modformat-dark', 'Пермь', 'Жилой комплекс', 'Меридиан')
+						+galleryVideoBezh(9, 'Дома с характером. Сезон 2. Выпуск 5. Нижний Новгород', 'edelhaus', 'Нижний Новгород', 'Жилой район', 'Шишимская горка')
+						+galleryVideoBlack(10, 'Дома с характером. Сезон 2. Выпуск 4. Екатеринбур', 'modformat-dark', 'Екатеринбург', 'Жилой район', 'Новый карлутский')
+						+galleryVideo(5, 'Дома с характером. Сезон 2. Выпуск 7. Казань', 'modformat-dark', 'Казань', 'Коттеджный поселок', 'Volga Residence')
+						+galleryVideoDarkBrown(4, 'Дома с характером. Сезон 2. Выпуск 6. Саратов', 'modformat-dark', 'Саратов', 'Частные дома', 'ModFormat')
+					+e.row.row
+						.col-12
+							+e.video-section-title Объекты
+						+galleryVideoBezh(9, 'Дома с характером. Сезон 2. Выпуск 7. Казань', 'modformat-dark', 'Казань', 'Коттеджный поселок', 'Volga Residence')
+						+galleryVideoBlack(10, 'Дома с характером. Сезон 2. Выпуск 7. Казань', 'modformat-dark', 'Казань', 'Коттеджный поселок', 'Volga Residence')
+					+e.btn.btn.btn-secondary(href='#') Показать еще
+
+	// end sGallery
+
+
+mixin filterItem(text)
+	.swiper-slide
+		+b.filter-item.small(href='#')!=text
+			+icon('cross')
