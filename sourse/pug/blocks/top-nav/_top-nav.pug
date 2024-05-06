@@ -23,6 +23,8 @@ mixin top-nav()
 		.container
 			+e.row.row
 				.col-4
+					+img(src="img/svg/logo.svg", alt="").logo-icon
+					+icon('menu')
 				//- .col.order-lg-0.order-last
 				//- 	.menu-mobile.menu-mobile--js
 				//- 		.menu-mobile__inner
@@ -31,9 +33,9 @@ mixin top-nav()
 				.col-auto
 					+e.contacts-wrap
 						+e.tel(href="tel:+78003003050").d-none.d-md-block 8 800 300-30-50
-						+icon('location')
-						+icon('search')
-						+icon('shopping')
+						.icon-wrap(href='#'): +icon('location')
+						.icon-wrap(href='#'): +icon('search')
+						.icon-wrap(href='#'): +icon('shopping')
 				//- .col-auto.d-lg-none
 				//- 	+menu-toggle()
 	// end top-nav

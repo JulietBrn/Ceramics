@@ -9,16 +9,29 @@
 		// }
 
 	}
-  position: absolute;
+  position: fixed;
   top: rem(18);
   left: 0;
   z-index: 5;
   width: 100%;
 
+  .logo-icon {
+    margin-right: rem(10);
+  }
+  .icon-menu {
+    fill: none;
+    cursor: pointer;
+    stroke-width: rem(1);
+    stroke: $white;
+  }
+
   &__contacts-wrap {
     display: flex;
-    gap: rem(17);
+    gap: rem(24);
     align-items: center;
+    @include media-breakpoint-up(md) {
+      gap: rem(17);
+    }
     .icon {
       fill: none;
       cursor: pointer;

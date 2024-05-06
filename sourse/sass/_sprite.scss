@@ -72,6 +72,11 @@
 	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
 	width: calc(20 / #{$h} *1em );
 }
+.icon-menu {
+	$h: 20;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(21 / #{$h} *1em );
+}
 .icon-pdf {
 	$h: 48;
 	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
