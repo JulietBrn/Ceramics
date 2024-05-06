@@ -552,6 +552,17 @@
   @include media-breakpoint-up(md) {
     margin-bottom: rem(14);
   }
+  .bg-wrap {
+    overflow: hidden;
+  }
+  .bg-wrap img {
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+  &:hover .bg-wrap img {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
 }
 
 #sContentArchitects {

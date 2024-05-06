@@ -16,19 +16,24 @@ mixin mob-mnu()
 			span
 		+e.inner
 			+mnu()
-	//  мобильное меню
+	//	мобильное меню
 mixin top-nav() 
 	// start top-nav
 	+b.top-nav.block-with-lazy
 		.container
 			+e.row.row
 				.col-4
-				.col.order-lg-0.order-last
-					.menu-mobile.menu-mobile--js
-						.menu-mobile__inner
-							+menu-toggle()
-							+mnu()
-					
-				.col-auto.d-lg-none
-					+menu-toggle()
+				//- .col.order-lg-0.order-last
+				//- 	.menu-mobile.menu-mobile--js
+				//- 		.menu-mobile__inner
+				//- 			//- +menu-toggle()
+				//- 			+mnu()
+				.col-auto
+					+e.contacts-wrap
+						+e.tel(href="tel:+78003003050").d-none.d-md-block 8 800 300-30-50
+						+icon('location')
+						+icon('search')
+						+icon('shopping')
+				//- .col-auto.d-lg-none
+				//- 	+menu-toggle()
 	// end top-nav
