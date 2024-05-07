@@ -86,6 +86,90 @@ function eventHandler() {
     }
 	});
 
+  /* nav location mobile */
+  const location = document.querySelector('.icon-wrap--mobile')
+	const mobileNavLocation = document.querySelector('.mobile-location')
+	const navLinks = document.querySelectorAll('.mobile-location a')
+	const backDrop = document.querySelector('.backdrop')
+
+  let startY;
+  let currentY;
+
+  function touchStart(e) {
+    startY = e.touches[0].clientY;
+    currentY = startY;
+  }
+
+  function touchMove(e) {
+    currentY = e.touches[0].clientY;
+    const distance = currentY - startY;
+
+    if (distance > 10) {
+      closeNavWidow();
+    }
+  }
+
+	function openNavWidow() {
+		mobileNavLocation.classList.add('show');
+		backDrop.classList.add('show');
+    backDrop.style = 'z-index: 20;'
+	}
+
+	function closeNavWidow() {
+		mobileNavLocation.classList.remove('show');
+		backDrop.classList.remove('show');
+    backDrop.style = 'z-index: -1;'
+	}
+
+
+	location.addEventListener('click', openNavWidow);
+	backDrop.addEventListener('click', closeNavWidow);
+	mobileNavLocation.addEventListener('click', closeNavWidow);
+  navLinks.forEach((link) => {
+    link.addEventListener('click', closeNavWidow)
+  })
+
+  mobileNavLocation.addEventListener('touchstart', touchStart);
+  mobileNavLocation.addEventListener('touchmove', touchMove);
+
+  /* search */
+  const topNav = document.querySelector('.top-nav__row')
+  const phone = document.querySelector('.top-nav__tel')
+  const searchBtn = document.querySelector('.icon-wrap .icon-search')
+	const navSearch = document.querySelector('.container-search')
+  const iconsDesktop = document.querySelectorAll('.top-nav__row .icon-wrap, .top-nav__row .icon')
+
+	function openSearchWidow() {
+		navSearch.classList.add('show');
+
+    if (window.innerWidth > 768) {
+      iconsDesktop.forEach(icon => {
+          icon.classList.add('hidden');
+      });
+      phone.classList.add('hidden');
+    } else {
+      topNav.classList.add('d-none');
+    }
+		backDrop.classList.add('show');
+	}
+
+	function closeSearchWidow() {
+		navSearch.classList.remove('show');
+		topNav.classList.remove('d-none');
+    if (window.innerWidth > 768) {
+      iconsDesktop.forEach(icon => {
+          icon.classList.remove('hidden');
+      });
+    }
+    phone.classList.remove('hidden');
+		backDrop.classList.remove('show');
+	}
+
+	searchBtn.addEventListener('click', openSearchWidow);
+	backDrop.addEventListener('click', closeSearchWidow);
+  
+
+
   const popoverTriggerList = document.querySelectorAll(
 		'[data-bs-toggle="popover"]'
 	);

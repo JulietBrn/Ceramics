@@ -5,7 +5,7 @@
 	<div class="top-nav block-with-lazy">
 		<div class="container">
 			<div class="top-nav__row row">
-				<div class="col-4"><img class="logo-icon" src="img/svg/logo.svg" alt="" loading="lazy"/>
+				<div class="col-4"><a class="logo-wrap" href="#"><img class="logo-icon" src="img/svg/logo.svg" alt="" loading="lazy"/></a>
 					<svg class="icon icon-menu ">
 						<use xlink:href="img/svg/sprite.svg#menu"></use>
 					</svg>
@@ -14,7 +14,12 @@
 					<div class="top-nav__contacts-wrap">
 						<a class="top-nav__tel d-none d-md-block" href="tel:+78003003050">8 800 300-30-50
 						</a>
-						<div class="icon-wrap"><span data-bs-toggle="popover" data-bs-html="true" data-bs-placement="bottom" data-bs-content="&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Официальные дилеры&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Контакты&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Логистика и склады&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Черный список&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;">
+						<div class="icon-wrap icon-wrap--mobile d-md-none">
+							<svg class="icon icon-location ">
+								<use xlink:href="img/svg/sprite.svg#location"></use>
+							</svg>
+						</div>
+						<div class="icon-wrap d-none d-md-block small"><span data-bs-toggle="popover" data-bs-html="true" data-bs-placement="bottom" data-bs-content="&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Официальные дилеры&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Контакты&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Логистика и склады&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Черный список&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;">
 								<svg class="icon icon-location ">
 									<use xlink:href="img/svg/sprite.svg#location"></use>
 								</svg></span></div>
@@ -23,7 +28,7 @@
 								<use xlink:href="img/svg/sprite.svg#search"></use>
 							</svg>
 						</div>
-						<div class="icon-wrap" href="#">
+						<div class="icon-wrap active" href="#">
 							<svg class="icon icon-shopping ">
 								<use xlink:href="img/svg/sprite.svg#shopping"></use>
 							</svg>
@@ -31,6 +36,29 @@
 					</div>
 				</div>
 			</div>
+			<div class="mobile-location small">
+				<div class="container">
+					<ul>
+						<li><a href="#">Официальные дилеры</a></li>
+						<li><a href="#">Контакты</a></li>
+						<li><a href="#">Логистика и склады</a></li>
+						<li><a href="#">Черный список</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="container-search">
+				<div class="container">
+					<div class="search-field">
+						<input type="text" name="search" placeholder="Поиск" aria-label="Search through site content"/>
+						<button>
+							<svg class="icon icon-search ">
+								<use xlink:href="img/svg/sprite.svg#search"></use>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="backdrop"></div>
 		</div>
 	</div>
 	<!-- end top-nav-->

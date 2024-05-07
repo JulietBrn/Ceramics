@@ -23,7 +23,7 @@ mixin top-nav()
 		.container
 			+e.row.row
 				.col-4
-					+img(src="img/svg/logo.svg", alt="").logo-icon
+					a.logo-wrap(href='#'): +img(src="img/svg/logo.svg", alt="").logo-icon
 					+icon('menu')
 				//- .col.order-lg-0.order-last
 				//- 	.menu-mobile.menu-mobile--js
@@ -33,12 +33,27 @@ mixin top-nav()
 				.col-auto
 					+e.contacts-wrap
 						+e.tel(href="tel:+78003003050").d-none.d-md-block 8 800 300-30-50
-						.icon-wrap
-							span(data-bs-toggle="popover", data-bs-html="true", data-bs-placement="bottom",data-bs-content=`<div><ul><li><a href="#">Официальные дилеры</a></li><li><a href="#">Контакты</a></li><li><a href="#">Логистика и склады</a></li><li><a href="#">Черный список</a></li></ul></div>`): +icon('location')
+						+b.icon-wrap--mobile.d-md-none: +icon('location')
+						.icon-wrap.d-none.d-md-block.small
+							span(data-bs-toggle="popover", data-bs-html="true", data-bs-placement="bottom", data-bs-content=`<div><ul><li><a href="#">Официальные дилеры</a></li><li><a href="#">Контакты</a></li><li><a href="#">Логистика и склады</a></li><li><a href="#">Черный список</a></li></ul></div>`): +icon('location')
 						.icon-wrap(href='#'): +icon('search')
-						.icon-wrap(href='#'): +icon('shopping')
+						.icon-wrap.active(href='#'): +icon('shopping')
+			.mobile-location.small
+				.container
+					ul
+						li: a(href="#") Официальные дилеры
+						li: a(href="#") Контакты
+						li: a(href="#") Логистика и склады
+						li: a(href="#") Черный список
+			.container-search
+				.container
+					+b.search-field
+						input(type='text' name='search' placeholder='Поиск' aria-label='Search through site content')
+						button
+							+icon('search')
 				//- .col-auto.d-lg-none
 				//- 	+menu-toggle()
+			.backdrop
 	// end top-nav
 
 
