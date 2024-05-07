@@ -127,3 +127,27 @@
       transform: translateX(0) translateY(0);
   }
 }
+
+.popover {
+  --bs-popover-body-padding-y: rem(8);
+  --bs-border-radius-lg: #{rem(1)};
+  --bs-border-color-translucent: #{$white};
+  --bs-body-bg: #{$white};
+  margin-top: rem(16) !important;
+  top: rem(20);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  ul {
+    list-style-type: none;
+    margin-bottom: 0;
+    li {
+    }
+    a {
+      display: inline-block;
+      padding: rem(7) 0;
+      color: $dark;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
