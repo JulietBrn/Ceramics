@@ -4,8 +4,8 @@ mixin sGallery(data)
 		.container
 			.tabs
 				.tabs__caption
-					.tabs__btn.swiper-slide.active(data-content="photo") Фотогалерея
-					.tabs__btn.swiper-slide(data-content="video") Видеогалерея
+					.tabs__btn.swiper-slide(data-content="photo") Фотогалерея
+					.tabs__btn.swiper-slide.active(data-content="video") Видеогалерея
 					+b.wrap-filter--photo(data-content="photo")
 						+b.form-wrap.selected
 							+e.input-wrap.small
@@ -43,14 +43,23 @@ mixin sGallery(data)
 									option Дом с характером. 1 сезон
 									option Дом с характером. 2 сезон
 									option Объекты
-				+b.brands
-					+e.item.fw-600.active(href='#') Все бренды
-					+e.item(href='#'): +img(src=`img/edelhaus.svg`, alt="")
-					+e.item(href='#'): +img(src=`img/konigstein-dark-1.svg`, alt="")
-					+e.item(href='#'): +img(src=`img/master-ceramic-dark.svg`, alt="")
-					+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
-				.tabs__content.active
+				+b.brands.white-bg-modal#brands
+					.container
+						+e.title.fw-600.d-md-none.text-center Все бренды
+						+e.wrap
+							+e.item.d-none.d-md-block.fw-600.active(href='#') Все бренды
+							+e.item.active(href='#'): +img(src=`img/edelhaus.svg`, alt="")
+							+e.item(href='#'): +img(src=`img/konigstein-dark-1.svg`, alt="")
+							+e.item(href='#'): +img(src=`img/master-ceramic-dark.svg`, alt="")
+							+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
+						+e.btn-wrap.d-md-none
+							+e.btn.btn.btn-outline-secondary(href='#') Сбросить
+							+e.btn.btn.btn-primary#apply(href='#') Применить
+				.tabs__content
 					+sharePhotoBlock
+					.d-md-none.d-flex.d-flex--sm
+						+b.open-modal--brands.small Все бренды
+						+b.open-modal--filters.small Фильтры
 					+e.row.row
 						+galleryPhoto(1, 'Эгерсунн+Стокгольм г. Кострома', 'edelhaus')
 						+galleryPhoto(2, 'Эгерсунн+Стокгольм г. Кострома', 'cs-ceramic')
@@ -69,7 +78,10 @@ mixin sGallery(data)
 						+galleryPhoto(15, 'Эгерсунн+Стокгольм г. Кострома', 'edelhaus')
 						+galleryPhoto(16, 'Мальмё г. Саратов', 'modformat-dark')
 					+e.btn.btn.btn-secondary(href='#') Показать еще
-				.tabs__content
+				.tabs__content.active
+					.d-md-none.d-flex
+						+b.open-modal--brands.small Все бренды
+						+b.open-modal--video.small Тема видео
 					+e.row.row
 						.col-12
 							+e.video-section-title Дом с характером 2 сезон

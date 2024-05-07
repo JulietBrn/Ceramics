@@ -73,50 +73,8 @@
 		height: auto;
 	}
 
-  .mobile-location {
-    position: fixed;
-    left: 0;
-    bottom: -100%;
-    width: 100%;
-    min-height: max-content;
-    background: $white;
-    padding: rem(28) 0 rem(24);
-    border-radius: rem(8) rem(8) 0 0;
-    z-index: 22;
-    transition: all .5s;
-    ul {
-      list-style-type: none;
-      margin-bottom: 0;
-      li {
-      }
-      a {
-        display: inline-block;
-        padding: rem(11) 0 rem(13);
-        color: $dark;
-        &:hover {
-          color: $primary;
-        }
-      }
-    }
-    .container {
-      position: relative;
-      &:after {
-        content:'';
-        position: absolute;
-        top: rem(-16);
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: rem(2);
-        height: rem(4);
-        width: rem(40);
-        background: $gray-320;
-        opacity: .5;
-      }
-    }
-    &.show {
-      bottom: 0;
-    }
-  }
+
+
   .icon-wrap.active {
     position: relative;
     &:after {
@@ -227,13 +185,64 @@
   height: 100%;
   top: 0;
   left: 0;
-  background: $dark;
-  transition: opacity .5s;
+  background: $gray-800;
+  transition: opacity .3s;
   opacity: 0;
   z-index: -1;
+  visibility: hidden;
   &.show {
-    opacity: .7;
+    opacity: .9;
     z-index: 6;
+    visibility: visible;
+  }
+}
+
+
+.white-bg-modal {
+  position: fixed;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  min-height: max-content;
+  background: $white;
+  padding: rem(28) 0 rem(24);
+  border-radius: rem(8) rem(8) 0 0;
+  z-index: 22;
+  transition: all .5s;
+  ul {
+    list-style-type: none;
+    margin-bottom: 0;
+    li {
+    }
+    a {
+      display: inline-block;
+      padding: rem(11) 0 rem(13);
+      color: $dark;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+  .container {
+    position: relative;
+    &:after {
+      content:'';
+      position: absolute;
+      top: rem(-16);
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: rem(2);
+      height: rem(4);
+      width: rem(40);
+      background: $gray-320;
+      opacity: .5;
+      @include media-breakpoint-up(md) {
+        content: none;
+      }
+    }
+  }
+  &.show {
+    bottom: 0;
   }
 }
 

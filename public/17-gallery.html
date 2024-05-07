@@ -61,8 +61,8 @@
 					<div class="container">
 						<div class="tabs">
 							<div class="tabs__caption">
-								<div class="tabs__btn swiper-slide active" data-content="photo">Фотогалерея</div>
-								<div class="tabs__btn swiper-slide" data-content="video">Видеогалерея</div>
+								<div class="tabs__btn swiper-slide" data-content="photo">Фотогалерея</div>
+								<div class="tabs__btn swiper-slide active" data-content="video">Видеогалерея</div>
 								<div class="wrap-filter wrap-filter--photo" data-content="photo">
 									<div class="form-wrap selected">
 										<div class="form-wrap__input-wrap small">
@@ -118,24 +118,42 @@
 									</div>
 								</div>
 							</div>
-							<div class="brands">
-								<a class="brands__item fw-600 active" href="#">Все бренды
-								</a>
-								<a class="brands__item" href="#"><img src="img/edelhaus.svg" alt="" loading="lazy"/>
-								</a>
-								<a class="brands__item" href="#"><img src="img/konigstein-dark-1.svg" alt="" loading="lazy"/>
-								</a>
-								<a class="brands__item" href="#"><img src="img/master-ceramic-dark.svg" alt="" loading="lazy"/>
-								</a>
-								<a class="brands__item" href="#"><img src="img/modformat-dark.svg" alt="" loading="lazy"/>
-								</a>
+							<div class="brands white-bg-modal" id="brands">
+								<div class="container">
+									<div class="brands__title fw-600 d-md-none text-center">Все бренды
+									</div>
+									<div class="brands__wrap">
+										<a class="brands__item d-none d-md-block fw-600 active" href="#">Все бренды
+										</a>
+										<a class="brands__item active" href="#"><img src="img/edelhaus.svg" alt="" loading="lazy"/>
+										</a>
+										<a class="brands__item" href="#"><img src="img/konigstein-dark-1.svg" alt="" loading="lazy"/>
+										</a>
+										<a class="brands__item" href="#"><img src="img/master-ceramic-dark.svg" alt="" loading="lazy"/>
+										</a>
+										<a class="brands__item" href="#"><img src="img/modformat-dark.svg" alt="" loading="lazy"/>
+										</a>
+									</div>
+									<div class="brands__btn-wrap d-md-none">
+										<a class="brands__btn btn btn-outline-secondary" href="#">Сбросить
+										</a>
+										<a class="brands__btn btn btn-primary" id="apply" href="#">Применить
+										</a>
+									</div>
+								</div>
 							</div>
-							<div class="tabs__content active">
+							<div class="tabs__content">
 								<div class="share-photo">
 									<div class="share-photo__text">Поделитесь фотографией объекта
 									</div>
 									<a class="share-photo__btn btn btn-primary" href="#">Отправить фото объекта
 									</a>
+								</div>
+								<div class="d-md-none d-flex d-flex--sm">
+									<div class="open-modal open-modal--brands small">Все бренды
+									</div>
+									<div class="open-modal open-modal--filters small">Фильтры
+									</div>
 								</div>
 								<div class="sGallery__row row">
 									<div class="sGallery__col-12 col-md-6">
@@ -462,7 +480,13 @@
 								<a class="sGallery__btn btn btn-secondary" href="#">Показать еще
 								</a>
 							</div>
-							<div class="tabs__content">
+							<div class="tabs__content active">
+								<div class="d-md-none d-flex">
+									<div class="open-modal open-modal--brands small">Все бренды
+									</div>
+									<div class="open-modal open-modal--video small">Тема видео
+									</div>
+								</div>
 								<div class="sGallery__row row">
 									<div class="col-12">
 										<div class="sGallery__video-section-title">Дом с характером 2 сезон

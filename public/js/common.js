@@ -95,19 +95,19 @@ function eventHandler() {
   let startY;
   let currentY;
 
-  function touchStart(e) {
-    startY = e.touches[0].clientY;
-    currentY = startY;
-  }
+  // function touchStart(e) {
+  //   startY = e.touches[0].clientY;
+  //   currentY = startY;
+  // }
 
-  function touchMove(e) {
-    currentY = e.touches[0].clientY;
-    const distance = currentY - startY;
+  // function touchMove(e) {
+  //   currentY = e.touches[0].clientY;
+  //   const distance = currentY - startY;
 
-    if (distance > 10) {
-      closeNavWidow();
-    }
-  }
+  //   if (distance > 10) {
+  //     closeNavWidow();
+  //   }
+  // }
 
 	function openNavWidow() {
 		mobileNavLocation.classList.add('show');
@@ -169,6 +169,49 @@ function eventHandler() {
 	backDrop.addEventListener('click', closeSearchWidow);
   
 
+  /* brands mobile */
+	const openBrandsBtn = document.querySelectorAll('.open-modal--brands')
+	const brands = document.querySelector('#brands')
+  const applyBtn = document.querySelector('#apply')
+
+	function openBrandsWidow() {
+		brands.classList.add('show');
+		backDrop.classList.add('show');
+    backDrop.style = 'z-index: 20;'
+	}
+
+	function closeBrandsWidow() {
+		brands.classList.remove('show');
+		backDrop.classList.remove('show');
+    backDrop.style = 'z-index: -1;'
+	}
+  
+  function touchStart(e) {
+    startY = e.touches[0].clientY;
+    currentY = startY;
+  }
+
+  function touchMove(e) {
+    currentY = e.touches[0].clientY;
+    const distance = currentY - startY;
+
+    if (distance > 10) {
+      closeNavWidow();
+    }
+    if (distance > 10 && brands) {
+      closeBrandsWidow()
+    }
+  }
+
+  openBrandsBtn.forEach((btn) => {
+    btn.addEventListener('click', openBrandsWidow);
+  })
+
+	backDrop.addEventListener('click', closeBrandsWidow);
+	applyBtn.addEventListener('click', closeBrandsWidow);
+
+  brands.addEventListener('touchstart', touchStart);
+  brands.addEventListener('touchmove', touchMove);
 
   const popoverTriggerList = document.querySelectorAll(
 		'[data-bs-toggle="popover"]'
