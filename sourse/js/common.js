@@ -185,7 +185,7 @@ function eventHandler() {
 		backDrop.classList.remove('show');
     backDrop.style = 'z-index: -1;'
 	}
-  
+
   function touchStart(e) {
     startY = e.touches[0].clientY;
     currentY = startY;
@@ -201,6 +201,9 @@ function eventHandler() {
     if (distance > 10 && brands) {
       closeBrandsWidow()
     }
+    if (distance > 10 && filters) {
+      closeFiltersWidow()
+    }
   }
 
   openBrandsBtn.forEach((btn) => {
@@ -212,6 +215,57 @@ function eventHandler() {
 
   brands.addEventListener('touchstart', touchStart);
   brands.addEventListener('touchmove', touchMove);
+
+
+  /* photo filters mobile */
+	const openFiltersBtn = document.querySelectorAll('.open-modal--filters')
+	const filters = document.querySelector('#photo-filters')
+
+	function openFiltersWidow() {
+		filters.classList.add('show');
+		backDrop.classList.add('show');
+    backDrop.style = 'z-index: 20;'
+	}
+
+	function closeFiltersWidow() {
+		filters.classList.remove('show');
+		backDrop.classList.remove('show');
+    backDrop.style = 'z-index: -1;'
+	}
+
+  openFiltersBtn.forEach((btn) => {
+    btn.addEventListener('click', openFiltersWidow);
+  })
+
+	backDrop.addEventListener('click', closeFiltersWidow);
+
+  filters.addEventListener('touchstart', touchStart);
+  filters.addEventListener('touchmove', touchMove);
+
+  /* video filter mobile */
+	const openVideoFilterBtn = document.querySelectorAll('.open-modal--video')
+	const videoFilter = document.querySelector('#video-filters')
+
+	function openVideoFiltersWidow() {
+		videoFilter.classList.add('show');
+		backDrop.classList.add('show');
+    backDrop.style = 'z-index: 20;'
+	}
+
+	function closeVideoFiltersWidow() {
+		videoFilter.classList.remove('show');
+		backDrop.classList.remove('show');
+    backDrop.style = 'z-index: -1;'
+	}
+
+  openVideoFilterBtn.forEach((btn) => {
+    btn.addEventListener('click', openVideoFiltersWidow);
+  })
+
+	backDrop.addEventListener('click', closeVideoFiltersWidow);
+
+  videoFilter.addEventListener('touchstart', touchStart);
+  videoFilter.addEventListener('touchmove', touchMove);
 
   const popoverTriggerList = document.querySelectorAll(
 		'[data-bs-toggle="popover"]'
@@ -228,6 +282,26 @@ function eventHandler() {
       warningText.classList.add('d-none');
     });
   }
+
+  $('#photo-filters .filter').on('click', function() {
+    var title = $(this).find('.filter__title').text();
+    setTimeout(function() {
+      $('#photo-filters .filters-wrapper__title').text(title);
+    }, 200);
+  });
+
+  $('.btn-back').on('click', function() {
+    $('#photo-filters .filters-wrapper__title').text('Фильтры');
+    $('#photo-filters .filter').removeClass('show');
+    $(this).addClass('d-none');
+  });
+
+$('#photo-filters .filter__title').on('click', function() {
+  $(this).parent('.filter').addClass('show');
+  setTimeout(function() {
+    $('.btn-back').removeClass('d-none');
+  }, 200);
+});
 
   var sectionTitle = document.querySelector(".headerBlock .section-title");
   if (sectionTitle) {
@@ -255,20 +329,19 @@ function eventHandler() {
     });
     // console.log(select2);
   });
-  const wrapFilterPhoto = document.querySelector('.wrap-filter--photo')
-  const wrapFilterVideo = document.querySelector('.wrap-filter--video')
+
   const tabs = document.querySelectorAll('.sGallery .tabs__btn')
   tabs.forEach((tab) => {
     if (tab) {
       tab.addEventListener('click', () => {
         const dataContent = tab.getAttribute('data-content')
         if (dataContent === "photo") {
-          wrapFilterPhoto.classList.remove('d-none')
-          wrapFilterVideo.classList.add('d-none')
+          filters.classList.remove('d-none')
+          videoFilter.classList.add('d-none')
         }
         if (dataContent === "video") {
-          wrapFilterPhoto.classList.add('d-none')
-          wrapFilterVideo.classList.remove('d-none')
+          filters.classList.add('d-none')
+          videoFilter.classList.remove('d-none')
         }
       })
     }

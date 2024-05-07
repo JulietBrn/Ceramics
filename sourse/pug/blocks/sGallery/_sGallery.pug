@@ -4,8 +4,8 @@ mixin sGallery(data)
 		.container
 			.tabs
 				.tabs__caption
-					.tabs__btn.swiper-slide(data-content="photo") Фотогалерея
-					.tabs__btn.swiper-slide.active(data-content="video") Видеогалерея
+					.tabs__btn.swiper-slide.active(data-content="photo") Фотогалерея
+					.tabs__btn.swiper-slide(data-content="video") Видеогалерея
 					+b.wrap-filter--photo(data-content="photo")
 						+b.form-wrap.selected
 							+e.input-wrap.small
@@ -35,14 +35,59 @@ mixin sGallery(data)
 									option Марксбург Кварц
 									option Марксбург Серый
 									option Кёльн
-					+b.wrap-filter--video(data-content="video").d-none
-						+b.form-wrap.selected
-							+e.input-wrap.small
-								select(data-placeholder="Тема видео").floating-select.form-select
-									option
-									option Дом с характером. 1 сезон
-									option Дом с характером. 2 сезон
-									option Объекты
+				+b.filters-wrapper.white-bg-modal#video-filters
+					.container.container-flex
+						+e.title.fw-600.d-md-none.text-center Тема видео
+						.items
+							+e.wrap.filter.small.wrap-no-inputs
+								+in-c("checkbox", 'Дом с характером. 1 сезон')
+								+in-c("checkbox", 'Дом с характером. 2 сезон')
+								+in-c("checkbox", 'Объекты')(checked)
+						.btn-wrap.d-md-none
+							+e.btn.btn.btn-outline-secondary(href='#') Сбросить
+							+e.btn.btn.btn-primary#apply(href='#') Применить
+
+				+b.filters-wrapper.white-bg-modal#photo-filters
+					.container.container-flex
+						+e.title.fw-600.d-md-none.text-center Фильтры
+						.btn-back.small.d-none Назад
+						.items
+							+b.filter
+								+e.title.small.fw-600 Регион
+								+e.wrap.small
+									+in-c("radio", 'Москва')
+									+in-c("radio", 'Санкт-Петербург')
+									+in-c("radio", 'Адыгея Республика')(checked)
+							+b.filter
+								+e.title.small.fw-600 Вид постройки
+								+e.wrap.small
+									+in-c("checkbox", 'Многоэтажные дома')(checked)
+									+in-c("checkbox", 'Частные дома/коттеджи')
+									+in-c("checkbox", 'Печи/камины')
+							+b.filter--color
+								+e.title.small.fw-600 Цветовая группа
+								+e.wrap.wrap.small
+									+b.color-wrap--red: +in-c("checkbox", 'Красный')(checked)
+									+b.color-wrap--light: +in-c("checkbox", 'Светлый')
+									+b.color-wrap--dark: +in-c("checkbox", 'Тёмный')
+							+b.filter
+								+e.title.small.fw-600 Цвет
+								+e.wrap.small
+									+in-c("checkbox", 'Марксбург Кварц')
+									+in-c("checkbox", 'Марксбург Серый')(checked)
+									+in-c("checkbox", 'Кёльн')(checked)
+									+in-c("checkbox", 'Марксбург Кварц')
+									+in-c("checkbox", 'Марксбург Серый')
+									+in-c("checkbox", 'Кёльн')(checked)
+									+in-c("checkbox", 'Марксбург Кварц')
+									+in-c("checkbox", 'Марксбург Серый')(checked)
+									+in-c("checkbox", 'Кёльн')(checked)
+									+in-c("checkbox", 'Марксбург Кварц')
+									+in-c("checkbox", 'Марксбург Серый')
+									+in-c("checkbox", 'Кёльн')(checked)
+						.btn-wrap.d-md-none
+							+e.btn.btn.btn-outline-secondary(href='#') Сбросить
+							+e.btn.btn.btn-primary#apply(href='#') Применить
 				+b.brands.white-bg-modal#brands
 					.container
 						+e.title.fw-600.d-md-none.text-center Все бренды
@@ -52,10 +97,10 @@ mixin sGallery(data)
 							+e.item(href='#'): +img(src=`img/konigstein-dark-1.svg`, alt="")
 							+e.item(href='#'): +img(src=`img/master-ceramic-dark.svg`, alt="")
 							+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
-						+e.btn-wrap.d-md-none
+						.btn-wrap.d-md-none
 							+e.btn.btn.btn-outline-secondary(href='#') Сбросить
 							+e.btn.btn.btn-primary#apply(href='#') Применить
-				.tabs__content
+				.tabs__content.active
 					+sharePhotoBlock
 					.d-md-none.d-flex.d-flex--sm
 						+b.open-modal--brands.small Все бренды
@@ -78,7 +123,7 @@ mixin sGallery(data)
 						+galleryPhoto(15, 'Эгерсунн+Стокгольм г. Кострома', 'edelhaus')
 						+galleryPhoto(16, 'Мальмё г. Саратов', 'modformat-dark')
 					+e.btn.btn.btn-secondary(href='#') Показать еще
-				.tabs__content.active
+				.tabs__content
 					.d-md-none.d-flex
 						+b.open-modal--brands.small Все бренды
 						+b.open-modal--video.small Тема видео
