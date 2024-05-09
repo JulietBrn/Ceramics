@@ -247,48 +247,85 @@ mixin sGalleryEmpty(data)
 					.tabs__btn.swiper-slide.active(data-content="photo") Фотогалерея
 					.tabs__btn.swiper-slide(data-content="video") Видеогалерея
 					+b.wrap-filter--photo(data-content="photo")
-						+b.form-wrap.selected
-							+e.input-wrap.small
-								select(data-placeholder="Вид постройки").floating-select.form-select
-									option
-									option Многоэтажные дома
-									option Частные дома/коттеджи
-									option Печи/камины
-						+b.form-wrap.selected
-							+e.input-wrap.small
-								select(data-placeholder="Регион").floating-select.form-select
-									option
-									option Москва
-									option Санкт-Петербург
-									option Адыгея Республика
-						+b.form-wrap
-							+e.input-wrap.small
-								select(data-placeholder="Цветовая группа").floating-select.form-select
-									option
-									option Красный
-									option Светлый
-									option Тёмный
-						+b.form-wrap
-							+e.input-wrap.small
-								select(data-placeholder="Цвет").floating-select.form-select
-									option
-									option Марксбург Кварц
-									option Марксбург Серый
-									option Кёльн
-					+b.wrap-filter--video(data-content="video").d-none
-						+b.form-wrap.selected
-							+e.input-wrap.small
-								select(data-placeholder="Тема видео").floating-select.form-select
-									option
-									option Дом с характером. 1 сезон
-									option Дом с характером. 2 сезон
-									option Объекты
-				+b.brands
-					+e.item.fw-600.active(href='#') Все бренды
-					+e.item(href='#'): +img(src=`img/edelhaus.svg`, alt="")
-					+e.item(href='#'): +img(src=`img/konigstein-dark-1.svg`, alt="")
-					+e.item(href='#'): +img(src=`img/master-ceramic-dark.svg`, alt="")
-					+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
+						+b.filters-wrapper--video.white-bg-modal#video-filters.d-md-none
+							.container.container-flex
+								+e.title.fw-600.text-center Тема видео
+								.items
+									+e.wrap.filter.small
+										.custom-scroll()
+											+in-c("checkbox", 'Дом с характером. 1 сезон')
+											+in-c("checkbox", 'Дом с характером. 2 сезон')
+											+in-c("checkbox", 'Объекты')(checked)
+								.btn-wrap.d-md-none
+									+e.btn.btn.btn-outline-secondary(href='#') Сбросить
+									+e.btn.btn.btn-primary#apply(href='#') Применить
+
+						+b.filters-wrapper.white-bg-modal#photo-filters
+							.container.container-flex
+								+e.title.fw-600.d-md-none.text-center Фильтры
+								.btn-back.small.d-none.d-md-none Назад
+								.items
+									+b.filter.selected
+										+e.title.small.fw-600 Регион
+										+e.wrap.small
+											.custom-scroll()
+												+in-c("radio", 'Москва')
+												+in-c("radio", 'Санкт-Петербург')
+												+in-c("radio", 'Адыгея Республика')(checked)
+												+in-c("radio", 'Кострома')
+												+in-c("radio", 'Киров')
+												+in-c("radio", 'Москва')
+												+in-c("radio", 'Саратов')
+									+b.filter
+										+e.title.small.fw-600 Вид постройки
+										+e.wrap.small
+											.custom-scroll()
+												+in-c("checkbox", 'Многоэтажные дома')(checked)
+												+in-c("checkbox", 'Частные дома/коттеджи')
+												+in-c("checkbox", 'Печи/камины')
+									+b.filter--color
+										+e.title.small.fw-600 Цветовая группа
+										+e.wrap.small
+											.custom-scroll()
+												.wrap
+													+b.color-wrap--red: +in-c("checkbox", 'Красный')(checked)
+													+b.color-wrap--light: +in-c("checkbox", 'Светлый')
+													+b.color-wrap--dark: +in-c("checkbox", 'Тёмный')
+													+b.color-wrap--red: +in-c("checkbox", 'Красный')
+													+b.color-wrap--dark: +in-c("checkbox", 'Тёмный')
+													+b.color-wrap--light: +in-c("checkbox", 'Светлый')
+													+b.color-wrap--dark: +in-c("checkbox", 'Тёмный')
+									+b.filter
+										+e.title.small.fw-600 Цвет
+										+e.wrap.small
+											.custom-scroll()
+												+in-c("checkbox", 'Марксбург Кварц')
+												+in-c("checkbox", 'Марксбург Серый')(checked)
+												+in-c("checkbox", 'Кёльн')(checked)
+												+in-c("checkbox", 'Марксбург Кварц')
+												+in-c("checkbox", 'Марксбург Серый')
+												+in-c("checkbox", 'Кёльн')(checked)
+												+in-c("checkbox", 'Марксбург Кварц')
+												+in-c("checkbox", 'Марксбург Серый')(checked)
+												+in-c("checkbox", 'Кёльн')(checked)
+												+in-c("checkbox", 'Марксбург Кварц')
+												+in-c("checkbox", 'Марксбург Серый')
+												+in-c("checkbox", 'Кёльн')(checked)
+								.btn-wrap.d-md-none
+									+e.btn.btn.btn-outline-secondary(href='#') Сбросить
+									+e.btn.btn.btn-primary#apply(href='#') Применить
+				+b.brands.white-bg-modal#brands
+					.container
+						+e.title.fw-600.d-md-none.text-center Все бренды
+						+e.wrap
+							+e.item.d-none.d-md-block.fw-600.active(href='#') Все бренды
+							+e.item.active(href='#'): +img(src=`img/edelhaus.svg`, alt="")
+							+e.item(href='#'): +img(src=`img/konigstein-dark-1.svg`, alt="")
+							+e.item(href='#'): +img(src=`img/master-ceramic-dark.svg`, alt="")
+							+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
+						.btn-wrap.d-md-none
+							+e.btn.btn.btn-outline-secondary(href='#') Сбросить
+							+e.btn.btn.btn-primary#apply(href='#') Применить
 				.tabs__content.active
 					+sharePhotoBlock
 					.filters-slider--js.swiper

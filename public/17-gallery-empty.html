@@ -65,71 +65,176 @@
 								<div class="tabs__btn swiper-slide active" data-content="photo">Фотогалерея</div>
 								<div class="tabs__btn swiper-slide" data-content="video">Видеогалерея</div>
 								<div class="wrap-filter wrap-filter--photo" data-content="photo">
-									<div class="form-wrap selected">
-										<div class="form-wrap__input-wrap small">
-											<select class="floating-select form-select" data-placeholder="Вид постройки">
-												<option></option>
-												<option>Многоэтажные дома</option>
-												<option>Частные дома/коттеджи</option>
-												<option>Печи/камины</option>
-											</select>
+									<div class="filters-wrapper filters-wrapper--video white-bg-modal d-md-none" id="video-filters">
+										<div class="container container-flex">
+											<div class="filters-wrapper__title fw-600 text-center">Тема видео
+											</div>
+											<div class="items">
+												<div class="filters-wrapper__wrap filter small">
+													<div class="custom-scroll">
+														<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Дом с характером. 1 сезон</span>
+														</label>
+														<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Дом с характером. 2 сезон</span>
+														</label>
+														<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><span class="custom-input__text form-check-label">Объекты</span>
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="btn-wrap d-md-none">
+												<a class="filters-wrapper__btn btn btn-outline-secondary" href="#">Сбросить
+												</a>
+												<a class="filters-wrapper__btn btn btn-primary" id="apply" href="#">Применить
+												</a>
+											</div>
 										</div>
 									</div>
-									<div class="form-wrap selected">
-										<div class="form-wrap__input-wrap small">
-											<select class="floating-select form-select" data-placeholder="Регион">
-												<option></option>
-												<option>Москва</option>
-												<option>Санкт-Петербург</option>
-												<option>Адыгея Республика</option>
-											</select>
-										</div>
-									</div>
-									<div class="form-wrap">
-										<div class="form-wrap__input-wrap small">
-											<select class="floating-select form-select" data-placeholder="Цветовая группа">
-												<option></option>
-												<option>Красный</option>
-												<option>Светлый</option>
-												<option>Тёмный</option>
-											</select>
-										</div>
-									</div>
-									<div class="form-wrap">
-										<div class="form-wrap__input-wrap small">
-											<select class="floating-select form-select" data-placeholder="Цвет">
-												<option></option>
-												<option>Марксбург Кварц</option>
-												<option>Марксбург Серый</option>
-												<option>Кёльн</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="wrap-filter wrap-filter--video d-none" data-content="video">
-									<div class="form-wrap selected">
-										<div class="form-wrap__input-wrap small">
-											<select class="floating-select form-select" data-placeholder="Тема видео">
-												<option></option>
-												<option>Дом с характером. 1 сезон</option>
-												<option>Дом с характером. 2 сезон</option>
-												<option>Объекты</option>
-											</select>
+									<div class="filters-wrapper white-bg-modal" id="photo-filters">
+										<div class="container container-flex">
+											<div class="filters-wrapper__title fw-600 d-md-none text-center">Фильтры
+											</div>
+											<div class="btn-back small d-none d-md-none">Назад</div>
+											<div class="items">
+												<div class="filter selected">
+													<div class="filter__title small fw-600">Регион
+													</div>
+													<div class="filter__wrap small">
+														<div class="custom-scroll">
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><span class="custom-input__text form-check-label">Москва</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><span class="custom-input__text form-check-label">Санкт-Петербург</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio" checked="checked"/><span class="custom-input__text form-check-label">Адыгея Республика</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><span class="custom-input__text form-check-label">Кострома</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><span class="custom-input__text form-check-label">Киров</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><span class="custom-input__text form-check-label">Москва</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><span class="custom-input__text form-check-label">Саратов</span>
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="filter">
+													<div class="filter__title small fw-600">Вид постройки
+													</div>
+													<div class="filter__wrap small">
+														<div class="custom-scroll">
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><span class="custom-input__text form-check-label">Многоэтажные дома</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Частные дома/коттеджи</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Печи/камины</span>
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="filter filter--color">
+													<div class="filter__title small fw-600">Цветовая группа
+													</div>
+													<div class="filter__wrap small">
+														<div class="custom-scroll">
+															<div class="wrap">
+																<div class="color-wrap color-wrap--red">
+																	<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><span class="custom-input__text form-check-label">Красный</span>
+																	</label>
+																</div>
+																<div class="color-wrap color-wrap--light">
+																	<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Светлый</span>
+																	</label>
+																</div>
+																<div class="color-wrap color-wrap--dark">
+																	<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Тёмный</span>
+																	</label>
+																</div>
+																<div class="color-wrap color-wrap--red">
+																	<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Красный</span>
+																	</label>
+																</div>
+																<div class="color-wrap color-wrap--dark">
+																	<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Тёмный</span>
+																	</label>
+																</div>
+																<div class="color-wrap color-wrap--light">
+																	<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Светлый</span>
+																	</label>
+																</div>
+																<div class="color-wrap color-wrap--dark">
+																	<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Тёмный</span>
+																	</label>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="filter">
+													<div class="filter__title small fw-600">Цвет
+													</div>
+													<div class="filter__wrap small">
+														<div class="custom-scroll">
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Марксбург Кварц</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><span class="custom-input__text form-check-label">Марксбург Серый</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><span class="custom-input__text form-check-label">Кёльн</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Марксбург Кварц</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Марксбург Серый</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><span class="custom-input__text form-check-label">Кёльн</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Марксбург Кварц</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><span class="custom-input__text form-check-label">Марксбург Серый</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><span class="custom-input__text form-check-label">Кёльн</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Марксбург Кварц</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox"/><span class="custom-input__text form-check-label">Марксбург Серый</span>
+															</label>
+															<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><span class="custom-input__text form-check-label">Кёльн</span>
+															</label>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="btn-wrap d-md-none">
+												<a class="filters-wrapper__btn btn btn-outline-secondary" href="#">Сбросить
+												</a>
+												<a class="filters-wrapper__btn btn btn-primary" id="apply" href="#">Применить
+												</a>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="brands">
-								<a class="brands__item fw-600 active" href="#">Все бренды
-								</a>
-								<a class="brands__item" href="#"><img src="img/edelhaus.svg" alt="" loading="lazy"/>
-								</a>
-								<a class="brands__item" href="#"><img src="img/konigstein-dark-1.svg" alt="" loading="lazy"/>
-								</a>
-								<a class="brands__item" href="#"><img src="img/master-ceramic-dark.svg" alt="" loading="lazy"/>
-								</a>
-								<a class="brands__item" href="#"><img src="img/modformat-dark.svg" alt="" loading="lazy"/>
-								</a>
+							<div class="brands white-bg-modal" id="brands">
+								<div class="container">
+									<div class="brands__title fw-600 d-md-none text-center">Все бренды
+									</div>
+									<div class="brands__wrap">
+										<a class="brands__item d-none d-md-block fw-600 active" href="#">Все бренды
+										</a>
+										<a class="brands__item active" href="#"><img src="img/edelhaus.svg" alt="" loading="lazy"/>
+										</a>
+										<a class="brands__item" href="#"><img src="img/konigstein-dark-1.svg" alt="" loading="lazy"/>
+										</a>
+										<a class="brands__item" href="#"><img src="img/master-ceramic-dark.svg" alt="" loading="lazy"/>
+										</a>
+										<a class="brands__item" href="#"><img src="img/modformat-dark.svg" alt="" loading="lazy"/>
+										</a>
+									</div>
+									<div class="btn-wrap d-md-none">
+										<a class="brands__btn btn btn-outline-secondary" href="#">Сбросить
+										</a>
+										<a class="brands__btn btn btn-primary" id="apply" href="#">Применить
+										</a>
+									</div>
+								</div>
 							</div>
 							<div class="tabs__content active">
 								<div class="share-photo">
