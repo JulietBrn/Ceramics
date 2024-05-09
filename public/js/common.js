@@ -343,6 +343,23 @@ function eventHandler() {
     // console.log(select2);
   });
 
+  const selectAllBtn = document.querySelector('.btn-select-all--js input');
+  const removeBtn = document.querySelector('.btn-remove--js .small');
+
+  // Функция для изменения текста кнопки удаления
+  function updateRemoveButtonText() {
+      if (selectAllBtn.checked) {
+          removeBtn.textContent = "Удалить все";
+      } else {
+          removeBtn.textContent = "Удалить выбранные";
+      }
+  }
+
+  if (selectAllBtn) {
+    updateRemoveButtonText();
+    selectAllBtn.addEventListener('change', updateRemoveButtonText);
+  }
+
   const tabs = document.querySelectorAll('.sGallery .tabs__btn')
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {

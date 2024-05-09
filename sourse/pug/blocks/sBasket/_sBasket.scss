@@ -144,6 +144,11 @@
     stroke: $gray-900;
   }
 
+  .btn-select-all--js .text {
+    position: relative;
+    top: rem(2);
+  }
+
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}
@@ -247,4 +252,5 @@
       }
     }
   }
+
 }

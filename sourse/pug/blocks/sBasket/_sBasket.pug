@@ -1,6 +1,6 @@
 mixin product-item-basket(img, title, subtext1, subtext2, cost, price)
 	+b.product-item-basket
-		+in-c()(checked)
+		+in-c()
 		+e.wrap
 			+img(src=`img/prod-small-${img}.png`, alt="")
 			+e.inner-wrapper
@@ -24,12 +24,11 @@ mixin sBasket(data)
 		.container
 			+e.row.row
 				.col-12.col-md-9
-					+e.header
-						+in-c()(checked)
+					+e.header.btn-select-all--js
+						+in-c()
 							+e.small.small.text Выбрать все
-						+e.btn-remove.btn-remove
-							.small.d-none.d-md-block Удалить выбранные
-							.small.d-md-none Удалить все
+						+e.btn-remove.btn-remove.btn-remove--js
+							.small Удалить выбранные
 							+icon('trash')
 					+e.supplyes
 						+product-item-basket('1', 'Марксбург Кварц', 'Арт: GT876304', '1НФ, полнотелый (пустотность меньше 12%), графитово-черный', '173 853 ₽', '81,24 ₽ / шт.')
