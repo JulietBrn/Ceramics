@@ -298,7 +298,7 @@ export default class JSCCommon {
 		);
 	}
 	static animateScroll() {
-		$(document).on("click", " .menu li a, .scroll-link", function () {
+		$(document).on("click", " .sStorage .swiper-slide", function () {
 			const elementClick = $(this).attr("href");
 			if (!document.querySelector(elementClick)) {
 				$(this).attr("href", "/" + elementClick);
@@ -444,7 +444,7 @@ export default class JSCCommon {
 		this.customSelect();
 		this.setScreen();
 		// JSCCommon.toggleShow(".catalog-block__toggle--desctop", '.catalog-block__dropdown');
-		// JSCCommon.animateScroll();
+		this.animateScroll();
     this.setCustomScrollbar();
 
 		// JSCCommon.CustomInputFile();

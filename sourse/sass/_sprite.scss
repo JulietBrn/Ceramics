@@ -22,6 +22,11 @@
 	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
 	width: calc(20 / #{$h} *1em );
 }
+.icon-carHeavy {
+	$h: 28;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(28 / #{$h} *1em );
+}
 .icon-check {
 	$h: 27;
 	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
@@ -37,10 +42,25 @@
 	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
 	width: calc(48 / #{$h} *1em );
 }
+.icon-close {
+	$h: 28;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(28 / #{$h} *1em );
+}
+.icon-copy {
+	$h: 16;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(16 / #{$h} *1em );
+}
 .icon-cross {
 	$h: 16;
 	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
 	width: calc(16 / #{$h} *1em );
+}
+.icon-delivery {
+	$h: 28;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(28 / #{$h} *1em );
 }
 .icon-download {
 	$h: 24;
@@ -123,6 +143,11 @@
 	width: calc(16 / #{$h} *1em );
 }
 .icon-vk {
+	$h: 24;
+	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
+	width: calc(24 / #{$h} *1em );
+}
+.icon-watch {
 	$h: 24;
 	font-size:calc( #{$h} / #{$rfs-rem-value} * 1rem);
 	width: calc(24 / #{$h} *1em );

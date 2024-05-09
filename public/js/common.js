@@ -71,7 +71,8 @@ function eventHandler() {
   const swiperTabs = new Swiper('.tabs-slider--js', {
 		slidesPerView: 'auto',
 		freeMode: true,
-		watchOverflow: true
+		watchOverflow: true,
+		spaceBetween: 24,
 	});
 
   const swiperFilters = new Swiper('.filters-slider--js', {
@@ -358,6 +359,23 @@ function eventHandler() {
   if (selectAllBtn) {
     updateRemoveButtonText();
     selectAllBtn.addEventListener('change', updateRemoveButtonText);
+  }
+
+  const coordinationElements = document.querySelectorAll('.coordination');
+  
+  if (coordinationElements) {
+    coordinationElements.forEach(function(coordinationElement) {
+      const coordinates = coordinationElement.textContent.trim().split(': ')[1];
+
+      coordinationElement.addEventListener('click', function() {
+          const textarea = document.createElement('textarea');
+          textarea.value = coordinates;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+      })
+    });
   }
 
   const tabs = document.querySelectorAll('.sGallery .tabs__btn')
