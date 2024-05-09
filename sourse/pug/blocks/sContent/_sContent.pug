@@ -112,7 +112,7 @@ mixin sCardItemList(title, ...items)
 			+icon('download')
 
 mixin cardBrand(i, icon, text)
-	+b.card-brand-item(href='#', target='_blank')
+	+b.card-brand-item.zoom-animate(href='#', target='_blank')
 		+e.img-wrap.bg-wrap
 			+img(`img/card-bg-${i}.png`, 'bg')
 		+e.descr
@@ -224,7 +224,7 @@ mixin sContentArchitect
 			.attachments-wrapper
 				+sTitleItem('Текстуры')
 				mixin albumItem(i, brand, title, type, icon)
-					+b.album-item(href='#', target='_blank' class=`${brand}`)
+					+b.album-item.zoom-animate(href='#', target='_blank' class=`${brand}`)
 						+e.img-wrap.bg-wrap
 							+img(`img/album-bg-${i}.png`, 'bg')
 						+e.descr
