@@ -1,9 +1,12 @@
 // start .sStorage
 .sStorage {
 	--sPT: #{rem(0)};
-	// --sPB: #{rem()};
+	--sPB: #{rem(32)};
 	// --sTPB: #{rem()};
   
+    @include media-breakpoint-up(md) {
+	    --sPB: #{rem(48)};
+    }
   
 	.custom-scroll {
     height: rem(468);
