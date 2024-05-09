@@ -399,7 +399,7 @@ function eventHandler() {
 
   gsap.utils.toArray('#sContentOven .parallax-container').forEach((section, i) => {
     section.bg = section.querySelector(".parallax-bg");
-    section.bg.style.backgroundImage = `url("../img/card-sq-${i + 1}.png")`;
+    section.bg.style.backgroundImage = `url("img/card-sq-${i + 1}.png")`;
     if(section.bg) {
       section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
 
