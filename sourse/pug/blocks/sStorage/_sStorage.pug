@@ -106,6 +106,140 @@ mixin sStorage(data)
 					+storageFeature('delivery', 'Требования для перевозки', 'Закрепление ремнями — 1 ремень на два поддона.')
 					+storageFeature('close', 'Информация по закрытию дорог', 'Нет ограничений.')
 				h5 Нормы загрузки
+					- var sizeDescription = 'Размер ДхШхВ, мм'
+					- var quantityInPalletDescription = 'Кол-во в поддоне'
+					- var quantityInTruckDescription = 'Кол-во а/м 20т., шт'
+					- var quantityInRailcarDescription = 'Кол-во полувагоне, шт'
+				+b.item-top.bg-wrap
+					+img(`img/storage-bg-1.png`, 'bg').img.picture-bg
+					+e.item-wrap
+						+e.item-row.row
+							.col-12.col-md-5.order-md-2
+								.icons-wrap
+									+img(src=`img/edelhaus-light.svg`, alt="").brand
+							.col-12.col-md-7
+								.h5 Кирпич клинкерный лицевой пустотелый Edelhaus Klinker
+				.table-wrap
+					table
+						thead
+							tr
+								th Наименование продукции
+								th Размер (длинна х ширина х толщина), мм
+								th Кол-во в поддоне, шт
+								th Кол-во а/м 20т., шт
+								th Кол-во полувагоне, шт
+						tbody
+							tr
+								td КР-кл-пу 0,7 НФ
+								td(data-title=sizeDescription) 250х85х65
+								td(data-title=quantityInPalletDescription) 600
+								td(data-title=quantityInTruckDescription) 9 000/ 15 под.
+								td(data-title=quantityInRailcarDescription) 28 888/ 48 под.
+							tr
+								td КР-кл-пу 1 НФ
+								td(data-title=sizeDescription) 250х120х65
+								td(data-title=quantityInPalletDescription) 480
+								td(data-title=quantityInTruckDescription) 7 200/ 15 под.
+								td(data-title=quantityInRailcarDescription) 23 040/ 48 под.
+
+				+b.item-top.bg-wrap
+					+img(`img/storage-bg-2.png`, 'bg').img.picture-bg
+					+e.item-wrap
+						+e.item-row.row
+							.col-12.col-md-5.order-md-2
+								.icons-wrap
+									+img(src=`img/konigstein-2.svg`, alt="").brand
+									+img(src=`img/master-ceramic.svg`, alt="").brand
+							.col-12.col-md-7
+								.h5 Кирпич керамический лицевой пустотелый Kôningstein/ Мастер Керамик
+				.table-wrap
+					table
+						thead
+							tr
+								th Наименование продукции
+								th Размер (длинна х ширина х толщина), мм
+								th Кол-во в поддоне, шт
+								th Кол-во а/м 20т., шт
+								th Кол-во полувагоне, шт
+						tbody
+							tr
+								td КР-кл-пу 0,7 НФ
+								td(data-title=sizeDescription) 250х85х65
+								td(data-title=quantityInPalletDescription) 600
+								td(data-title=quantityInTruckDescription) 9 900/ 15 под.
+								td(data-title=quantityInRailcarDescription) 31 680/ 48 под.
+							tr
+								td КР-кл-пу 1 НФ
+								td(data-title=sizeDescription) 250х120х65
+								td(data-title=quantityInPalletDescription) 540
+								td(data-title=quantityInTruckDescription) 8 100/ 15 под.
+								td(data-title=quantityInRailcarDescription) 25 920/ 48 под.
+							tr
+								td КР-кл-пу 1,4 НФ
+								td(data-title=sizeDescription) 250х120х88
+								td(data-title=quantityInPalletDescription) 396
+								td(data-title=quantityInTruckDescription) 5 940/ 15 под.
+								td(data-title=quantityInRailcarDescription) 19 008/ 48 под.
+
+				+b.item-top.bg-wrap
+					+img(`img/storage-bg-3.png`, 'bg').img.picture-bg
+					+e.item-wrap
+						+e.item-row.row
+							.col-12.col-md-5.order-md-2
+								.icons-wrap
+									+img(src=`img/konigstein-2.svg`, alt="").brand
+									+img(src=`img/master-ceramic.svg`, alt="").brand
+							.col-12.col-md-7
+								.h5 Кирпич керамический лицевой пустотелый Kôningstein/ Мастер Керамик
+				.table-wrap
+					table
+						thead
+							tr
+								th Наименование продукции
+								th Размер ( длинна х ширина х толщина), мм
+								th Кол-во в поддоне
+								th Кол-во а/м 20т., шт
+								th Кол-во полувагоне, шт
+						tbody
+							tr
+								td КР-кл-пу 1 НФ
+								td(data-title=sizeDescription) 250х120х65
+								td(data-title=quantityInPalletDescription) 300
+								td(data-title=quantityInTruckDescription) 5 100/ 17 под.
+								td(data-title=quantityInRailcarDescription) 14 400/ 48 под.
+							tr
+								td КР-кл-пу 0,7 НФ (пустотность 13 %)
+								td(data-title=sizeDescription) 250х85х65
+								td(data-title=quantityInPalletDescription) 540
+								td(data-title=quantityInTruckDescription) 8 100/ 15 под.
+								td(data-title=quantityInRailcarDescription) 25 920/ 48 под.
+
+				+b.item-top.bg-wrap
+					+img(`img/storage-bg-4.png`, 'bg').img.picture-bg
+					+e.item-wrap
+						+e.item-row.row
+							.col-12.col-md-5.order-md-2
+								.icons-wrap
+									+img(src=`img/modformat.svg`, alt="").brand
+							.col-12.col-md-7
+								.h5 Кирпич длинного формата Mod Format
+				.table-wrap
+					table
+						thead
+							tr
+								th Наименование продукции
+								th Размер (длинна х ширина х толщина), мм
+								th Кол-во в поддоне, шт
+								th Кол-во а/м 20т., шт
+								th Кол-во полувагоне, шт
+						tbody
+							tr
+								td КР-кл-пу 0,7 НФ
+								td(data-title=sizeDescription) 290х85х50
+								td(data-title=quantityInPalletDescription) 612
+								td(data-title=quantityInTruckDescription) 1 040/ 17 под.
+								td(data-title=quantityInRailcarDescription) 31 824/ 52 под.
+
 	// end sStorage
 
 mixin storageFeature(icon, title, text)
@@ -121,3 +255,14 @@ mixin distributorItem(title,address,coords)
 		+e.item-text
 			+e.info-address.small #[span Адрес]: #{address}
 			+e.info-address.small #[span GPS координаты:] #{coords}
+
+
+mixin column-title
+	.element
+
+
+mixin feature-line(title, value)
+	+b.feature-line
+		+e.header.small!= title
+		+e.dash
+		+e.span.small!= value

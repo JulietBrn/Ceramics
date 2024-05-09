@@ -163,16 +163,112 @@
   }
 
   &__row-drivers {
+    margin-bottom: rem(32);
+    @include media-breakpoint-up(md) {
+      margin-bottom: rem(72);
+    }
     display: grid;
     gap: rem(16);
     grid-template-columns: repeat( auto-fit, minmax(244px, 1fr) );
   }
 
-  h3 {
+  h3, h5 {
     margin-bottom: rem(24);
     @include media-breakpoint-up(md) {
-      margin-bottom: rem(40);}
+      margin-bottom: rem(40);
+    }
   }
+
+  @include media-breakpoint-up(md) {
+    .wrapper .line-wrap:nth-child(n+2) .feature-line .feature-line__header {
+      display: none;
+    }
+  }
+  .line-wrap {
+    background: $white;
+    @include media-breakpoint-up(md) {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 0 rem(16);
+    }
+  }
+
+  .table-wrap {
+    padding: 0 rem(16);
+    background: $white;
+    margin-bottom: rem(16);
+    @include media-breakpoint-up(md) {
+      margin-bottom: rem(24);
+    }
+  }
+
+  thead {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+  table {
+    @include media-breakpoint-down(md) {
+      display: block;
+    }
+    @include media-breakpoint-up(md) {
+      th, td {
+        padding: rem(12) 0;
+        width: calc(100% / 5);
+      }
+      tr {
+        border-bottom: 1px solid $gray-600;
+      }
+    }
+  }
+
+  tbody {
+    @include media-breakpoint-down(md) {
+      display: block;
+      tr {
+        display: block;
+        padding-top: rem(8);
+        padding-bottom: rem(8);
+        border-bottom: 1px solid $gray-600;
+      }
+      td {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+      }
+      td:first-child {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+    }
+    
+  }
+  @include media-breakpoint-down(md) {
+    [data-title] {
+      font-size: .75rem;
+      line-height: 1.33;
+      position: relative;
+      padding: rem(2);
+      background: $white;
+      &::before {
+        content: attr(data-title);
+        font-size: .75rem;
+        line-height: 1.33;
+      }
+      &::after {
+      //   content: '';
+      //   position: absolute;
+      //   bottom: -2px;
+      //   left: 0;
+      //   width: 100%;
+      //   height: 1px;
+      //   background: $gray-600;
+      }
+    }
+  }
+
 
 
 	@include media-breakpoint-up(xl) {}
@@ -243,5 +339,91 @@
   
   @include media-breakpoint-down(md) {
     border-bottom: rem(1) solid $gray-200;
+  }
+}
+
+.feature-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(8);
+  @include media-breakpoint-up(md) {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 0;
+    align-items: center;
+  }
+  &__header {
+    @include media-breakpoint-up(md) {
+      font-weight: 600;
+      // padding: rem(12) 0;
+      min-height: rem(58);
+      height: 100%;
+    }
+  }
+
+  &__dash {
+    flex: 1 0;
+    border-bottom: 1px solid $gray-600;
+    height: 1em;
+    margin: 0 .4em;
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+  .small {
+    @include media-breakpoint-up(md) {
+      padding: rem(12) rem(4);
+      border-bottom: 1px solid $gray-600;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &:first-child {
+      .feature-line__header,
+      .feature-line__dash {
+        display: none;
+      }
+      .small {
+        font-weight: 600;
+        font-size: rem(16);
+        margin-bottom: rem(16);
+      }
+    }
+  }
+}
+
+.item-top {
+  position: relative;
+  // background: green;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(63, 32, 33, 0.4) 0%, rgba(63, 32, 33, 0.4) 100%);
+    z-index: 1;
+  }
+  &__item-wrap {
+    padding: rem(24) rem(16);
+    position: relative;
+    z-index: 2;
+    @include media-breakpoint-up(md) {
+      padding: rem(32);
+      padding-bottom: rem(56);
+    }
+  }
+  .icons-wrap {
+    // display: grid;
+    // grid-template-columns: repeat(2,1fr);
+    // gap: rem(60);
+    
+    margin-bottom: rem(16);
+    .brand {
+      margin-right: 10%;
+    }
+  }
+  .h5 {
+    color: $white;
   }
 }

@@ -143,12 +143,18 @@
   .container-wrapper {
     background: $gray-800;
     position: absolute;
+    // position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-100%, -50%);
+    opacity: 0;
     width: 80%;
     max-width: rem(350);
-    opacity: 0;
+    // @include mt;
+    // transform-origin: left;
+    // &:not(.active) {
+    //   transform: scaleX(0);
+    // }
     @include media-breakpoint-up(md) {
       width: rem(817);
       max-width: 90%;

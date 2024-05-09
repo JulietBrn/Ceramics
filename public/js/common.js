@@ -489,6 +489,19 @@ function eventHandler() {
       toggleActions: 'play none none reverse',
     }
   });
+  // let headerHeight = 100
+  // let elem = document.querySelector('.container-wrapper')
+  // const trigger = document.querySelector('.parallax-container')
+
+  // gsap.to(trigger, {
+  //   scrollTrigger: {
+  //     trigger: trigger,
+  //     start: "top top", // when the top of the trigger hits the center of the viewport
+  //     end: "bottom top", // when the bottom of the trigger hits the center of the viewport
+  //     onEnter: () => elem.classList.add("active"), // add class
+  //     onLeaveBack: () => elem.classList.remove("active"), // remove class
+  //   },
+  // });
 
   
   gsap.utils.toArray('#sContentOven .parallax-container').forEach((container) => {
@@ -499,6 +512,7 @@ function eventHandler() {
         opacity: 1,
         x: '-50%',
         duration: 1,
+        easy: 'easy-in',
         scrollTrigger: {
           trigger: container,
           start: 'bottom bottom',
