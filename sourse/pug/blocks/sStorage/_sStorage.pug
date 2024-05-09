@@ -8,6 +8,48 @@ mixin sStorage(data)
 					.tabs__btn.swiper-slide(href='#scheme') Склады «КС Керамик»
 					.tabs__btn.swiper-slide(href='#infoForDrivers') Информация для водителей
 			+e.item#storage
+				+e.row.row
+					.col-12.col-md-8.order-md-2
+						+e.map
+							#map
+								script(src='https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=2066e304-cee0-4ed2-9cb2-5f6521d5f96c')
+								script.
+									var myMap;
+
+									ymaps.ready(init);
+
+									function init () {
+										myMap = new ymaps.Map('map', {
+											center:[58.468137,50.064164],
+											clusterize: true,
+											zoom:13.5
+										});
+										//- objectManager = new ymaps.ObjectManager({
+										//- 	clusterize: true,
+										//- 	gridSize: 34,
+										//- 	clusterDisableClickZoom: true
+										//- });
+										//- objectManager.objects.options.set({
+										//- 	iconLayout: "default#image",
+										//- 	iconImageHref: "img/pin-map.png",
+										//- 	iconImageSize: [53, 23],
+										//- 	iconImageOffset: [-5, -5]
+										//- });
+										myMap.behaviors.disable('scrollZoom');
+										if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+											myMap.behaviors.disable('drag');
+										};
+									};
+					.col-12.col-md-4
+						.inner-wrap
+							.title.fw-500 Склады «КС Керамик»
+							.custom-scroll()
+								+distributorItem('Склад основной на заводе', 'Кирово-Чепецкий район, посёлок при станции Бумкомбинат, Кирпичный проезд, 1', '58.467892, 50.063425')
+								+distributorItem('Склад УМИАТ', 'Кирово-Чепецк, квартал Пригородный', '58.527740, 49.984161')
+								+distributorItem('Склад База ОРС', 'г. Кирово-Чепецк, квартал Цепели, 18', '58.517168, 50.004264')
+								+distributorItem('Склад «Славянский мир»', 'Москва, поселение Мосрентген, строительный рынок «Славянский мир»', '55.621473,37.450197')
+								+distributorItem('Склад База ОРС', 'г. Кирово-Чепецк, квартал Цепели, 18', '58.517168, 50.004264')
+								+distributorItem('Склад «Славянский мир»', 'Москва, поселение Мосрентген, строительный рынок «Славянский мир»', '55.621473,37.450197')
 			+e.item#scheme
 				h3 Схемы проезда к складам
 				+b.map-item
@@ -71,3 +113,11 @@ mixin storageFeature(icon, title, text)
 		+icon(icon)
 		.title.fw-500=title
 		p= text
+
+mixin distributorItem(title,address,coords)
+	+b.coord-item
+		+e.title
+			| #{title}
+		+e.item-text
+			+e.info-address.small #[span Адрес]: #{address}
+			+e.info-address.small #[span GPS координаты:] #{coords}

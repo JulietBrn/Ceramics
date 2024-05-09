@@ -3,21 +3,76 @@
 	--sPT: #{rem(0)};
 	// --sPB: #{rem()};
 	// --sTPB: #{rem()};
-	
+  
+  
+	.custom-scroll {
+    height: rem(468);
+    @include media-breakpoint-up(md) {
+      height: calc(100% - 30px);
+    }
+  }
 	&__row{
-		// --bs-gutter-x: #{rem()};
+		--bs-gutter-x: #{rem(0)};
 		// --bs-gutter-y: #{rem()};
 	}
+
 	.section-title{
 		
 	}
 	&__col{
 		
 	}
+  &__map {
+    min-height: rem(360);
+    width: 100%;
+    position: relative;
+    z-index: 6;
+    height: 100%;
+		overflow: hidden;
+		& > * {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
 
   .swiper {
     overflow: visible;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 900%;
+      height: 100%;
+      background: $white;
+    }
+    @include media-breakpoint-up(md) {
+      margin-bottom: rem(40);
+    }
   }
+
+  .inner-wrap {
+    padding-bottom: rem(10);
+    background: $white;
+    height: 100%;
+    max-height: rem(568);
+    overflow: hidden;
+    @include media-breakpoint-up(md) {
+
+      padding: rem(16) rem(16) rem(2);
+    }
+    .title {
+      padding: rem(16);
+      border-bottom: 1px solid $gray-700;
+      @include media-breakpoint-up(md) {
+        padding-bottom: 0 0 rem(8);
+      }
+    }
+  }
+
   .map-item:not(:last-child) {
     margin-bottom: rem(40);
     @include media-breakpoint-up(md) {
@@ -145,5 +200,48 @@
   }
   p {
     margin-bottom: 0;
+  }
+}
+
+.coord-item {
+  background: $white;
+  cursor: pointer;
+  @include mt;
+  &:hover {
+    background: $gray-500;
+  }
+  &__title {
+    font-size: rem(14);
+    font-weight: 600;
+    margin-bottom: rem(8);
+    @include media-breakpoint-up(md) {
+      font-size: rem(16);
+      font-weight: 500;
+    }
+    &:before {
+      content: '';
+      display: inline-block;
+      width: rem(18);
+      height: rem(6);
+      background: $primary;
+      position: relative;
+      transform: translateY(-50%);
+      margin-right: rem(8);
+
+    }
+  }
+  padding: rem(16);
+  @include media-breakpoint-up(md) {
+    padding: rem(16);
+  }
+  span {
+    font-weight: 600;
+  }
+  &__info-address:first-child {
+    margin-bottom: rem(8);
+  }
+  
+  @include media-breakpoint-down(md) {
+    border-bottom: rem(1) solid $gray-200;
   }
 }

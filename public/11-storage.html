@@ -68,6 +68,110 @@
 							</div>
 						</div>
 						<div class="sStorage__item" id="storage">
+							<div class="sStorage__row row">
+								<div class="col-12 col-md-8 order-md-2">
+									<div class="sStorage__map">
+										<div id="map">
+											<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=2066e304-cee0-4ed2-9cb2-5f6521d5f96c"></script>
+											<script>
+												var myMap;
+												
+												ymaps.ready(init);
+												
+												function init () {
+													myMap = new ymaps.Map('map', {
+														center:[58.468137,50.064164],
+														clusterize: true,
+														zoom:13.5
+													});
+													//- objectManager = new ymaps.ObjectManager({
+													//- 	clusterize: true,
+													//- 	gridSize: 34,
+													//- 	clusterDisableClickZoom: true
+													//- });
+													//- objectManager.objects.options.set({
+													//- 	iconLayout: "default#image",
+													//- 	iconImageHref: "img/pin-map.png",
+													//- 	iconImageSize: [53, 23],
+													//- 	iconImageOffset: [-5, -5]
+													//- });
+													myMap.behaviors.disable('scrollZoom');
+													if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+														myMap.behaviors.disable('drag');
+													};
+												};
+											</script>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="inner-wrap">
+										<div class="title fw-500">Склады «КС Керамик»</div>
+										<div class="custom-scroll">
+											<div class="coord-item">
+												<div class="coord-item__title">Склад основной на заводе
+												</div>
+												<div class="coord-item__item-text">
+													<div class="coord-item__info-address small"><span>Адрес</span>: Кирово-Чепецкий район, посёлок при станции Бумкомбинат, Кирпичный проезд, 1
+													</div>
+													<div class="coord-item__info-address small"><span>GPS координаты:</span> 58.467892, 50.063425
+													</div>
+												</div>
+											</div>
+											<div class="coord-item">
+												<div class="coord-item__title">Склад УМИАТ
+												</div>
+												<div class="coord-item__item-text">
+													<div class="coord-item__info-address small"><span>Адрес</span>: Кирово-Чепецк, квартал Пригородный
+													</div>
+													<div class="coord-item__info-address small"><span>GPS координаты:</span> 58.527740, 49.984161
+													</div>
+												</div>
+											</div>
+											<div class="coord-item">
+												<div class="coord-item__title">Склад База ОРС
+												</div>
+												<div class="coord-item__item-text">
+													<div class="coord-item__info-address small"><span>Адрес</span>: г. Кирово-Чепецк, квартал Цепели, 18
+													</div>
+													<div class="coord-item__info-address small"><span>GPS координаты:</span> 58.517168, 50.004264
+													</div>
+												</div>
+											</div>
+											<div class="coord-item">
+												<div class="coord-item__title">Склад «Славянский мир»
+												</div>
+												<div class="coord-item__item-text">
+													<div class="coord-item__info-address small"><span>Адрес</span>: Москва, поселение Мосрентген, строительный рынок «Славянский мир»
+													</div>
+													<div class="coord-item__info-address small"><span>GPS координаты:</span> 55.621473,37.450197
+													</div>
+												</div>
+											</div>
+											<div class="coord-item">
+												<div class="coord-item__title">Склад База ОРС
+												</div>
+												<div class="coord-item__item-text">
+													<div class="coord-item__info-address small"><span>Адрес</span>: г. Кирово-Чепецк, квартал Цепели, 18
+													</div>
+													<div class="coord-item__info-address small"><span>GPS координаты:</span> 58.517168, 50.004264
+													</div>
+												</div>
+											</div>
+											<div class="coord-item">
+												<div class="coord-item__title">Склад «Славянский мир»
+												</div>
+												<div class="coord-item__item-text">
+													<div class="coord-item__info-address small"><span>Адрес</span>: Москва, поселение Мосрентген, строительный рынок «Славянский мир»
+													</div>
+													<div class="coord-item__info-address small"><span>GPS координаты:</span> 55.621473,37.450197
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="sStorage__item" id="scheme">
 							<h3>Схемы проезда к складам</h3>
