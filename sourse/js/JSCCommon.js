@@ -2,6 +2,7 @@
 import "../libs/jquery/jquery.min.js";
 import "../libs/select2/js/select2.min.js";
 import "../libs/select2/js/i18n/ru.js";
+import "../libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js";
 import "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js";
 import "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js";
 import {Fancybox} from "../libs/@fancyapps/ui/fancybox/fancybox.esm.js";
@@ -424,6 +425,12 @@ export default class JSCCommon {
 			});
 		});
 	}
+  static setCustomScrollbar() {
+		$(".custom-scroll").mCustomScrollbar({
+			theme: "minimal-dark",
+			alwaysShowScrollbar: true,
+		});
+	}
 
 	static init() {
 		this.modalCall();
@@ -438,6 +445,7 @@ export default class JSCCommon {
 		this.setScreen();
 		// JSCCommon.toggleShow(".catalog-block__toggle--desctop", '.catalog-block__dropdown');
 		// JSCCommon.animateScroll();
+    this.setCustomScrollbar();
 
 		// JSCCommon.CustomInputFile();
 	}

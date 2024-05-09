@@ -211,37 +211,36 @@ function eventHandler() {
   })
 
 	backDrop.addEventListener('click', closeBrandsWidow);
-	applyBtn.addEventListener('click', closeBrandsWidow);
-
-  brands.addEventListener('touchstart', touchStart);
-  brands.addEventListener('touchmove', touchMove);
-
+	if (applyBtn) {
+    applyBtn.addEventListener('click', closeBrandsWidow);
+    brands.addEventListener('touchstart', touchStart);
+    brands.addEventListener('touchmove', touchMove);
+  }
 
   /* photo filters mobile */
-	const openFiltersBtn = document.querySelectorAll('.open-modal--filters')
+	const openFiltersBtn = document.querySelector('.open-modal--filters')
 	const filters = document.querySelector('#photo-filters')
 
 	function openFiltersWidow() {
-		filters.classList.add('show');
+    filters.classList.add('show');
 		backDrop.classList.add('show');
     backDrop.style = 'z-index: 20;'
 	}
 
 	function closeFiltersWidow() {
-		filters.classList.remove('show');
-		backDrop.classList.remove('show');
+    filters.classList.remove('show');
+    backDrop.classList.remove('show');
     backDrop.style = 'z-index: -1;'
 	}
 
-  openFiltersBtn.forEach((btn) => {
-    btn.addEventListener('click', openFiltersWidow);
-  })
 
-	backDrop.addEventListener('click', closeFiltersWidow);
+  if (openFiltersBtn) {
+    openFiltersBtn.addEventListener('click', openFiltersWidow);
+    backDrop.addEventListener('click', closeFiltersWidow);
 
-  filters.addEventListener('touchstart', touchStart);
-  filters.addEventListener('touchmove', touchMove);
-
+    filters.addEventListener('touchstart', touchStart);
+    filters.addEventListener('touchmove', touchMove);
+  }
   /* video filter mobile */
 	const openVideoFilterBtn = document.querySelectorAll('.open-modal--video')
 	const videoFilter = document.querySelector('#video-filters')
@@ -258,14 +257,16 @@ function eventHandler() {
     backDrop.style = 'z-index: -1;'
 	}
 
-  openVideoFilterBtn.forEach((btn) => {
-    btn.addEventListener('click', openVideoFiltersWidow);
-  })
+  if (openVideoFilterBtn && videoFilter) {
+    openVideoFilterBtn.forEach((btn) => {
+      btn.addEventListener('click', openVideoFiltersWidow);
+    })
+    videoFilter.addEventListener('touchstart', touchStart);
+    videoFilter.addEventListener('touchmove', touchMove);
+  }
 
 	backDrop.addEventListener('click', closeVideoFiltersWidow);
 
-  videoFilter.addEventListener('touchstart', touchStart);
-  videoFilter.addEventListener('touchmove', touchMove);
 
   const popoverTriggerList = document.querySelectorAll(
 		'[data-bs-toggle="popover"]'
@@ -296,12 +297,24 @@ function eventHandler() {
     $(this).addClass('d-none');
   });
 
-$('#photo-filters .filter__title').on('click', function() {
-  $(this).parent('.filter').addClass('show');
-  setTimeout(function() {
-    $('.btn-back').removeClass('d-none');
-  }, 200);
-});
+  $('#photo-filters .filter__title').on('click', function() {
+    if (window.innerWidth < 768) {
+      $(this).parent('.filter').addClass('show');
+      setTimeout(function() {
+        $('.btn-back').removeClass('d-none');
+      }, 200);
+    } else {
+      $(this).parent('.filter').toggleClass('show');
+    }
+  });
+
+  $('#video-filters .filters-wrapper__title').on('click', function() {
+    if (window.innerWidth < 768) {
+      $(this).addClass('show');
+    } else {
+      $(this).toggleClass('show');
+    }
+  });
 
   var sectionTitle = document.querySelector(".headerBlock .section-title");
   if (sectionTitle) {
@@ -332,19 +345,19 @@ $('#photo-filters .filter__title').on('click', function() {
 
   const tabs = document.querySelectorAll('.sGallery .tabs__btn')
   tabs.forEach((tab) => {
-    if (tab) {
-      tab.addEventListener('click', () => {
-        const dataContent = tab.getAttribute('data-content')
+    tab.addEventListener('click', () => {
+      const dataContent = tab.getAttribute('data-content');
+      if (window.innerWidth >= 768) {
         if (dataContent === "photo") {
-          filters.classList.remove('d-none')
-          videoFilter.classList.add('d-none')
+          filters.classList.remove('d-md-none');
+          videoFilter.classList.add('d-md-none');
         }
         if (dataContent === "video") {
-          filters.classList.add('d-none')
-          videoFilter.classList.remove('d-none')
+          filters.classList.add('d-md-none');
+          videoFilter.classList.remove('d-md-none');
         }
-      })
-    }
+      }
+  });
   })
 }
 if (document.readyState !== "loading") {
