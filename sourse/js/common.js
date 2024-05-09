@@ -394,6 +394,119 @@ function eventHandler() {
       }
   });
   })
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray('#sContentOven .parallax-container').forEach((section, i) => {
+    section.bg = section.querySelector(".parallax-bg");
+    section.bg.style.backgroundImage = `url("../img/card-sq-${i + 1}.png")`;
+    if(section.bg) {
+      section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
+
+      gsap.to(section.bg, {
+        backgroundPosition: `50% ${-innerHeight / 2 + 10}`,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          scrub: true,
+        }
+      });
+    }
+
+  //   else {
+  //     section.bg.style.backgroundPosition = "50% 0px";
+
+  //     gsap.to(section.bg, {
+  //       backgroundPosition: `50% ${-innerHeight / 2 + 10}px`,
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         trigger: section,
+  //         start: "top top",
+  //         scrub: true
+  //       }
+  //     });
+  // }
+  });
+  // Setup
+  // let scroller = document.querySelector(".scroller"),
+  // scrollerGSAP = document.querySelector("body"),
+  // tween;
+
+  // let bodyScrollBar = window.Scrollbar;
+  // let bodyScrollBarY = 0;
+  // const bodyScrollBar = Scrollbar.init(scroller, { damping: 0.1, delegateTo: document, alwaysShowTracks: true });
+  // ScrollTrigger.scrollerProxy(".scroller", {
+  //   scrollTop(value) {
+  //     if (arguments.length) {
+  //       bodyScrollBar.scrollTop = value;
+  //     }
+  //     return bodyScrollBar.scrollTop;
+  //   }
+  // });
+  
+  // bodyScrollBar.addListener(ScrollTrigger.update);
+
+  // ScrollTrigger.defaults({ scroller: scroller });
+
+  gsap.utils.toArray('.sBlackList .parallax-container').forEach((section, i) => {
+    section.bg = section.querySelector(".parallax-bg");
+
+    if(section.bg) {
+      section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
+
+      gsap.to(section.bg, {
+        backgroundPosition: `50% ${-innerHeight / 2 + 10}`,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          scrub: true,
+        }
+      });
+    }
+
+  //   else {
+  //     section.bg.style.backgroundPosition = "50% 0px";
+
+  //     gsap.to(section.bg, {
+  //       backgroundPosition: `50% ${-innerHeight / 2 + 10}px`,
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         trigger: section,
+  //         start: "top top",
+  //         scrub: true
+  //       }
+  //     });
+  // }
+  });
+
+  gsap.to('.container-wrapper', {
+    opacity: 1,
+    x: '-50%',
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.parallax-container',
+      start: 'bottom bottom',
+      toggleActions: 'play none none reverse',
+    }
+  });
+
+  
+  gsap.utils.toArray('#sContentOven .parallax-container').forEach((container) => {
+    const textCenters = container.querySelectorAll('.text-center');
+    
+    textCenters.forEach((textCenter) => {
+      gsap.to(textCenter, {
+        opacity: 1,
+        x: '-50%',
+        duration: 1,
+        scrollTrigger: {
+          trigger: container,
+          start: 'bottom bottom',
+          toggleActions: 'play none none reverse',
+        }
+      });
+    });
+  });
 }
 if (document.readyState !== "loading") {
 	eventHandler();

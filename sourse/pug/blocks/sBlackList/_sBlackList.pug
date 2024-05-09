@@ -1,6 +1,6 @@
 mixin sBlackList(data)
 	// start sBlackList
-	+b.SECTION.sBlackList.section#sBlackList&attributes(attributes)
+	+b.SECTION.sBlackList.section#sBlackList&attributes(attributes).scroller
 		.container
 			+b.section-title
 				h4 Неофициальные дилеры
@@ -29,9 +29,10 @@ mixin sBlackList(data)
 							td Кировская область
 							td #[span «Кирпич 43»]<br>ул. Сурикова, 14, корпус 1
 							td www.кирпич43.рф
-
-		+e.img-wrap.bg-wrap.bg
-			+img(`img/bg-blacklist.png`, 'bg').img
+		.parallax-container
+			.parallax-bg
+			
+				//- +img(`img/bg-blacklist.png`, 'bg').img
 			.container-wrapper
 				+e.brands-wrap
 					+b.title-item
