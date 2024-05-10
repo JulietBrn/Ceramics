@@ -3,6 +3,7 @@
 	// --sPT: #{rem()};
 	--sPB: #{rem(48)};
 	// --sTPB: #{rem()};
+  position: relative;
 	&__row{
 		// --bs-gutter-x: #{rem()};
 		--bs-gutter-y: var(--bs-gutter-x);
@@ -41,6 +42,7 @@
   }
 
 
+
   &--empty {
     --sPT: #{rem(0)};
     --sPB: #{rem(48)};
@@ -61,11 +63,6 @@
     }
     h4, p {
       margin-bottom: 0;
-    }
-    .btn {
-      @include media-breakpoint-down(md) {
-        width: 100%;
-      }
     }
   }
 
@@ -156,5 +153,31 @@
 
   .product-item:nth-child(20) {
     grid-row: 7 / span 2;
+  }
+}
+
+.btn-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  background: $white;
+  padding: rem(16) 0;
+  width: 100%;
+  @include media-breakpoint-up(md) {
+    bottom: 50vh;
+    right: -100px;
+    transform: rotate(-90deg);
+    max-width: none;
+    width: max-content;
+    background: transparent;
+    padding: 0;
+  }
+}
+
+.btn-price {
+  .icon {
+    fill: none;
+    stroke: $white;
   }
 }

@@ -11,6 +11,10 @@ mixin product-item(i, brand, brandlight, t)
 mixin sCatalog()
 	// start sCatalog
 	+b.sCatalog.section&attributes(attributes)
+		.btn-container
+			.container
+				.btn.btn-price.btn-primary.btn-reverse(href='#') Скачать прайс-лист
+					+icon('download')
 		.container
 			+e.catalog-container
 				+product-item(1, 'konigstein-dark','konigstein', 'Гессен Морион').large
@@ -18,21 +22,21 @@ mixin sCatalog()
 				+product-item(3, 'edelhaus','edelhaus-light', 'Гессен Морион')
 				+product-item(4, 'edelhaus','edelhaus-light', 'Кельн')
 				+product-item(5, 'modformat-dark','modformat', 'Мангейм Карбон')
-				+product-item(6,  'konigstein-dark','konigstein', 'Мангейм Шварц')
-				+product-item(7,  'edelhaus','edelhaus-light', 'Марксбург Белый')
-				+product-item(8,  'edelhaus','edelhaus-light', 'Марксбург Кварц')
-				+product-item(9,  'modformat-dark','modformat',  'Марксбург Серый')
-				+product-item(10,  'modformat-dark','modformat',  'Мангейм Сепия')
-				+product-item(11,  'modformat-dark','modformat',  'Оберхоф')
-				+product-item(12,  'konigstein-dark','konigstein', 'Гессен Вайн')
-				+product-item(13,  'edelhaus','edelhaus-light', 'Гессен Морион')
-				+product-item(14,  'edelhaus','edelhaus-light', 'Кельн')
-				+product-item(15,  'modformat-dark','modformat', 'Мангейм Карбон')
-				+product-item(16,  'konigstein-dark','konigstein', 'Мангейм Шварц')
-				+product-item(17,  'edelhaus','edelhaus-light', 'Марксбург Белый')
-				+product-item(18,  'edelhaus','edelhaus-light', 'Марксбург Кварц')
-				+product-item(19,  'modformat-dark','modformat', 'Марксбург Серый')
-				+product-item(20,  'modformat-dark','modformat', 'Уэльс Грау')
+				+product-item(6,	'konigstein-dark','konigstein', 'Мангейм Шварц')
+				+product-item(7,	'edelhaus','edelhaus-light', 'Марксбург Белый')
+				+product-item(8,	'edelhaus','edelhaus-light', 'Марксбург Кварц')
+				+product-item(9,	'modformat-dark','modformat',	'Марксбург Серый')
+				+product-item(10,	'modformat-dark','modformat',	'Мангейм Сепия')
+				+product-item(11,	'modformat-dark','modformat',	'Оберхоф')
+				+product-item(12,	'konigstein-dark','konigstein', 'Гессен Вайн')
+				+product-item(13,	'edelhaus','edelhaus-light', 'Гессен Морион')
+				+product-item(14,	'edelhaus','edelhaus-light', 'Кельн')
+				+product-item(15,	'modformat-dark','modformat', 'Мангейм Карбон')
+				+product-item(16,	'konigstein-dark','konigstein', 'Мангейм Шварц')
+				+product-item(17,	'edelhaus','edelhaus-light', 'Марксбург Белый')
+				+product-item(18,	'edelhaus','edelhaus-light', 'Марксбург Кварц')
+				+product-item(19,	'modformat-dark','modformat', 'Марксбург Серый')
+				+product-item(20,	'modformat-dark','modformat', 'Уэльс Грау')
 			+e.btn.btn.btn-secondary(href='#') Показать еще
 
 	// end sCatalog
