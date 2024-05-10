@@ -1,41 +1,38 @@
-mixin product-item(i, t, p ,pr)
-	+b.ARTICLE.product-item
-		+e.img-wrap(href="#")
-			//- если надо картинку по центру  вывести использовать обертку .img-wrap-center  - если нет- убираем
-			.img-wrap-center 
-				+img(`img/prod-${i}.jpg`)
+mixin product-item(i, brand, brandlight, t)
+	+b.ARTICLE.product-item(href='#').zoom-animate
+		+e.img-wrap.bg-wrap
+			+img(`img/prod-${i}.png`).picture-bg
 		+e.caption
+			+img(src=`img/${brand}.svg`, alt="").brand.d-md-none
+			+img(src=`img/${brandlight}.svg`, alt="").brand.d-none.d-md-block
 			+e.title!= t
-			+e.text!= p
-			+e.price!= pr
-			+e.btn(href='#')
 	// /.product-item
 
-mixin sCatalog(h2)
+mixin sCatalog()
 	// start sCatalog
 	+b.sCatalog.section&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 sCatalog
-				p Выкупаем проблемные автомобили в день обращения
-
-			+e.row.row
-				- const wrapClass="col-3"
-				+e.col(class= wrapClass)
-					+product-item(`1`,``,``,``) 
-				+e.col(class= wrapClass)
-					+product-item(`2`,``,``,``) 
-				+e.col(class= wrapClass)
-					+product-item(`3`,``,``,``) 
-				+e.col(class= wrapClass)
-					+product-item(`4`,``,``,``) 
-				+e.col(class= wrapClass)
-					+product-item(`5`,``,``,``) 
-				+e.col(class= wrapClass)
-					+product-item(`6`,``,``,``) 
-				+e.col(class= wrapClass)
-					+product-item(`7`,``,``,``) 
-				+e.col(class= wrapClass)
-					+product-item(`8`,``,``,``) 
+			+e.catalog-container
+				+product-item(1, 'konigstein-dark','konigstein', 'Гессен Морион').large
+				+product-item(2, 'konigstein-dark','konigstein', 'Гессен Вайн')
+				+product-item(3, 'edelhaus','edelhaus-light', 'Гессен Морион')
+				+product-item(4, 'edelhaus','edelhaus-light', 'Кельн')
+				+product-item(5, 'modformat-dark','modformat', 'Мангейм Карбон')
+				+product-item(6,  'konigstein-dark','konigstein', 'Мангейм Шварц')
+				+product-item(7,  'edelhaus','edelhaus-light', 'Марксбург Белый')
+				+product-item(8,  'edelhaus','edelhaus-light', 'Марксбург Кварц')
+				+product-item(9,  'modformat-dark','modformat',  'Марксбург Серый')
+				+product-item(10,  'modformat-dark','modformat',  'Мангейм Сепия')
+				+product-item(11,  'modformat-dark','modformat',  'Оберхоф')
+				+product-item(12,  'konigstein-dark','konigstein', 'Гессен Вайн')
+				+product-item(13,  'edelhaus','edelhaus-light', 'Гессен Морион')
+				+product-item(14,  'edelhaus','edelhaus-light', 'Кельн')
+				+product-item(15,  'modformat-dark','modformat', 'Мангейм Карбон')
+				+product-item(16,  'konigstein-dark','konigstein', 'Мангейм Шварц')
+				+product-item(17,  'edelhaus','edelhaus-light', 'Марксбург Белый')
+				+product-item(18,  'edelhaus','edelhaus-light', 'Марксбург Кварц')
+				+product-item(19,  'modformat-dark','modformat', 'Марксбург Серый')
+				+product-item(20,  'modformat-dark','modformat', 'Уэльс Грау')
+			+e.btn.btn.btn-secondary(href='#') Показать еще
 
 	// end sCatalog

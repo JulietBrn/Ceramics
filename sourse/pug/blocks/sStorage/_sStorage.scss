@@ -227,6 +227,11 @@
   }
 
   tbody {
+    @include media-breakpoint-up(md) {
+      tr:last-child {
+        border-bottom: none;
+      }
+    }
     @include media-breakpoint-down(md) {
       display: block;
       tr {
@@ -234,6 +239,9 @@
         padding-top: rem(8);
         padding-bottom: rem(8);
         border-bottom: 1px solid $gray-600;
+        &:last-child {
+          border-bottom: none;
+        }
       }
       td {
         display: flex;
@@ -246,29 +254,25 @@
         margin-bottom: 1rem;
       }
     }
-    
   }
+
   @include media-breakpoint-down(md) {
     [data-title] {
       font-size: .75rem;
       line-height: 1.33;
       position: relative;
       padding: rem(2);
-      background: $white;
       &::before {
         content: attr(data-title);
         font-size: .75rem;
         line-height: 1.33;
       }
-      &::after {
-      //   content: '';
-      //   position: absolute;
-      //   bottom: -2px;
-      //   left: 0;
-      //   width: 100%;
-      //   height: 1px;
-      //   background: $gray-600;
-      }
+    }
+    .dash {
+      flex: 1 0;
+      border-bottom: 1px solid $gray-500;
+      height: 1em;
+      margin: 0 .4em;
     }
   }
 
@@ -345,58 +349,8 @@
   }
 }
 
-.feature-line {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: rem(8);
-  @include media-breakpoint-up(md) {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-bottom: 0;
-    align-items: center;
-  }
-  &__header {
-    @include media-breakpoint-up(md) {
-      font-weight: 600;
-      // padding: rem(12) 0;
-      min-height: rem(58);
-      height: 100%;
-    }
-  }
-
-  &__dash {
-    flex: 1 0;
-    border-bottom: 1px solid $gray-600;
-    height: 1em;
-    margin: 0 .4em;
-    @include media-breakpoint-up(md) {
-      display: none;
-    }
-  }
-  .small {
-    @include media-breakpoint-up(md) {
-      padding: rem(12) rem(4);
-      border-bottom: 1px solid $gray-600;
-    }
-  }
-  @include media-breakpoint-down(md) {
-    &:first-child {
-      .feature-line__header,
-      .feature-line__dash {
-        display: none;
-      }
-      .small {
-        font-weight: 600;
-        font-size: rem(16);
-        margin-bottom: rem(16);
-      }
-    }
-  }
-}
-
 .item-top {
   position: relative;
-  // background: green;
   &:before {
     content: "";
     position: absolute;
@@ -417,13 +371,14 @@
     }
   }
   .icons-wrap {
-    // display: grid;
-    // grid-template-columns: repeat(2,1fr);
-    // gap: rem(60);
-    
     margin-bottom: rem(16);
     .brand {
       margin-right: 10%;
+    }
+
+    @include media-breakpoint-up(md) {
+      display: flex;
+      justify-content: flex-end;
     }
   }
   .h5 {
