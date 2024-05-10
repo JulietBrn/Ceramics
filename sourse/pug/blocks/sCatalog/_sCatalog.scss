@@ -40,6 +40,36 @@
     }
   }
 
+
+  &--empty {
+    --sPT: #{rem(0)};
+    --sPB: #{rem(48)};
+    @include media-breakpoint-up(md) {
+      --sPB: #{rem(80)};
+    }
+    .row {
+      padding: rem(16) rem(8);
+      padding-bottom: rem(32);
+      background: $white;
+      max-width: 90%;
+      margin: 0 auto;
+      min-height: rem(256);
+      @include media-breakpoint-up(md) {
+        padding: rem(56) rem(40);
+        max-width: none;
+      }
+    }
+    h4, p {
+      margin-bottom: 0;
+    }
+    .btn {
+      @include media-breakpoint-down(md) {
+        width: 100%;
+      }
+    }
+  }
+
+
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}

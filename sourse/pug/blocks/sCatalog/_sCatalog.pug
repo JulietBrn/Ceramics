@@ -36,3 +36,15 @@ mixin sCatalog()
 			+e.btn.btn.btn-secondary(href='#') Показать еще
 
 	// end sCatalog
+
+
+
+mixin sCatalogEmpty()
+	// start sCatalog
+	+b.sCatalog--empty.section&attributes(attributes)
+		.container
+			+e.row.row
+				.col-12.col-md-6
+					+b.title-item: h4 Извините, по выбранным параметрам ничего не найдено
+				.col-12.col-md-6
+					p Попробуйте изменить или сократить количество фильтров.
