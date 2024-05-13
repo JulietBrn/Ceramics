@@ -1,9 +1,9 @@
-mixin sThanks(data)
+mixin sThanks(title, text, btn)
 	// start sThanks
 	+b.SECTION.sThanks.section#sThanks&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 sThanks
-				
-			+e.row.row
+			+e.wrap
+				h4= title
+				p= text
+				.btn.btn-primary(href='#')= btn
 	// end sThanks

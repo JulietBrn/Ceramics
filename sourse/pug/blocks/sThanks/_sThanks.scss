@@ -1,9 +1,22 @@
 // start .sThanks
 .sThanks {
-	// --sPT: #{rem()};
-	// --sPB: #{rem()};
-	// --sTPB: #{rem()};
-	
+  --sPT: #{rem(124)};
+	--sPB: #{rem(64)};
+	// --sTPB: ;
+	@include media-breakpoint-up(md) {
+    --sPT: #{rem(168)};
+		--sPB: #{rem(152)};
+	}
+
+	&__wrap {
+		text-align: center;
+		max-width: rem(508);
+		margin-right: auto;
+		margin-left: auto;
+    p {
+      margin-bottom: rem(24);
+    }
+	}
 	&__row{
 		// --bs-gutter-x: #{rem()};
 		// --bs-gutter-y: #{rem()};
@@ -17,6 +30,13 @@
 	&__item{
 		
 	}
+
+	@include media-breakpoint-down(md) {
+    .btn {
+    width: 100%;
+  }
+  }
+  
 
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
