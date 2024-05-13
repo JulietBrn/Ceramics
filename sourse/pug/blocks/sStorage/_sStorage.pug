@@ -20,10 +20,21 @@ mixin sStorage(data)
 
 									function init () {
 										myMap = new ymaps.Map('map', {
-											center:[58.468137,50.064164],
+											center:[58.468137, 50.064164],
 											clusterize: true,
 											zoom:13.5
 										});
+										var customIcon = 'img/svg/mapIcon.png';
+										var placemark = new ymaps.Placemark([58.468137, 50.064164], {
+											hintContent: 'Москва',
+											balloonContent: 'Столица России'
+										}, {
+											iconLayout: 'default#image', // Устанавливаем тип макета иконки как изображение
+											iconImageHref: 'img/svg/mapIcon.png', // Устанавливаем путь к кастомной иконке
+											iconImageSize: [30, 30], // Размеры иконки
+											iconImageOffset: [-15, -15] // Смещение иконки
+									});
+										myMap.geoObjects.add(placemark);
 										//- objectManager = new ymaps.ObjectManager({
 										//- 	clusterize: true,
 										//- 	gridSize: 34,
@@ -61,7 +72,8 @@ mixin sStorage(data)
 							+icon('download')
 							| Скачать изображение
 					+e.img-wrap.bg-wrap.map-wrap
-						+img(`img/map-bg-4.png`, 'bg')
+						+img(`img/map-bg-4.png`, 'bg').d-md-none
+						+img(`img/map-bg-4-desctop.png`, 'bg').d-none.d-md-block
 					p Въезд в Кирово-Чепец, проехать прямо до поворота на улица Володарскова, завернуть направо, через 900 метров повернуть направо на улицу Юбилейная, направляйтесь прямо по дороге
 				+b.map-item
 					.title.fw-500.title-map Склад база ОРС
@@ -74,7 +86,8 @@ mixin sStorage(data)
 							+icon('download')
 							| Скачать изображение
 					+e.img-wrap.bg-wrap.map-wrap
-						+img(`img/map-bg-3.png`, 'bg')
+						+img(`img/map-bg-3.png`, 'bg').d-md-none
+						+img(`img/map-bg-3-desctop.png`, 'bg').d-none.d-md-block
 					p Въезд в Кирово-Чепец, проехать прямо и повернуть до моста направо, 1 км проехать прямо, повернуть направо и через 20 метров повернуть налево
 				+b.map-item
 					.title.fw-500.title-map Склад УМИАТ
@@ -85,7 +98,8 @@ mixin sStorage(data)
 							+icon('download')
 							| Скачать изображение
 					+e.img-wrap.bg-wrap.map-wrap
-						+img(`img/map-bg-2.png`, 'bg')
+						+img(`img/map-bg-2.png`, 'bg').d-md-none
+						+img(`img/map-bg-2-desctop.png`, 'bg').d-none.d-md-block
 					p Въезд в Кирово-Чепец, повернуть на Производственную улицу, проехать прямо и повернуть направо, ориентир желтые ворота
 				+b.map-item
 					.title.fw-500.title-map Склад «Славянский мир»
@@ -96,7 +110,8 @@ mixin sStorage(data)
 							+icon('download')
 							| Скачать изображение
 					+e.img-wrap.bg-wrap.map-wrap
-						+img(`img/map-bg-1.png`, 'bg')
+						+img(`img/map-bg-1.png`, 'bg').d-md-none
+						+img(`img/map-bg-1-desctop.png`, 'bg').d-none.d-md-block
 					p Оптово-розничная точка продажи строительный рынок «Славянский мир. Тополёк»: Москва, поселение Мосрентген, Проектируемый проезд № 134. строительный рынок «Славянский мир», место ТН-11.
 			+e.item#infoForDrivers
 				h3 Информация для водителей

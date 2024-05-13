@@ -440,17 +440,15 @@
 										clusterize: true,
 										zoom:13.5
 									});
-									//- objectManager = new ymaps.ObjectManager({
-									//- 	clusterize: true,
-									//- 	gridSize: 34,
-									//- 	clusterDisableClickZoom: true
-									//- });
-									//- objectManager.objects.options.set({
-									//- 	iconLayout: "default#image",
-									//- 	iconImageHref: "img/pin-map.png",
-									//- 	iconImageSize: [53, 23],
-									//- 	iconImageOffset: [-5, -5]
-									//- });
+									var customIcon = 'img/pin-map.svg';
+									var placemark = new ymaps.Placemark([58.468064, 50.064164], {
+									}, {
+											iconLayout: 'default#image',
+											iconImageHref: customIcon,
+											iconImageSize: [55, 24],
+											iconImageOffset: [-40, -40]
+									});
+									myMap.geoObjects.add(placemark);
 									myMap.behaviors.disable('scrollZoom');
 									if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 										myMap.behaviors.disable('drag');

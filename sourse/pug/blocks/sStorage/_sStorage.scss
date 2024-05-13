@@ -71,7 +71,8 @@
       padding: rem(16);
       border-bottom: 1px solid $gray-700;
       @include media-breakpoint-up(md) {
-        padding-bottom: 0 0 rem(8);
+        padding: 0 0 rem(8);
+        border: none;
       }
     }
   }

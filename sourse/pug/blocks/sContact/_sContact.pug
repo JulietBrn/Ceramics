@@ -36,34 +36,32 @@ mixin sContact()
 					+e.btn.btn.btn-primary(href='#') Написать
 		+e.map
 			#map
-					script(src='https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=2066e304-cee0-4ed2-9cb2-5f6521d5f96c')
-					script.
-						var myMap;
+				script(src='https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=2066e304-cee0-4ed2-9cb2-5f6521d5f96c')
+				script.
+					var myMap;
 
-						ymaps.ready(init);
+					ymaps.ready(init);
 
-						function init () {
-							myMap = new ymaps.Map('map', {
-								center:[58.468137,50.064164],
-								clusterize: true,
-								zoom:13.5
-							});
-							//- objectManager = new ymaps.ObjectManager({
-							//- 	clusterize: true,
-							//- 	gridSize: 34,
-							//- 	clusterDisableClickZoom: true
-							//- });
-							//- objectManager.objects.options.set({
-							//- 	iconLayout: "default#image",
-							//- 	iconImageHref: "img/pin-map.png",
-							//- 	iconImageSize: [53, 23],
-							//- 	iconImageOffset: [-5, -5]
-							//- });
-							myMap.behaviors.disable('scrollZoom');
-							if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-								myMap.behaviors.disable('drag');
-							};
+					function init () {
+						myMap = new ymaps.Map('map', {
+							center:[58.468137,50.064164],
+							clusterize: true,
+							zoom:13.5
+						});
+						var customIcon = 'img/pin-map.svg';
+						var placemark = new ymaps.Placemark([58.468064, 50.064164], {
+						}, {
+								iconLayout: 'default#image',
+								iconImageHref: customIcon,
+								iconImageSize: [55, 24],
+								iconImageOffset: [-40, -40]
+						});
+						myMap.geoObjects.add(placemark);
+						myMap.behaviors.disable('scrollZoom');
+						if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+							myMap.behaviors.disable('drag');
 						};
+					};
 	// end sContact
 
 
@@ -118,32 +116,30 @@ mixin sContactBranch()
 								| Скачать реквизиты
 		+e.map
 			#map
-					script(src='https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=2066e304-cee0-4ed2-9cb2-5f6521d5f96c')
-					script.
-						var myMap;
+				script(src='https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=2066e304-cee0-4ed2-9cb2-5f6521d5f96c')
+				script.
+					var myMap;
 
-						ymaps.ready(init);
+					ymaps.ready(init);
 
-						function init () {
-							myMap = new ymaps.Map('map', {
-								center:[58.468137,50.064164],
-								clusterize: true,
-								zoom:13.5
-							});
-							//- objectManager = new ymaps.ObjectManager({
-							//- 	clusterize: true,
-							//- 	gridSize: 34,
-							//- 	clusterDisableClickZoom: true
-							//- });
-							//- objectManager.objects.options.set({
-							//- 	iconLayout: "default#image",
-							//- 	iconImageHref: "img/pin-map.png",
-							//- 	iconImageSize: [53, 23],
-							//- 	iconImageOffset: [-5, -5]
-							//- });
-							myMap.behaviors.disable('scrollZoom');
-							if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-								myMap.behaviors.disable('drag');
-							};
+					function init () {
+						myMap = new ymaps.Map('map', {
+							center:[58.468137,50.064164],
+							clusterize: true,
+							zoom:13.5
+						});
+						var customIcon = 'img/pin-map.svg';
+						var placemark = new ymaps.Placemark([58.468064, 50.064164], {
+						}, {
+								iconLayout: 'default#image',
+								iconImageHref: customIcon,
+								iconImageSize: [55, 24],
+								iconImageOffset: [-40, -40]
+						});
+						myMap.geoObjects.add(placemark);
+						myMap.behaviors.disable('scrollZoom');
+						if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+							myMap.behaviors.disable('drag');
 						};
+					};
 	// end sContact
