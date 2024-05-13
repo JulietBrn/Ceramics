@@ -384,21 +384,21 @@ function eventHandler() {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.utils.toArray('#sContentOven .parallax-container').forEach((section, i) => {
-    section.bg = section.querySelector(".parallax-bg");
-    section.bg.style.backgroundImage = `url("img/card-sq-${i + 1}.png")`;
-    if(section.bg) {
-      section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
+  // gsap.utils.toArray('#sContentOven .parallax-container').forEach((section, i) => {
+  //   section.bg = section.querySelector(".parallax-bg");
+  //   section.bg.style.backgroundImage = `url("img/card-sq-${i + 1}.png")`;
+  //   if(section.bg) {
+  //     section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
 
-      gsap.to(section.bg, {
-        backgroundPosition: `50% ${-innerHeight / 2 + 10}`,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          scrub: true,
-        }
-      });
-    }
+  //     gsap.to(section.bg, {
+  //       backgroundPosition: `50% ${-innerHeight / 2 + 10}`,
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         trigger: section,
+  //         scrub: true,
+  //       }
+  //     });
+  //   }
 
   //   else {
   //     section.bg.style.backgroundPosition = "50% 0px";
@@ -413,7 +413,7 @@ function eventHandler() {
   //       }
   //     });
   // }
-  });
+  // });
   // Setup
   // let scroller = document.querySelector(".scroller"),
   // scrollerGSAP = document.querySelector("body"),
@@ -435,21 +435,21 @@ function eventHandler() {
 
   // ScrollTrigger.defaults({ scroller: scroller });
 
-  gsap.utils.toArray('.sBlackList .parallax-container').forEach((section, i) => {
-    section.bg = section.querySelector(".parallax-bg");
+  // gsap.utils.toArray('.sBlackList .parallax-container').forEach((section, i) => {
+  //   section.bg = section.querySelector(".parallax-bg");
 
-    if(section.bg) {
-      section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
+  //   if(section.bg) {
+  //     section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
 
-      gsap.to(section.bg, {
-        backgroundPosition: `50% ${-innerHeight / 2 + 10}`,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          scrub: true,
-        }
-      });
-    }
+  //     gsap.to(section.bg, {
+  //       backgroundPosition: `50% ${-innerHeight / 2 + 10}`,
+  //       ease: "none",
+  //       scrollTrigger: {
+  //         trigger: section,
+  //         scrub: true,
+  //       }
+  //     });
+  //   }
 
   //   else {
   //     section.bg.style.backgroundPosition = "50% 0px";
@@ -464,7 +464,7 @@ function eventHandler() {
   //       }
   //     });
   // }
-  });
+  // });
 
   gsap.to('.container-wrapper', {
     opacity: 1,
@@ -491,7 +491,7 @@ function eventHandler() {
   // });
 
   
-  gsap.utils.toArray('#sContentOven .parallax-container').forEach((container) => {
+  gsap.utils.toArray('#sContentOven .card-square-item').forEach((container) => {
     const textCenters = container.querySelectorAll('.text-center');
     
     textCenters.forEach((textCenter) => {

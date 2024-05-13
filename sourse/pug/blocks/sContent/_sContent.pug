@@ -122,8 +122,7 @@ mixin cardBrand(i, icon, text)
 				+e.btn.btn.btn-primary Перейти в каталог
 
 mixin cardSquare(i, text, icon)
-	+b.card-square-item.small-dark.parallax-container
-		.parallax-bg.bg
+	+b.card-square-item.small-dark(style=`background-image:url(img/card-sq-${i}.png);`)
 		.h2.text-center!= text
 		+img(src=`img/${icon}.svg`, alt="").brand
 

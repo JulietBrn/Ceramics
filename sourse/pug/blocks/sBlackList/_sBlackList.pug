@@ -29,10 +29,7 @@ mixin sBlackList(data)
 							td Кировская область
 							td #[span «Кирпич 43»]<br>ул. Сурикова, 14, корпус 1
 							td www.кирпич43.рф
-		.parallax-container
-			.parallax-bg
-			
-				//- +img(`img/bg-blacklist.png`, 'bg').img
+		.parallax-container(style=`background-image:url(img/bg-blacklist.png);`)
 			.container-wrapper
 				+e.brands-wrap
 					+b.title-item

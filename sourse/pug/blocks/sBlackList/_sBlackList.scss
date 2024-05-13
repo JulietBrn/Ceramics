@@ -196,6 +196,10 @@
 .parallax-container {
   position: relative;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 .parallax-bg {
   position: absolute;
