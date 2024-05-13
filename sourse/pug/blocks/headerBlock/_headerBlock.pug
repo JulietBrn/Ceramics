@@ -7,4 +7,13 @@ mixin headerBlock(title, img)
 			+b.section-title
 				h1!= title
 
-	// end headerBlock header-bg-brick
+	// end headerBlock
+
+
+mixin headerBlock2(img)
+	// start headerBlock
+	+b.headerBlock--white.headerBlock--no-title.section#headerBlock&attributes(attributes)
+		+e.img-wrap.bg-wrap.bg
+			+img(`img/header-bg-${img}.png`, 'bg')
+
+	// end headerBlock

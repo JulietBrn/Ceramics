@@ -155,6 +155,11 @@
   h4 {
     padding-bottom: rem(19);
   }
+  &--white {
+    h2, h3, h4 {
+      color: $white;
+    }
+  }
 }
 
 

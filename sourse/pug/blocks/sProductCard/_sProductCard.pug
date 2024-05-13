@@ -1,0 +1,61 @@
+mixin sFeatures(data)
+	// start sFeatures
+	+b.SECTION.sFeatures.section#sFeatures&attributes(attributes)
+		.container
+			+e.header
+				.btn-link.btn-reverse.small(href='#') В каталог
+					+icon('arrow-back')
+				+img(src=`img/konigstein-dark-1.svg`, alt="").brand
+			h1 Гессен Морион
+			+b.filter
+				+e.title.small.fw-600 Формат
+				+e.wrap.small
+					.custom-scroll()
+						+in-c("radio", 'Одинарный (1НФ)')
+						+in-c("radio", 'Евроформат (0,7НФ)')(checked)
+			+e.info-btns
+				+b.price 
+					+e.item.small Цена розница
+					+e.item.fw-500  95 ₽/шт
+					+e.item.fw-500 4 452 ₽/м2
+				+e.btn.btn.btn-primary.btn-reverse(href='#', target='_blank') Заказать
+				+e.btn.btn.btn-dark.btn-reverse(href='#', target='_blank') Характеристики
+					+icon('download')
+				+e.btn.btn.btn-dark.btn-reverse(href='#', target='_blank') Сертификация продукции
+					+icon('download')
+
+mixin feature-line(title, value)
+	+b.feature-line.small
+		+e.header!= title
+		+e.dash
+		+e.span!= value
+
+mixin sProductCard(data)
+	// start sProductCard
+	+b.SECTION.sProductCard.section#sProductCard&attributes(attributes)
+		.container
+			+e.row.row
+				+e.col.col-md-6
+					+b.title-item--white
+						h2 Основные характеристики
+				+e.col.col-md-6
+						+feature-line('Размер ДхШхВ, мм', '250х120х65')
+						+feature-line('Позиция склад/заказ', 'заказная')
+						+feature-line('Минимальный объем заказа, шт', '60000')
+			+e.slider--js
+				.swiper-wrapper
+					+e.slide.swiper-slide
+						+e.img-wrap.bg-wrap
+							+img("img/product-card.png", 'bg')
+					+e.slide.swiper-slide
+						+e.img-wrap.bg-wrap
+							+img("img/product-card.png", 'bg')
+					+e.slide.swiper-slide
+						+e.img-wrap.bg-wrap
+							+img("img/product-card.png", 'bg')
+				+arrow()
+				+e.btn.btn.btn-primary.d-none.d-md-block(href='#') Галерея объектов
+	// end sProductCard
+
+		+e.btn.btn.btn-primary.btn-reverse(href='#', target='_blank') Скачать инструкцию
+			+icon('download')

@@ -83,6 +83,15 @@
     }
   }
 
+  &--no-title {
+    .headerBlock__img-wrap {
+      aspect-ratio: 360 / 320;
+      @include media-breakpoint-up(md) {
+        aspect-ratio: 1280 / 720;
+      }
+    }
+  }
+
 	@include media-breakpoint-up(xl) {}
 
 	@include media-breakpoint-up(lg) {}

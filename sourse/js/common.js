@@ -68,6 +68,13 @@ function eventHandler() {
 		slideToClickedSlide: true,
 		// freeModeMomentum: true,
 	});
+	const swiperProductCard = new Swiper(".sProductCard__slider--js", {
+		...defaultSl,
+		slidesPerView: 1,
+		touchRatio: 0.2,
+		slideToClickedSlide: true,
+		// freeModeMomentum: true,
+	});
   const swiperTabs = new Swiper('.tabs-slider--js', {
 		slidesPerView: 'auto',
 		freeMode: true,

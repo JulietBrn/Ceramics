@@ -562,7 +562,8 @@ h4, .h4 {
 }
 
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-dark {
   position: relative;
   z-index: 1;
   display: inline-block;
@@ -596,6 +597,34 @@ h4, .h4 {
   --bs-btn-hover-border-color: #{$primary};
   &:before {
     background: $red-400;
+  }
+}
+
+.btn-dark {
+  // --bs-btn-color: #fff;
+  --bs-btn-bg: #{$gray-400};
+  --bs-btn-border-color: #{$gray-400};
+  --bs-btn-hover-border-color:  #{$gray-400};
+  // --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg:  #{$gray-400};
+  --bs-btn-hover-border-color: #282f36;
+  --bs-btn-focus-shadow-rgb: 52, 59, 65;
+  // --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #40464d;
+  --bs-btn-active-border-color: #282f36;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+  // --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #101820;
+  --bs-btn-disabled-border-color: #101820;
+  &:before {
+    background: #343b41;
+  }
+
+  .icon {
+    fill: none;
+    stroke: $white;
+    stroke-width: rem(1);
+    transition: .3s all;
   }
 }
 
