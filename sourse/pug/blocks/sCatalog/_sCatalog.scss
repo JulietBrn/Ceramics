@@ -320,6 +320,7 @@
 	min-height: 100%;
 	overflow: hidden;
 	position: relative;
+  cursor: pointer;
 
 	&__img-wrap {
 		@include block(1, 1);
