@@ -298,6 +298,18 @@ function eventHandler() {
     sectionTitle.classList.add("loaded");
   }
 
+  /* close all filters except current */
+  document.addEventListener('click', function(event) {
+    let filterElements = document.querySelectorAll('.filter');
+    if (!filterElements) return
+    filterElements.forEach(function(element) {
+        if (!element.contains(event.target)) {
+            element.classList.remove('show');
+        }
+    });
+  });
+
+
 	$(".form-wrap__input-wrap").each(function () {
     let self = $(this);
     let floatLabel;
@@ -323,7 +335,6 @@ function eventHandler() {
   const selectAllBtn = document.querySelector('.btn-select-all--js input');
   const removeBtn = document.querySelector('.btn-remove--js .small');
 
-  // Функция для изменения текста кнопки удаления
   function updateRemoveButtonText() {
       if (selectAllBtn.checked) {
           removeBtn.textContent = "Удалить все";

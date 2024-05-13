@@ -79,14 +79,17 @@
         z-index: -1;
       }
       &::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: -50%;
-        width: 200%;
-        height: rem(1);
-        background: $gray-600;
-        z-index: 2;
+        @include media-breakpoint-up(md) {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: -50%;
+          width: 200%;
+          height: rem(1);
+          background: $gray-600;
+          z-index: 2;
+        }
+        
       }
     }
     &__btn {
@@ -467,6 +470,7 @@
 .filter {
   @include media-breakpoint-up(md) {
     position: relative;
+    margin-left: rem(-1);
     &.selected {
       position: relative;
       &::after {
