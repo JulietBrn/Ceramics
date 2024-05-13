@@ -136,3 +136,78 @@ mixin sCatalogEmpty()
 					+b.title-item: h4 Извините, по выбранным параметрам ничего не найдено
 				.col-12.col-md-6
 					p Попробуйте изменить или сократить количество фильтров.
+
+
+
+mixin sCatalog2()
+	// start sCatalog
+	+b.sCatalog.section&attributes(attributes)
+		.btn-container
+			.container
+				.btn.btn-price.btn-primary.btn-reverse(href='#') Скачать прайс-лист
+					+icon('download')
+		.container
+			+b.search-field--black.d-md-none
+				input(type='text' name='search' placeholder='Поиск' aria-label='Search through site content')
+				.btn-wrap
+					button
+						+icon('cross')
+					button
+						+icon('search')
+			.wrapp
+				+b.brands.white-bg-modal.modal-catalog--js
+					.container.container-decoration
+						+b.search-field--black.d-none.d-md-grid
+							input(type='text' name='search' placeholder='Поиск' aria-label='Search through site content')
+							.btn-wrap
+								button
+									+icon('cross')
+								button
+									+icon('search')
+						.brands-wrapper
+							+e.title.fw-600.d-md-none.text-center Фильтры
+							.nav-wrapper.d-md-none.d-flex
+								+e.title.small.fw-600.d-md-none Бренд
+								+e.title.small.d-md-none(href='#') Сбросить
+							+e.wrap
+								+e.item.d-none.d-md-block.fw-600.active(href='#') Все бренды
+								+e.item(href='#'): +img(src=`img/edelhaus.svg`, alt="")
+								+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
+						+b.filter--color
+							.nav-wrapper.d-md-none.d-flex
+								+e.title.small.fw-600.d-md-none Цветовая группа
+								+e.title.small.d-md-none(href='#') Сбросить
+							+e.wrap.small
+								.wrap
+									+b.color-wrap--red: +in-c("checkbox", 'Красный')(checked)
+									+b.color-wrap--light: +in-c("checkbox", 'Светлый')
+									+b.color-wrap--dark: +in-c("checkbox", 'Тёмный')
+						div
+							.btn-wrap.d-md-none
+								+e.btn.btn.btn-outline-secondary(href='#') Сбросить
+								+e.btn.btn.btn-primary.btn-apply--js(href='#') Применить
+			.btn-filter-wrap.open-modal-catalog--js: +b.open-modal--filters.d-md-none Фильтры
+			+e.catalog-container
+				+product-item(1, 'konigstein-dark','konigstein', 'Гессен Морион').large
+				+product-item(2, 'konigstein-dark','konigstein', 'Гессен Вайн')
+				+product-item(3, 'edelhaus','edelhaus-light', 'Гессен Морион')
+				+product-item(4, 'edelhaus','edelhaus-light', 'Кельн')
+				+product-item(5, 'modformat-dark','modformat', 'Мангейм Карбон')
+				+product-item(6,	'konigstein-dark','konigstein', 'Мангейм Шварц')
+				+product-item(7,	'edelhaus','edelhaus-light', 'Марксбург Белый')
+				+product-item(8,	'edelhaus','edelhaus-light', 'Марксбург Кварц')
+				+product-item(9,	'modformat-dark','modformat',	'Марксбург Серый')
+				+product-item(10,	'modformat-dark','modformat',	'Мангейм Сепия')
+				+product-item(11,	'modformat-dark','modformat',	'Оберхоф')
+				+product-item(12,	'konigstein-dark','konigstein', 'Гессен Вайн')
+				+product-item(13,	'edelhaus','edelhaus-light', 'Гессен Морион')
+				+product-item(14,	'edelhaus','edelhaus-light', 'Кельн')
+				+product-item(15,	'modformat-dark','modformat', 'Мангейм Карбон')
+				+product-item(16,	'konigstein-dark','konigstein', 'Мангейм Шварц')
+				+product-item(17,	'edelhaus','edelhaus-light', 'Марксбург Белый')
+				+product-item(18,	'edelhaus','edelhaus-light', 'Марксбург Кварц')
+				+product-item(19,	'modformat-dark','modformat', 'Марксбург Серый')
+				+product-item(20,	'modformat-dark','modformat', 'Уэльс Грау')
+			+e.btn.btn.btn-secondary(href='#') Показать еще
+
+	// end sCatalog
