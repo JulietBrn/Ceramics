@@ -71,48 +71,7 @@
 							<div class="sStorage__row row">
 								<div class="col-12 col-md-8 order-md-2">
 									<div class="sStorage__map">
-										<div id="map">
-											<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=2066e304-cee0-4ed2-9cb2-5f6521d5f96c"></script>
-											<script>
-												var myMap;
-												
-												ymaps.ready(init);
-												
-												function init () {
-													myMap = new ymaps.Map('map', {
-														center:[58.468137, 50.064164],
-														clusterize: true,
-														zoom:13.5
-													});
-													var customIcon = 'img/svg/mapIcon.png';
-													var placemark = new ymaps.Placemark([58.468137, 50.064164], {
-														hintContent: 'Москва',
-														balloonContent: 'Столица России'
-													}, {
-														iconLayout: 'default#image', // Устанавливаем тип макета иконки как изображение
-														iconImageHref: 'img/svg/mapIcon.png', // Устанавливаем путь к кастомной иконке
-														iconImageSize: [30, 30], // Размеры иконки
-														iconImageOffset: [-15, -15] // Смещение иконки
-												});
-													myMap.geoObjects.add(placemark);
-													//- objectManager = new ymaps.ObjectManager({
-													//- 	clusterize: true,
-													//- 	gridSize: 34,
-													//- 	clusterDisableClickZoom: true
-													//- });
-													//- objectManager.objects.options.set({
-													//- 	iconLayout: "default#image",
-													//- 	iconImageHref: "img/pin-map.png",
-													//- 	iconImageSize: [53, 23],
-													//- 	iconImageOffset: [-5, -5]
-													//- });
-													myMap.behaviors.disable('scrollZoom');
-													if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-														myMap.behaviors.disable('drag');
-													};
-												};
-											</script>
-										</div>
+										<div id="map"></div>
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
@@ -566,5 +525,125 @@
 		<script src="libs/gsap/gsap.min.js"></script>
 		<script src="libs/gsap/ScrollTrigger.min.js"> </script>
 		<script type="module" src="js/common.js"></script>
+		<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=2066e304-cee0-4ed2-9cb2-5f6521d5f96c"> </script>
+		<script>
+var myMap, objectManager
+
+function initMap() { 
+	var center = [58.468137, 50.064164];
+	myMap = new ymaps.Map('map', {
+		center: center,
+		zoom: 13.2,
+		clusterize: true,
+		gridSize: 34,
+		controls: ['zoomControl']
+	});
+
+	objectManager = new ymaps.ObjectManager({
+		// Чтобы метки начали кластеризоваться, выставляем опцию.
+		clusterize: true,
+		// ObjectManager принимает те же опции, что и кластеризатор.
+		gridSize: 34,
+		clusterDisableClickZoom: true
+});
+
+				// Чтобы задать опции одиночным объектам и кластерам,
+		// обратимся к дочерним коллекциям ObjectManager.
+		objectManager.objects.options.set({
+			iconLayout: 'default#image',
+			iconImageHref: 'img/pin-map.svg',
+			iconImageSize: [55, 24],
+			iconImageOffset: [-24, -38]
+		});
+		// objectManager.clusters.options.set('preset', 'islands#redClusterIcons');
+
+		myMap.geoObjects.add(objectManager)
+
+		let  points = [];
+		let getPixelBounds = [];
+		$.ajax({
+			url: "data.json"
+		}).done(function(data) {
+			objectManager.add(data); 
+			points.push(data.features)
+			getPixelBounds = objectManager.getPixelBounds();
+
+			myMap.setBounds(myMap.geoObjects.getBounds(), {
+				checkZoomRange: true
+		});
+		});
+	
+	let searchList = document.querySelector(".search-block__result"); 
+	if (!searchList) return;
+	function showBaloon(index, el) {
+		
+		var objectState = objectManager.getObjectState(el); 
+		myMap.setCenter(points[0][index].geometry.coordinates, 8);
+
+		myMap.geoObjects.add(objectManager);
+				// if (objectState.isClustered) {
+				//     // Сделаем так, чтобы указанный объект был "выбран" в балуне.
+				//     objectManager.clusters.state.set('activeObject', objectManager.objects.getById(el));
+				//     // Все сгенерированные кластеры имеют уникальные идентификаторы.
+				//     // Этот идентификатор нужно передать в менеджер балуна, чтобы указать,
+				//     // на каком кластере нужно показать балун.
+				//     objectManager.clusters.balloon.open(objectState.cluster.id);
+				// } else {
+						objectManager.objects.balloon.open(el);
+				// }
+	}
+	searchList.addEventListener("click", function (e) {
+		const target = e.target.closest(".search-block__link")
+		if (!target) return;
+		e.preventDefault();
+		showBaloon(target.dataset.index, target.dataset.coords)
+		// ymaps.geoQuery(geoObjects).getClosestTo().balloon.open();  
+	})
+
+	let input = document.querySelector("#suggest1");
+	input.addEventListener('input', function () {
+		var filter, ul, li, a, i;
+		filter = this.value.toUpperCase(); 
+		searchList.innerHTML = '';
+		for (i = 0; i < points[0].length; i++) { 
+			let title= points[0][i].properties.balloonContentHeader
+			let id = points[0][i].id
+			if (title.toUpperCase().indexOf(filter) > -1) {
+				let text = `
+					<li class="sRpnContent__search-item">
+						<a href="#" class="sRpnContent__search-link" data-index="${i}" data-coords="${id}">
+							${title}
+						</a>
+					</li>
+			`
+			searchList.insertAdjacentHTML('beforeend', text);
+				// li[i].style.display = "";
+			} else {
+				// li[i].style.display = "none";
+			}
+		}
+	})
+
+
+	let button = document.querySelector(".sRpnContent__search button");
+	button.addEventListener('click', function () {
+		var filter, ul, li, a, i;
+		filter = input.value.toUpperCase();
+		let searchList = document.getElementById("myDropdown");
+		li = searchList.querySelectorAll("li");
+
+		for (i = 0; i < li.length; i++) {
+			let txtValue = li[i].querySelector("a").innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				showBaloon(li[i].querySelector("a"))
+				document.querySelector(".sRpnContent__search-result").classList.remove('active');
+			}
+		}
+	})
+
+}; 
+
+ymaps.ready(initMap);  
+		</script>
 	</body>
 </html>

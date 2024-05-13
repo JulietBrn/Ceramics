@@ -10,11 +10,11 @@ include ../blocks/sStorage/_sStorage.pug
 include ../blocks/sCatalog/_sCatalog.pug
 
 block variables
-	- let  mainPage= 'main-page' 
-	- let  bg= null
+	- let mainPage= 'main-page' 
+	- let bg= null
 
 block title
-	- let  title= 'Расположение складов'
+	- let title= 'Расположение складов'
 	title= title
 block pagecontent
 	//- +mob-mnu()
@@ -26,3 +26,7 @@ block pagecontent
 		+sStorage
 
 	+parts('footer')
+block scripts
+	script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=2066e304-cee0-4ed2-9cb2-5f6521d5f96c") 
+	script
+		include ../blocks/sStorage/_sStorage.js
