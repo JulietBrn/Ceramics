@@ -8,7 +8,7 @@ mixin sGallery(data)
 					.tabs__btn.swiper-slide(data-content="video") Видеогалерея
 					+b.wrap-filter--photo(data-content="photo")
 						+b.filters-wrapper--video.white-bg-modal#video-filters.d-md-none
-							.container.container-flex
+							.container.container-flex.container-decoration
 								+e.title.fw-600.text-center Тема видео
 								.items
 									+e.wrap.filter.small
@@ -18,10 +18,10 @@ mixin sGallery(data)
 											+in-c("checkbox", 'Объекты')(checked)
 								.btn-wrap.d-md-none
 									+e.btn.btn.btn-outline-secondary(href='#') Сбросить
-									+e.btn.btn.btn-primary#apply(href='#') Применить
+									+e.btn.btn.btn-primary.btn-apply--js(href='#') Применить
 
 						+b.filters-wrapper.white-bg-modal#photo-filters
-							.container.container-flex
+							.container.container-flex.container-decoration
 								+e.title.fw-600.d-md-none.text-center Фильтры
 								.btn-back.small.d-none.d-md-none Назад
 								.items
@@ -73,9 +73,9 @@ mixin sGallery(data)
 												+in-c("checkbox", 'Кёльн')(checked)
 								.btn-wrap.d-md-none
 									+e.btn.btn.btn-outline-secondary(href='#') Сбросить
-									+e.btn.btn.btn-primary#apply(href='#') Применить
+									+e.btn.btn.btn-primary.btn-apply--js(href='#') Применить
 				+b.brands.white-bg-modal#brands
-					.container
+					.container.container-decoration
 						+e.title.fw-600.d-md-none.text-center Все бренды
 						+e.wrap
 							+e.item.d-none.d-md-block.fw-600.active(href='#') Все бренды
@@ -85,12 +85,12 @@ mixin sGallery(data)
 							+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
 						.btn-wrap.d-md-none
 							+e.btn.btn.btn-outline-secondary(href='#') Сбросить
-							+e.btn.btn.btn-primary#apply(href='#') Применить
+							+e.btn.btn.btn-primary.btn-apply--js(href='#') Применить
 				.tabs__content.active
 					+sharePhotoBlock
 					.d-md-none.d-flex.d-flex--sm
 						+b.open-modal--brands.small Все бренды
-						+b.open-modal--filters.small Фильтры
+						+b.open-modal--filters.open-modal--filters--js.small Фильтры
 					+e.row.row
 						+galleryPhoto(1, 'Эгерсунн+Стокгольм г. Кострома', 'edelhaus')
 						+galleryPhoto(2, 'Эгерсунн+Стокгольм г. Кострома', 'cs-ceramic')
@@ -248,7 +248,7 @@ mixin sGalleryEmpty(data)
 					.tabs__btn.swiper-slide(data-content="video") Видеогалерея
 					+b.wrap-filter--photo(data-content="photo")
 						+b.filters-wrapper--video.white-bg-modal#video-filters.d-md-none
-							.container.container-flex
+							.container.container-flex.container-decoration
 								+e.title.fw-600.text-center Тема видео
 								.items
 									+e.wrap.filter.small
@@ -258,10 +258,10 @@ mixin sGalleryEmpty(data)
 											+in-c("checkbox", 'Объекты')(checked)
 								.btn-wrap.d-md-none
 									+e.btn.btn.btn-outline-secondary(href='#') Сбросить
-									+e.btn.btn.btn-primary#apply(href='#') Применить
+									+e.btn.btn.btn-primary.btn-apply--js(href='#') Применить
 
 						+b.filters-wrapper.white-bg-modal#photo-filters
-							.container.container-flex
+							.container.container-flex.container-decoration
 								+e.title.fw-600.d-md-none.text-center Фильтры
 								.btn-back.small.d-none.d-md-none Назад
 								.items
@@ -313,9 +313,9 @@ mixin sGalleryEmpty(data)
 												+in-c("checkbox", 'Кёльн')(checked)
 								.btn-wrap.d-md-none
 									+e.btn.btn.btn-outline-secondary(href='#') Сбросить
-									+e.btn.btn.btn-primary#apply(href='#') Применить
+									+e.btn.btn.btn-primary.btn-apply--js(href='#') Применить
 				+b.brands.white-bg-modal#brands
-					.container
+					.container.container-decoration
 						+e.title.fw-600.d-md-none.text-center Все бренды
 						+e.wrap
 							+e.item.d-none.d-md-block.fw-600.active(href='#') Все бренды
@@ -325,7 +325,7 @@ mixin sGalleryEmpty(data)
 							+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
 						.btn-wrap.d-md-none
 							+e.btn.btn.btn-outline-secondary(href='#') Сбросить
-							+e.btn.btn.btn-primary#apply(href='#') Применить
+							+e.btn.btn.btn-primary.btn-apply--js(href='#') Применить
 				.tabs__content.active
 					+sharePhotoBlock
 					.filters-slider--js.swiper

@@ -208,13 +208,7 @@
     }
   }
 
-  .btn-wrap {
-    display: flex;
-    gap: rem(8);
-    .btn {
-      width: 50%;
-    }
-  }
+  
 
   &--empty {
     --sPB: #{rem(80)};
@@ -358,8 +352,11 @@
         }
       }
     }
-    .filters-wrapper__title.show  {
-      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17 14L12 9L7 14' stroke='%23101820' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
+    
+    @include media-breakpoint-up(md) {
+      .filters-wrapper__title.show  {
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17 14L12 9L7 14' stroke='%23101820' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
+      }
     }
     .show ~ .items .filters-wrapper__wrap {
       @include media-breakpoint-up(md) {
@@ -411,93 +408,7 @@
       overflow: visible;
     }
   }
-  .filter {
-    @include media-breakpoint-up(md) {
-      position: relative;
-      &.selected {
-        position: relative;
-        &::after {
-          content: '';
-          position: absolute;
-          top: 8%;
-          right: 5%;
-          width: rem(6);
-          height: rem(6);
-          border-radius: 50%;
-          background: $primary;
-        }
-      }
-    }
-    &:last-child {
-      .filter__title {
-        border-bottom: none;
-      }
-    }
-    &__wrap {
-      position: absolute;
-      right: -150%;
-      top: rem(2);
-      background: $white;
-      width: 100%;
-      height: 100%;
-      max-height: 100%;
-      transition: all .3s;
-      @include media-breakpoint-up(md) {
-        right: 0;
-        top: -100000%;
-        // top: auto;
-        // position: static;
-        height: rem(192);
-        border-radius: rem(1);
-        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
-        background: $white;
-        max-height: max-content;
-        overflow: hidden;
-        label {
-          position: relative;
-          padding: rem(12) rem(16);
-          &:hover span{
-            color: $primary;
-          }
-        }
-      }
-    }
-    &.show {
-      .filter__title {
-        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17 14L12 9L7 14' stroke='%23101820' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
-      }
-      .filter__wrap {
-        right: 0;
-        @include media-breakpoint-up(md) {
-          top: auto;
-          z-index: 20;
-        }
-      }
-    } 
-    &__title {
-      cursor: pointer;
-      padding: rem(11) 0 rem(13);
-      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 17L15 12L10 7' stroke='%23101820' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: 95% center;
-      border-bottom: rem(1) solid $gray-300;
-      @include media-breakpoint-up(md) {
 
-        &:first-child {
-          border-left: rem(1) solid $gray-600;
-        }
-        width: rem(174);
-        height: rem(48);
-        font-size: rem(14);
-        text-align: left !important;
-        padding: rem(13) rem(13) rem(13) rem(16);
-        border-color: $gray-600;
-        border-right: rem(1) solid $gray-600;
-        font-weight: 400;
-        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10L12 15L17 10' stroke='%23101820' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
-      }
-    }
-  }
   .filter:not(.filter--color) {
     .custom-input__input:checked + .custom-input__text {
       color: $green-900;
@@ -514,7 +425,133 @@
   .hidden-title {
   }
 
-  .filter--color {
+  
+
+  .custom-input__input {
+    @include media-breakpoint-up(md) {
+      background-color: transparent;
+      border-color: transparent;
+      margin-right: 0;
+      position: absolute;
+      right: rem(16);
+      top: 42%;
+      transform: translateY(-50%);
+      &:checked[type=checkbox],
+      &:checked[type=radio] {
+        --bs-form-check-bg-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'%3E%3Cpath stroke='%239A6A4F' stroke-linecap='round' stroke-linejoin='round' d='M18.859 6.857 9.43 16.286 5.145 12'/%3E%3C/svg%3E");
+      }
+    }
+  }
+
+  .btn-back {
+    cursor: pointer;
+    position: absolute;
+    top: rem(5);
+    left: rem(16);
+    padding-left: rem(16);
+    color: $primary;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.71373 4.57143L6.28516 8L9.71373 11.4286' stroke='%23D22630' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-between(md, xl) {}
+	@include media-breakpoint-only(xl) {}
+	@include media-breakpoint-down(xl) {}
+} // end.sGallery
+
+.filter {
+  @include media-breakpoint-up(md) {
+    position: relative;
+    &.selected {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 8%;
+        right: 5%;
+        width: rem(6);
+        height: rem(6);
+        border-radius: 50%;
+        background: $primary;
+      }
+    }
+  }
+  &:last-child {
+    .filter__title {
+      border-bottom: none;
+    }
+  }
+  &__wrap {
+    position: absolute;
+    right: -150%;
+    top: rem(2);
+    background: $white;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    transition: all .3s;
+    @include media-breakpoint-up(md) {
+      right: 0;
+      top: -100000%;
+      // top: auto;
+      // position: static;
+      height: rem(192);
+      border-radius: rem(1);
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+      background: $white;
+      max-height: max-content;
+      overflow: hidden;
+      label {
+        position: relative;
+        padding: rem(12) rem(16);
+        &:hover span{
+          color: $primary;
+        }
+      }
+    }
+  }
+  &.show {
+    .filter__title {
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17 14L12 9L7 14' stroke='%23101820' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
+    }
+    .filter__wrap {
+      right: 0;
+      @include media-breakpoint-up(md) {
+        top: auto;
+        z-index: 20;
+      }
+    }
+  } 
+  &__title {
+    cursor: pointer;
+    padding: rem(11) 0 rem(13);
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 17L15 12L10 7' stroke='%23101820' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    border-bottom: rem(1) solid $gray-300;
+    @include media-breakpoint-up(md) {
+
+      &:first-child {
+        border-left: rem(1) solid $gray-600;
+      }
+      width: rem(174);
+      height: rem(48);
+      font-size: rem(14);
+      text-align: left !important;
+      padding: rem(13) rem(13) rem(13) rem(16);
+      border-color: $gray-600;
+      border-right: rem(1) solid $gray-600;
+      font-weight: 400;
+      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10L12 15L17 10' stroke='%23101820' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
+    }
+  }
+}
+.filter--color {
     label {
       padding-left: 0;
       display: flex;
@@ -592,43 +629,6 @@
       border: 1px solid $primary;
     }
   }
-
-  .custom-input__input {
-    @include media-breakpoint-up(md) {
-      background-color: transparent;
-      border-color: transparent;
-      margin-right: 0;
-      position: absolute;
-      right: rem(16);
-      top: 42%;
-      transform: translateY(-50%);
-      &:checked[type=checkbox],
-      &:checked[type=radio] {
-        --bs-form-check-bg-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'%3E%3Cpath stroke='%239A6A4F' stroke-linecap='round' stroke-linejoin='round' d='M18.859 6.857 9.43 16.286 5.145 12'/%3E%3C/svg%3E");
-      }
-    }
-  }
-
-  .btn-back {
-    cursor: pointer;
-    position: absolute;
-    top: rem(5);
-    left: rem(16);
-    padding-left: rem(16);
-    color: $primary;
-    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.71373 4.57143L6.28516 8L9.71373 11.4286' stroke='%23D22630' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: left center;
-  }
-
-	@include media-breakpoint-up(xl) {}
-	@include media-breakpoint-up(lg) {}
-	@include media-breakpoint-up(md) {}
-	@include media-breakpoint-up(sm) {}
-	@include media-breakpoint-between(md, xl) {}
-	@include media-breakpoint-only(xl) {}
-	@include media-breakpoint-down(xl) {}
-} // end.sGallery
 
 .share-photo {
   display: flex;

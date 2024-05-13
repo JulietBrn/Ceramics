@@ -20,7 +20,10 @@
     display: inline-block;
     margin-right: rem(10);
     position: relative;
-    z-index: 18;
+    z-index: 12;
+    @include media-breakpoint-up(md) {
+      z-index: 18;
+    }
   }
   .logo-icon {
   }
@@ -193,7 +196,7 @@
   visibility: hidden;
   &.show {
     opacity: .9;
-    z-index: 6;
+    z-index: 14;
     visibility: visible;
   }
 }
@@ -224,7 +227,7 @@
       }
     }
   }
-  .container {
+  .container-decoration {
     position: relative;
     &:after {
       content:'';
@@ -245,19 +248,22 @@
   &.show {
     bottom: 0;
   }
+
+  .btn-wrap {
+    display: flex;
+    gap: rem(8);
+    .btn {
+      width: 50%;
+    }
+  }
 }
 
-.icon-search {
-  fill: none;
-  cursor: pointer;
-  stroke-width: rem(1);
-  stroke: $white;
-}
 
 .search-field {
   position: relative;
   display: grid;
   grid-template-columns: 1fr min-content;
+  --element-color: #{$white};
   @include media-breakpoint-up(md) {
     margin-left: rem(70);
   }
@@ -266,22 +272,53 @@
     background: transparent;
     border: none;
     outline: none;
-    color: $white;
-    // padding: rem(7);
-    // padding-left: rem(30);
+    color: var(--element-color);
     border-bottom: 1px solid $primary;
       font-size: rem(12);
     @include media-breakpoint-up(md) {
       font-size: rem(14);
     }
     &::placeholder {
-      color: $white;
+      color: var(--element-color);
       opacity: .5;
     }
   }
   button {
     background: none;
     border:none;
+  }
+  .icon {
+    fill: none;
+    cursor: pointer;
+    stroke-width: rem(1);
+    stroke: var(--element-color);
+  }
+  &:hover {
+    .icon-cross {
+      opacity: 1;
+    }
+  }
+  .btn-wrap {
+    display: flex;
+  }
+
+  .icon-cross {
+    opacity: 0;
+    @include mt;
+    background: $gray-500;
+    border-radius: 50%;
+    font-size: rem(24);
+    padding: rem(5);
+  }
+
+  &--black {
+    --element-color: #{$dark};
+    input {
+      border-bottom: none;
+      &::placeholder {
+        opacity: 1;
+      }
+    }
   }
 
 }

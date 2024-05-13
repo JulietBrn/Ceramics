@@ -16,6 +16,48 @@ mixin sCatalog()
 				.btn.btn-price.btn-primary.btn-reverse(href='#') Скачать прайс-лист
 					+icon('download')
 		.container
+			+b.search-field--black.d-md-none
+				input(type='text' name='search' placeholder='Поиск' aria-label='Search through site content')
+				.btn-wrap
+					button
+						+icon('cross')
+					button
+						+icon('search')
+			.wrapp
+				+b.brands.white-bg-modal.modal-catalog--js
+					.container.container-decoration
+						+b.search-field--black.d-none.d-md-grid
+							input(type='text' name='search' placeholder='Поиск' aria-label='Search through site content')
+							.btn-wrap
+								button
+									+icon('cross')
+								button
+									+icon('search')
+						.brands-wrapper
+							+e.title.fw-600.d-md-none.text-center Фильтры
+							.nav-wrapper.d-md-none.d-flex
+								+e.title.small.fw-600.d-md-none Бренд
+								+e.title.small.d-md-none(href='#') Сбросить
+							+e.wrap
+								+e.item.d-none.d-md-block.fw-600.active(href='#') Все бренды
+								+e.item.active(href='#'): +img(src=`img/edelhaus.svg`, alt="")
+								+e.item(href='#'): +img(src=`img/konigstein-dark-1.svg`, alt="")
+								+e.item(href='#'): +img(src=`img/master-ceramic-dark.svg`, alt="")
+								+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
+						+b.filter--color
+							.nav-wrapper.d-md-none.d-flex
+								+e.title.small.fw-600.d-md-none Цветовая группа
+								+e.title.small.d-md-none(href='#') Сбросить
+							+e.wrap.small
+								.wrap
+									+b.color-wrap--red: +in-c("checkbox", 'Красный')(checked)
+									+b.color-wrap--light: +in-c("checkbox", 'Светлый')
+									+b.color-wrap--dark: +in-c("checkbox", 'Тёмный')
+						div
+							.btn-wrap.d-md-none
+								+e.btn.btn.btn-outline-secondary(href='#') Сбросить
+								+e.btn.btn.btn-primary.btn-apply--js(href='#') Применить
+			.btn-filter-wrap.open-modal-catalog--js: +b.open-modal--filters.d-md-none Фильтры
 			+e.catalog-container
 				+product-item(1, 'konigstein-dark','konigstein', 'Гессен Морион').large
 				+product-item(2, 'konigstein-dark','konigstein', 'Гессен Вайн')
@@ -46,7 +88,49 @@ mixin sCatalog()
 mixin sCatalogEmpty()
 	// start sCatalog
 	+b.sCatalog--empty.section&attributes(attributes)
-		.container
+		.container.container
+			+b.search-field--black.d-md-none
+				input(type='text' name='search' placeholder='Поиск' aria-label='Search through site content')
+				.btn-wrap
+					button
+						+icon('cross')
+					button
+						+icon('search')
+			.wrapp
+				+b.brands.white-bg-modal.modal-catalog--js
+					.container.container-decoration
+						+b.search-field--black.d-none.d-md-grid
+							input(type='text' name='search' placeholder='Поиск' aria-label='Search through site content')
+							.btn-wrap
+								button
+									+icon('cross')
+								button
+									+icon('search')
+						.brands-wrapper
+							+e.title.fw-600.d-md-none.text-center Фильтры
+							.nav-wrapper.d-md-none.d-flex
+								+e.title.small.fw-600.d-md-none Бренд
+								+e.title.small.d-md-none(href='#') Сбросить
+							+e.wrap
+								+e.item.d-none.d-md-block.fw-600.active(href='#') Все бренды
+								+e.item.active(href='#'): +img(src=`img/edelhaus.svg`, alt="")
+								+e.item(href='#'): +img(src=`img/konigstein-dark-1.svg`, alt="")
+								+e.item(href='#'): +img(src=`img/master-ceramic-dark.svg`, alt="")
+								+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
+						+b.filter--color
+							.nav-wrapper.d-md-none.d-flex
+								+e.title.small.fw-600.d-md-none Цветовая группа
+								+e.title.small.d-md-none(href='#') Сбросить
+							+e.wrap.small
+								.wrap
+									+b.color-wrap--red: +in-c("checkbox", 'Красный')(checked)
+									+b.color-wrap--light: +in-c("checkbox", 'Светлый')
+									+b.color-wrap--dark: +in-c("checkbox", 'Тёмный')
+						div
+							.btn-wrap.d-md-none
+								+e.btn.btn.btn-outline-secondary(href='#') Сбросить
+								+e.btn.btn.btn-primary.btn-apply--js(href='#') Применить
+			.btn-filter-wrap.open-modal-catalog--js: +b.open-modal--filters.d-md-none Фильтры
 			+e.row.row
 				.col-12.col-md-6
 					+b.title-item: h4 Извините, по выбранным параметрам ничего не найдено

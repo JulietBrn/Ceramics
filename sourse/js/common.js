@@ -96,32 +96,26 @@ function eventHandler() {
   let startY;
   let currentY;
 
-  // function touchStart(e) {
-  //   startY = e.touches[0].clientY;
-  //   currentY = startY;
-  // }
+  backDrop.addEventListener('click', () => {
+    document.querySelectorAll('.white-bg-modal').forEach((modal) => {
+      modal.classList.remove('show')
+    })
+  })
 
-  // function touchMove(e) {
-  //   currentY = e.touches[0].clientY;
-  //   const distance = currentY - startY;
-
-  //   if (distance > 10) {
-  //     closeNavWidow();
-  //   }
-  // }
+  document.querySelectorAll('.white-bg-modal').forEach((modal) => {
+    modal.addEventListener('touchstart', touchStart);
+    modal.addEventListener('touchmove', touchMove);
+  })
 
 	function openNavWidow() {
 		mobileNavLocation.classList.add('show');
 		backDrop.classList.add('show');
-    backDrop.style = 'z-index: 20;'
 	}
 
 	function closeNavWidow() {
 		mobileNavLocation.classList.remove('show');
 		backDrop.classList.remove('show');
-    backDrop.style = 'z-index: -1;'
 	}
-
 
 	location.addEventListener('click', openNavWidow);
 	backDrop.addEventListener('click', closeNavWidow);
@@ -129,9 +123,6 @@ function eventHandler() {
   navLinks.forEach((link) => {
     link.addEventListener('click', closeNavWidow)
   })
-
-  mobileNavLocation.addEventListener('touchstart', touchStart);
-  mobileNavLocation.addEventListener('touchmove', touchMove);
 
   /* search */
   const topNav = document.querySelector('.top-nav__row')
@@ -168,23 +159,15 @@ function eventHandler() {
 
 	searchBtn.addEventListener('click', openSearchWidow);
 	backDrop.addEventListener('click', closeSearchWidow);
-  
 
   /* brands mobile */
 	const openBrandsBtn = document.querySelectorAll('.open-modal--brands')
 	const brands = document.querySelector('#brands')
-  const applyBtn = document.querySelector('#apply')
+  const applyBtns = document.querySelectorAll('.btn-apply--js')
 
 	function openBrandsWidow() {
 		brands.classList.add('show');
 		backDrop.classList.add('show');
-    backDrop.style = 'z-index: 20;'
-	}
-
-	function closeBrandsWidow() {
-		brands.classList.remove('show');
-		backDrop.classList.remove('show');
-    backDrop.style = 'z-index: -1;'
 	}
 
   function touchStart(e) {
@@ -197,13 +180,10 @@ function eventHandler() {
     const distance = currentY - startY;
 
     if (distance > 10) {
-      closeNavWidow();
-    }
-    if (distance > 10 && brands) {
-      closeBrandsWidow()
-    }
-    if (distance > 10 && filters) {
-      closeFiltersWidow()
+      backDrop.classList.remove('show')
+      document.querySelectorAll('.white-bg-modal').forEach((modal) => {
+        modal.classList.remove('show')
+      })
     }
   }
 
@@ -211,37 +191,27 @@ function eventHandler() {
     btn.addEventListener('click', openBrandsWidow);
   })
 
-	backDrop.addEventListener('click', closeBrandsWidow);
-	if (applyBtn) {
-    applyBtn.addEventListener('click', closeBrandsWidow);
-    brands.addEventListener('touchstart', touchStart);
-    brands.addEventListener('touchmove', touchMove);
-  }
+  applyBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.closest('.white-bg-modal').classList.remove('show')
+      backDrop.classList.remove('show');
+    })
+  })
+
 
   /* photo filters mobile */
-	const openFiltersBtn = document.querySelector('.open-modal--filters')
+	const openFiltersBtn = document.querySelector('.open-modal--filters--js')
 	const filters = document.querySelector('#photo-filters')
 
 	function openFiltersWidow() {
     filters.classList.add('show');
 		backDrop.classList.add('show');
-    backDrop.style = 'z-index: 20;'
 	}
 
-	function closeFiltersWidow() {
-    filters.classList.remove('show');
-    backDrop.classList.remove('show');
-    backDrop.style = 'z-index: -1;'
-	}
-
-
-  if (openFiltersBtn) {
+  if (openFiltersBtn && filters) {
     openFiltersBtn.addEventListener('click', openFiltersWidow);
-    backDrop.addEventListener('click', closeFiltersWidow);
-
-    filters.addEventListener('touchstart', touchStart);
-    filters.addEventListener('touchmove', touchMove);
   }
+
   /* video filter mobile */
 	const openVideoFilterBtn = document.querySelectorAll('.open-modal--video')
 	const videoFilter = document.querySelector('#video-filters')
@@ -249,24 +219,13 @@ function eventHandler() {
 	function openVideoFiltersWidow() {
 		videoFilter.classList.add('show');
 		backDrop.classList.add('show');
-    backDrop.style = 'z-index: 20;'
-	}
-
-	function closeVideoFiltersWidow() {
-		videoFilter.classList.remove('show');
-		backDrop.classList.remove('show');
-    backDrop.style = 'z-index: -1;'
 	}
 
   if (openVideoFilterBtn && videoFilter) {
     openVideoFilterBtn.forEach((btn) => {
       btn.addEventListener('click', openVideoFiltersWidow);
     })
-    videoFilter.addEventListener('touchstart', touchStart);
-    videoFilter.addEventListener('touchmove', touchMove);
   }
-
-	backDrop.addEventListener('click', closeVideoFiltersWidow);
 
 
   const popoverTriggerList = document.querySelectorAll(
@@ -284,6 +243,16 @@ function eventHandler() {
       warningText.classList.add('d-none');
     });
   }
+  /* catalog */
+
+  const btnOpenModal = document.querySelector('.open-modal-catalog--js')
+  if (btnOpenModal) {
+    btnOpenModal.addEventListener('click', () => {
+      document.querySelector('.modal-catalog--js').classList.add('show')
+      backDrop.classList.add('show');
+    })
+  }
+
 
   $('#photo-filters .filter').on('click', function() {
     var title = $(this).find('.filter__title').text();

@@ -39,7 +39,7 @@ mixin top-nav()
 						.icon-wrap(href='#'): +icon('search')
 						.icon-wrap.active(href='#'): +icon('shopping')
 			.mobile-location.white-bg-modal.small
-				.container
+				.container.container-decoration
 					ul
 						li: a(href="#") Официальные дилеры
 						li: a(href="#") Контакты
@@ -51,8 +51,6 @@ mixin top-nav()
 						input(type='text' name='search' placeholder='Поиск' aria-label='Search through site content')
 						button
 							+icon('search')
-				//- .col-auto.d-lg-none
-				//- 	+menu-toggle()
 			.backdrop
 	// end top-nav
 
