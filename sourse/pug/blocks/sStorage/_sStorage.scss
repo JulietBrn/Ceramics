@@ -17,6 +17,9 @@
 	&__row{
 		--bs-gutter-x: #{rem(0)};
 		// --bs-gutter-y: #{rem()};
+    @include media-breakpoint-up(md) {
+      min-height: rem(568);
+    }
 	}
 
 	.section-title{
@@ -26,12 +29,13 @@
 		
 	}
   &__map {
-    min-height: rem(360);
     width: 100%;
     position: relative;
     z-index: 6;
     height: 100%;
 		overflow: hidden;
+    min-height: rem(360);
+    
 		& > * {
 			position: absolute;
 			left: 0;
@@ -306,6 +310,28 @@
     margin-bottom: 0;
   }
 }
+
+ymaps .coord-item {
+  // padding-left: 0;
+  cursor:auto;
+  &:hover {
+    background: transparent;
+  }
+  font-family: 'Montserrat';
+  &__title {
+    font-weight: 600;
+  }
+}
+
+#map {
+  & [class$="-map"] {
+    height: 100% !important;
+  }
+}
+
+// [class$="balloon__content"] {
+//   max-width: rem(300);
+// }
 
 .coord-item {
   background: $white;

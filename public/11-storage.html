@@ -78,66 +78,7 @@
 									<div class="inner-wrap">
 										<div class="title fw-500">Склады «КС Керамик»</div>
 										<div class="custom-scroll">
-											<div class="coord-item">
-												<div class="coord-item__title">Склад основной на заводе
-												</div>
-												<div class="coord-item__item-text">
-													<div class="coord-item__info-address small"><span>Адрес</span>: Кирово-Чепецкий район, посёлок при станции Бумкомбинат, Кирпичный проезд, 1
-													</div>
-													<div class="coord-item__info-address small"><span>GPS координаты:</span> 58.467892, 50.063425
-													</div>
-												</div>
-											</div>
-											<div class="coord-item">
-												<div class="coord-item__title">Склад УМИАТ
-												</div>
-												<div class="coord-item__item-text">
-													<div class="coord-item__info-address small"><span>Адрес</span>: Кирово-Чепецк, квартал Пригородный
-													</div>
-													<div class="coord-item__info-address small"><span>GPS координаты:</span> 58.527740, 49.984161
-													</div>
-												</div>
-											</div>
-											<div class="coord-item">
-												<div class="coord-item__title">Склад База ОРС
-												</div>
-												<div class="coord-item__item-text">
-													<div class="coord-item__info-address small"><span>Адрес</span>: г. Кирово-Чепецк, квартал Цепели, 18
-													</div>
-													<div class="coord-item__info-address small"><span>GPS координаты:</span> 58.517168, 50.004264
-													</div>
-												</div>
-											</div>
-											<div class="coord-item">
-												<div class="coord-item__title">Склад «Славянский мир»
-												</div>
-												<div class="coord-item__item-text">
-													<div class="coord-item__info-address small"><span>Адрес</span>: Москва, поселение Мосрентген, строительный рынок «Славянский мир»
-													</div>
-													<div class="coord-item__info-address small"><span>GPS координаты:</span> 55.621473,37.450197
-													</div>
-												</div>
-											</div>
-											<div class="coord-item">
-												<div class="coord-item__title">Склад База ОРС
-												</div>
-												<div class="coord-item__item-text">
-													<div class="coord-item__info-address small"><span>Адрес</span>: г. Кирово-Чепецк, квартал Цепели, 18
-													</div>
-													<div class="coord-item__info-address small"><span>GPS координаты:</span> 58.517168, 50.004264
-													</div>
-												</div>
-											</div>
-											<div class="coord-item">
-												<div class="coord-item__title">Склад «Славянский мир»
-												</div>
-												<div class="coord-item__item-text">
-													<div class="coord-item__info-address small"><span>Адрес</span>: Москва, поселение Мосрентген, строительный рынок «Славянский мир»
-													</div>
-													<div class="coord-item__info-address small"><span>GPS координаты:</span> 55.621473,37.450197
-													</div>
-												</div>
-											</div>
+											<div class="box"></div>
 										</div>
 									</div>
 								</div>
@@ -533,7 +474,7 @@ function initMap() {
 	var center = [58.468137, 50.064164];
 	myMap = new ymaps.Map('map', {
 		center: center,
-		zoom: 13.2,
+		zoom: 7,
 		clusterize: true,
 		gridSize: 34,
 		controls: ['zoomControl']
@@ -559,24 +500,66 @@ function initMap() {
 
 		myMap.geoObjects.add(objectManager)
 
-		let  points = [];
+		let points = [];
 		let getPixelBounds = [];
 		$.ajax({
 			url: "data.json"
 		}).done(function(data) {
-			objectManager.add(data); 
+			objectManager.add(data);
 			points.push(data.features)
+			objectManager.objects.options.set('balloonContentLayout', ymaps.templateLayoutFactory.createClass(
+				'<div class="coord-item">' +
+				`<div class="coord-item__title fw-600">{{properties.balloonContentHeader}}</div>` +
+				'<div class="coord-item__item-text">' +
+				'<div class="coord-item__info-address small"><span>Адрес</span>: {{properties.balloonContentBody}}</div>' +
+				'<div class="coord-item__info-address small"><span>Тел:</span> {{properties.balloonContentFooter}}</div>' +
+				'</div>' +
+				'</div>'
+
+		));
+
+	let box = document.querySelector("#storage .box");
+	for (i = 0; i < points[0].length; i++) {
+		let title= points[0][i].properties.balloonContentHeader
+		let address = points[0][i].properties.balloonContentBody
+		let coords = points[0][i].geometry.coordinates
+		let id = points[0][i].id
+			let text = `
+			<div class="coord-item" data-index="${i}" data-coords="${id}">
+				<div class="coord-item__title">${title}
+				</div>
+				<div class="coord-item__item-text">
+					<div class="coord-item__info-address small"><span>Адрес</span>: ${address}
+					</div>
+					<div class="coord-item__info-address small"><span>GPS координаты:</span> ${coords}
+					</div>
+				</div>
+			</div>
+		`
+		box.insertAdjacentHTML('beforeend', text);
+			// li[i].style.display = "";
+	}
+		// Устанавливаем обработчик события клика по объекту
+		objectManager.objects.events.add('click', function (e) {
+				var objectId = e.get('objectId');
+				objectManager.objects.balloon.open(objectId);
+		});
 			getPixelBounds = objectManager.getPixelBounds();
 
 			myMap.setBounds(myMap.geoObjects.getBounds(), {
 				checkZoomRange: true
 		});
 		});
-	
-	let searchList = document.querySelector(".search-block__result"); 
+
+	let searchList = document.querySelector("#storage .inner-wrap"); 
 	if (!searchList) return;
+	searchList.addEventListener("click", (e) => {
+		const target = e.target.closest(".coord-item")
+		if (!target) return;
+		showBaloon(target.dataset.index, target.dataset.coords)
+	})
+
 	function showBaloon(index, el) {
-		
 		var objectState = objectManager.getObjectState(el); 
 		myMap.setCenter(points[0][index].geometry.coordinates, 8);
 
@@ -592,58 +575,35 @@ function initMap() {
 						objectManager.objects.balloon.open(el);
 				// }
 	}
-	searchList.addEventListener("click", function (e) {
-		const target = e.target.closest(".search-block__link")
-		if (!target) return;
-		e.preventDefault();
-		showBaloon(target.dataset.index, target.dataset.coords)
-		// ymaps.geoQuery(geoObjects).getClosestTo().balloon.open();  
-	})
-
-	let input = document.querySelector("#suggest1");
-	input.addEventListener('input', function () {
-		var filter, ul, li, a, i;
-		filter = this.value.toUpperCase(); 
-		searchList.innerHTML = '';
-		for (i = 0; i < points[0].length; i++) { 
-			let title= points[0][i].properties.balloonContentHeader
-			let id = points[0][i].id
-			if (title.toUpperCase().indexOf(filter) > -1) {
-				let text = `
-					<li class="sRpnContent__search-item">
-						<a href="#" class="sRpnContent__search-link" data-index="${i}" data-coords="${id}">
-							${title}
-						</a>
-					</li>
-			`
-			searchList.insertAdjacentHTML('beforeend', text);
-				// li[i].style.display = "";
-			} else {
-				// li[i].style.display = "none";
-			}
-		}
-	})
+	// searchList.addEventListener("click", function (e) {
+	//   const target = e.target.closest(".coord-item")
+	//   console.log(target);
+	//   if (!target) return;
+	//   e.preventDefault();
+	//   showBaloon(target.dataset.index, target.dataset.coords)
+	//   // ymaps.geoQuery(geoObjects).getClosestTo().balloon.open();  
+	// })
 
 
-	let button = document.querySelector(".sRpnContent__search button");
-	button.addEventListener('click', function () {
-		var filter, ul, li, a, i;
-		filter = input.value.toUpperCase();
-		let searchList = document.getElementById("myDropdown");
-		li = searchList.querySelectorAll("li");
+	// let button = document.querySelector(".sRpnContent__search button");
+	// button.addEventListener('click', function () {
+	//   var filter, ul, li, a, i;
+	//   filter = input.value.toUpperCase();
+	//   let searchList = document.getElementById("myDropdown");
+	//   li = searchList.querySelectorAll("li");
 
-		for (i = 0; i < li.length; i++) {
-			let txtValue = li[i].querySelector("a").innerText;
-			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				showBaloon(li[i].querySelector("a"))
-				document.querySelector(".sRpnContent__search-result").classList.remove('active');
-			}
-		}
-	})
+	//   for (i = 0; i < li.length; i++) {
+	//     let txtValue = li[i].querySelector("a").innerText;
+	//     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	//       showBaloon(li[i].querySelector("a"))
+	// 			document.querySelector(".sRpnContent__search-result").classList.remove('active');
+	//     }
+	//   }
+	// })
 
-}; 
+};
 
-ymaps.ready(initMap);  
+ymaps.ready(initMap);
 		</script>
 	</body>
 </html>

@@ -38,6 +38,43 @@ function initMap() {
 		}).done(function(data) {
 			objectManager.add(data);
       points.push(data.features)
+      objectManager.objects.options.set('balloonContentLayout', ymaps.templateLayoutFactory.createClass(
+        '<div class="coord-item">' +
+        `<div class="coord-item__title fw-600">{{properties.balloonContentHeader}}</div>` +
+        '<div class="coord-item__item-text">' +
+        '<div class="coord-item__info-address small"><span>Адрес</span>: {{properties.balloonContentBody}}</div>' +
+        '<div class="coord-item__info-address small"><span>Тел:</span> {{properties.balloonContentFooter}}</div>' +
+        '</div>' +
+        '</div>'
+
+    ));
+
+  let box = document.querySelector("#storage .box");
+  for (i = 0; i < points[0].length; i++) {
+    let title= points[0][i].properties.balloonContentHeader
+    let address = points[0][i].properties.balloonContentBody
+    let coords = points[0][i].geometry.coordinates
+    let id = points[0][i].id
+      let text = `
+      <div class="coord-item" data-index="${i}" data-coords="${id}">
+        <div class="coord-item__title">${title}
+        </div>
+        <div class="coord-item__item-text">
+          <div class="coord-item__info-address small"><span>Адрес</span>: ${address}
+          </div>
+          <div class="coord-item__info-address small"><span>GPS координаты:</span> ${coords}
+          </div>
+        </div>
+      </div>
+    `
+    box.insertAdjacentHTML('beforeend', text);
+      // li[i].style.display = "";
+  }
+    // Устанавливаем обработчик события клика по объекту
+    objectManager.objects.events.add('click', function (e) {
+        var objectId = e.get('objectId');
+        objectManager.objects.balloon.open(objectId);
+    });
 			getPixelBounds = objectManager.getPixelBounds();
 
 			myMap.setBounds(myMap.geoObjects.getBounds(), {
@@ -48,8 +85,7 @@ function initMap() {
   let searchList = document.querySelector("#storage .inner-wrap"); 
 	if (!searchList) return;
   searchList.addEventListener("click", (e) => {
-    const target = e.target
-    console.log(target);
+    const target = e.target.closest(".coord-item")
     if (!target) return;
     showBaloon(target.dataset.index, target.dataset.coords)
   })
@@ -70,36 +106,15 @@ function initMap() {
             objectManager.objects.balloon.open(el);
         // }
   }
-  searchList.addEventListener("click", function (e) {
-    const target = e.target.closest(".coord-item")
-    if (!target) return;
-    e.preventDefault();
-    showBaloon(target.dataset.index, target.dataset.coords)
-    // ymaps.geoQuery(geoObjects).getClosestTo().balloon.open();  
-  })
+  // searchList.addEventListener("click", function (e) {
+  //   const target = e.target.closest(".coord-item")
+  //   console.log(target);
+  //   if (!target) return;
+  //   e.preventDefault();
+  //   showBaloon(target.dataset.index, target.dataset.coords)
+  //   // ymaps.geoQuery(geoObjects).getClosestTo().balloon.open();  
+  // })
 
-  let box = document.querySelector("#storage .custom-scroll");
-
-  for (i = 0; i < points[0].length; i++) { 
-    let title= points[0][i].properties.balloonContentHeader
-    let address = points[0][i].properties.balloonContentBody
-    let coords = points[0][i].geometry.coordinates
-    let id = points[0][i].id
-      let text = `
-      <div class="coord-item" data-index="${i}" data-coords="${id}">
-        <div class="coord-item__title">${title}
-        </div>
-        <div class="coord-item__item-text">
-          <div class="coord-item__info-address small"><span>Адрес</span>: ${address}
-          </div>
-          <div class="coord-item__info-address small"><span>GPS координаты:</span> ${coords}
-          </div>
-        </div>
-      </div>
-    `
-    box.insertAdjacentHTML('beforeend', text);
-      // li[i].style.display = "";
-  }
 
   // let button = document.querySelector(".sRpnContent__search button");
   // button.addEventListener('click', function () {
@@ -117,6 +132,6 @@ function initMap() {
   //   }
   // })
 
-}; 
+};
 
-ymaps.ready(initMap);  
+ymaps.ready(initMap);

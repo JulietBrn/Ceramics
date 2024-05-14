@@ -11,6 +11,7 @@
       "properties": {
         "balloonContentHeader": "Склад основной на заводе",
         "balloonContentBody": "Кирово-Чепецкий район, посёлок при станции Бумкомбинат, Кирпичный проезд, 1",
+        "balloonContentFooter": "+7 495 775-16-55",
         "clusterCaption": "Склад основной на заводе"
       }
     },
@@ -24,6 +25,7 @@
       "properties": {
         "balloonContentHeader": "Склад УМИАТ",
         "balloonContentBody": "Кирово-Чепецк, квартал Пригородный",
+        "balloonContentFooter": "+7 495 775-16-55",
         "clusterCaption": "Склад УМИАТ"
       }
     },
@@ -37,6 +39,7 @@
       "properties": {
         "balloonContentHeader": "Склад База ОРС",
         "balloonContentBody": "г. Кирово-Чепецк, квартал Цепели, 18",
+        "balloonContentFooter": "+7 495 775-16-55",
         "clusterCaption": "Склад База ОРС"
       }
     },
@@ -50,7 +53,36 @@
       "properties": {
         "balloonContentHeader": "Склад «Славянский мир»",
         "balloonContentBody": " Москва, поселение Мосрентген, строительный рынок «Славянский мир»",
+        "balloonContentFooter": "+7 495 775-16-55",
         "clusterCaption": "Склад «Славянский мир»"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 0,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [58.467892, 50.063425]
+      },
+      "properties": {
+        "balloonContentHeader": "Склад основной на заводе",
+        "balloonContentBody": "Кирово-Чепецкий район, посёлок при станции Бумкомбинат, Кирпичный проезд, 1",
+        "balloonContentFooter": "+7 495 775-16-55",
+        "clusterCaption": "Склад основной на заводе"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [58.527740, 49.984161]
+      },
+      "properties": {
+        "balloonContentHeader": "Склад УМИАТ",
+        "balloonContentBody": "Кирово-Чепецк, квартал Пригородный",
+        "balloonContentFooter": "+7 495 775-16-55",
+        "clusterCaption": "Склад УМИАТ"
       }
     }
   ]
