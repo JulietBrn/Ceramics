@@ -487,7 +487,8 @@ function initMap() {
 		gridSize: 34,
 		clusterDisableClickZoom: true
 });
-
+objectManager.objects.options.set('preset', 'islands#redDotIcon');
+		objectManager.clusters.options.set('preset', 'islands#redClusterIcons');
 				// Чтобы задать опции одиночным объектам и кластерам,
 		// обратимся к дочерним коллекциям ObjectManager.
 		objectManager.objects.options.set({

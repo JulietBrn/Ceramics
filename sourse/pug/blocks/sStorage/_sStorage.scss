@@ -321,6 +321,10 @@ ymaps .coord-item {
   &__title {
     font-weight: 600;
   }
+  
+  @include media-breakpoint-down(md) {
+    border-bottom: none;
+  }
 }
 
 #map {
