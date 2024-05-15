@@ -1,0 +1,233 @@
+mixin sMap(data)
+	// start sMap
+	+b.SECTION.sMap.section#sMap&attributes(attributes)
+		+b.brands.white-bg-modal#brands
+			.container
+				+e.wrap
+					+e.item.active(href='#'): +img(src=`img/edelhaus.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/konigstein-dark-1.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/master-ceramic-dark.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
+			//- +e.row.row
+		.container
+			h4 Выберите регион
+			+e.cities
+				+regionLinkBig('Москва')
+				+regionLinkBig('Санкт-Петербург')
+				+e.grid
+					+regionLink('A', 'Адыгея Республика')
+					+regionLink('', 'Алтайский край')
+					+regionLink('', 'Амурская область')
+					+regionLink('', 'Архангельская область')
+					+regionLink('', 'Астраханская область')
+					+regionLink('Б', 'Башкортостан республика')
+					+regionLink('', 'Беларусь Республика')
+					+regionLink('', 'Белгородская область')
+					+regionLink('', 'Брянская область')
+					+regionLink('', 'Бурятия Республика')
+					+regionLink('В', 'Владимирская область')
+					+regionLink('', 'Волгоградская область')
+					+regionLink('', 'Вологодская область')
+					+regionLink('', 'Воронежская область')
+					+regionLink('Г', 'г. Севастополь')
+					+regionLink('В', 'Владимирская область')
+					+regionLink('Д', 'Дагестан Республика')
+					+regionLink('Е', 'Еврейская автономная область')
+					+regionLink('З', 'Забайкальский край')
+					+regionLink('И', 'Ивановская область')
+					+regionLink('', 'Ингушетия Республика')
+					+regionLink('', 'Иркутская область')
+					+regionLink('К', 'Казахстан Республика')
+					+regionLink('', 'Калининградская область')
+					+regionLink('', 'Камчатский край')
+					+regionLink('', 'Карелия Республика')
+					+regionLink('', 'Кемеровская область')
+					+regionLink('', 'Кировская область')
+					+regionLink('', 'Коми Республика')
+					+regionLink('', 'Костромская область')
+					+regionLink('', 'Краснодарский край')
+					+regionLink('', 'Курганская область')
+					+regionLink('', 'Курская область')
+					+regionLink('', 'Кыргызская Республика')
+					+regionLink('Л', 'Ленинградская область')
+					+regionLink('', 'Липецкая область')
+					+regionLink('М', 'Магаданская область')
+					+regionLink('', 'Марий Эл Республика')
+					+regionLink('', 'Мордовия Республика')
+					+regionLink('', 'Московская область')
+					+regionLink('Н', 'Ненецкий автономный округ')
+					+regionLink('', 'Нижегородская область')
+					+regionLink('', 'Новгородская область')
+					+regionLink('', 'Новосибирская область')
+					+regionLink('О', 'Омская область')
+					+regionLink('', 'Оренбургская область')
+					+regionLink('', 'Орловская область')
+					+regionLink('П', 'Пензенская область')
+					+regionLink('', 'Пермский край')
+					+regionLink('', 'Приморский край')
+					+regionLink('', 'Псковская область')
+					+regionLink('Р', 'Ростовская область')
+					+regionLink('', 'Рязанская область')
+					+regionLink('С', 'Самарская область')
+					+regionLink('', 'Саратовская область')
+					+regionLink('', 'Сахалинская область')
+					+regionLink('', 'Свердловская область')
+					+regionLink('', 'Северная Осетия Республика')
+					+regionLink('', 'Смоленская область')
+					+regionLink('', 'Ставропольский край')
+					+regionLink('Т', 'Тамбовская область')
+					+regionLink('', 'Татарстан Республика')
+					+regionLink('', 'Тверская область')
+					+regionLink('', 'Томская область')
+					+regionLink('', 'Тульская область')
+					+regionLink('', 'Тыва Республика')
+					+regionLink('', 'Тюменская область')
+					+regionLink('У', 'Удмуртская Республика')
+					+regionLink('', 'Узбекистан Республика')
+					+regionLink('', 'Ульяновская область')
+					+regionLink('Х', 'Хабаровский край')
+					+regionLink('', 'Хакасия Республика')
+					+regionLink('', 'Ханты-Мансийский автономный округ')
+					+regionLink('Ч', 'Челябинская область')
+					+regionLink('', 'Чеченская Республика')
+					+regionLink('', 'Чувашская Республика')
+					+regionLink('', 'Чукотский автономный округ')
+					+regionLink('Я', 'Якутия Республика')
+					+regionLink('', 'Ямало-Ненецкий автономный округ')
+					+regionLink('', 'Ярославская область')
+	// end sMap
+
+//- mixin regionLink(region)
+//- 	+b.region-link.small
+//- 		a(href='#')= region
+
+mixin regionLink(data, region)
+	+b.region-link.small(data-title=data)
+		a(href='#')= region
+
+mixin regionLinkBig(region)
+	+b.region-link--big
+		a(href='#')= region
+
+mixin sMap2(data)
+	// start sMap
+	+b.SECTION.sMap.section#sMap&attributes(attributes)
+		+b.brands.white-bg-modal#brands
+			.container
+				+e.wrap
+					+e.item.active(href='#'): +img(src=`img/edelhaus.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/konigstein-dark-1.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/master-ceramic-dark.svg`, alt="")
+					+e.item(href='#'): +img(src=`img/modformat-dark.svg`, alt="")
+		.container
+			h4 Выберите регион
+			+e.cities
+				+regionLinkBig('Москва')
+				+regionLinkBig('Санкт-Петербург')
+				+e.grid
+					+regionLink('A', 'Адыгея Республика')
+					+regionLink('', 'Алтайский край')
+					+regionLink('', 'Амурская область')
+					+regionLink('', 'Архангельская область')
+					+regionLink('', 'Астраханская область')
+					+regionLink('Б', 'Башкортостан республика')
+					+regionLink('', 'Беларусь Республика')
+					+regionLink('', 'Белгородская область')
+					+regionLink('', 'Брянская область')
+					+regionLink('', 'Бурятия Республика')
+					+regionLink('В', 'Владимирская область')
+					+regionLink('', 'Волгоградская область')
+					+regionLink('', 'Вологодская область')
+					+regionLink('', 'Воронежская область')
+					+regionLink('Г', 'г. Севастополь')
+					+regionLink('В', 'Владимирская область')
+					+regionLink('Д', 'Дагестан Республика')
+					+regionLink('Е', 'Еврейская автономная область')
+					+regionLink('З', 'Забайкальский край')
+					+regionLink('И', 'Ивановская область')
+					+regionLink('', 'Ингушетия Республика')
+					+regionLink('', 'Иркутская область')
+					+regionLink('К', 'Казахстан Республика')
+					+regionLink('', 'Калининградская область')
+					+regionLink('', 'Камчатский край')
+					+regionLink('', 'Карелия Республика')
+					+regionLink('', 'Кемеровская область')
+					+regionLink('', 'Кировская область')
+					+regionLink('', 'Коми Республика')
+					+regionLink('', 'Костромская область')
+					+regionLink('', 'Краснодарский край')
+					+regionLink('', 'Курганская область')
+					+regionLink('', 'Курская область')
+					+regionLink('', 'Кыргызская Республика')
+					+regionLink('Л', 'Ленинградская область')
+					+regionLink('', 'Липецкая область')
+					+regionLink('М', 'Магаданская область')
+					+regionLink('', 'Марий Эл Республика')
+					+regionLink('', 'Мордовия Республика')
+					+regionLink('', 'Московская область')
+					+regionLink('Н', 'Ненецкий автономный округ')
+					+regionLink('', 'Нижегородская область')
+					+regionLink('', 'Новгородская область')
+					+regionLink('', 'Новосибирская область')
+					+regionLink('О', 'Омская область')
+					+regionLink('', 'Оренбургская область')
+					+regionLink('', 'Орловская область')
+					+regionLink('П', 'Пензенская область')
+					+regionLink('', 'Пермский край')
+					+regionLink('', 'Приморский край')
+					+regionLink('', 'Псковская область')
+					+regionLink('Р', 'Ростовская область')
+					+regionLink('', 'Рязанская область')
+					+regionLink('С', 'Самарская область')
+					+regionLink('', 'Саратовская область')
+					+regionLink('', 'Сахалинская область')
+					+regionLink('', 'Свердловская область')
+					+regionLink('', 'Северная Осетия Республика')
+					+regionLink('', 'Смоленская область')
+					+regionLink('', 'Ставропольский край')
+					+regionLink('Т', 'Тамбовская область')
+					+regionLink('', 'Татарстан Республика')
+					+regionLink('', 'Тверская область')
+					+regionLink('', 'Томская область')
+					+regionLink('', 'Тульская область')
+					+regionLink('', 'Тыва Республика')
+					+regionLink('', 'Тюменская область')
+					+regionLink('У', 'Удмуртская Республика')
+					+regionLink('', 'Узбекистан Республика')
+					+regionLink('', 'Ульяновская область')
+					+regionLink('Х', 'Хабаровский край')
+					+regionLink('', 'Хакасия Республика')
+					+regionLink('', 'Ханты-Мансийский автономный округ')
+					+regionLink('Ч', 'Челябинская область')
+					+regionLink('', 'Чеченская Республика')
+					+regionLink('', 'Чувашская Республика')
+					+regionLink('', 'Чукотский автономный округ')
+					+regionLink('Я', 'Якутия Республика')
+					+regionLink('', 'Ямало-Ненецкий автономный округ')
+					+regionLink('', 'Ярославская область')
+			+e.item#storage
+				+e.row.row
+					.col-12.col-md-8.order-md-2
+						+e.map
+							#map
+					.col-12.col-md-4
+						.inner-wrap
+							.title.fw-500 Москва и Московская область
+							.custom-scroll()
+								.box
+									+distributorItem('Склад основной на заводе', 'Кирово-Чепецкий район, посёлок при станции Бумкомбинат, Кирпичный проезд, 1', '58.467892, 50.063425')
+									+distributorItem('Склад УМИАТ', 'Кирово-Чепецк, квартал Пригородный', '58.527740, 49.984161')
+									+distributorItem('Склад База ОРС', 'г. Кирово-Чепецк, квартал Цепели, 18', '58.517168, 50.004264')
+									+distributorItem('Склад «Славянский мир»', 'Москва, поселение Мосрентген, строительный рынок «Славянский мир»', '55.621473,37.450197')
+	// end sMap
+
+mixin distributorItem(title,address,tel)
+	+b.coord-item
+		+e.title
+			| #{title}
+		+e.item-text
+			+e.info-address.small #[span Адрес]: #{address}
+			+e.info-address.small #[span Тел.:] #{tel}
+			+e.info-address.small #[span Viber/WhatsApp:] #{coords}
+			+e.info-address.small #[span E-mail:] #{mail}
+			+e.info-address.small #[span Сайт:] #{site}
