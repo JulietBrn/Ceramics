@@ -90,40 +90,7 @@
     }
   }
 
-  .video-link {
-    position: relative;
-		display: block;
-		aspect-ratio: 328 / 360;
-    @include media-breakpoint-up(md) {
-      aspect-ratio: 1024 / 472;
-    }
-
-    &__icon-wrapper {
-      position: absolute;
-      top: 46%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      flex-direction: column;
-      align-items:center;
-      gap: rem(8);
-    }
-
-		&:before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-      width: 100%;
-      height: 100%;
-			background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, $gray-600 100%);
-			z-index: 1;
-		}
-
-    .small {
-      color: $white;
-    }
-  }
+  
 
   .video-link + .content-item {
     position: relative;
@@ -150,18 +117,6 @@
     }
   }
 
-  .icon-play {
-    fill: none;
-    stroke: $white;
-    stroke-width: rem(3);
-    position: relative;
-    padding: rem(14);
-    font-size: rem(78);
-    background: rgb(210, 38, 48, 0.7);
-    @include media-breakpoint-up(md) {
-      font-size: rem(100);
-    }
-  }
 
   &__sign {
     margin-top: rem(32);
@@ -802,5 +757,55 @@
     @include media-breakpoint-up(xl) {
       grid-column: span 2;
     }
+  }
+}
+
+
+.video-link {
+  position: relative;
+  display: block;
+  aspect-ratio: 328 / 360;
+  @include media-breakpoint-up(md) {
+    aspect-ratio: 1024 / 472;
+  }
+
+  &__icon-wrapper {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    gap: rem(8);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, $gray-600 100%);
+    z-index: 1;
+  }
+
+  .small {
+    color: $white;
+  }
+}
+
+
+.icon-play {
+  fill: none;
+  stroke: $white;
+  stroke-width: rem(3);
+  position: relative;
+  padding: rem(14);
+  font-size: rem(78);
+  background: rgb(210, 38, 48, 0.7);
+  @include media-breakpoint-up(md) {
+    font-size: rem(100);
   }
 }

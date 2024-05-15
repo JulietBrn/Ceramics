@@ -62,6 +62,17 @@ mixin sAbout(data)
 							.fw-600 Вишневский Александр Юрьевич
 							.small Генеральный директор АО «КС Керамик»
 						+img(src="img/signature.svg", alt="").signature
+		+e.item#video
+			+b.video-link(href='https://youtu.be/7AkbUfZjS5k?si=boWKeffFxOLhUsO-', data-fancybox=`video-1`)
+				+img('img/video-bg-about.png', 'bg')
+				+e.icon-wrapper
+					+icon('play')
+					+e.sub-text.small Смотреть видео
+			.content-item
+				+b.card-item
+					+sTitleItem('Прогулка по производству')
+					+e.text-wrapper
+						p АО «КС Керамик» — современное предприятие, выпускающее более 300 видов лицевых керамических изделий по сочетанию цены, дизайна и эксплуатационных характеристик, конкурирующих с лучшими мировыми производителями.
 		.container
 			+b.attachments
 				h2 Учредительные документы
