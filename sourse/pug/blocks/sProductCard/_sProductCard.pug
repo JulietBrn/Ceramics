@@ -23,6 +23,16 @@ mixin sFeatures(data)
 					+icon('download')
 				+e.btn.btn.btn-dark.btn-reverse(href='#', target='_blank') Сертификация продукции
 					+icon('download')
+		+warningText2('Мангейм Карбон', ' 95 ₽/шт ', '4852 ₽/м2')
+
+mixin warningText2(text, price1, price2)
+	+b.warning-text--order
+		.inner-wrap
+			.small.title=text
+			.price-wrap
+				.small=price1
+				.small.secondary= price2
+		.btn.btn-primary(href='#') Заказать
 
 mixin feature-line(title, value)
 	+b.feature-line.small
