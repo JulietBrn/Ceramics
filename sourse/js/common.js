@@ -555,6 +555,22 @@ function eventHandler() {
     .querySelector(".close")
     .addEventListener("click", () => cookie.classList.add("closed"));
   }
+
+  /* dropdown */
+  const regionLinks = document.querySelectorAll('.region-link');
+
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+  if (regionLinks && dropdownToggle) {
+    regionLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        dropdownToggle.textContent = this.textContent;
+      });
+    });
+  }
+
 }
 
 
