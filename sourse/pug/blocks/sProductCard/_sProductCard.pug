@@ -1,9 +1,9 @@
 mixin sFeatures(data)
 	// start sFeatures
 	+b.SECTION.sFeatures.section#sFeatures&attributes(attributes)
-		.container
+		.container.container-absolut
 			+e.header
-				.btn-link.btn-reverse.small(href='#') В каталог
+				a.btn-link.btn-reverse.small(href='#') В каталог
 					+icon('arrow-back')
 				+img(src=`img/konigstein-dark-1.svg`, alt="").brand
 			h1 Гессен Морион
@@ -13,12 +13,14 @@ mixin sFeatures(data)
 					.custom-scroll()
 						+in-c("radio", 'Одинарный (1НФ)')
 						+in-c("radio", 'Евроформат (0,7НФ)')(checked)
+		.container.container-btn
 			+e.info-btns
-				+b.price 
+				+b.price
 					+e.item.small Цена розница
-					+e.item.fw-500  95 ₽/шт
-					+e.item.fw-500 4 452 ₽/м2
-				+e.btn.btn.btn-primary.btn-reverse(href='#', target='_blank') Заказать
+					+e.item.fw-500  95 ₽/шт
+					+e.item.fw-500 4 452 ₽/м2
+				+e.btn.btn.btn-primary.btn-reverse.btn--order-js Заказать
+				+e.btn.btn.btn-secondary.btn-reverse.btn--basket-js.d-none(href='#') В корзине
 				+e.btn.btn.btn-dark.btn-reverse(href='#', target='_blank') Характеристики
 					+icon('download')
 				+e.btn.btn.btn-dark.btn-reverse(href='#', target='_blank') Сертификация продукции
@@ -49,22 +51,22 @@ mixin sProductCard(data)
 					+b.title-item--white
 						h2 Основные характеристики
 				+e.col.col-md-6
-						+feature-line('Размер ДхШхВ, мм', '250х120х65')
-						+feature-line('Позиция склад/заказ', 'заказная')
-						+feature-line('Минимальный объем заказа, шт', '60000')
-			+e.slider--js
-				.swiper-wrapper
-					+e.slide.swiper-slide
-						+e.img-wrap.bg-wrap
-							+img("img/product-card.png", 'bg')
-					+e.slide.swiper-slide
-						+e.img-wrap.bg-wrap
-							+img("img/product-card.png", 'bg')
-					+e.slide.swiper-slide
-						+e.img-wrap.bg-wrap
-							+img("img/product-card.png", 'bg')
-				+arrow()
-				+e.btn.btn.btn-primary.d-none.d-md-block(href='#') Галерея объектов
+					+feature-line('Размер ДхШхВ, мм', '250х120х65')
+					+feature-line('Позиция склад/заказ', 'заказная')
+					+feature-line('Минимальный объем заказа, шт', '60000')
+		+e.slider--js
+			.swiper-wrapper
+				+e.slide.swiper-slide
+					+e.img-wrap.bg-wrap
+						+img("img/product-card.png", 'bg')
+				+e.slide.swiper-slide
+					+e.img-wrap.bg-wrap
+						+img("img/product-card.png", 'bg')
+				+e.slide.swiper-slide
+					+e.img-wrap.bg-wrap
+						+img("img/product-card.png", 'bg')
+			+arrow()
+			+e.btn.btn.btn-primary.d-none.d-md-block(href='#') Галерея объектов
 	// end sProductCard
 
 		+e.btn.btn.btn-primary.btn-reverse(href='#', target='_blank') Скачать инструкцию

@@ -583,6 +583,18 @@
   }
 }
 
+.design-block {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: rem(40);
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: rem(104);
+    }
+    @include media-breakpoint-up(lg) {
+    }
+  }
+
 #sContentOven {
   --sPT: #{rem(24)};
   --sTPB: #{rem(24)};
@@ -600,17 +612,6 @@
     }
   }
 
-  .design {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-bottom: rem(40);
-    @include media-breakpoint-up(md) {
-      grid-template-columns: repeat(2, 1fr);
-      margin-bottom: rem(104);
-    }
-    @include media-breakpoint-up(lg) {
-    }
-  }
   
   .parallax-container {
     // min-height: rem(640);

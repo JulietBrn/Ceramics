@@ -43,6 +43,25 @@ function eventHandler() {
 			// }
 		},
 	};
+  const sProdSlider = new Swiper('.sAbout__swiper--js', {
+		spaceBetween: 32,
+		watchOverflow: true,
+    direction: 'horizontal',
+		freeMode: true,
+		touchRatio: 0.4,
+		// slideToClickedSlide: true,
+    slidesPerView: 'auto',
+		freeMode: true,
+		watchOverflow: true,
+    breakpoints: {
+      768: {
+        spaceBetween: 30,
+        direction: 'vertical',
+        slidesPerView: 'auto',
+        watchOverflow: false,
+      },
+    }
+	});
 
 	new Swiper(".breadcrumb-slider--js", {
 		slidesPerView: "auto",
@@ -93,6 +112,17 @@ function eventHandler() {
       }
     }
 	});
+
+  /* order -> to basket */
+  const btnOrder = document.querySelector('.sFeatures .btn--order-js')
+  const btnToBasket = document.querySelector('.sFeatures .btn--basket-js')
+
+  if (btnOrder) {
+    btnOrder.addEventListener('click', () => {
+      btnOrder.classList.add('d-none')
+      btnToBasket.classList.remove('d-none')
+    })
+  }
 
   /* nav location mobile */
   const location = document.querySelector('.icon-wrap--mobile')
@@ -515,7 +545,24 @@ function eventHandler() {
       });
     });
   });
-
+  
+  gsap.utils.toArray('#sAbout .card-square-item').forEach((container) => {
+    const textCenters = container.querySelectorAll('.text-center');
+    
+    textCenters.forEach((textCenter) => {
+      gsap.to(textCenter, {
+        opacity: 1,
+        x: '-50%',
+        duration: 1,
+        easy: 'easy-in',
+        scrollTrigger: {
+          trigger: container,
+          start: 'bottom bottom',
+          toggleActions: 'play none none reverse',
+        }
+      });
+    });
+  });
 
 
   /* change top nav bg */
@@ -570,6 +617,7 @@ function eventHandler() {
       });
     });
   }
+
 
 }
 

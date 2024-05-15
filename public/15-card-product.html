@@ -54,13 +54,11 @@
 				<!-- end headerBlock-->
 				<!-- start sFeatures-->
 				<section class="sFeatures section" id="sFeatures">
-					<div class="container">
-						<div class="sFeatures__header">
-							<div class="btn-link btn-reverse small" href="#">В каталог
+					<div class="container container-absolut">
+						<div class="sFeatures__header"><a class="btn-link btn-reverse small" href="#">В каталог
 								<svg class="icon icon-arrow-back ">
 									<use xlink:href="img/svg/sprite.svg#arrow-back"></use>
-								</svg>
-							</div><img class="brand" src="img/konigstein-dark-1.svg" alt="" loading="lazy"/>
+								</svg></a><img class="brand" src="img/konigstein-dark-1.svg" alt="" loading="lazy"/>
 						</div>
 						<h1>Гессен Морион</h1>
 						<div class="filter">
@@ -75,16 +73,20 @@
 								</div>
 							</div>
 						</div>
+					</div>
+					<div class="container container-btn">
 						<div class="sFeatures__info-btns">
-							<div class="price"> 
+							<div class="price">
 								<div class="price__item small">Цена розница
 								</div>
-								<div class="price__item fw-500"> 95 ₽/шт
+								<div class="price__item fw-500"> 95 ₽/шт
 								</div>
-								<div class="price__item fw-500">4 452 ₽/м2
+								<div class="price__item fw-500">4 452 ₽/м2
 								</div>
 							</div>
-							<a class="sFeatures__btn btn btn-primary btn-reverse" href="#" target="_blank">Заказать
+							<div class="sFeatures__btn btn btn-primary btn-reverse btn btn--order-js">Заказать
+							</div>
+							<a class="sFeatures__btn btn btn-secondary btn-reverse btn btn--basket-js d-none" href="#">В корзине
 							</a>
 							<a class="sFeatures__btn btn btn-dark btn-reverse" href="#" target="_blank">Характеристики
 								<svg class="icon icon-download ">
@@ -145,34 +147,34 @@
 								</div>
 							</div>
 						</div>
-						<div class="sProductCard__slider sProductCard__slider--js">
-							<div class="swiper-wrapper">
-								<div class="sProductCard__slide swiper-slide">
-									<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
-									</div>
-								</div>
-								<div class="sProductCard__slide swiper-slide">
-									<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
-									</div>
-								</div>
-								<div class="sProductCard__slide swiper-slide">
-									<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
-									</div>
+					</div>
+					<div class="sProductCard__slider sProductCard__slider--js">
+						<div class="swiper-wrapper">
+							<div class="sProductCard__slide swiper-slide">
+								<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
 								</div>
 							</div>
-							<div class="swiper-button-hand swiper-button-hand-prev swiper-button-prev">
-								<svg class="icon icon-chevron-left ">
-									<use xlink:href="img/svg/sprite.svg#chevron-left"></use>
-								</svg>
+							<div class="sProductCard__slide swiper-slide">
+								<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
+								</div>
 							</div>
-							<div class="swiper-button-hand swiper-button-hand-next swiper-button-next">
-								<svg class="icon icon-chevron-right ">
-									<use xlink:href="img/svg/sprite.svg#chevron-right"></use>
-								</svg>
+							<div class="sProductCard__slide swiper-slide">
+								<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
+								</div>
 							</div>
-							<a class="sProductCard__btn btn btn-primary d-none d-md-block" href="#">Галерея объектов
-							</a>
 						</div>
+						<div class="swiper-button-hand swiper-button-hand-prev swiper-button-prev">
+							<svg class="icon icon-chevron-left ">
+								<use xlink:href="img/svg/sprite.svg#chevron-left"></use>
+							</svg>
+						</div>
+						<div class="swiper-button-hand swiper-button-hand-next swiper-button-next">
+							<svg class="icon icon-chevron-right ">
+								<use xlink:href="img/svg/sprite.svg#chevron-right"></use>
+							</svg>
+						</div>
+						<a class="sProductCard__btn btn btn-primary d-none d-md-block" href="#">Галерея объектов
+						</a>
 					</div>
 				</section>
 				<!-- end sProductCard

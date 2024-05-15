@@ -1,0 +1,49 @@
+mixin sAbout(data)
+	// start sAbout
+	+b.SECTION.sAbout.section#sAbout&attributes(attributes)
+		.design-block
+			+cardSquareEasy('6', 'Более 300 видов лицевого керамического кирпича')
+			+b.card-square-item--2.card-square-item--sand
+				.wrap
+					p Акционерное общество «КС Керамик» — предприятие по выпуску лицевого керамического кирпича ТМ Königstein, ModFormat, Edelhaus Klinker и Мастер Керамик по технологии пластического формования.
+					+e.texts.fw-600
+						p Проектная мощность завода, рассчитанная на базе лицевого кирпича стандартного формата
+						.wrapper
+							span 8064
+							.items.fw-600
+								.small шт
+								.small час
+			+cardSquareEasy('7', 'История завода')
+			+b.card-square-item--gray
+				.tabs
+					.sAbout__swiper--js.card-square-item-swiper
+						.tabs__caption.swiper-wrapper
+							.tabs__btn.swiper-slide 2007
+							.tabs__btn.swiper-slide 2008
+							.tabs__btn.swiper-slide 2009
+							.tabs__btn.swiper-slide.active 2010
+							.tabs__btn.swiper-slide 2011
+							.tabs__btn.swiper-slide 2012
+							.tabs__btn.swiper-slide 2013
+					.wrap
+						.tabs__content: p Строгое соблюдение сроков поставки Заложен фундамент современного завода облицовочного кирпича АО «Кирово-Чепецкий кирпичный завод»
+						.tabs__content: p Незамедлительное решение любых вопросов в ходе работы:
+						.tabs__content: p Соответствие промышленных партий эталонным образцам Незамедлительное решение любых вопросов в ходе работы
+						.tabs__content.active: p Заложен фундамент современного завода облицовочного кирпича АО «Кирово-Чепецкий кирпичный завод»
+						.tabs__content: p Соответствие промышленных партий эталонным образцам Незамедлительное решение любых вопросов в ходе работы
+						.tabs__content: p Незамедлительное решение любых вопросов в ходе работы
+						.tabs__content: p Соответствие промышленных партий эталонным образцам
+			//- +e.row.row
+		.container
+			+b.attachments
+				h2 Учредительные документы
+				+e.files
+					+linkFile('Лист записи ЕГРЮЛ', '3,4 МБ')
+					+linkFile('Реквизиты АО «КС Керамик»', '3,4 МБ')
+					+linkFile('Свидетельство о государственной регистрации юридического лица АО «КС Керамик»', '3,4 МБ')
+	// end sAbout
+
+
+mixin cardSquareEasy(i, text, icon)
+	+b.card-square-item--darken(style=`background-image:url(img/card-sq-${i}.png);`)
+		.h2.text-center!= text

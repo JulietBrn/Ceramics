@@ -81,8 +81,21 @@
 	--sPB: #{rem(16)};
 	// --sTPB: #{rem()};
   @include media-breakpoint-up(md) {
-    // --sPT: #{rem(0)};
+    --sPT: #{rem(0)};
     --sPB: #{rem(0)};
+  }
+  position: relative;
+  .container-absolut {
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      max-width: rem(640);
+      padding: rem(16);
+      padding-bottom: 0;
+      left: 0;
+      bottom: 100%;
+      z-index: 2;
+      background: $gray-500;
+    }
   }
 
   .icon-download {
@@ -107,6 +120,9 @@
     }
     .brand {
       margin-right: rem(26);
+      @include media-breakpoint-up(md) {
+        margin-right: 0;
+      }
     }
   }
 
@@ -130,16 +146,43 @@
     @include media-breakpoint-up(md) {
       background: $gray-600;
       justify-content: start;
+      position: relative;
+      z-index: 1;
+      &::before {
+        content: '';
+        position: absolute;
+        width: 500%;
+        height: 100%;
+        background: inherit;
+        top: 0;
+        right: 100%;
+        z-index: -1;
+      }
     }
   }
-
+  .container-btn {
+    @include media-breakpoint-only(md) {
+      max-width: none;
+      padding: 0;
+    }
+    @include media-breakpoint-only(lg) {
+      max-width: none;
+      padding: 0;
+    }
+  }
   &__info-btns {
     display: grid;
     grid-template-columns: 1fr;
     gap: rem(4);
+    
     @include media-breakpoint-up(md) {
       grid-template-columns: 1.2fr .7fr 1fr 1fr;
       gap: rem(0);
+      // margin-left: calc(var(--bs-gutter-x)* -.5);
+      // margin-right: calc(var(--bs-gutter-x)* -.5);
+    }
+    .fw-500 {
+      text-wrap: nowrap;
     }
     .btn:last-child {
       @include media-breakpoint-up(md) {
@@ -155,6 +198,23 @@
     > * {
       padding: rem(8);
       padding-bottom: rem(10);
+    }
+    .btn:last-child {
+      @include media-breakpoint-up(md) {
+        position: relative;
+        z-index: 1;
+        &::after {
+          content: '';
+          pointer-events: none;
+          position: absolute;
+          width: rem(500);
+          height: 100%;
+          background: inherit;
+          top: 0;
+          left: 100%;
+          z-index: -2;
+        }
+      }
     }
   }
 }
