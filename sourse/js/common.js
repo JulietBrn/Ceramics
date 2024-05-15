@@ -547,7 +547,17 @@ function eventHandler() {
       });
     });
   }
+
+  /* cookie */
+  let cookie = document.querySelector(".cookie");
+  if (cookie) {
+    cookie
+    .querySelector(".close")
+    .addEventListener("click", () => cookie.classList.add("closed"));
+  }
 }
+
+
 if (document.readyState !== "loading") {
 	eventHandler();
 } else {
