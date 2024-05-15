@@ -103,11 +103,14 @@ function eventHandler() {
   let startY;
   let currentY;
 
-  backDrop.addEventListener('click', () => {
-    document.querySelectorAll('.white-bg-modal').forEach((modal) => {
-      modal.classList.remove('show')
+  if (backDrop) {
+    backDrop.addEventListener('click', () => {
+      document.querySelectorAll('.white-bg-modal').forEach((modal) => {
+        modal.classList.remove('show')
+      })
     })
-  })
+	  backDrop.addEventListener('click', closeNavWidow);
+  }
 
   document.querySelectorAll('.white-bg-modal').forEach((modal) => {
     modal.addEventListener('touchstart', touchStart);
@@ -124,12 +127,14 @@ function eventHandler() {
 		backDrop.classList.remove('show');
 	}
 
-	location.addEventListener('click', openNavWidow);
-	backDrop.addEventListener('click', closeNavWidow);
-	mobileNavLocation.addEventListener('click', closeNavWidow);
-  navLinks.forEach((link) => {
-    link.addEventListener('click', closeNavWidow)
-  })
+  if (location) {
+    location.addEventListener('click', openNavWidow);
+    mobileNavLocation.addEventListener('click', closeNavWidow);
+    navLinks.forEach((link) => {
+      link.addEventListener('click', closeNavWidow)
+    })
+  }
+	
 
   /* search */
   const topNav = document.querySelector('.top-nav__row')
@@ -164,8 +169,10 @@ function eventHandler() {
 		backDrop.classList.remove('show');
 	}
 
-	searchBtn.addEventListener('click', openSearchWidow);
-	backDrop.addEventListener('click', closeSearchWidow);
+  if (searchBtn) {
+    searchBtn.addEventListener('click', openSearchWidow);
+    backDrop.addEventListener('click', closeSearchWidow);
+  }
 
   /* brands mobile */
 	const openBrandsBtn = document.querySelectorAll('.open-modal--brands')
@@ -508,6 +515,38 @@ function eventHandler() {
       });
     });
   });
+
+
+
+  /* change top nav bg */
+  let scrollerGSAP = document.querySelector("body")
+  const nav = document.querySelector(".top-nav");
+
+  if (nav) {
+    let sections = document.querySelectorAll(".white-section");
+    if (!sections.length) return;
+    let headerHeight = nav.offsetHeight;
+    sections.forEach((section) => {
+      // let className = "onWhiteBg "; // default color
+
+      // if (section.classList.contains("white-section")) {
+      //   className = "onWhiteBg";
+      // } else {
+      //   className = " ";
+      // }
+      ScrollTrigger.create({
+        trigger: section,
+        scroller: scrollerGSAP,
+        start: `top-=${headerHeight/2}   top`,
+        end: "bottom top",
+        onEnter: () => nav.classList.add("dark--js"),
+        onEnterBack: () => nav.classList.add("dark--js"),
+        onLeaveBack: () => nav.classList.remove("dark--js"),
+        onLeave: () => nav.classList.remove("dark--js"),
+        // toggleActions: "play none reverse none",
+      });
+    });
+  }
 }
 if (document.readyState !== "loading") {
 	eventHandler();

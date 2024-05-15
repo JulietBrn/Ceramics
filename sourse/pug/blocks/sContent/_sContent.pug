@@ -1,6 +1,6 @@
 mixin sContent
 	// start sContent
-	+b.SECTION.sContent.section#sContentBrick&attributes(attributes)
+	+b.SECTION.sContent.section#sContentBrick.white-section&attributes(attributes)
 		.container
 			+sContentItemBig('Уважаемые каменщики!', 'В строительстве фасада здания мы предлагаем использовать лицевой керамический кирпич коллекций «Мастер Керамик», «Kôningstein», «Edelhaus Klinker» и ТМ «Mod Format», соблюдая инструкцию по ведению кирпичной кладки.','Кирпич в разных поддонах может отличаться по оттенку.  Для ведения кладки обязательно смешивайте кирпич одновременно из четырех поддонов, чтобы избежать появления пятен на фасаде.')
 			+b.video-link(href='https://youtu.be/7AkbUfZjS5k?si=boWKeffFxOLhUsO-', data-fancybox=`video-1`)
@@ -176,7 +176,7 @@ mixin sContentOvenMaker
 						+b.info-item
 							p размер 250х120х65
 							p вес 3.9 кг
-		.container
+		.container.white-section
 			.content-item
 				h2 Письмо председателя Русского Печного Общества Серёгина Сергея Ивановича о разработке конструкции комбинированной отступки «КС-Керамик»
 				h4 Способы защиты сгораемой поверхности строительных конструкций.
@@ -217,7 +217,7 @@ mixin sContentOvenMaker
 
 mixin sContentArchitect
 	// start sContent
-	+b.SECTION.sContent.section#sContentArchitects&attributes(attributes)
+	+b.SECTION.sContent.section#sContentArchitects.white-section&attributes(attributes)
 		.container
 			p Уважаемые архитекторы и проектировщики! Предлагаем вам использовать кирпичные кладки для лучшей демонстрации фасадов в проектах. Качество нашего лицевого кирпича по достоинству оценили дизайнеры по всей России и ближнего зарубежья.
 			.attachments-wrapper

@@ -7,14 +7,26 @@
 		// @include media-breakpoint-up(md) {
 			--bs-gutter-y: var(--bs-gutter-x);
 		// }
-
 	}
   position: fixed;
-
-  top: rem(18);
+  top: 0;
   left: 0;
   z-index: 5;
   width: 100%;
+  transition: all .3s;
+  padding: rem(16) 0 rem(20);
+  background: linear-gradient(180deg, rgba(19, 16, 16, 0.4) 0%, rgba(19, 16, 16, 0.4) 40%, rgba(38, 29, 29, 0) 100%);
+  &.dark--js {
+    transition: all .3s;
+    background: linear-gradient(180deg, rgba(239, 236, 234, 0.7) 0%, rgba(239, 236, 234, 0.7) 40%, rgba(239, 236, 234, 0) 100%);
+    .icon-wrap .icon,
+    .icon-menu {
+      stroke: $dark;
+    }
+    .top-nav__tel {
+      color: $dark;
+    }
+  }
 
   .logo-wrap {
     display: inline-block;
@@ -32,6 +44,7 @@
     cursor: pointer;
     stroke-width: rem(1);
     stroke: $white;
+    @include mt;
   }
 
   &__contacts-wrap {
@@ -46,6 +59,7 @@
       cursor: pointer;
       stroke-width: rem(1);
       stroke: $white;
+      @include mt;
     }
   }
 
@@ -325,7 +339,7 @@
 
 .container-search {
   position: absolute;
-  top: 0;
+  top: rem(18);
   left: 0;
   width: 100%;
   z-index: -5;

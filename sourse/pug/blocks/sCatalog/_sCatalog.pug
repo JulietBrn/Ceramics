@@ -87,7 +87,7 @@ mixin sCatalog()
 
 mixin sCatalogEmpty()
 	// start sCatalog
-	+b.sCatalog--empty.section&attributes(attributes)
+	+b.sCatalog--empty.white-section.section&attributes(attributes)
 		.container.container
 			+b.search-field--black.d-md-none
 				input(type='text' name='search' placeholder='Поиск' aria-label='Search through site content')

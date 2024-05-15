@@ -19,7 +19,7 @@ mixin product-item-basket(img, title, subtext1, subtext2, cost, price)
 
 mixin sBasket(data)
 	// start sBasket
-	+b.SECTION.sBasket.section#sBasket&attributes(attributes)
+	+b.SECTION.sBasket.section.white-section#sBasket&attributes(attributes)
 		+warningText('Выберите хотя бы один товар, чтобы оформить предзаказ')
 		.container
 			+e.row.row
@@ -52,7 +52,7 @@ mixin sBasket(data)
 
 mixin sBasketEmpty(data)
 	// start sBasket
-	+b.SECTION.sBasket--padding.section#sBasket&attributes(attributes)
+	+b.SECTION.sBasket--padding.white-section.section#sBasket&attributes(attributes)
 		.container
 			+e.row.row
 				.col-12.col-md-6
