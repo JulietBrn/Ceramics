@@ -215,19 +215,19 @@ mixin sMap2(data)
 							.title.fw-500 Москва и Московская область
 							.custom-scroll()
 								.box
-									+distributorItem('Склад основной на заводе', 'Кирово-Чепецкий район, посёлок при станции Бумкомбинат, Кирпичный проезд, 1', '58.467892, 50.063425')
-									+distributorItem('Склад УМИАТ', 'Кирово-Чепецк, квартал Пригородный', '58.527740, 49.984161')
-									+distributorItem('Склад База ОРС', 'г. Кирово-Чепецк, квартал Цепели, 18', '58.517168, 50.004264')
-									+distributorItem('Склад «Славянский мир»', 'Москва, поселение Мосрентген, строительный рынок «Славянский мир»', '55.621473,37.450197')
+									//- +distributorItem('ООО СПП «Бетонгарант»', 'Смоленская область, Смоленский район, д. Михновка, ул. Краснинская, уч. 1', '+7 4812 30-49-69, 60-86-09, 69-18-19', '+7 910 788-18-19','info-bis@gkbis.ru', 'gkbis.ru')
 	// end sMap
 
-mixin distributorItem(title,address,tel)
+mixin distributorItem(title,address,tel, whatsapp, mail, site)
 	+b.coord-item
 		+e.title
 			| #{title}
 		+e.item-text
 			+e.info-address.small #[span Адрес]: #{address}
 			+e.info-address.small #[span Тел.:] #{tel}
-			+e.info-address.small #[span Viber/WhatsApp:] #{coords}
-			+e.info-address.small #[span E-mail:] #{mail}
-			+e.info-address.small #[span Сайт:] #{site}
+			+e.info-address.small #[span Viber/WhatsApp: ]
+				a(href=`https://wa.me/${whatsapp}`)= whatsapp
+			+e.info-address.small #[span E-mail: ]
+				a(href=`mailto:${mail}`)= mail
+			+e.info-address.small #[span Сайт: ]
+				a(href=`${site}`)= site

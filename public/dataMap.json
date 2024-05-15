@@ -1,0 +1,59 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 0,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [58.467892, 50.063425]
+      },
+      "properties": {
+        "balloonContentHeader": "ГК «БИС»",
+        "balloonContentHeaderDescr": "Шоу-рум, офис продаж",
+        "balloonContentBody": "Москва, Бережковская набережная, д. 6, офис 105",
+        "balloonContentFooter": "+7 4812 30-49-69, 60-86-09",
+        "balloonContentFooterMail": "info-bis@gkbis.ru",
+        "balloonContentFooterSite": "gkbis.ru",
+        "balloonContentFooterWhatsapp": "+7 910 788-18-19",
+        "clusterCaption": "Склад основной на заводе"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [58.527740, 49.984161]
+      },
+      "properties": {
+        "balloonContentHeader": "ООО СПП «Бетонгарант»",
+        "balloonContentHeaderDescr": "Складской комплекс",
+        "balloonContentBody": "Кирово-Чепецк, квартал Пригородный",
+        "balloonContentFooter": "+7 4812 30-49-69, 60-86-09, 69-18-19",
+        "balloonContentFooterMail": "info-bis@gkbis.ru",
+        "balloonContentFooterSite": "gkbis.ru",
+        "balloonContentFooterWhatsapp": "+7 910 788-18-19",
+        "clusterCaption": "Склад основной на заводе"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [58.517168, 50.004264]
+      },
+      "properties": {
+        "balloonContentHeader": "ТД Блокарт",
+        "balloonContentHeaderDescr": "Складской комплекс",
+        "balloonContentBody": "г. Кирово-Чепецк, квартал Цепели, 18",
+        "balloonContentFooter": "+7 495 775-16-55",
+        "balloonContentFooterMail": "info-bis@gkbis.ru",
+        "balloonContentFooterSite": "gkbis.ru",
+        "balloonContentFooterWhatsapp": "+7 910 788-18-19",
+        "clusterCaption": "Склад основной на заводе"
+      }
+    }
+  ]
+}

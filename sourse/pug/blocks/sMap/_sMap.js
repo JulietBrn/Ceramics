@@ -35,7 +35,7 @@ objectManager.objects.options.set('preset', 'islands#redDotIcon');
 		let points = [];
 		let getPixelBounds = [];
     $.ajax({
-			url: "data.json"
+			url: "dataMap.json"
 		}).done(function(data) {
 			objectManager.add(data);
       points.push(data.features)
@@ -45,6 +45,9 @@ objectManager.objects.options.set('preset', 'islands#redDotIcon');
         '<div class="coord-item__item-text">' +
         '<div class="coord-item__info-address small"><span>Адрес</span>: {{properties.balloonContentBody}}</div>' +
         '<div class="coord-item__info-address small"><span>Тел:</span> {{properties.balloonContentFooter}}</div>' +
+        '<div class="coord-item__info-address small"><span>Viber/WhatsApp: </span><a href="https://wa.me/{{properties.balloonContentFooterWhatsapp}}">{{properties.balloonContentFooterWhatsapp}}</a></div>' +
+        '<div class="coord-item__info-address small"><span>E-mail: </span><a href="mailto:{{properties.balloonContentFooterMail}}">{{properties.balloonContentFooterMail}}</a></div>' +
+        '<div class="coord-item__info-address small"><span>Сайт: </span><a href="https://{{properties.balloonContentFooterSite}}">{{properties.balloonContentFooterSite}}</a></div>' +
         '</div>' +
         '</div>'
 
@@ -54,6 +57,10 @@ objectManager.objects.options.set('preset', 'islands#redDotIcon');
   for (i = 0; i < points[0].length; i++) {
     let title= points[0][i].properties.balloonContentHeader
     let address = points[0][i].properties.balloonContentBody
+    let phone = points[0][i].properties.balloonContentFooter
+    let whatsapp = points[0][i].properties.balloonContentFooterWhatsapp
+    let mail = points[0][i].properties.balloonContentFooterMail
+    let site = points[0][i].properties.balloonContentFooterSite
     let coords = points[0][i].geometry.coordinates
     let id = points[0][i].id
       let text = `
@@ -63,8 +70,11 @@ objectManager.objects.options.set('preset', 'islands#redDotIcon');
         <div class="coord-item__item-text">
           <div class="coord-item__info-address small"><span>Адрес</span>: ${address}
           </div>
-          <div class="coord-item__info-address small"><span>GPS координаты:</span> ${coords}
+          <div class="coord-item__info-address small"><span>Тел.:</span> ${phone}
           </div>
+          <div class="coord-item__info-address small"><span>Viber/WhatsApp: </span><a href="https://wa.me/${whatsapp.replaceAll(' ', '').replaceAll('-', '')}">${whatsapp}</a></div>
+          <div class="coord-item__info-address small"><span>E-mail: </span><a href="mailto:${mail}">${mail}</a></div>
+          <div class="coord-item__info-address small"><span>Сайт: </span><a href="https://${site}">${site}</a></div>
         </div>
       </div>
     `

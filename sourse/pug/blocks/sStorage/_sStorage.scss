@@ -281,6 +281,9 @@
     }
   }
 
+  .mCSB_dragger_bar {
+    background-color: #{$primary} !important;
+  }
 
 
 	@include media-breakpoint-up(xl) {}
@@ -371,7 +374,7 @@ ymaps .coord-item {
   span {
     font-weight: 600;
   }
-  &__info-address:first-child {
+  &__info-address:not(:last-child) {
     margin-bottom: rem(8);
   }
   
