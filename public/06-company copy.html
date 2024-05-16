@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>О компании</title>
+		<meta name="description" content="о чем страница">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<script>
+			let viewport = document.querySelector("meta[name=viewport]");
+			var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+			
+				//- alert(navigator.userAgent);
+				function w() {
+					this.outerWidth > 767.98
+						? viewport.content = "width=768,   maximum-scale=1 , user-scalable=0, shrink-to-fit=no" 
+						: viewport.content = "width=device-width, initial-scale=1.0,  maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" 
+					//- alert(this.outerWidth + ', '+  viewport.content);
+				}
+					w();
+				window.addEventListener('resize', () => { 
+					w();
+				}, { passive: true });
+		</script>
+		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><meta name="format-detection" content="telephone=no"> <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+		<link href="libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" rel="stylesheet"/>
+		<link href="css/main.min.css" rel="stylesheet"/>
+		<script>
+			function addBlock(elem) {
+				fetch(`parts/${elem}.html`)
+					.then(response => response.text())
+					.then( text => {
+						const wrap = document.querySelector(`#${elem}Wrap`);
+						wrap.insertAdjacentHTML('afterend', text);
+						wrap.previousElementSibling.remove()
+						wrap.remove();
+					});
+			}
+		</script>
+	</head>
+	<body class="main-page">
+		<div class="main-wrapper">
+			<script>addBlock(`header`)</script>
+			<div id="headerWrap"></div>
+			<main>
+				<!-- start headerBlock-->
+				<div class="headerBlock headerBlock--white section" id="headerBlock">
+					<div class="container-max">
+						<div class="headerBlock__img-wrap bg-wrap bg"><img class="object-fit-js" src="img/header-bg-company.png" alt="" loading="lazy"/>
+						</div>
+					</div>
+					<div class="container">
+						<div class="section-title">
+							<h1>О компании</h1>
+						</div>
+					</div>
+				</div>
+				<!-- end headerBlock-->
+				<!-- start sAbout-->
+				<section class="sAbout section" id="sAbout">
+					<div class="container-max">
+						<div class="design-block">
+							<div class="card-square-item card-square-item--darken" style="background-image:url(img/card-sq-6.png);">
+								<div class="h2 text-center">Более 300 видов лицевого керамического кирпича</div>
+							</div>
+							<div class="card-square-item card-square-item--2 card-square-item card-square-item--sand">
+								<div class="wrap">
+									<p>Акционерное общество «КС Керамик» — предприятие по выпуску лицевого керамического кирпича ТМ Königstein, ModFormat, Edelhaus Klinker и Мастер Керамик по технологии пластического формования.</p>
+									<div class="card-square-item__texts fw-600">
+										<p>Проектная мощность завода, рассчитанная на базе лицевого кирпича стандартного формата</p>
+										<div class="wrapper"><span>8064</span>
+											<div class="items fw-600">
+												<div class="small">шт</div>
+												<div class="small">час</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-square-item card-square-item--darken" style="background-image:url(img/card-sq-7.png);">
+								<div class="h2 text-center">История завода</div>
+							</div>
+							<div class="card-square-item card-square-item--gray">
+								<div class="tabs">
+									<div class="sAbout__date-swiper--js card-square-item-swiper">
+										<div class="tabs__caption swiper-wrapper">
+											<div class="tabs__btn swiper-slide">2007</div>
+											<div class="tabs__btn swiper-slide">2008</div>
+											<div class="tabs__btn swiper-slide">2009</div>
+											<div class="tabs__btn swiper-slide active">2010</div>
+											<div class="tabs__btn swiper-slide">2011</div>
+											<div class="tabs__btn swiper-slide">2012</div>
+											<div class="tabs__btn swiper-slide">2013</div>
+										</div>
+									</div>
+									<div class="wrap">
+										<div class="tabs__content">
+											<p>Строгое соблюдение сроков поставки Заложен фундамент современного завода облицовочного кирпича АО «Кирово-Чепецкий кирпичный завод»</p>
+										</div>
+										<div class="tabs__content">
+											<p>Незамедлительное решение любых вопросов в ходе работы:</p>
+										</div>
+										<div class="tabs__content">
+											<p>Соответствие промышленных партий эталонным образцам Незамедлительное решение любых вопросов в ходе работы</p>
+										</div>
+										<div class="tabs__content active">
+											<p>Заложен фундамент современного завода облицовочного кирпича АО «Кирово-Чепецкий кирпичный завод»</p>
+										</div>
+										<div class="tabs__content">
+											<p>Соответствие промышленных партий эталонным образцам Незамедлительное решение любых вопросов в ходе работы</p>
+										</div>
+										<div class="tabs__content">
+											<p>Незамедлительное решение любых вопросов в ходе работы</p>
+										</div>
+										<div class="tabs__content">
+											<p>Соответствие промышленных партий эталонным образцам</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="sAbout__item white-section" id="advantages">
+							<div class="sAbout__title-wrap">
+								<div class="title-item">
+									<div class="h1">Наши преимущества</div>
+								</div>
+								<div class="sAbout__img-wrap bg-wrap"><img class="object-fit-js" src="img/about.png" alt="" loading="lazy"/>
+								</div>
+							</div>
+							<div class="sAbout__advantages">
+								<div class="advantage-about">
+									<div class="span">1</div>
+									<div class="small">Соответствие промышленных партий эталонным образцам</div>
+								</div>
+								<div class="advantage-about">
+									<div class="span">2</div>
+									<div class="small">Строгое соблюдение сроков поставки</div>
+								</div>
+								<div class="advantage-about">
+									<div class="span">3</div>
+									<div class="small">Незамедлительное решение любых вопросов в ходе работы</div>
+								</div>
+								<div class="advantage-about">
+									<div class="span">4</div>
+									<div class="small">Самый современный парк оборудования от лучшего мирового поставщика линии для производства керамического кирпича</div>
+								</div>
+								<div class="advantage-about">
+									<div class="span">5</div>
+									<div class="small">Постоянное развитие и вывод на рынок новых видов продукции в контексте современных трендов</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container-max">
+						<div class="sAbout__item" id="blockquote">
+							<div class="sAbout__img-wrap bg-wrap"><img class="object-fit-js" src="img/manager.png" alt="" loading="lazy"/>
+							</div>
+							<div class="blockquote">
+								<svg class="icon icon-quote ">
+									<use xlink:href="img/svg/sprite.svg#quote"></use>
+								</svg>
+								<div class="wrapper">
+									<blockquote>
+										<p>Производство кирпича — дело, которое заполняет наши сердца на протяжении более 15 лет. Желание преображать облик городов и частных посёлков, делая их ярче и красивее, современнее и надёжнее, воплотилось в построенном нами заводе с отвечающем времени оборудованием и передовыми технологиями, в сплочённой и вдохновлённой команде специалистов, в идеях и стремлениях совершенствоваться и соответствовать требованиям сегодняшнего дня.</p>
+										<p>Мы неустанно находимся в поиске новых дизайнерских решений, позволяющих качественно исполнить архитектурный проект любой сложности. Именно поэтому в ассортименте завода свыше 300 видов продукции разных оттенков, фактур и форматов.</p>
+										<p>Надеемся, что благодаря нашему труду, вы обретёте вдохновение для создания своего кирпичного дома, ведь наше дело олицетворяет собой радость жизни, а призвание — надёжные стены вашего жилища, теплоту печей и каминов из нашего кирпича.</p>
+									</blockquote>
+									<div class="sAbout__sign">
+										<div class="descr">
+											<div class="fw-600">Вишневский Александр Юрьевич</div>
+											<div class="small">Генеральный директор АО «КС Керамик»</div>
+										</div><img class="signature" src="img/signature.svg" alt="" loading="lazy"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="sAbout__item" id="video">
+							<a class="video-link" href="https://youtu.be/7AkbUfZjS5k?si=boWKeffFxOLhUsO-" data-fancybox="video-1"><img class="object-fit-js" src="img/video-bg-about.png" alt="" loading="lazy"/>
+								<div class="video-link__icon-wrapper">
+									<svg class="icon icon-play ">
+										<use xlink:href="img/svg/sprite.svg#play"></use>
+									</svg>
+									<div class="video-link__sub-text small">Смотреть видео
+									</div>
+								</div>
+							</a>
+							<div class="content-item">
+								<div class="card-item">
+									<div class="title-item">
+										<h4>Прогулка по производству</h4>
+									</div>
+									<div class="card-item__text-wrapper">
+										<p>АО «КС Керамик» — современное предприятие, выпускающее более 300 видов лицевых керамических изделий по сочетанию цены, дизайна и эксплуатационных характеристик, конкурирующих с лучшими мировыми производителями.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="sAbout__slider sAbout__slider--js">
+							<div class="swiper-wrapper">
+								<div class="sAbout__slide swiper-slide">
+									<div class="sAbout__img-wrap bg-wrap"><img class="object-fit-js" src="img/about-slide.png" alt="" loading="lazy"/>
+									</div>
+									<div class="caption-slide">Массоподготовка</div>
+								</div>
+								<div class="sAbout__slide swiper-slide">
+									<div class="sAbout__img-wrap bg-wrap"><img class="object-fit-js" src="img/about-slide.png" alt="" loading="lazy"/>
+									</div>
+									<div class="caption-slide">Массоподготовка</div>
+								</div>
+								<div class="sAbout__slide swiper-slide">
+									<div class="sAbout__img-wrap bg-wrap"><img class="object-fit-js" src="img/about-slide.png" alt="" loading="lazy"/>
+									</div>
+									<div class="caption-slide">Массоподготовка</div>
+								</div>
+							</div>
+							<div class="swiper-button-hand swiper-button-hand-prev swiper-button-prev">
+								<svg class="icon icon-chevron-left ">
+									<use xlink:href="img/svg/sprite.svg#chevron-left"></use>
+								</svg>
+							</div>
+							<div class="swiper-button-hand swiper-button-hand-next swiper-button-next">
+								<svg class="icon icon-chevron-right ">
+									<use xlink:href="img/svg/sprite.svg#chevron-right"></use>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="container white-section">
+						<div class="attachments">
+							<h2>Учредительные документы</h2>
+							<div class="attachments__files">
+								<!-- start linkFile-->
+								<a class="link-file" href="#" target="_blank"><img class="img" src="img/file-pdf.svg" alt="" loading="lazy"/>
+									<div class="link-file__descr small">
+										<div class="link-file__title fw-600">Лист записи ЕГРЮЛ
+										</div>
+										<div class="link-file__size">PDF • 3,4 МБ
+										</div>
+									</div>
+									<svg class="icon icon-download ">
+										<use xlink:href="img/svg/sprite.svg#download"></use>
+									</svg>
+								</a>
+								<!-- start linkFile-->
+								<a class="link-file" href="#" target="_blank"><img class="img" src="img/file-pdf.svg" alt="" loading="lazy"/>
+									<div class="link-file__descr small">
+										<div class="link-file__title fw-600">Реквизиты АО «КС Керамик»
+										</div>
+										<div class="link-file__size">PDF • 3,4 МБ
+										</div>
+									</div>
+									<svg class="icon icon-download ">
+										<use xlink:href="img/svg/sprite.svg#download"></use>
+									</svg>
+								</a>
+								<!-- start linkFile-->
+								<a class="link-file" href="#" target="_blank"><img class="img" src="img/file-pdf.svg" alt="" loading="lazy"/>
+									<div class="link-file__descr small">
+										<div class="link-file__title fw-600">Свидетельство о государственной регистрации юридического лица АО «КС Керамик»
+										</div>
+										<div class="link-file__size">PDF • 3,4 МБ
+										</div>
+									</div>
+									<svg class="icon icon-download ">
+										<use xlink:href="img/svg/sprite.svg#download"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sAbout-->
+			</main>
+			<script>addBlock(`footer`)</script>
+			<div id="footerWrap"></div>
+		</div>
+		<!--  start modals-->
+		<div id="modal-call" style="display: none">
+			<div class="modal-win">
+				<div class="form-wrap">
+					<form>
+						<div class="text-center">
+							<div class="form-wrap__title form-data h3 ttu">Обратный звонок
+							</div>
+							<p class="after-headline">Заполните заявку и&nbsp;мы&nbsp;с&nbsp;Вами свяжемся в&nbsp;течение 15&nbsp;минут</p>
+						</div>
+						<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="text" name="text" type="text" placeholder="Ваше Имя" required="required"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="tel" name="tel" type="tel" placeholder="Ваше телефон" required="required"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="tel" name="tel" type="tel" placeholder="Ваше телефон" required="required"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<button class="form-wrap__btn btn" type="submit">submit
+						</button>
+						<div class="form-wrap__policy">
+							<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><small class="custom-input__text text-secondary">Согласен на обработку и хранение моих персональных данных в соответствии с условиями</small>
+							</label>
+						</div>
+						<div class="form-wrap__policy">
+							<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><small class="custom-input__text text-secondary">Согласен на обработку и хранение моих персональных данных в соответствии с условиями</small>
+							</label>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- #modal-call-->
+		<!-- end modals-->
+		<script src="libs/swiper/swiper-bundle.min.js"></script>
+		<script src="libs/gsap/gsap.min.js"></script>
+		<script src="libs/gsap/ScrollTrigger.min.js"> </script>
+		<script type="module" src="js/common.js"></script>
+	</body>
+</html>
