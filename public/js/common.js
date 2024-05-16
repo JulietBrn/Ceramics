@@ -591,8 +591,26 @@ function eventHandler() {
     });
   }); 
 
-  gsap.utils.toArray('#sCareer .card-square-item').forEach((container) => {
+  gsap.utils.toArray('#sCareer .design-block--1 .card-square-item').forEach((container) => {
     const textCenters = container.querySelectorAll('.text-center');
+
+    textCenters.forEach((textCenter) => {
+      gsap.to(textCenter, {
+        opacity: 1,
+        x: '-50%',
+        duration: 1,
+        easy: 'easy-in',
+        scrollTrigger: {
+          trigger: container,
+          start: 'bottom bottom',
+          toggleActions: 'play none none reverse',
+        }
+      });
+    });
+  });
+
+  gsap.utils.toArray('#sCareer .design-block--2 .card-square-item').forEach((container) => {
+    const textCenters = container.querySelectorAll('.text-wrapper');
 
     textCenters.forEach((textCenter) => {
       gsap.to(textCenter, {

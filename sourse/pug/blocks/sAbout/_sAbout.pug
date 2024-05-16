@@ -114,7 +114,7 @@ mixin sAboutCareer(data)
 	// start sAbout
 	+b.SECTION.sAbout--career.section#sCareer&attributes(attributes)
 		.container-max
-			.design-block
+			.design-block.design-block--1
 				+cardSquareEasy('11', 'Мастерство')
 				+b.card-square-item--2
 					.wrap
@@ -147,4 +147,29 @@ mixin sAboutCareer(data)
 					+advantageAbout(2, 'Наш коллектив — открытые, целеустремленные люди действия. Мы готовы вкладывать и обучать нашу команду и бережем каждого, как бесценную находку.')
 					+advantageAbout(3, 'Корпоративная культура для нас — не пустой звук. Мы стараемся чаще объединять своих сотрудников вне офиса и узнавать друг друга лучше.')
 		.container-max
+			.design-block.design-block--2
+				+cardSquareBrand2('9', 'Оставьте отклик')
+				+b.card-square-item--2.card-square-item--sand
+					.wrap
+						.h2 Контакты HR<br>и почта для резюме
+						.contacts-list
+							ul
+								li
+									+icon('profile')
+									| Ведерникова Оксана
+								li
+									a(href='tel:+79120081398')
+										+icon('phone')
+										| +7 (912) 008-13-98
+								li
+									a(href='mailto:onv@kckz.ru')
+										+icon('mail')
+										| onv@kckz.ru
 	// end sAbout
+
+
+mixin cardSquareBrand2(i, text)
+	+b.card-square-item--1(style=`background-image:url(img/card-sq-${i}.png);`)
+		.text-wrapper
+			.h2.text-center!= text
+			+e.btn.btn.btn-primary Написать
