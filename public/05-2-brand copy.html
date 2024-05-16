@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<title>ModFormat</title>
+		<meta name="description" content="о чем страница">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<script>
+			let viewport = document.querySelector("meta[name=viewport]");
+			var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+			
+				//- alert(navigator.userAgent);
+				function w() {
+					this.outerWidth > 767.98
+						? viewport.content = "width=768,   maximum-scale=1 , user-scalable=0, shrink-to-fit=no" 
+						: viewport.content = "width=device-width, initial-scale=1.0,  maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" 
+					//- alert(this.outerWidth + ', '+  viewport.content);
+				}
+					w();
+				window.addEventListener('resize', () => { 
+					w();
+				}, { passive: true });
+		</script>
+		<link type="image/ico" href="img/favicon.ico" rel="shortcut icon"><meta name="format-detection" content="telephone=no"> <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+		<link href="libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" rel="stylesheet"/>
+		<link href="css/main.min.css" rel="stylesheet"/>
+		<script>
+			function addBlock(elem) {
+				fetch(`parts/${elem}.html`)
+					.then(response => response.text())
+					.then( text => {
+						const wrap = document.querySelector(`#${elem}Wrap`);
+						wrap.insertAdjacentHTML('afterend', text);
+						wrap.previousElementSibling.remove()
+						wrap.remove();
+					});
+			}
+		</script>
+	</head>
+	<body class="main-page">
+		<div class="main-wrapper">
+			<script>addBlock(`header`)</script>
+			<div id="headerWrap"></div>
+			<main>
+				<!-- start sBrand-->
+				<section class="sBrand sBrand--edelhaus section" id="sBrand">
+					<div class="container-max">
+						<div class="block1">
+							<div class="parallax-container" style="background-image:url(img/brand-header-edelhaus.png);"></div>
+							<div class="content"><img class="brand" src="img/edelhaus-light.svg" alt="" loading="lazy"/>
+							</div>
+						</div>
+						<div class="block2">
+							<div class="parallax-container" style="background-image:url(img/edelhaus-brand.png);"></div>
+							<div class="sBrand__content">
+								<div class="title-item">
+									<div class="h1">Стойкость в его характере</div>
+								</div>
+								<p>Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочетание природных цветов и фактур с наивысшей стойкостью и долговечностью, с которыми неповторимые архитектурные образы создаются на века.</p>
+							</div>
+						</div>
+						<div class="block3">
+							<div class="design-block">
+								<div class="card-square-item card-square-item--1" style="background-image:url(img/card-sq-9.png);">
+									<div class="text-wrapper"><img class="small-img" src="img/.svg" alt="" loading="lazy"/>
+										<div class="h2 text-center">Харизматичный и амбициозный</div>
+									</div><img class="brand" src="img/edelhaus-light.svg" alt="" loading="lazy"/>
+								</div>
+								<div class="card-square-item card-square-item--2">
+									<div class="wrap"><img class="small-img d-none d-lg-block" src="img/.svg" alt="" loading="lazy"/>
+										<div class="wrapper">
+											<p>Бренд Edelhaus Klinker — активный, амбициозный, так же как и те, для кого он создан. Edelhaus Klinker сам себе задаёт высокую планку и идёт к новым — всё более смелым — целям.</p>
+											<p>Как и сам клинкерный кирпич, бренд Edelhaus Klinker олицетворяет собой стойкость, выдержку, постоянство, надёжность</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="block4">
+							<div class="sBrand__img-wrap bg-wrap"><img class="object-fit-js" src="img/edelhaus-bg.png" alt="" loading="lazy"/>
+							</div>
+							<div class="content">
+								<a class="sBrand__btn btn btn-primary" href="#">Перейти в каталог
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- end sBrand-->
+			</main>
+			<script>addBlock(`footer`)</script>
+			<div id="footerWrap"></div>
+		</div>
+		<!--  start modals-->
+		<div id="modal-call" style="display: none">
+			<div class="modal-win">
+				<div class="form-wrap">
+					<form>
+						<div class="text-center">
+							<div class="form-wrap__title form-data h3 ttu">Обратный звонок
+							</div>
+							<p class="after-headline">Заполните заявку и&nbsp;мы&nbsp;с&nbsp;Вами свяжемся в&nbsp;течение 15&nbsp;минут</p>
+						</div>
+						<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="text" name="text" type="text" placeholder="Ваше Имя" required="required"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="tel" name="tel" type="tel" placeholder="Ваше телефон" required="required"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<div class="form-wrap__input-wrap form-group"><input class="form-wrap__input form-control" inputmode="tel" name="tel" type="tel" placeholder="Ваше телефон" required="required"/>
+						</div>
+						<!-- +e.input-wrap-->
+						<button class="form-wrap__btn btn" type="submit">submit
+						</button>
+						<div class="form-wrap__policy">
+							<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><small class="custom-input__text text-secondary">Согласен на обработку и хранение моих персональных данных в соответствии с условиями</small>
+							</label>
+						</div>
+						<div class="form-wrap__policy">
+							<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="checkbox" type="checkbox" checked="checked"/><small class="custom-input__text text-secondary">Согласен на обработку и хранение моих персональных данных в соответствии с условиями</small>
+							</label>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- #modal-call-->
+		<!-- end modals-->
+		<script src="libs/swiper/swiper-bundle.min.js"></script>
+		<script src="libs/gsap/gsap.min.js"></script>
+		<script src="libs/gsap/ScrollTrigger.min.js"> </script>
+		<script type="module" src="js/common.js"></script>
+	</body>
+</html>

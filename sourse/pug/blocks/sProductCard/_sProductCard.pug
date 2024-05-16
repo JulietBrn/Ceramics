@@ -54,19 +54,20 @@ mixin sProductCard(data)
 					+feature-line('Размер ДхШхВ, мм', '250х120х65')
 					+feature-line('Позиция склад/заказ', 'заказная')
 					+feature-line('Минимальный объем заказа, шт', '60000')
-		+e.slider--js
-			.swiper-wrapper
-				+e.slide.swiper-slide
-					+e.img-wrap.bg-wrap
-						+img("img/product-card.png", 'bg')
-				+e.slide.swiper-slide
-					+e.img-wrap.bg-wrap
-						+img("img/product-card.png", 'bg')
-				+e.slide.swiper-slide
-					+e.img-wrap.bg-wrap
-						+img("img/product-card.png", 'bg')
-			+arrow()
-			+e.btn.btn.btn-primary.d-none.d-md-block(href='#') Галерея объектов
+		.container-max
+			+e.slider--js
+				.swiper-wrapper
+					+e.slide.swiper-slide
+						+e.img-wrap.bg-wrap
+							+img("img/product-card.png", 'bg')
+					+e.slide.swiper-slide
+						+e.img-wrap.bg-wrap
+							+img("img/product-card.png", 'bg')
+					+e.slide.swiper-slide
+						+e.img-wrap.bg-wrap
+							+img("img/product-card.png", 'bg')
+				+arrow()
+				+e.btn.btn.btn-primary.d-none.d-md-block(href='#') Галерея объектов
 	// end sProductCard
 
 		+e.btn.btn.btn-primary.btn-reverse(href='#', target='_blank') Скачать инструкцию

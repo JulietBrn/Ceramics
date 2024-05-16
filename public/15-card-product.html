@@ -48,7 +48,9 @@
 			<main>
 				<!-- start headerBlock-->
 				<div class="headerBlock headerBlock--white headerBlock headerBlock--no-title section" id="headerBlock">
-					<div class="headerBlock__img-wrap bg-wrap bg"><img class="object-fit-js" src="img/header-bg-card.png" alt="" loading="lazy"/>
+					<div class="container-max">
+						<div class="headerBlock__img-wrap bg-wrap bg"><img class="object-fit-js" src="img/header-bg-card.png" alt="" loading="lazy"/>
+						</div>
 					</div>
 				</div>
 				<!-- end headerBlock-->
@@ -148,33 +150,35 @@
 							</div>
 						</div>
 					</div>
-					<div class="sProductCard__slider sProductCard__slider--js">
-						<div class="swiper-wrapper">
-							<div class="sProductCard__slide swiper-slide">
-								<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
+					<div class="container-max">
+						<div class="sProductCard__slider sProductCard__slider--js">
+							<div class="swiper-wrapper">
+								<div class="sProductCard__slide swiper-slide">
+									<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
+									</div>
+								</div>
+								<div class="sProductCard__slide swiper-slide">
+									<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
+									</div>
+								</div>
+								<div class="sProductCard__slide swiper-slide">
+									<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
+									</div>
 								</div>
 							</div>
-							<div class="sProductCard__slide swiper-slide">
-								<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
-								</div>
+							<div class="swiper-button-hand swiper-button-hand-prev swiper-button-prev">
+								<svg class="icon icon-chevron-left ">
+									<use xlink:href="img/svg/sprite.svg#chevron-left"></use>
+								</svg>
 							</div>
-							<div class="sProductCard__slide swiper-slide">
-								<div class="sProductCard__img-wrap bg-wrap"><img class="object-fit-js" src="img/product-card.png" alt="" loading="lazy"/>
-								</div>
+							<div class="swiper-button-hand swiper-button-hand-next swiper-button-next">
+								<svg class="icon icon-chevron-right ">
+									<use xlink:href="img/svg/sprite.svg#chevron-right"></use>
+								</svg>
 							</div>
+							<a class="sProductCard__btn btn btn-primary d-none d-md-block" href="#">Галерея объектов
+							</a>
 						</div>
-						<div class="swiper-button-hand swiper-button-hand-prev swiper-button-prev">
-							<svg class="icon icon-chevron-left ">
-								<use xlink:href="img/svg/sprite.svg#chevron-left"></use>
-							</svg>
-						</div>
-						<div class="swiper-button-hand swiper-button-hand-next swiper-button-next">
-							<svg class="icon icon-chevron-right ">
-								<use xlink:href="img/svg/sprite.svg#chevron-right"></use>
-							</svg>
-						</div>
-						<a class="sProductCard__btn btn btn-primary d-none d-md-block" href="#">Галерея объектов
-						</a>
 					</div>
 				</section>
 				<!-- end sProductCard
@@ -220,6 +224,7 @@
 		</div>
 		<!-- #modal-call-->
 		<!-- end modals-->
+		<script src="libs/swiper/swiper-bundle.min.js"></script>
 		<script src="libs/gsap/gsap.min.js"></script>
 		<script src="libs/gsap/ScrollTrigger.min.js"> </script>
 		<script type="module" src="js/common.js"></script>

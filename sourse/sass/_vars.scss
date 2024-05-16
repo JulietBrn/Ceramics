@@ -8,12 +8,13 @@
 // scss-docs-start gray-color-variables
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
+$gray-200: #E8E6DF;
 $gray-300: #F3E8DA;
 $gray-320: #ababab;
 $gray-400: #A29994;
 $gray-500: #EFECEB;
 $gray-520: #B1B3B3;
+$gray-560: #4B4F54;
 $gray-600: #D9D1CC;
 $gray-700: #CBC1BA;
 $gray-800: #261D1D;
@@ -145,7 +146,7 @@ $yellow-200: tint-color($yellow, 60%) !default;
 $yellow-300: tint-color($yellow, 40%) !default;
 $yellow-400: tint-color($yellow, 20%) !default;
 $yellow-500: $yellow !default;
-$yellow-600: shade-color($yellow, 20%) !default;
+$yellow-600: #F0CFA0;
 $yellow-700: shade-color($yellow, 40%) !default;
 $yellow-800: shade-color($yellow, 60%) !default;
 $yellow-900: shade-color($yellow, 80%) !default;

@@ -2,6 +2,7 @@
 import "../libs/jquery/jquery.min.js";
 import "../libs/select2/js/select2.min.js";
 import "../libs/select2/js/i18n/ru.js";
+import "../libs/swiper/swiper-bundle.min.js";
 import "../libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js";
 import "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js";
 import "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js";

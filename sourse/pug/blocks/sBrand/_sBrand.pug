@@ -1,0 +1,90 @@
+
+mixin sBrand1(data)
+	// start sBrand
+	+b.SECTION.sBrand--konigstein.section#sBrand&attributes(attributes)
+		.container-max
+			+block1(data, 'konigstein')
+			.block2
+				.parallax-container(style=`background-image:url(img/${data}-brand.png);`)
+				+e.content
+					+b.title-item
+						.h1 Покоряет дизайном
+					p Мы создали в сотрудничестве с европейскими мастерами уникальную коллекцию лицевого полнотелого и пустотелого кирпича для фасадов, каминов и печей.
+					p Это воплощение качества и дизайна, которым можно гордиться.
+			+block3('crown', 'Дизайн кирпича бренда Königstein отличает богатство цвета, фактурность и красота поверхности.', 'Как и сам кирпич, бренд Königstein сочетает в себе эстетику и современность, статусность и рациональность. Из этих сочетаний складывается уникальный характер бренда.', '10', 'Статусный и рациональный', 'konigstein-crop', 'crown')
+			+block4(data)
+
+	// end sBrand
+
+mixin sBrand2(data)
+	// start sBrand
+	+b.SECTION.sBrand--edelhaus.section#sBrand&attributes(attributes)
+		.container-max
+			+block1(data, 'edelhaus-light')
+			+block2(data, 'Стойкость в его характере', 'Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочетание природных цветов и фактур с наивысшей стойкостью и долговечностью, с которыми неповторимые архитектурные образы создаются на века.')
+			+block3('', 'Бренд Edelhaus Klinker — активный, амбициозный, так же как и те, для кого он создан. Edelhaus Klinker сам себе задаёт высокую планку и идёт к новым — всё более смелым — целям.', 'Как и сам клинкерный кирпич, бренд Edelhaus Klinker олицетворяет собой стойкость, выдержку, постоянство, надёжность', '9', 'Харизматичный и амбициозный', 'edelhaus-light', '')
+			+block4(data)
+
+	// end sBrand
+
+mixin sBrand3(data)
+	// start sBrand
+	+b.SECTION.sBrand--modformat.section#sBrand&attributes(attributes)
+		.container-max
+			+block1(data, 'modformat')
+			+block2(data, 'Пространство творить', 'В бренде ModFormat есть особенные ценности, которые задают уникальный характер свободной, творческой личности, которая не боится экспериментировать и создавать что-то новое.')
+			+block3('mod-sign', 'Утонченный и неповторимый дизайн коллекции лицевого пустотелого кирпича и плитки ModFormat меняет представления об эстетике, форме и пространстве.', 'Воплощает самые смелые авторские замыслы и творческие эксперименты — в полном объёме.', '8', 'Утонченный и неповторимый', 'modformat', '')
+			+block4(data)
+
+	// end sBrand
+
+mixin sBrand4(data)
+	// start sBrand
+	+b.SECTION.sBrand--ceramic.section#sBrand&attributes(attributes)
+		.container-max
+			+block1(data, 'master-ceramic')
+			+block2(data, 'Храним тепло традиций', 'Классическое сочетание традиционного дизайна и современных технологий, доведённое до совершенства. В коллекции — полнотельный и пустотелый лицевой кирпич.')
+			+block3('master', 'В основе бренда Мастер Керамик лежат глубокие ценности, которые создают характер настоящего мастера. Мастера, который любит своё дело, развивает своё мастерство и ценит теплоту человеческих отношений.', 'Как мастер внедряет в старинные методы печной кладки новые технологии, так и бренд Мастер Керамик соединяет прошлое и будущее, развивая традиции печного мастерства.', '2', 'Традиции и преемственность', 'master-crop', 'master')
+			+block4(data)
+
+	// end sBrand
+
+
+mixin block1(img, brand)
+	.block1
+		.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
+		.content
+			+img(src=`img/${brand}.svg`, alt="").brand
+
+mixin block2(img, title, text)
+	.block2
+		.parallax-container(style=`background-image:url(img/${img}-brand.png);`)
+		+e.content
+			+b.title-item
+				.h1=title
+			p=text
+
+mixin cardSquareBrand(i, text, icon, optionIcon)
+	+b.card-square-item--1(style=`background-image:url(img/card-sq-${i}.png);`)
+		.text-wrapper
+			+img(src=`img/${optionIcon}.svg`, alt="").small-img
+			.h2.text-center!= text
+		+img(src=`img/${icon}.svg`, alt="").brand
+
+mixin block3(img1, text1, text2, i, title, brand, icon)
+	.block3
+		.design-block
+			+cardSquareBrand(i, title, brand, icon)
+			+b.card-square-item--2
+				.wrap
+					+img(src=`img/${img1}.svg`, alt="").small-img.d-none.d-lg-block
+					.wrapper
+						p=text1
+						p=text2
+
+mixin block4(img)
+	.block4
+		+e.img-wrap.bg-wrap
+			+img(`img/${img}-bg.png`, 'bg')
+		.content
+			+e.btn.btn.btn-primary(href='#') Перейти в каталог

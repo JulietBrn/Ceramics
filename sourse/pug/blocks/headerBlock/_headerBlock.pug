@@ -1,8 +1,9 @@
 mixin headerBlock(title, img)
 	// start headerBlock
 	+b.headerBlock--white.section#headerBlock&attributes(attributes)
-		+e.img-wrap.bg-wrap.bg
-			+img(`img/header-bg-${img}.png`, 'bg')
+		.container-max
+			+e.img-wrap.bg-wrap.bg
+				+img(`img/header-bg-${img}.png`, 'bg')
 		.container
 			+b.section-title
 				h1!= title
@@ -13,7 +14,8 @@ mixin headerBlock(title, img)
 mixin headerBlock2(img)
 	// start headerBlock
 	+b.headerBlock--white.headerBlock--no-title.section#headerBlock&attributes(attributes)
-		+e.img-wrap.bg-wrap.bg
-			+img(`img/header-bg-${img}.png`, 'bg')
+		.container-max
+			+e.img-wrap.bg-wrap.bg
+				+img(`img/header-bg-${img}.png`, 'bg')
 
 	// end headerBlock

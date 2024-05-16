@@ -1,6 +1,6 @@
 "use strict";
 
-import Swiper from '../libs/swiper/swiper-bundle.min.mjs';
+// import Swiper from '../libs/swiper/swiper-bundle.min.mjs';
 import JSCCommon from "./JSCCommon.js";
 
 const $ = jQuery;
@@ -572,6 +572,24 @@ function eventHandler() {
     });
   });
 
+  
+  gsap.utils.toArray('#sBrand .card-square-item').forEach((container) => {
+    const textCenters = container.querySelectorAll('.text-wrapper');
+    
+    textCenters.forEach((textCenter) => {
+      gsap.to(textCenter, {
+        opacity: 1,
+        x: '-50%',
+        duration: 1,
+        easy: 'easy-in',
+        scrollTrigger: {
+          trigger: container,
+          start: 'bottom bottom',
+          toggleActions: 'play none none reverse',
+        }
+      });
+    });
+  });
 
   /* change top nav bg */
   let scrollerGSAP = document.querySelector("body")
