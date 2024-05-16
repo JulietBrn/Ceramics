@@ -43,7 +43,7 @@ function eventHandler() {
 			// }
 		},
 	};
-  const sProdSlider = new Swiper('.sAbout__swiper--js', {
+  const sProdSlider = new Swiper('.sAbout__date-swiper--js', {
 		spaceBetween: 32,
 		watchOverflow: true,
     direction: 'horizontal',
@@ -88,6 +88,14 @@ function eventHandler() {
 		// freeModeMomentum: true,
 	});
 	const swiperProductCard = new Swiper(".sProductCard__slider--js", {
+		...defaultSl,
+		slidesPerView: 1,
+		touchRatio: 0.2,
+		slideToClickedSlide: true,
+		// freeModeMomentum: true,
+	});
+  
+	const swiperAbout = new Swiper(".sAbout__slider--js", {
 		...defaultSl,
 		slidesPerView: 1,
 		touchRatio: 0.2,

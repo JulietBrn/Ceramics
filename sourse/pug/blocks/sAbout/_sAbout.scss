@@ -32,7 +32,7 @@
   .tabs {
     overflow: hidden;
   }
-  &__swiper--js {
+  &__date-swiper--js {
     height: 100%;
     position: relative;
   }
@@ -40,7 +40,7 @@
     .swiper-wrapper {
       width: 100%;
       justify-content: center;
-    max-width: 100vw;
+      max-width: 100vw;
     }
     .swiper-slide {
       width: max-content;
@@ -203,6 +203,33 @@
       @include media-breakpoint-up(lg) {
         padding-right: rem(80);
       }
+    }
+  }
+
+  &__slider--js {
+    position: relative;
+    .swiper-button-hand {
+      @include media-breakpoint-down(md) {
+        top: auto;
+        bottom: rem(4);
+      }
+
+    }
+  }
+
+  .caption-slide {
+    position: absolute;
+    bottom: rem(12);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    color: $white;
+    font-size: rem(14);
+    @include media-breakpoint-up(md) {
+      bottom: 0;
+      padding: rem(20) rem(24);
+      color: $dark;
+      background: rgba(217, 209, 204, 0.8);
     }
   }
 

@@ -16,7 +16,7 @@ mixin sAbout(data)
 			+cardSquareEasy('7', 'История завода')
 			+b.card-square-item--gray
 				.tabs
-					.sAbout__swiper--js.card-square-item-swiper
+					.sAbout__date-swiper--js.card-square-item-swiper
 						.tabs__caption.swiper-wrapper
 							.tabs__btn.swiper-slide 2007
 							.tabs__btn.swiper-slide 2008
@@ -73,6 +73,21 @@ mixin sAbout(data)
 					+sTitleItem('Прогулка по производству')
 					+e.text-wrapper
 						p АО «КС Керамик» — современное предприятие, выпускающее более 300 видов лицевых керамических изделий по сочетанию цены, дизайна и эксплуатационных характеристик, конкурирующих с лучшими мировыми производителями.
+		+e.slider--js
+			.swiper-wrapper
+				+e.slide.swiper-slide
+					+e.img-wrap.bg-wrap
+						+img("img/about-slide.png", 'bg')
+					.caption-slide Массоподготовка
+				+e.slide.swiper-slide
+					+e.img-wrap.bg-wrap
+						+img("img/about-slide.png", 'bg')
+					.caption-slide Массоподготовка
+				+e.slide.swiper-slide
+					+e.img-wrap.bg-wrap
+						+img("img/about-slide.png", 'bg')
+					.caption-slide Массоподготовка
+			+arrow()
 		.container
 			+b.attachments
 				h2 Учредительные документы
