@@ -26,6 +26,10 @@
 
 2. <https://megafronteam.github.io/0044Ceramics/09-distributors.html>
 2. <https://megafronteam.github.io/0044Ceramics/09-distributors-selected.html>
+2. <https://megafronteam.github.io/0044Ceramics/05-1-brand.html>
+2. <https://megafronteam.github.io/0044Ceramics/05-2-brand.html>
+2. <https://megafronteam.github.io/0044Ceramics/05-3-brand.html>
+2. <https://megafronteam.github.io/0044Ceramics/05-4-brand.html>
 
 
 <!-- in progress -->
