@@ -96,7 +96,11 @@ function eventHandler() {
 	});
   
 	const swiperAbout = new Swiper(".sAbout__slider--js", {
-		...defaultSl,
+		// ...defaultSl,
+    navigation: {
+      nextEl: ".sAbout__slider--js .swiper-button-next",
+      prevEl: ".sAbout__slider--js .swiper-button-prev",
+    },
 		slidesPerView: 1,
 		touchRatio: 0.2,
 		slideToClickedSlide: true,
@@ -120,6 +124,36 @@ function eventHandler() {
       }
     }
 	});
+
+  function getSlideTitles() {
+    const titles = [];
+    document.querySelectorAll('.swiper-slide h4').forEach((element) => {
+      titles.push(element.innerText);
+    });
+    return titles;
+  }
+
+  const slideTitles = getSlideTitles();
+
+  const swiper = new Swiper('.sAbout .slider-tab', {
+		...defaultSl,
+    navigation: {
+      nextEl: ".slider-tab .swiper-button-next",
+      prevEl: ".slider-tab .swiper-button-prev",
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<span class="' + className + ' small">' + slideTitles[index] + '</span>';
+      },
+    },
+  });
+
+  // const paginationSwiper = new Swiper('.swiper-pagination', {
+  //   slidesPerView: 'auto',
+  //   freeMode: true,
+  // });
 
   /* order -> to basket */
   const btnOrder = document.querySelector('.sFeatures .btn--order-js')

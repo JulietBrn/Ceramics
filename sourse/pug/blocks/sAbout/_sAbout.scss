@@ -1,7 +1,7 @@
 // start .sAbout
 .sAbout {
 	--sPT: #{rem(0)};
-	// --sPB: #{rem()};
+	--sPB: #{rem(0)};
 	// --sTPB: #{rem()};
 	
 	&__row{
@@ -136,8 +136,8 @@
         grid-row: 1/2;
       }
     }
-    
   }
+
   .blockquote {
     display: flex;
     gap: rem(8);
@@ -165,7 +165,6 @@
     }
     .signature {
       width: rem(173);
-      
       @include media-breakpoint-down(md) {
         align-self: end;
       }
@@ -174,7 +173,7 @@
 
   #video {
     position: relative;
-	  @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(md) {
       .content-item {
         position: absolute;
         width: rem(816);
@@ -185,7 +184,7 @@
         z-index: 2;
       }
     }
-    
+
     .card-item {
       padding: rem(24) rem(16);
       background: $gray-600;
@@ -293,7 +292,7 @@
         }
       }
     }
-    
+
     .card-square-item {
       &--1 {
         &::after {
@@ -379,6 +378,29 @@
 
     .sAbout__advantages {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+
+  &--slider {
+    background: $gray-300;
+    --sPB: #{rem(8)};
+    @include media-breakpoint-up(md) {
+      --sPT: #{rem(74)};
+      --sPB: #{rem(0)};
+    }
+  }
+    &--gray {
+      background: $gray-600;
+      --sPT: #{rem(24)};
+      --sPB: #{rem(0)};
+    }
+
+  &--docs {
+    --sPB: #{rem(48)};
+    --sPT: #{rem(24)};
+    @include media-breakpoint-up(md) {
+      --sPB: #{rem(96)};
+      --sPT: #{rem(0)};
     }
   }
 
@@ -502,4 +524,102 @@
 .container-max {
   max-width: rem(1920);
   margin: auto;
+}
+
+.slider-tab {
+  overflow: hidden;
+  position: relative;
+  .swiper-wrapper {
+    // overflow: hidden;
+  }
+  .row {
+    --bs-gutter-y: #{rem(16)};
+    --bs-gutter-x: #{rem(32)};
+  }
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: rem(50);
+  }
+  .swiper-button-hand {
+    box-shadow: none;
+    .icon {
+      stroke: $dark;
+    }
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+}
+
+.slide-tab {
+  .bg-wrap{
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 31%, rgba(0,0,0,0.1) 67%, rgba(0,0,0,0.4) 100%);
+    }
+  }
+  h4 {
+    margin-bottom: rem(16);
+  }
+}
+
+.swiper-pagination-container {
+  // overflow: hidden;
+}
+
+.swiper-pagination {
+  display: flex;
+  // overflow-x: auto;
+  // white-space: nowrap;
+  position: relative;
+  margin-bottom: rem(14);
+  padding-bottom: rem(10);
+  @include media-breakpoint-up(md) {
+    padding-bottom: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: rem(24);
+    margin-bottom: 0;
+  }
+    @include media-breakpoint-down(md) {
+      overflow-x: auto;
+    }
+}
+
+
+.swiper-pagination-bullet {
+  cursor: pointer;
+  background: none;
+  width: auto;
+  height: auto;
+  padding: rem(16) 0 0;
+  border-radius: 0;
+  border-top: solid rem(4) transparent;
+  opacity: .7;
+  @include media-breakpoint-up(md) {
+    max-width: rem(162);
+    border-bottom: solid rem(4) transparent;
+    border-top: none;
+    padding-bottom: rem(8);
+    width: min-content;
+  }
+  &:hover {
+    background: none;
+  }
+  &-active {
+    border-top: solid rem(4) $primary;
+    opacity: 1;
+    @include media-breakpoint-up(md) {
+      border-bottom: solid rem(4) $primary;
+      border-top: 0;
+    }
+  }
 }

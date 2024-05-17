@@ -541,6 +541,7 @@
 .design-block {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     margin-bottom: rem(40);
     @include media-breakpoint-up(md) {
       grid-template-columns: repeat(2, 1fr);
