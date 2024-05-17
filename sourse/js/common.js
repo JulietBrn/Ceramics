@@ -45,18 +45,23 @@ function eventHandler() {
 	};
 
   var swiper3 = new Swiper(".slider-auto--js", {
-    grabCursor: true,
     effect: "creative",
+    grabCursor: false,
+    simulateTouch: false,
+    allowTouchMove: false,
+    keyboard: {
+      enabled: false,
+    },
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
     },
     speed: 900,
 		loop: true,
-		navigation: {
-			nextEl: ".swiper-button-next",
-			prevEl: ".swiper-button-prev",
-		},
+		// navigation: {
+		// 	nextEl: ".swiper-button-next",
+		// 	prevEl: ".swiper-button-prev",
+		// },
     breakpoints: {
       768: {
         creativeEffect: {
