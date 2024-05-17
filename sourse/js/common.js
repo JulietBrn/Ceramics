@@ -43,6 +43,37 @@ function eventHandler() {
 			// }
 		},
 	};
+
+  var swiper3 = new Swiper(".slider-auto--js", {
+    grabCursor: true,
+    effect: "creative",
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    speed: 900,
+		loop: true,
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
+    breakpoints: {
+      768: {
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            translate: ["+20%", 0, -1],
+          },
+          next: {
+            translate: ["-100%", 0, 0],
+          },
+        },
+      }
+    }
+    
+  });
+
+
   const sProdSlider = new Swiper('.sAbout__date-swiper--js', {
 		spaceBetween: 32,
 		watchOverflow: true,

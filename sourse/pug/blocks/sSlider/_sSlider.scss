@@ -1,0 +1,63 @@
+// start .sSlider
+.sSlider {
+	// --sPT: #{rem()};
+	--sPB: #{rem(0)};
+	// --sTPB: #{rem()};
+	
+	&__row{
+		// --bs-gutter-x: #{rem()};
+		// --bs-gutter-y: #{rem()};
+	}
+	.section-title{
+		
+	}
+	&__col{
+		
+	}
+	&__item{
+		
+	}
+  
+  .parallax-container {
+    // min-height: rem(640);
+    min-height: 100vh;
+    @include media-breakpoint-up(md) {
+      // height: rem(720);
+      min-height: 100vh;
+    }
+  }
+  .slider-auto--js {
+    .parallax-container {
+      filter: brightness(90%);
+      &.animate {
+          @include media-breakpoint-down(md) {
+            animation: bgTransition 40s linear infinite ;
+        }
+      }
+    }
+    .swiper-button-hand {
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+    }
+  }
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-between(md, xl) {}
+	@include media-breakpoint-only(xl) {}
+	@include media-breakpoint-down(xl) {}
+} // end.sSlider
+
+@keyframes bgTransition {
+  0% {
+    background-position: 0%;
+  }
+  50% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
