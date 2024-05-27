@@ -147,7 +147,7 @@ function eventHandler() {
 		slidesPerView: 'auto',
 		freeMode: true,
 		watchOverflow: true,
-		spaceBetween: 24,
+		// spaceBetween: 24,
 	});
 
   const swiperFilters = new Swiper('.filters-slider--js', {
