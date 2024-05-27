@@ -58,12 +58,17 @@ mixin add-file(n)
 	+b.add-file
 		label
 			+e.INPUT.input(name='file', type='file')
-			+e.SPAN.btn 
-			+e.SPAN.text   Прикрепить резюме
-		+e.SPAN.filename 
+			+e.SPAN.btn
+			+e.SPAN.text Прикрепить файл
+		+e.SPAN.filename
 
 
 mixin policy()
 	+e.policy
 		+in-c()(checked)
 			+e.SMALL.text.text-secondary Согласен на обработку и хранение моих персональных данных в соответствии с условиями
+
+mixin policy2()
+	+e.policy
+		+e.text.small Нажимая кнопку «Отправить», я даю свое согласие на обработку своих 
+			a(href='#') персональных данных

@@ -286,10 +286,8 @@
   padding: rem(8) 0  rem(8) rem(16);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
   border-radius: 0;
-  @include media-breakpoint-down(md) {
-    .custom-scroll {
-      height: rem(270);
-    }
+  .custom-scroll {
+    height: rem(270);
   }
   .region-link {
     margin-bottom: rem(8);

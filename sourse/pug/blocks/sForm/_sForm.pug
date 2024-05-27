@@ -1,16 +1,81 @@
+
+include ../sMap/_sMap.pug
+
 mixin sForm()
 	// start sForm
-	+b.SECTION.sForm.section#sForm&attributes(attributes)
+	+b.SECTION.sForm.section.white-section#sForm&attributes(attributes)
 		.container
 			+b.section-title.text-center
-				h2 sForm
-				
+				h4 Есть вопросы? Напишите нам
 			+e.row.row
 			+form-wrap
-				+input("",'')
-				+input("",'')
-				+input("",'')
-				+input("",'')
-				+e.btn.btn.btn-primary(type="submit") Submit
-				+policy
+				+e.item
+					.input-title ФИО
+					+input("Введите свое ФИО",'text')(required).is-invalid
+						.span ⁎
+						.invalid-feedback Введите хотя бы один символ
+				+e.item
+					.input-title Номер телефона
+					+input("+7 (  	  )    -    -  ",'tel')(required).is-invalid
+						.span ⁎
+						.invalid-feedback Номер телефона некорректный
+				+e.item
+					.input-title Электронная почта
+					+input("Введите свой e-mail",'email')(required).is-invalid
+						.span ⁎
+						.invalid-feedback Неверный формат эл. адреса (проверьте на пробелы и русские буквы)
+				+e.item
+					.input-title Регион
+					.dropdown.dropdown--transparent
+						.span ⁎
+						.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Москва
+						+citiesDropdown
+				+e.item
+					.input-title Сообщение
+					+input("Напишите свой вопрос", 'textarea', '')
+				.text-center
+					+e.btn.btn.btn-primary(type="submit") Отправить
+				.text-center
+					+policy2
+	// end sForm
+
+
+mixin sForm2()
+	// start sForm
+	+b.SECTION.sForm.section.white-section#sForm&attributes(attributes)
+		.container
+			+b.section-title.text-center
+				h4 Поделиться фотографией объекта
+			+e.row.row
+			+form-wrap
+				+e.item
+					.input-title ФИО
+					+input("Введите свое ФИО",'text')(required).is-invalid
+						.span ⁎
+						.invalid-feedback Введите хотя бы один символ
+				+e.item
+					.input-title Номер телефона
+					+input("+7 (  	  )    -    -  ",'tel')(required).is-invalid
+						.span ⁎
+						.invalid-feedback Номер телефона некорректный
+				+e.item
+					.input-title Электронная почта
+					+input("Введите свой e-mail",'email')(required).is-invalid
+						.span ⁎
+						.invalid-feedback Неверный формат эл. адреса (проверьте на пробелы и русские буквы)
+				+e.item
+					.input-title Регион
+					.dropdown.dropdown--transparent
+						.span ⁎
+						.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Москва
+						+citiesDropdown
+				+e.item
+					.input-title Сообщение
+					+input("Напишите свой вопрос", 'textarea', '')
+				+e.item
+					+add-file()
+				.text-center
+					+e.btn.btn.btn-primary(type="submit") Отправить
+				.text-center
+					+policy2
 	// end sForm

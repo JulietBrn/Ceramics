@@ -89,12 +89,13 @@ function eventHandler() {
     slidesPerView: 'auto',
 		freeMode: true,
 		watchOverflow: true,
+		loop: true,
     breakpoints: {
       768: {
         spaceBetween: 30,
         direction: 'vertical',
-        slidesPerView: 'auto',
-        watchOverflow: false,
+        // slidesPerView: 'auto',
+        // watchOverflow: false,
       },
     }
 	});

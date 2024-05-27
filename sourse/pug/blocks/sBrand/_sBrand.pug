@@ -52,7 +52,8 @@ mixin sBrand4(data)
 
 mixin block1(img, brand)
 	.block1
-		.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
+		<video autoplay loop muted class="video " src="video/brand.mp4"></video>
+		//- .parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 		.content
 			+img(src=`img/${brand}.svg`, alt="").brand
 

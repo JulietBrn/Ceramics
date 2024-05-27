@@ -393,6 +393,23 @@
       background: $gray-600;
       --sPT: #{rem(24)};
       --sPB: #{rem(0)};
+      h2 {
+        margin-bottom: 0;
+        padding-bottom: rem(24);
+        @include media-breakpoint-down(md) {
+            position: relative;
+            &:after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: -100vw;
+              width: 200vw;
+              height: rem(1);
+              background: $gray-700;
+              z-index: 2;
+            }
+          }
+      }
     }
 
   &--docs {

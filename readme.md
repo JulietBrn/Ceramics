@@ -27,18 +27,22 @@
 2. <https://megafronteam.github.io/0044Ceramics/09-distributors.html>
 2. <https://megafronteam.github.io/0044Ceramics/09-distributors-selected.html>
 
+2. <https://megafronteam.github.io/0044Ceramics/05-1-brand.html>
+2. <https://megafronteam.github.io/0044Ceramics/05-2-brand.html>
+2. <https://megafronteam.github.io/0044Ceramics/05-3-brand.html>
+2. <https://megafronteam.github.io/0044Ceramics/05-4-brand.html>
+
+2. <https://megafronteam.github.io/0044Ceramics/06-company.html>
+2. <https://megafronteam.github.io/0044Ceramics/23-career.html>
+
+2. <https://megafronteam.github.io/0044Ceramics/18-form-question.html>
+
 
 <!-- in progress -->
 
 <!-- 1. <https://megafronteam.github.io/0044Ceramics/> -->
 <!-- 2. <https://megafronteam.github.io/0044Ceramics/00-modal.html> -->
+<!-- 2. <https://megafronteam.github.io/0044Ceramics/18-form-photo.html> -->
 
-<!-- //video -->
-<!-- 2. <https://megafronteam.github.io/0044Ceramics/05-1-brand.html>
-2. <https://megafronteam.github.io/0044Ceramics/05-2-brand.html>
-2. <https://megafronteam.github.io/0044Ceramics/05-3-brand.html>
-2. <https://megafronteam.github.io/0044Ceramics/05-4-brand.html> -->
 
-<!-- 2. <https://megafronteam.github.io/0044Ceramics/06-company.html> -->
 <!-- 2. <https://megafronteam.github.io/0044Ceramics/15-card-product.html> -->
-<!-- 2. <https://megafronteam.github.io/0044Ceramics/23-career.html> -->
