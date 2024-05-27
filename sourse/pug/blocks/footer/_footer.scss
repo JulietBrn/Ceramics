@@ -62,8 +62,8 @@
         content: '';
         position: absolute;
         top: 0;
-        left: -40%;
-        width: 200%;
+        left: -100vw;
+        width: 200vw;
         height: rem(1);
         background: $gray-400;
         opacity: .2;
@@ -91,6 +91,9 @@
         @include media-breakpoint-up(md) {
           display: flex;
           gap: rem(16);
+        }
+        @include media-breakpoint-down(md) {
+          text-align: center;
         }
       }
       li {

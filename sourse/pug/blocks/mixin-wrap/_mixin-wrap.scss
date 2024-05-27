@@ -180,6 +180,12 @@
     width: auto;
     box-shadow: none;
   }
+  @media (min-width: 1940px) {
+    right: 10vw;
+  }
+  @include media-breakpoint-up(xxl) {
+    // position: absolute;
+  }
   .wrap {
     color: $primary;
     margin-bottom: rem(10);

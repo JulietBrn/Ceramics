@@ -75,9 +75,9 @@
       background: $white;
       z-index: -9;
     @include media-breakpoint-up(md) {
-      top: -50%;
+      top: rem(-32);
       left: 0;
-      width: 120%;
+      width: 50vw;
     }
     }
   }

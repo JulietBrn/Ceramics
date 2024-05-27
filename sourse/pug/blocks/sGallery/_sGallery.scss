@@ -72,8 +72,8 @@
         content: '';
         position: absolute;
         bottom: 0;
-        left: -50%;
-        width: 200%;
+        left: -100vw;
+        width: 200vw;
         height: 100%;
         background: $white;
         z-index: -1;
@@ -83,13 +83,12 @@
           content: '';
           position: absolute;
           bottom: 0;
-          left: -50%;
-          width: 200%;
+          left: -100vw;
+          width: 200vw;
           height: rem(1);
           background: $gray-600;
           z-index: 2;
         }
-        
       }
     }
     &__btn {
@@ -200,8 +199,8 @@
     &::after {
       position: absolute;
       top: 0;
-      left: -50%;
-      width: 200%;
+      left: -100vw;
+      width: 200vw;
       height: 100%;
       background: $white;
       z-index: -1;
@@ -210,8 +209,6 @@
       }
     }
   }
-
-  
 
   &--empty {
     --sPB: #{rem(80)};
