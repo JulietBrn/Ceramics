@@ -234,6 +234,9 @@
     flex-direction: row;
     align-items: flex-start;
     gap: rem(38);
+    p {
+      margin-bottom: 0;
+    }
   }
   .close {
     @include mt;
