@@ -7,8 +7,30 @@
     --sPB: #{rem(72)};
   }
 	// --sTPB: #{rem()};
-  max-width: rem(548);
-  margin: auto;
+
+	.container {
+    position: relative;
+  }
+  .btn-back {
+    color: $green-900;
+    position: relative;
+    font-size: rem(14);
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      top: 0;
+      left: 10px;
+    }
+    .icon-back {
+      // stroke-width: 1px;
+      // stroke: $green-900;
+      // fill: $green-900;
+    }
+  }
+  .form {
+    max-width: rem(548);
+    margin: auto;
+    margin-top: rem(13);
+  }
 	&__row{
 		// --bs-gutter-x: #{rem()};
 		--bs-gutter-y: var(--bs-gutter-x);

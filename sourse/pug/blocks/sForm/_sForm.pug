@@ -5,38 +5,43 @@ mixin sForm()
 	// start sForm
 	+b.SECTION.sForm.section.white-section#sForm&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h4 Есть вопросы? Напишите нам
-			+e.row.row
-			+form-wrap
-				+e.item
-					.input-title ФИО
-					+input("Введите свое ФИО",'text')(required).is-invalid
-						.span ⁎
-						.invalid-feedback Введите хотя бы один символ
-				+e.item
-					.input-title Номер телефона
-					+input("+7 (  	  )    -    -  ",'tel')(required).is-invalid
-						.span ⁎
-						.invalid-feedback Номер телефона некорректный
-				+e.item
-					.input-title Электронная почта
-					+input("Введите свой e-mail",'email')(required).is-invalid
-						.span ⁎
-						.invalid-feedback Неверный формат эл. адреса (проверьте на пробелы и русские буквы)
-				+e.item
-					.input-title Регион
-					.dropdown.dropdown--transparent
-						.span ⁎
-						.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Москва
-						+citiesDropdown
-				+e.item
-					.input-title Сообщение
-					+input("Напишите свой вопрос", 'textarea', '')
-				.text-center
-					+e.btn.btn.btn-primary(type="submit") Отправить
-				.text-center
-					+policy2
+			a.btn-back(href='#')
+				<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M10 3L5 8L10 13" stroke="#9A6A4F" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+				| Назад
+			.form
+				+b.section-title.text-center
+					h4 Есть вопросы? Напишите нам
+				+form-wrap
+					+e.item
+						.input-title ФИО
+						+input("Введите свое ФИО",'text')(required).is-invalid
+							.span ⁎
+							.invalid-feedback Введите хотя бы один символ
+					+e.item
+						.input-title Номер телефона
+						+input("+7 ( 	)	-	-	",'tel')(required).is-invalid
+							.span ⁎
+							.invalid-feedback Номер телефона некорректный
+					+e.item
+						.input-title Электронная почта
+						+input("Введите свой e-mail",'email')(required).is-invalid
+							.span ⁎
+							.invalid-feedback Неверный формат эл. адреса (проверьте на пробелы и русские буквы)
+					+e.item
+						.input-title Регион
+						.dropdown.dropdown--transparent
+							.span ⁎
+							.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Москва
+							+citiesDropdown
+					+e.item
+						.input-title Сообщение
+						+input("Напишите свой вопрос", 'textarea', '')
+					.text-center
+						+e.btn.btn.btn-primary(type="submit") Отправить
+					.text-center
+						+policy2
 	// end sForm
 
 
@@ -44,38 +49,44 @@ mixin sForm2()
 	// start sForm
 	+b.SECTION.sForm.section.white-section#sForm&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h4 Поделиться фотографией объекта
-			+e.row.row
-			+form-wrap
-				+e.item
-					.input-title ФИО
-					+input("Введите свое ФИО",'text')(required).is-invalid
-						.span ⁎
-						.invalid-feedback Введите хотя бы один символ
-				+e.item
-					.input-title Номер телефона
-					+input("+7 (  	  )    -    -  ",'tel')(required).is-invalid
-						.span ⁎
-						.invalid-feedback Номер телефона некорректный
-				+e.item
-					.input-title Электронная почта
-					+input("Введите свой e-mail",'email')(required).is-invalid
-						.span ⁎
-						.invalid-feedback Неверный формат эл. адреса (проверьте на пробелы и русские буквы)
-				+e.item
-					.input-title Регион
-					.dropdown.dropdown--transparent
-						.span ⁎
-						.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Москва
-						+citiesDropdown
-				+e.item
-					.input-title Сообщение
-					+input("Напишите свой вопрос", 'textarea', '')
-				+e.item
-					+add-file()
-				.text-center
-					+e.btn.btn.btn-primary(type="submit") Отправить
-				.text-center
-					+policy2
+			a.btn-back(href='#')
+				<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M10 3L5 8L10 13" stroke="#9A6A4F" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+				| Назад
+			.form
+				+b.section-title.text-center
+					h4 Поделиться фотографией объекта
+				+e.row.row
+				+form-wrap
+					+e.item
+						.input-title ФИО
+						+input("Введите свое ФИО",'text')(required).is-invalid
+							.span ⁎
+							.invalid-feedback Введите хотя бы один символ
+					+e.item
+						.input-title Номер телефона
+						+input("+7 ( 	)	-	-	",'tel')(required).is-invalid
+							.span ⁎
+							.invalid-feedback Номер телефона некорректный
+					+e.item
+						.input-title Электронная почта
+						+input("Введите свой e-mail",'email')(required).is-invalid
+							.span ⁎
+							.invalid-feedback Неверный формат эл. адреса (проверьте на пробелы и русские буквы)
+					+e.item
+						.input-title Регион
+						.dropdown.dropdown--transparent
+							.span ⁎
+							.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Москва
+							+citiesDropdown
+					+e.item
+						.input-title Сообщение
+						+input("Напишите свой вопрос", 'textarea', '')
+					+e.item
+						+add-file()
+					.text-center
+						+e.btn.btn.btn-primary(type="submit") Отправить
+					.text-center
+						+policy2
 	// end sForm
