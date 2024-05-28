@@ -53,15 +53,18 @@ mixin in-c(typ="checkbox", text, name= typ )
 			block 
 		else
 			+e.SPAN.text.form-check-label= text
- 
+
 mixin add-file(n)
 	+b.add-file
 		label
 			+e.INPUT.input(name='file', type='file')
-			+e.SPAN.btn
 			+e.SPAN.text Прикрепить файл
+			+e.img-wrap.bg-wrap
+				img(src="img/photo-loading.png", alt="").img-bg.img-preview
+			+e.img-wrap.bg-wrap
+				img(src="img/photo-loaded.png", alt="").img-bg.img-preview
 		+e.SPAN.filename
-
+//, onchange="loadFile(event)"
 
 mixin policy()
 	+e.policy
