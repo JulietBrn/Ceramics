@@ -212,13 +212,23 @@
         font-size: rem(10);
       }
     }
-  }
-    .custom-input__text {
-      font-size: rem(12);
-      @include media-breakpoint-up(md) {
-        font-size: rem(10);
+
+    &.empty {
+      img {
+        display: none;
       }
+      min-height: rem(56);
+      color: $gray-400;
+      cursor:auto;
+      background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 11L14 17L20 11' stroke='%23D9D1CC' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
     }
+  }
+  .custom-input__text {
+    font-size: rem(12);
+    @include media-breakpoint-up(md) {
+      font-size: rem(10);
+    }
+  }
 
   .custom-input__input:checked + img + .custom-input__text,
   .custom-input__input:checked + span + .custom-input__text {

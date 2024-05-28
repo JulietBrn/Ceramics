@@ -31,12 +31,12 @@ mixin headerBlock2(img)
 								+img(src="img/format.svg", alt="")
 								span.title__text Формат
 							+e.wrap.small
-									+in-c("radio", '')(checked)
+									+in-c("radio", '', 'filter-1')(checked)
 										+img(src="img/format.svg", alt="")
 										span.custom-input__text.form-check-label Одинарный (1НФ)
-									+imgInput('format', 'Евроформат (0,7НФ)')
-									+imgInput('format', 'Длинный формат (0,63НФ)')
-									+imgInput('format', 'Плитка')
+									+imgInput('format', 'Евроформат (0,7НФ)', 'filter-1')
+									+imgInput('format', 'Длинный формат (0,63НФ)', 'filter-1')
+									+imgInput('format', 'Плитка', 'filter-1')
 					+e.item
 						.small.item-title Пустотность
 						+b.filter--img
@@ -45,24 +45,17 @@ mixin headerBlock2(img)
 								span.title__text Пустотность
 							+e.wrap.small
 								.custom-scroll()
-									+in-c("radio", '')(checked)
+									+in-c("radio", '', 'filter-2')(checked)
 										+img(src="img/empty-1.svg", alt="")
 										span.custom-input__text.form-check-label Полнотелый
-									+imgInput('empty-2', 'Полнотелый (пустотность меньше 13%)')
-									+imgInput('empty-3', 'Пустотелый')
+									+imgInput('empty-2', 'Полнотелый (пустотность меньше 13%)', 'filter-2')
+									+imgInput('empty-3', 'Пустотелый', 'filter-2')
 					+e.item
 						.small.item-title Форма
 						+b.filter--img
-							+e.title.small
+							+e.title.small.empty
 								+img(src="img/format.svg", alt="")
-								span.title__text Пустотность
-							+e.wrap.small
-								.custom-scroll()
-									+in-c("radio", '')(checked)
-										+img(src="img/form-1.svg", alt="")
-										span.custom-input__text.form-check-label Радиусная
-									+imgInput('form-2', 'Прямая')
-									+imgInput('form-3', 'Угловая')
+								span.title__text Нет параметра
 					+e.item
 						.small.item-title Цвет шва
 						+b.filter--colors
@@ -70,22 +63,22 @@ mixin headerBlock2(img)
 								span.custom-input__img(style=`background-color:#F2F0E6;`)
 								span.custom-input__text.form-check-label Цвет шва
 							+e.wrap.small
-									+in-c("radio", '')(checked)
+									+in-c("radio", '', 'filter-4')(checked)
 										span.custom-input__img(style=`background-color:#F2F0E6;`)
 										span.custom-input__text.form-check-label Алебастрово-белый
 									+colorInput('#ABABAB','Светло-серый')
-									+colorInput('#262626','Графитово-чёрный')
-									+colorInput('#FDF4E3','Кремово-жёлтый')
-									+colorInput('#45494E','Графитово-серый')
+									+colorInput('#262626','Графитово-чёрный', 'filter-4')
+									+colorInput('#FDF4E3','Кремово-жёлтый', 'filter-4')
+									+colorInput('#45494E','Графитово-серый', 'filter-4')
 
 	// end headerBlock
-mixin imgInput(img, text)
-	+in-c("radio", '')
+mixin imgInput(img, text, name)
+	+in-c("radio", '', name)
 		+img(src=`img/${img}.svg`, alt="")
 		span.custom-input__text.form-check-label= text
 
-mixin colorInput(color, text)
-	+in-c("radio", '')
+mixin colorInput(color, text, name)
+	+in-c("radio", '', name)
 		span.custom-input__img(style=`background-color:${color};`)
 		span.custom-input__text.form-check-label!= text
 

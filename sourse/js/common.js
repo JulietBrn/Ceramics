@@ -430,7 +430,7 @@ function eventHandler() {
     }
   });
 
-  $('#product-filter .filter__title').on('click', function() {
+  $('#product-filter .filter__title:not(.empty').on('click', function() {
     $(this).toggleClass('show');
   });
 
