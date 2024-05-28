@@ -1,6 +1,7 @@
 mixin menu-toggle()
-	+b.toggle-menu-mobile--js.d-lg-none
-		span
+	+b.toggle-menu-mobile--js
+		+icon('menu')
+		.wrap: +icon('cross')
 mixin mob-mnu()
 	-
 		//- let path = require('path');
@@ -24,12 +25,9 @@ mixin top-nav()
 			+e.row.row
 				.col-4
 					a.logo-wrap(href='#'): +img(src="img/svg/logo.svg", alt="").logo-icon
-					+icon('menu')
-				//- .col.order-lg-0.order-last
-				//- 	.menu-mobile.menu-mobile--js
-				//- 		.menu-mobile__inner
-				//- 			//- +menu-toggle()
-				//- 			+mnu()
+					+menu-toggle()
+					.menu-mobile.menu-mobile--js
+						.menu-mobile__inner: +mnu()
 				.col-auto
 					+e.contacts-wrap
 						+e.tel(href="tel:+78003003050").d-none.d-md-block 8 800 300-30-50
