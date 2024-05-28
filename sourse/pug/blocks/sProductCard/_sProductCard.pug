@@ -1,18 +1,7 @@
 mixin sFeatures(data)
 	// start sFeatures
 	+b.SECTION.sFeatures.section#sFeatures&attributes(attributes)
-		.container.container-absolut
-			+e.header
-				a.btn-link.btn-reverse.small(href='#') В каталог
-					+icon('arrow-back')
-				+img(src=`img/konigstein-dark-1.svg`, alt="").brand
-			h1 Гессен Морион
-			+b.filter
-				+e.title.small.fw-600 Формат
-				+e.wrap.small
-					.custom-scroll()
-						+in-c("radio", 'Одинарный (1НФ)')
-						+in-c("radio", 'Евроформат (0,7НФ)')(checked)
+
 		.container.container-btn
 			+e.info-btns
 				+b.price

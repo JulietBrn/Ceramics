@@ -17,8 +17,77 @@ mixin headerBlock2(img)
 		.container-max
 			+e.img-wrap.bg-wrap.bg
 				+img(`img/header-bg-${img}.png`, 'bg')
+			.container-absolut
+				+e.header
+					a.btn-link.btn-reverse.small(href='#') В каталог
+						+icon('arrow-back')
+					+img(src=`img/konigstein-dark-1.svg`, alt="").brand
+				h1 Гессен Морион
+				.filters-wrapper#product-filter
+					+e.item
+						.small.item-title Формат
+						+b.filter--img
+							+e.title
+								+img(src="img/format.svg", alt="")
+								span.title__text Формат
+							+e.wrap.small
+									+in-c("radio", '')(checked)
+										+img(src="img/format.svg", alt="")
+										span.custom-input__text.form-check-label Одинарный (1НФ)
+									+imgInput('format', 'Евроформат (0,7НФ)')
+									+imgInput('format', 'Длинный формат (0,63НФ)')
+									+imgInput('format', 'Плитка')
+					+e.item
+						.small.item-title Пустотность
+						+b.filter--img
+							+e.title.small
+								+img(src="img/format.svg", alt="")
+								span.title__text Пустотность
+							+e.wrap.small
+								.custom-scroll()
+									+in-c("radio", '')(checked)
+										+img(src="img/empty-1.svg", alt="")
+										span.custom-input__text.form-check-label Полнотелый
+									+imgInput('empty-2', 'Полнотелый (пустотность меньше 13%)')
+									+imgInput('empty-3', 'Пустотелый')
+					+e.item
+						.small.item-title Форма
+						+b.filter--img
+							+e.title.small
+								+img(src="img/format.svg", alt="")
+								span.title__text Пустотность
+							+e.wrap.small
+								.custom-scroll()
+									+in-c("radio", '')(checked)
+										+img(src="img/form-1.svg", alt="")
+										span.custom-input__text.form-check-label Радиусная
+									+imgInput('form-2', 'Прямая')
+									+imgInput('form-3', 'Угловая')
+					+e.item
+						.small.item-title Цвет шва
+						+b.filter--colors
+							+e.title.small
+								span.custom-input__img(style=`background-color:#F2F0E6;`)
+								span.custom-input__text.form-check-label Цвет шва
+							+e.wrap.small
+									+in-c("radio", '')(checked)
+										span.custom-input__img(style=`background-color:#F2F0E6;`)
+										span.custom-input__text.form-check-label Алебастрово-белый
+									+colorInput('#ABABAB','Светло-серый')
+									+colorInput('#262626','Графитово-чёрный')
+									+colorInput('#FDF4E3','Кремово-жёлтый')
+									+colorInput('#45494E','Графитово-серый')
 
 	// end headerBlock
+mixin imgInput(img, text)
+	+in-c("radio", '')
+		+img(src=`img/${img}.svg`, alt="")
+		span.custom-input__text.form-check-label= text
+
+mixin colorInput(color, text)
+	+in-c("radio", '')
+		span.custom-input__img(style=`background-color:${color};`)
+		span.custom-input__text.form-check-label!= text
 
 mixin headerBlock3(img)
 	// start headerBlock

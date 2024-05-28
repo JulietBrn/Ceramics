@@ -52,31 +52,91 @@
 					<div class="container-max">
 						<div class="headerBlock__img-wrap bg-wrap bg"><img class="object-fit-js" src="img/header-bg-card.png" alt="" loading="lazy"/>
 						</div>
+						<div class="container-absolut">
+							<div class="headerBlock__header"><a class="btn-link btn-reverse small" href="#">В каталог
+									<svg class="icon icon-arrow-back ">
+										<use xlink:href="img/svg/sprite.svg#arrow-back"></use>
+									</svg></a><img class="brand" src="img/konigstein-dark-1.svg" alt="" loading="lazy"/>
+							</div>
+							<h1>Гессен Морион</h1>
+							<div class="filters-wrapper" id="product-filter">
+								<div class="headerBlock__item">
+									<div class="small item-title">Формат</div>
+									<div class="filter filter--img">
+										<div class="filter__title"><img src="img/format.svg" alt="" loading="lazy"/><span class="title__text">Формат</span>
+										</div>
+										<div class="filter__wrap small">
+											<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio" checked="checked"/><img src="img/format.svg" alt="" loading="lazy"/><span class="custom-input__text form-check-label">Одинарный (1НФ)</span>
+											</label>
+											<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><img src="img/format.svg" alt="" loading="lazy"/><span class="custom-input__text form-check-label">Евроформат (0,7НФ)</span>
+											</label>
+											<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><img src="img/format.svg" alt="" loading="lazy"/><span class="custom-input__text form-check-label">Длинный формат (0,63НФ)</span>
+											</label>
+											<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><img src="img/format.svg" alt="" loading="lazy"/><span class="custom-input__text form-check-label">Плитка</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="headerBlock__item">
+									<div class="small item-title">Пустотность</div>
+									<div class="filter filter--img">
+										<div class="filter__title small"><img src="img/format.svg" alt="" loading="lazy"/><span class="title__text">Пустотность</span>
+										</div>
+										<div class="filter__wrap small">
+											<div class="custom-scroll">
+												<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio" checked="checked"/><img src="img/empty-1.svg" alt="" loading="lazy"/><span class="custom-input__text form-check-label">Полнотелый</span>
+												</label>
+												<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><img src="img/empty-2.svg" alt="" loading="lazy"/><span class="custom-input__text form-check-label">Полнотелый (пустотность меньше 13%)</span>
+												</label>
+												<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><img src="img/empty-3.svg" alt="" loading="lazy"/><span class="custom-input__text form-check-label">Пустотелый</span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="headerBlock__item">
+									<div class="small item-title">Форма</div>
+									<div class="filter filter--img">
+										<div class="filter__title small"><img src="img/format.svg" alt="" loading="lazy"/><span class="title__text">Пустотность</span>
+										</div>
+										<div class="filter__wrap small">
+											<div class="custom-scroll">
+												<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio" checked="checked"/><img src="img/form-1.svg" alt="" loading="lazy"/><span class="custom-input__text form-check-label">Радиусная</span>
+												</label>
+												<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><img src="img/form-2.svg" alt="" loading="lazy"/><span class="custom-input__text form-check-label">Прямая</span>
+												</label>
+												<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><img src="img/form-3.svg" alt="" loading="lazy"/><span class="custom-input__text form-check-label">Угловая</span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="headerBlock__item">
+									<div class="small item-title">Цвет шва</div>
+									<div class="filter filter--colors">
+										<div class="filter__title small"><span class="custom-input__img" style="background-color:#F2F0E6;"></span><span class="custom-input__text form-check-label">Цвет шва</span>
+										</div>
+										<div class="filter__wrap small">
+											<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio" checked="checked"/><span class="custom-input__img" style="background-color:#F2F0E6;"></span><span class="custom-input__text form-check-label">Алебастрово-белый</span>
+											</label>
+											<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><span class="custom-input__img" style="background-color:#ABABAB;"></span><span class="custom-input__text form-check-label">Светло-серый</span>
+											</label>
+											<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><span class="custom-input__img" style="background-color:#262626;"></span><span class="custom-input__text form-check-label">Графитово-чёрный</span>
+											</label>
+											<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><span class="custom-input__img" style="background-color:#FDF4E3;"></span><span class="custom-input__text form-check-label">Кремово-жёлтый</span>
+											</label>
+											<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><span class="custom-input__img" style="background-color:#45494E;"></span><span class="custom-input__text form-check-label">Графитово-серый</span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<!-- end headerBlock-->
 				<!-- start sFeatures-->
 				<section class="sFeatures section" id="sFeatures">
-					<div class="container container-absolut">
-						<div class="sFeatures__header"><a class="btn-link btn-reverse small" href="#">В каталог
-								<svg class="icon icon-arrow-back ">
-									<use xlink:href="img/svg/sprite.svg#arrow-back"></use>
-								</svg></a><img class="brand" src="img/konigstein-dark-1.svg" alt="" loading="lazy"/>
-						</div>
-						<h1>Гессен Морион</h1>
-						<div class="filter">
-							<div class="filter__title small fw-600">Формат
-							</div>
-							<div class="filter__wrap small">
-								<div class="custom-scroll">
-									<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio"/><span class="custom-input__text form-check-label">Одинарный (1НФ)</span>
-									</label>
-									<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="radio" type="radio" checked="checked"/><span class="custom-input__text form-check-label">Евроформат (0,7НФ)</span>
-									</label>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="container container-btn">
 						<div class="sFeatures__info-btns">
 							<div class="price">

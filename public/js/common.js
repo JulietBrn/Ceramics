@@ -430,6 +430,86 @@ function eventHandler() {
     }
   });
 
+  $('#product-filter .filter__title').on('click', function() {
+    $(this).toggleClass('show');
+  });
+
+  // document.addEventListener('click', function(event) {
+  //   let filterElements = document.querySelectorAll('#product-filter .filter');
+  //   if (!filterElements) return
+  //   filterElements.forEach(function(element) {
+  //       if (!element.contains(event.target)) {
+  //           element.classList.remove('show');
+  //       }
+  //   });
+  // });
+  document.addEventListener('click', function (event) {
+    let filters = document.querySelectorAll('#product-filter .filter');
+    filters.forEach(filter => {
+        if (!filter.contains(event.target)) {
+            const filterTitle = filter.querySelector('.filter__title');
+            filterTitle.classList.remove('show');
+        }
+    });
+});
+
+  const productFilters = document.querySelectorAll('#product-filter .filter--img');
+
+  productFilters.forEach(filter => {
+    const filterTitleImg = filter.querySelector('.filter__title img');
+    const filterTitleText = filter.querySelector('.filter__title .title__text');
+    const labels = filter.querySelectorAll('.filter__wrap label');
+
+    const updateTitle = () => {
+      const checkedInput = filter.querySelector('.filter__wrap input:checked');
+      if (checkedInput) {
+        const label = checkedInput.closest('label');
+        const newImgSrc = label.querySelector('img').src;
+        const newText = label.querySelector('.custom-input__text').innerText;
+        filterTitleImg.src = newImgSrc;
+        filterTitleText.innerText = newText;
+      }
+    };
+
+      // Initialize title on page load
+    updateTitle();
+
+    labels.forEach(label => {
+      label.addEventListener('click', function () {
+        updateTitle();
+      });
+    });
+  });
+
+
+  const productFiltersColor = document.querySelectorAll('#product-filter .filter--colors');
+
+  productFiltersColor.forEach(filter => {
+    const filterTitleImg = filter.querySelector('.filter__title .custom-input__img');
+    const filterTitleText = filter.querySelector('.custom-input__text');
+    const labels = filter.querySelectorAll('.filter__wrap label');
+
+  const updateTitle = () => {
+    const checkedInput = filter.querySelector('.filter__wrap input:checked');
+    if (checkedInput) {
+      const label = checkedInput.closest('label');
+      const newImgSrc = label.querySelector('.custom-input__img').style.backgroundColor;
+      const newText = label.querySelector('.custom-input__text').innerText;
+      filterTitleImg.style.backgroundColor = newImgSrc;
+      filterTitleText.innerText = newText;
+    }
+  };
+
+    // Initialize title on page load
+  updateTitle();
+
+    labels.forEach(label => {
+      label.addEventListener('click', function () {
+        updateTitle();
+      });
+    });
+  });
+
   var sectionTitle = document.querySelector(".headerBlock .section-title");
   if (sectionTitle) {
     sectionTitle.classList.add("loaded");
