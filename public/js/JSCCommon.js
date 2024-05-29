@@ -91,8 +91,14 @@ export default class JSCCommon {
 	// /modalCall
 
 	static toggleMenu() {
+		const logo = document.querySelector(".logo-wrap");
 		const toggle = document.querySelectorAll(".toggle-menu-mobile--js");
 		const menu = document.querySelector(".menu-mobile--js");
+    if (window.innerWidth < 768) {
+      setTimeout(function() {
+        logo.classList.toggle("d-none")
+      }, 400);
+    }
 		this.toggleClass(toggle, "on");
 		menu.classList.toggle("active");
 		this.toggleClass([document.body, document.querySelector("html")], "fixed");

@@ -434,6 +434,36 @@ function eventHandler() {
     $(this).toggleClass('show');
   });
 
+  const menuItems = document.querySelectorAll('.menu-item-has-children');
+  if (menuItems) {
+    menuItems.forEach(item => {
+      // item.addEventListener('click', function(event) {
+      //   if (!event.target.closest('.icon-back')) {
+      //     const subMenu = this.querySelector('.sub-menu');
+      //     if (subMenu) {
+      //       subMenu.classList.toggle('active');
+      //     }
+      //   }
+      // });
+      item.addEventListener('click', function(event) {
+        const subMenu = this.querySelector('.sub-menu');
+        if (subMenu) {
+          subMenu.classList.toggle('active');
+        }
+      });
+    });
+
+    document.addEventListener('click', function(event) {
+      menuItems.forEach(item => {
+        const subMenu = item.querySelector('.sub-menu');
+        if (subMenu && !item.contains(event.target)) {
+          subMenu.classList.remove('active');
+        }
+      });
+    });
+  }
+
+
   // document.addEventListener('click', function(event) {
   //   let filterElements = document.querySelectorAll('#product-filter .filter');
   //   if (!filterElements) return

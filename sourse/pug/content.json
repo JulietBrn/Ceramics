@@ -1,13 +1,37 @@
 {
 	"nav":[
-		{ "name":"Каталог", "url":"#"},
-		{	"name":"Керамика для фасадов", "url":"#"},
-		{"name":"Клинкер для фасадов", "url":"#"},
-		{"name":"Клинкерная плитка", "url":"#"} ,
+		{"name":"Каталог", "url":"#"},
+		{"name":"Керамика для фасадов", "url":"#", "subnav": [
+      {"name":"Edelhaus Klinker", "url":"#", "src":"img/nav-1.png"},
+      {"name":"ModFormat", "url":"#", "src":"img/nav-2.png"}
+      ]},
+		{"name":"Клинкер для фасадов", "url":"#", "subnav": [
+      {"name":"Edelhaus Klinker", "url":"#", "src":"img/nav-1.png"},
+      {"name":"ModFormat", "url":"#", "src":"img/nav-2.png"},
+      {"name":"Edelhaus Klinker", "url":"#", "src":"img/nav-3.png"},
+      {"name":"ModFormat", "url":"#", "src":"img/nav-4.png"}
+      ]},
+		{"name":"Клинкерная плитка", "url":"#", "subnav": [
+      {"name":"Edelhaus Klinker", "url":"#", "src":"img/nav-1.png"},
+      {"name":"ModFormat", "url":"#", "src":"img/nav-2.png"},
+      {"name":"Edelhaus Klinker", "url":"#", "src":"img/nav-3.png"},
+      {"name":"ModFormat", "url":"#", "src":"img/nav-4.png"}
+      ]},
 		{"name":"Для печей", "url":"#"} ,
 		{"name":"3D- фасады", "url":"#"} ,
 		{"name":"Ригельный кирпич", "url":"#"} ,
-		{"name":"Плитка под интеграцию", "url":"#"}
+		{"name":"Плитка под интеграцию", "url":"#"},
+		{"name":"Конфигуратор", "url":"#"},
+		{"name":"Галерея объектов", "url":"#", "subnav": [
+      {"name":"Фотогалерея", "url":"#", "src":"img/nav-3.png"},
+      {"name":"Видеогалерея", "url":"#", "src":"img/nav-4.png"}
+      ]},
+		{"name":"Для архитекторов ", "url":"#"} ,
+		{"name":"Для каменщиков", "url":"#"} ,
+		{"name":"Для печников", "url":"#"} ,
+		{"name":"Сертификация продукции", "url":"#"} ,
+		{"name":"О компании", "url":"#"},
+		{"name":"Карьера в КС Керамик", "url":"#"}
 	],
 	"social":[
 		"fb","instagram","telegram"
