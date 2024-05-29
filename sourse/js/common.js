@@ -486,14 +486,14 @@ function eventHandler() {
       // });
     });
 
-    document.addEventListener('click', function(event) {
-      menuItems.forEach(item => {
-        const subMenu = item.querySelector('.sub-menu');
-        if (subMenu && !item.contains(event.target)) {
-          subMenu.classList.remove('active');
-        }
-      });
-    });
+    // document.addEventListener('click', function(event) {
+    //   menuItems.forEach(item => {
+    //     const subMenu = item.querySelector('.sub-menu');
+    //     if (subMenu && !item.contains(event.target)) {
+    //       subMenu.classList.remove('active');
+    //     }
+    //   });
+    // });
   }
 
 

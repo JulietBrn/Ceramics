@@ -780,3 +780,6 @@
     background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.42913 13.1429V9.14286M3.42913 6.85715V2.85715M8.00056 13.1429V8M8.00056 5.71429V2.85715M12.572 13.1429V10.2857M12.572 8V2.85715M1.71484 9.14286H5.14341M6.28627 5.71429H9.71484M10.8577 10.2857H14.2863' stroke='%239A6A4F' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
   }
 }
+.swiper-button-next, .swiper-button-prev {
+  z-index: 4 !important;
+}
