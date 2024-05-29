@@ -187,6 +187,27 @@ function eventHandler() {
     },
   });
 
+  /* cookie */
+  let cookie = document.querySelector(".cookie");
+  let cookieClose = document.querySelector(".cookie .close");
+  if (cookieClose) {
+    cookieClose.addEventListener("click", () => cookie.classList.add("closed"));
+  }
+
+  /* dropdown */
+  const regionLinks = document.querySelectorAll('.region-link');
+
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+
+  if (regionLinks && dropdownToggle) {
+    regionLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        dropdownToggle.textContent = this.textContent;
+      });
+    });
+  }
   // const btnDelArr = document.querySelectorAll(".photo-file-delete-js")
 
   let loadFile = function(event) {
@@ -451,6 +472,18 @@ function eventHandler() {
           subMenu.classList.toggle('active');
         }
       });
+      // item.addEventListener('mouseenter', function(event) {
+      //   const subMenu = this.querySelector('.sub-menu');
+      //   if (subMenu) {
+      //     subMenu.classList.add('active');
+      //   }
+      // });
+      // item.addEventListener('mouseleave', function(event) {
+      //   const subMenu = this.querySelector('.sub-menu');
+      //   if (subMenu) {
+      //     subMenu.classList.remove('active');
+      //   }
+      // });
     });
 
     document.addEventListener('click', function(event) {
@@ -855,29 +888,6 @@ function eventHandler() {
         onLeaveBack: () => nav.classList.remove("dark--js"),
         onLeave: () => nav.classList.remove("dark--js"),
         // toggleActions: "play none reverse none",
-      });
-    });
-  }
-
-  /* cookie */
-  let cookie = document.querySelector(".cookie");
-  if (cookie) {
-    cookie
-    .querySelector(".close")
-    .addEventListener("click", () => cookie.classList.add("closed"));
-  }
-
-  /* dropdown */
-  const regionLinks = document.querySelectorAll('.region-link');
-
-  const dropdownToggle = document.querySelector('.dropdown-toggle');
-
-  if (regionLinks && dropdownToggle) {
-    regionLinks.forEach(link => {
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-
-        dropdownToggle.textContent = this.textContent;
       });
     });
   }

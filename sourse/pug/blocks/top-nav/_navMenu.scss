@@ -98,11 +98,7 @@
     right: -100%;
     color: #FFF;
     top: 10px;
-    z-index: 9999; 
-    span:after,
-    span:before {
-      --color: #ffffff;
-    }
+    z-index: 9999;
   }
   &__inner {
     padding: calc(env(safe-area-inset-top, 0px) + #{rem(20)}) 0 calc(env(safe-area-inset-bottom, 0px) + #{rem(20)});
@@ -165,7 +161,7 @@
   overflow-y: auto;
   position: absolute;
   top: calc(var(--pad-top) * -1);
-  left: -105%;
+  left: -110%;
   width: 100%;
   z-index: 9;
   background: rgb(52, 10, 10);
@@ -200,9 +196,7 @@
         max-height: 60vh;
         background: $white;
         opacity: .3;
-        // display: block;
         margin: rem(24) 0;
-        // padding: rem(24) 0;
       }
       }
     }
