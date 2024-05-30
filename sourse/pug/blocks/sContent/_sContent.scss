@@ -631,6 +631,7 @@
     left: 50%;
     transform: translateX(-50%);
     height: rem(24);
+    z-index: 3;
     @include media-breakpoint-up(md) {
       bottom: rem(64);
       height: rem(32);
