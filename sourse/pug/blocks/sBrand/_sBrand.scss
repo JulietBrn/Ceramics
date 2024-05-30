@@ -108,7 +108,8 @@
           height: 100%;
           top: 0;
           left: 0;
-          z-index: 2;background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 31%, rgba(0,0,0,0.3) 67%, rgba(0,0,0,0.6) 100%);
+          z-index: 2;
+          background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 31%, rgba(0,0,0,0.3) 67%, rgba(0,0,0,0.6) 100%);
         }
         @include media-breakpoint-up(md) {
           order: 2;
@@ -122,7 +123,7 @@
         }
         @include media-breakpoint-down(md) {
           min-height: auto;
-          height: rem(400);
+          // height: rem(400);
         }
       }
     }
@@ -160,7 +161,7 @@
     .bg-wrap {
 
     @include media-breakpoint-down(sm) {
-      aspect-ratio: 1/1;
+      // aspect-ratio: 1/1;
     }
     }
     &::after {
