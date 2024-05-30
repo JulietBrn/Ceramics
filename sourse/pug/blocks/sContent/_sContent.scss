@@ -590,8 +590,11 @@
   background: $green-700;
   width: 100%;
   height: auto;
-  aspect-ratio: 1/1;
-  // min-height: 100%;
+  // aspect-ratio: 1/1;
+    @include media-breakpoint-up(lg) {
+      aspect-ratio: 1/1;
+    }
+  min-height: rem(400);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -656,13 +659,23 @@
   }
 
   &:nth-child(3) {
+    .object-fit-js {
+      @include media-breakpoint-down(md) {
+      left: 0;
+      position: absolute;
+      top: 0;
+
+      }
+    }
     .wrap {
       font-size: rem(18);
       line-height: 122%;
       text-align: center;
+      position: relative;
       @include media-breakpoint-up(md) {
         font-size: rem(20);
         text-align: start;
+        position: absolute;
       }
       @include media-breakpoint-down(md) {
         top: 40%;
@@ -676,7 +689,6 @@
   &--2 {
     .wrap {
       margin: auto;
-      position: absolute;
       z-index: 5;
       top: 0;
       left: 0;
@@ -690,6 +702,10 @@
         justify-content: space-between;
         height: 100%;
       }
+    @include media-breakpoint-up(lg) {
+      position: absolute;
+      
+    }
     }
   }
 
