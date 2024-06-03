@@ -426,7 +426,7 @@ function eventHandler() {
     }, 200);
   });
 
-  $('.btn-back').on('click', function() {
+  $('.sGallery .btn-back').on('click', function() {
     $('#photo-filters .filters-wrapper__title').text('Фильтры');
     $('#photo-filters .filter').removeClass('show');
     $(this).addClass('d-none');
@@ -486,14 +486,14 @@ function eventHandler() {
       // });
     });
 
-    // document.addEventListener('click', function(event) {
-    //   menuItems.forEach(item => {
-    //     const subMenu = item.querySelector('.sub-menu');
-    //     if (subMenu && !item.contains(event.target)) {
-    //       subMenu.classList.remove('active');
-    //     }
-    //   });
-    // });
+    document.addEventListener('click', function(event) {
+      menuItems.forEach(item => {
+        const subMenu = item.querySelector('.sub-menu');
+        if (subMenu && !item.contains(event.target)) {
+          subMenu.classList.remove('active');
+        }
+      });
+    });
   }
 
 

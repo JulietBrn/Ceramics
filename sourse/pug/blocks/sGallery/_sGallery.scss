@@ -143,7 +143,7 @@
       position: relative !important;
       border-radius: 0;
       padding: 0;
-      z-index: 4;
+      z-index: 0;
     }
     .container> * {
       &:not(:last-child) {
@@ -158,6 +158,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: rem(8);
       @include media-breakpoint-up(md) {
+        position: relative;
         display: flex;
         justify-content: space-between;
       }
@@ -526,7 +527,7 @@
       right: 0;
       @include media-breakpoint-up(md) {
         top: auto;
-        z-index: 20;
+        z-index: 500;
       }
     }
   } 
