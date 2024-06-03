@@ -258,7 +258,7 @@
         @include media-breakpoint-up(md) {
           width: rem(32);
           height: rem(11);
-          margin-bottom: 0;
+          margin-bottom: rem(15);
         }
       }
     }
@@ -287,7 +287,7 @@
       &--2 {
         @include media-breakpoint-down(md) {
           // max-height: 25rem;
-          min-height: rem(410);
+          // min-height: rem(410);
           aspect-ratio: auto;
         }
       }

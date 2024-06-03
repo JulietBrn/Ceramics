@@ -655,7 +655,7 @@
   &:nth-child(2),
   &:nth-child(6) {
     @include media-breakpoint-down(md) {
-      min-height: rem(580);
+      // min-height: rem(580);
     }
   }
 
