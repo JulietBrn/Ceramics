@@ -27,6 +27,7 @@
     }
   }
   .slider-auto--js {
+    overflow: hidden;
     .parallax-container {
       filter: brightness(90%);
       &.animate {

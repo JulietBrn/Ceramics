@@ -212,7 +212,7 @@
 .cookie {
   @include mt;
   position: fixed;
-  // width: calc(100vw - (var(--gutter) * 2));
+  width: 100%;
   box-shadow: 0 10px 24px 0 rgba(51, 64, 77, 0.15);
   left: 0;
   bottom: 0;
@@ -222,6 +222,7 @@
   line-height: 1.6;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   z-index: 600;
 
   // display: none; // ! Потом убрать
