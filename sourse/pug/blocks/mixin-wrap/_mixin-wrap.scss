@@ -181,7 +181,7 @@
     box-shadow: none;
   }
   @media (min-width: 1940px) {
-    right: 10vw;
+    right: calc(50vw - 920px);
   }
   @include media-breakpoint-up(xxl) {
     // position: absolute;
