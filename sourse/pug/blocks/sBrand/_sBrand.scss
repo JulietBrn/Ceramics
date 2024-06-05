@@ -88,6 +88,9 @@
       .h1 {
         padding-bottom: rem(16);
         margin-bottom: rem(16);
+        @include media-breakpoint-only(md) {
+          font-size: rem(30);
+        }
       }
     }
   }

@@ -419,6 +419,11 @@ iframe {
 
 .custom-scroll {
 	@include  custom-scroll;
+  .mCSB_dragger_bar {
+    margin: 0 !important;
+    margin-left: auto !important;
+    border-radius: 0 !important;
+  }
 }
 
 ::-webkit-calendar-picker-indicator {

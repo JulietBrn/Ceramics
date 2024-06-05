@@ -201,8 +201,8 @@ function eventHandler() {
   const swiper = new Swiper('.sAbout .slider-tab', {
 		...defaultSl,
     navigation: {
-      nextEl: ".slider-tab .swiper-button-next",
-      prevEl: ".slider-tab .swiper-button-prev",
+      nextEl: ".sAbout .slider-arrs .swiper-button-next",
+      prevEl: ".sAbout .slider-arrs .swiper-button-prev",
     },
     pagination: {
       el: '.swiper-pagination',

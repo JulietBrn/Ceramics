@@ -173,6 +173,17 @@
 
   #video {
     position: relative;
+    @include media-breakpoint-only(md) {
+      .video-link__icon-wrapper {
+        top: 38%;
+      }
+      .video-link {
+          aspect-ratio: 1024 / 580;
+        }
+      .icon-play {
+        font-size: rem(78);
+      }
+    }
     @include media-breakpoint-up(md) {
       .content-item {
         position: absolute;
@@ -383,12 +394,14 @@
 
   &--slider {
     background: $gray-300;
+    position: relative;
     --sPB: #{rem(8)};
     @include media-breakpoint-up(md) {
       --sPT: #{rem(74)};
       --sPB: #{rem(0)};
     }
   }
+
     &--gray {
       background: $gray-600;
       --sPT: #{rem(24)};
@@ -546,25 +559,60 @@
 .slider-tab {
   overflow: hidden;
   position: relative;
-  .swiper-wrapper {
-    // overflow: hidden;
-  }
   .row {
     --bs-gutter-y: #{rem(16)};
     --bs-gutter-x: #{rem(32)};
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     display: flex;
     flex-direction: column-reverse;
     gap: rem(50);
   }
+}
+
+#sAboutSlider {
+  @include media-breakpoint-up(md) {
+    --sPT: #{rem(10)};
+    .swiper-button-hand {
+      transform: translateY(0);
+    }
+  }
+  @include media-breakpoint-down(md) {
+    .container {
+      max-width: none;
+    }
+  }
+}
+
+#sAboutSliderCareer {
+  @include media-breakpoint-down(md) {
+    .container {
+      max-width: none;
+    }
+  }
+}
+
+.sAbout--slider {
+    .container-max {
+      position: relative;
+    }
+    .container-slider {
+      @include media-breakpoint-up(lg) {
+        max-width: 90%;
+        margin: auto;
+      }
+      @include media-breakpoint-up(xl) {
+        max-width: 70%;
+      }
+    }
   .swiper-button-hand {
     box-shadow: none;
+    transform: translateY(50px);
     .icon {
       stroke: $dark;
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       display: none;
     }
   }
@@ -588,27 +636,19 @@
   }
 }
 
-.swiper-pagination-container {
-  // overflow: hidden;
-}
-
 .swiper-pagination {
   display: flex;
-  // overflow-x: auto;
-  // white-space: nowrap;
   position: relative;
   margin-bottom: rem(14);
   padding-bottom: rem(10);
-  @include media-breakpoint-up(md) {
+  justify-content: space-between;
+  @include media-breakpoint-up(lg) {
     padding-bottom: 0;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: rem(24);
     margin-bottom: 0;
   }
-    @include media-breakpoint-down(md) {
-      overflow-x: auto;
-    }
+  @include media-breakpoint-down(lg) {
+    overflow-x: auto;
+  }
 }
 
 
