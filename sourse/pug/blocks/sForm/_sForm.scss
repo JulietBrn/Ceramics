@@ -164,6 +164,71 @@
     &__text {
     }
   }
+  .filepond {
+    cursor: pointer;
+    &--root {
+      font-family: 'Montserrat';
+    // min-height: rem(48);
+    }
+    &--credits {
+      display: none;
+    }
+    &--file {
+      border-radius: rem(4);
+    }
+    &--file-info {
+      max-width: rem(150);
+    }
+    &--file-info-main, &--file-status-main {
+      font-weight: 400;
+    }
+    &--file-info-sub, &--file-status-sub {
+      font-size: rem(12);
+      opacity: .75;
+    }
+
+    &--panel-root {
+      background: $gray-600 !important;
+      border-radius: var(--bs-border-radius);
+      border: var(--bs-border-width) solid var(--bs-border-color);
+    }
+  }
+
+  [data-filepond-item-state='busy'] {
+    .filepond--file-action-button {
+      background: $gray-600;
+      svg {
+        color: $gray-400;
+      }
+    }
+    .filepond--file {
+      background: $gray-400;
+    }
+  }
+
+  [data-filepond-item-state='idle'] {
+    .filepond--file-action-button {
+      background: $gray-600;
+      svg {
+        color:  $green-900;
+      }
+    }
+    .filepond--file {
+      background: $green-900;
+    }
+  }
+
+  .filepond--drop-label {
+    cursor: pointer;
+    max-height: rem(48);
+    min-height: rem(48);
+    label {
+      padding: 0;
+      cursor: pointer;
+      color: $gray-800;
+    }
+  }
+
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
 	@include media-breakpoint-up(md) {}

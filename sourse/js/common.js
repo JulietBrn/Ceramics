@@ -23,6 +23,32 @@ function eventHandler() {
 
 	whenResize();
 
+  FilePond.registerPlugin(
+		// encodes the file as base64 data
+		FilePondPluginFileEncode,
+	
+		// validates the size of the file
+		FilePondPluginFileValidateSize,
+		
+		// corrects mobile image orientation
+		FilePondPluginImageExifOrientation,
+
+		FilePondPluginImagePreview
+	);
+
+	FilePond.create(
+		document.querySelector('.filepond'),
+		{
+			labelIdle: `Прикрепить файл`,
+			labelFileLoading: `Загрузка`,
+			labelTapToCancel: `Нажмите для отмены`,
+      labelFileProcessingComplete: 'Загрузка завершена',
+      styleButtonRemoveItemPosition: 'right',
+      labelTapToUndo: 'Нажмите для отмены'
+		}
+	);
+
+
 	let defaultSl = {
 		spaceBetween: 0,
 		lazy: {

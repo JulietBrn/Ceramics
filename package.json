@@ -65,6 +65,8 @@
 	},
 	"dependencies": {
 		"@fancyapps/ui": "^5.0.36",
+		"filepond": "^4.31.1",
+		"filepond-plugin-image-preview": "^4.6.12",
 		"gsap": "^3.12.5",
 		"inputmask": "^5.0.8",
 		"jquery": "^3.7.1",
