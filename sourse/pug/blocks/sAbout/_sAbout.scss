@@ -619,6 +619,11 @@
 }
 
 .slide-tab {
+  .row{
+    @include media-breakpoint-down(lg) {
+      margin-bottom: rem(24);
+    }
+  }
   .bg-wrap{
     &:after {
       content: '';

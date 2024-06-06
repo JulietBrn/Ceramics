@@ -18,6 +18,11 @@
 	.section-title{
 		
 	}
+  .col-md-2 {
+    @include media-breakpoint-only(md) {
+      padding-right: rem(10);
+    }
+  }
 
   .icon {
     fill: $gray-400;
