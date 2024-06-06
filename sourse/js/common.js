@@ -477,8 +477,12 @@ function eventHandler() {
     }
   });
 
-  $('#product-filter .filter__title:not(.empty').on('click', function() {
+  $('#product-filter .filter__title:not(.empty)').on('click', function() {
     $(this).toggleClass('show');
+  });
+
+  $('#product-filter .custom-input').on('click', function() {
+    $('#product-filter .filter__title:not(.empty)').removeClass('show');
   });
 
   const menuItems = document.querySelectorAll('.menu-item-has-children');

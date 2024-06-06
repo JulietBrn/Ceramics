@@ -175,13 +175,13 @@
   @include media-breakpoint-up(md) {
     top: rem(64);
     bottom: auto;
-    right: rem(24);
+    right: rem(32);
     max-width: rem(296);
     width: auto;
     box-shadow: none;
   }
   @media (min-width: 1940px) {
-    right: calc(50vw - 920px);
+    right: calc(50vw - 930px);
   }
   @include media-breakpoint-up(xxl) {
     // position: absolute;

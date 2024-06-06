@@ -1,3 +1,11 @@
+.long-footer {
+  .footer {
+    @include media-breakpoint-down(md) {
+      --sPB: #{rem(60)};
+    }
+  }
+}
+
 .footer {
 		
 	margin-top: auto;
