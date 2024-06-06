@@ -126,6 +126,34 @@ function eventHandler() {
     }
 	});
 
+  const triggerSlide = document.querySelectorAll('.sAbout__date-swiper--js .swiper-slide')
+  if (triggerSlide) {
+    updateSlideOpacity(3)
+    triggerSlide.forEach((elem, i) => elem.addEventListener('click', () => {
+      updateSlideOpacity(i)
+    })
+  )}
+
+  function updateSlideOpacity(i) {
+
+    triggerSlide.forEach(slide => {
+      slide.classList.remove('opacity-05', 'opacity-02', 'opacity-1');
+    });
+
+    if (triggerSlide) {
+
+      triggerSlide.forEach((slide, index) => {
+        if (Math.abs(index - i) === 1) {
+          slide.classList.add('opacity-1');
+        } else if (Math.abs(index - i) === 2) {
+          slide.classList.add('opacity-05');
+        } else if (Math.abs(index - i) >= 3) {
+          slide.classList.add('opacity-02');
+        }
+      });
+    }
+  }
+
 	new Swiper(".breadcrumb-slider--js", {
 		slidesPerView: "auto",
 		freeMode: true,
