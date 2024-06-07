@@ -12,6 +12,8 @@
 		padding: 0;
 	}
 	a {
+    
+    transition: color var(--s) ease-in-out;
 		display: block;
 		padding: rem(20) calc(var(--bs-gutter-x) / 2);
 	}
@@ -25,8 +27,9 @@
 
 	&.on .wrap {
 		--color: transparent;
-    display: inline;
+    // display: inline;
     opacity: 1;
+    visibility: visible;
 	}
 
 	&.on {
@@ -37,17 +40,34 @@
 	// height: calc(var(--h)* 12);
 	// font-size: 32px;
 	// width: 1em;
-	cursor: pointer;
-    @include media-breakpoint-up(lg) {
+	// cursor: pointer;
+    @include media-breakpoint-up(md) {
     position: relative;
+  }
+
+  .icon {
+    display: inline;
+    cursor: pointer;
   }
 
   .icon-cross {
     font-size: rem(32);
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(md) {
       font-size: rem(20);
     }
     fill: $white;
+  }
+  .icon-wrap_hidden {
+    visibility: hidden;
+  }
+  .icon-wrap_visible {
+    visibility: visible;
+  }
+  .icon-back {
+    font-size: rem(24);
+    fill: none;
+    stroke-width: rem(1);
+    stroke: $white;
   }
   .wrap {
     position: absolute;
@@ -56,17 +76,22 @@
     opacity: 0;
     right: rem(16);
     @include mt;
+    width: calc(100% - 32px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    visibility: hidden;
 
-    @include media-breakpoint-up(lg) {
-    left: 0;
-    top: -3px;
-    right: auto;
+    @include media-breakpoint-up(md) {
+      left: 0;
+      top: -3px;
+      right: auto;
     }
   }
 }
 
 .menu-mobile {
-  --desktop-menu-width: 320px;
+  --desktop-menu-width: 640px;
   --pad-left: 16px;
   --pad-top: 66px;
   position: fixed !important;
@@ -77,8 +102,12 @@
   top: 0;
   left: 0;
   // right: 0;
-  background: rgb(52, 10, 10);
-	@include media-breakpoint-up(lg) {
+  overflow: hidden;
+  &.active {
+    overflow: visible;
+  }
+  // background: rgb(52, 10, 10);
+	@include media-breakpoint-up(md) {
     width: var(--desktop-menu-width);
   }
   &:not(.active){
@@ -103,18 +132,47 @@
   &__inner {
     padding: calc(env(safe-area-inset-top, 0px) + #{rem(20)}) 0 calc(env(safe-area-inset-bottom, 0px) + #{rem(20)});
     // overflow-x: hidden;
+    &.active {
+      
+    }
     // overflow-y: scroll;
     padding-top: var(--pad-top);
     padding-left: var(--pad-left);
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(md) {
+      width: 50%;
       padding-left: rem(24);
-
     }
     -webkit-overflow-scrolling: touch;
     height: 100vh;
+    .div-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      @include media-breakpoint-up(md) {
+        width: 50%;
+        @include mt;
+      }
+      // transform-origin: left;
+      img {
+        object-position: left;
+        height: 100%;
+        filter: blur(8px);
+      }
+    }
     // @include mt(.3s);
     // transition-delay: .4s;
     // opacity: var(--opacity);
+  }
+  &.sub-menu-active {
+    .div-bg {
+      @include media-breakpoint-up(md) {
+        width: 100%;
+      }
+    }
   }
 
   &.active { 
@@ -160,24 +218,38 @@
   overflow-x: hidden;
   overflow-y: auto;
   position: absolute;
+  opacity: var(--op, 0);
+  --op: 0;
   top: calc(var(--pad-top) * -1);
   left: -110%;
   width: 100%;
   z-index: 9;
-  background: rgb(52, 10, 10);
+  // background: rgb(52, 10, 10);
   height: 100vh;
   padding-top: var(--pad-top);
   padding-left: 0;
   padding-right: rem(16);
-  @include mt(.7s);
-	@include media-breakpoint-up(lg) {
+  // opacity: 0;
+  visibility: hidden;
+  @include mt(.1s);
+	@include media-breakpoint-up(md) {
+    width: calc(100% + rem(24));
     padding-left: rem(32);
     padding-right: rem(32);
+    left: calc(var(--desktop-menu-width) / 2 - rem(24));
   }
-  &.active {
+  &_hidden {
+    --op: 0;
+    transition: opacity .1s ease-in;
+  }
+  &_visible {
     left: 0;
-    @include media-breakpoint-up(lg) {
-      left: calc(var(--desktop-menu-width) - rem(24));
+    --op: 1;
+    transition: opacity .5s ease-in;
+    visibility: visible;
+    z-index: 10;
+    @include media-breakpoint-up(md) {
+      left: calc(var(--desktop-menu-width) / 2 - rem(24));
     }
   }
 
@@ -185,7 +257,7 @@
     margin-bottom: rem(32);
     &:first-child {
       position: relative;
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(md) {
       &::before {
         content: '';
         position: absolute;
@@ -219,7 +291,7 @@
     stroke-width: 1px;
     stroke: $white;
     cursor: pointer;
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(md) {
       display: none;
     }
   }

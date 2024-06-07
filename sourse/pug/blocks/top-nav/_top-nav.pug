@@ -1,7 +1,9 @@
 mixin menu-toggle()
 	+b.toggle-menu-mobile--js
 		+icon('menu')
-		.wrap: +icon('cross')
+		.wrap
+			.icon-wrap.icon-wrap_hidden.d-md-none: +icon('back')
+			+icon('cross')
 mixin mob-mnu()
 	-
 		//- let path = require('path');
@@ -27,7 +29,10 @@ mixin top-nav()
 					a.logo-wrap(href='#'): +img(src="img/svg/logo.svg", alt="").logo-icon
 					+menu-toggle()
 					.menu-mobile.menu-mobile--js
-						.menu-mobile__inner: +mnu()
+						.menu-mobile__inner
+							.div-bg
+								+img(src="img/nav-bg-1.png", alt="")
+							+mnu()
 				.col-auto
 					+e.contacts-wrap
 						+e.tel(href="tel:+78003003050").d-none.d-md-block 8 800 300-30-50

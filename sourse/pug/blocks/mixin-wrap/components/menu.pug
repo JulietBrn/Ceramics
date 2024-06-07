@@ -4,16 +4,15 @@ mixin mnu()
 		ul.menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
 			each link in nav
 				if !link.subnav
-					li.menu-item(itemprop="item" ): a(href= link.url itemprop="url")= link.name
+					li.menu-item.menu-item_main(itemprop="item", data-bg-image=`img/${link.bg}` ): a(href= link.url itemprop="url")= link.name
 				if link.subnav
-					li.menu-item.menu-item-has-children
+					li.menu-item.menu-item_main.menu-item-has-children(data-bg-image=`img/${link.bg}` )
 						a(href="#" itemprop="url")= link.name
-						ul.sub-menu
+						ul.sub-menu.sub-menu_hidden
 							each sublink in link.subnav
 								li.menu-item(itemprop="item" )
 									a(href= sublink.url itemprop="url")
-										+img(src=sublink.src, alt="")
+										+img(src=`img/${sublink.src}`, alt="")
 										= sublink.name
-							+icon('back')
 
 //- menu

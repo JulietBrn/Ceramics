@@ -2,7 +2,7 @@
 // import "../libs/jquery/jquery.min.js";
 import "../libs/select2/js/select2.min.js";
 import "../libs/select2/js/i18n/ru.js";
-// import "../libs/swiper/swiper-bundle.min.js";
+// import "../libsremove/swiper/swiper-bundle.min.js";
 // import "../libs/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js";
 // import "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js";
 // import "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js";
@@ -94,13 +94,32 @@ export default class JSCCommon {
 		const logo = document.querySelector(".logo-wrap");
 		const toggle = document.querySelectorAll(".toggle-menu-mobile--js");
 		const menu = document.querySelector(".menu-mobile--js");
+    const subMenuVisible = document.querySelector(".sub-menu_visible");
+    const menuHidden = document.querySelector('.menu')
+    const iconBack = document.querySelector('.toggle-menu-mobile .icon-wrap')
+
+    if(menuHidden) {
+      menuHidden.style.visibility = 'visible'
+    }
+    if (iconBack) {
+      iconBack.classList.add('icon-wrap_hidden')
+      iconBack.classList.remove('icon-wrap_visible')
+    }
+
+    if (subMenuVisible) {
+      subMenuVisible.classList.remove('sub-menu_visible');
+      subMenuVisible.classList.add('sub-menu_hidden');
+    }
+
     if (window.innerWidth < 768) {
       setTimeout(function() {
         logo.classList.toggle("d-none")
       }, 400);
     }
+
 		this.toggleClass(toggle, "on");
 		menu.classList.toggle("active");
+    menu.classList.remove('sub-menu-active');
 		this.toggleClass([document.body, document.querySelector("html")], "fixed");
 	}
 	static closeMenu() {
