@@ -254,3 +254,18 @@
 	@include media-breakpoint-down(xs) {} 
 
 } // end.sForm
+.form-control::placeholder {
+  opacity: .7;
+}
+
+.dropdown-menu_prof {
+  .region-link {
+    margin-left: 0;
+    cursor: pointer;
+    @include mt;
+    &:hover {
+      color: $primary;
+    }
+  }
+
+}

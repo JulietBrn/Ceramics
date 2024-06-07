@@ -249,9 +249,9 @@ function eventHandler() {
   }
 
   /* dropdown */
-  const regionLinks = document.querySelectorAll('.region-link');
+  const regionLinks = document.querySelectorAll('.dropdown-cities .region-link');
 
-  const dropdownToggle = document.querySelector('.dropdown-toggle');
+  const dropdownToggle = document.querySelector('.dropdown-cities .dropdown-toggle');
 
   if (regionLinks && dropdownToggle) {
     regionLinks.forEach(link => {
@@ -259,6 +259,20 @@ function eventHandler() {
         event.preventDefault();
 
         dropdownToggle.textContent = this.textContent;
+      });
+    });
+  }  
+  /* dropdown */
+  const profLinks = document.querySelectorAll('.dropdown-prof .region-link');
+
+  const dropdownTogglePfor = document.querySelector('.dropdown-prof .dropdown-toggle');
+
+  if (profLinks && dropdownTogglePfor) {
+    profLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        dropdownTogglePfor.textContent = this.textContent;
       });
     });
   }

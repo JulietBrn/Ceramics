@@ -91,3 +91,62 @@ mixin sForm2()
 					.text-center
 						+policy2
 	// end sForm
+
+mixin sForm3()
+	// start sForm
+	+b.SECTION.sForm.section.white-section#sForm&attributes(attributes)
+		.container
+			a.btn-back(href='#')
+				<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M10 3L5 8L10 13" stroke="#9A6A4F" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+				| Назад
+			.form
+				+b.section-title.text-center
+					h4 Оставить отклик
+				+e.row.row
+				+form-wrap
+					+e.item
+						.input-title Специальность
+						.dropdown.dropdown--transparent.dropdown-prof
+							.span ⁎
+							.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Выберите специальность
+							+professionDropdown
+					+e.item
+						.input-title ФИО
+						+input("Введите свое ФИО",'text')(required).is-invalid
+							.span ⁎
+							.invalid-feedback Введите хотя бы один символ
+					+e.item
+						.input-title Номер телефона
+						+input("+7 ( 	)	-	-	",'tel')(required).is-invalid
+							.span ⁎
+							.invalid-feedback Номер телефона некорректный
+					+e.item
+						.input-title Электронная почта
+						+input("Введите свой e-mail",'email')(required).is-invalid
+							.span ⁎
+							.invalid-feedback Неверный формат эл. адреса (проверьте на пробелы и русские буквы)
+					+e.item
+						.input-title Регион
+						.dropdown.dropdown--transparent.dropdown-cities
+							.span ⁎
+							.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Москва
+							+citiesDropdown
+					+e.item
+						.input-title Сообщение
+						+input("Напишите о себе", 'textarea', '')
+					+e.item
+						<input type="file"  class="filepond" name="filepond"  multiple data-max-file-size="3MB" data-max-files="5">
+					.text-center
+						+e.btn.btn.btn-primary(type="submit") Отправить
+					.text-center
+						+policy2
+	// end sForm
+
+mixin professionDropdown
+	ul.dropdown-menu.dropdown-menu_prof
+		li: .region-link.small Специальность 1
+		li: .region-link.small Специальность 1
+		li: .region-link.small Специальность 1
+		li: .region-link.small Специальность 1
