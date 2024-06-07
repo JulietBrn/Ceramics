@@ -95,6 +95,16 @@ body {
 		}
 	}
 }
+.container, .container-fluid, .container-md, .container-sm {
+  // --bs-gutter-x: 2rem;
+  // --bs-gutter-y: 0;
+  // margin-left: auto;
+  // margin-right: auto;
+  @include media-breakpoint-up(lg) {
+    padding-left: calc(var(--bs-gutter-x)* 3);
+    padding-right: calc(var(--bs-gutter-x)* 3);
+  }
+}
 
 .main-wrapper { 
 	position: relative;

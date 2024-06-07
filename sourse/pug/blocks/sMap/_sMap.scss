@@ -128,8 +128,11 @@
 
   &__grid {
     columns: 4;
-    column-gap: rem(20);
+    column-gap: rem(30);
     margin-bottom: rem(56);
+    @include media-breakpoint-up(xl) {
+      columns: 5;
+    }
     .region-link {
       display: inline-block;
       max-width: 100%;
