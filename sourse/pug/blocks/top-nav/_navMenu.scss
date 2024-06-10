@@ -161,6 +161,7 @@
         object-position: left;
         height: 100%;
         filter: blur(8px);
+        filter: brightness(50%);
       }
     }
     // @include mt(.3s);

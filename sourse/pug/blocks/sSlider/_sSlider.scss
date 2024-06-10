@@ -1,6 +1,6 @@
 // start .sSlider
 .sSlider {
-	// --sPT: #{rem()};
+	--sPT: #{rem(0)};
 	--sPB: #{rem(0)};
 	// --sTPB: #{rem()};
 	
@@ -19,10 +19,8 @@
 	}
   
   .parallax-container {
-    // min-height: rem(640);
     min-height: 100vh;
     @include media-breakpoint-up(md) {
-      // height: rem(720);
       min-height: 100vh;
     }
   }
@@ -60,5 +58,20 @@
   }
   100% {
     background-position: 0%;
+  }
+}
+
+.main-page {
+  .block1 {
+    // min-height: 100vh;
+    // @include media-breakpoint-up(md) {
+    //   min-height: 100vh;
+    // }
+  }
+  .block1 .parallax-container {
+    min-height: 100vh;
+    @include media-breakpoint-up(md) {
+      min-height: 100vh;
+    }
   }
 }
