@@ -445,6 +445,18 @@ function eventHandler() {
 	const popoverList = [...popoverTriggerList].map(
 		popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl)
 	);
+  document.addEventListener('click', function (e) {
+    if (popoverList.length < 1) return
+    popoverList.forEach(popover => {
+        const target = e.target;
+        const popoverElement = popover._element;
+        const popoverContent = document.querySelector('.popover');
+
+        if (popoverContent && !popoverElement.contains(target) && !popoverContent.contains(target) || target instanceof HTMLAnchorElement) {
+            popover.hide();
+        }
+    });
+});
 
   const closeButton = document.querySelector('.btn-close');
   const warningText = document.querySelector('.warning-text');
