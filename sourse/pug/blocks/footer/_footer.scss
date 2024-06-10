@@ -4,6 +4,27 @@
       --sPB: #{rem(60)};
     }
   }
+  &--md {
+  .footer {
+    @include media-breakpoint-up(md) {
+      --sPB: #{rem(60)};
+    }
+  }
+  }
+  .footer__item:last-child {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -100vw;
+      width: 200vw;
+      height: rem(1);
+      background: $gray-400;
+      opacity: .2;
+    }
+  }
 }
 
 .footer {
@@ -94,6 +115,7 @@
       gap: rem(8);
       flex-direction: column;
       padding: rem(16) 0 rem(24);
+
       @include media-breakpoint-up(md) {
         gap: rem(16);
         flex-direction: row;

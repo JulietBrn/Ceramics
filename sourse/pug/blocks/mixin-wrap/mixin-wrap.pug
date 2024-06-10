@@ -22,7 +22,7 @@ mixin arrow()
 mixin addblock()
 	+b.addBlock
 		+e.btn--minus(type="button")
-		input(type="text" value="1"  inputmode='numeric')
+		input(type="text" value="1"	inputmode='numeric')
 		+e.btn--plus(type="button")
 
 mixin search()
@@ -68,3 +68,20 @@ mixin cookie()
 mixin pagePreloader()
 	#preloader
 		+img(src="img/svg/logo.svg", alt="")
+
+mixin pageSlider()
+	.main-page-slider
+		.container-max
+			.main-page-slider--js
+				.swiper-wrapper
+					.slide.swiper-slide
+						a(href='#') КС Керамик
+					.slide.swiper-slide
+						a(href='#') Edelhaus Klinker
+					.slide.swiper-slide
+						a(href='#') Königstein
+					.slide.swiper-slide
+						a(href='#') ModFormat
+					.slide.swiper-slide
+						a(href='#') Мастер Керамик
+				.arrow-container: +arrow()

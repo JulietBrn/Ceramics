@@ -219,6 +219,22 @@ function eventHandler() {
       }
     }
 	});
+  const swiperMainPage = new Swiper('.main-page-slider--js', {
+		spaceBetween: 8,
+		slidesPerView: 1,
+		// freeMode: true,
+		// watchOverflow: true,
+    navigation: {
+      nextEl: ".main-page-slider--js .swiper-button-next",
+      prevEl: ".main-page-slider--js .swiper-button-prev",
+    },
+    breakpoints: {
+      768: {
+        spaceBetween: 0,
+        slidesPerView: 5,
+      }
+    }
+	});
 
   function getSlideTitles() {
     const titles = [];
