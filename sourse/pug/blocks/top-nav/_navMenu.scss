@@ -223,13 +223,11 @@
   top: calc(var(--pad-top) * -1);
   left: -110%;
   width: 100%;
-  z-index: 9;
-  // background: rgb(52, 10, 10);
+  z-index: -1;
   height: 100vh;
   padding-top: var(--pad-top);
   padding-left: 0;
   padding-right: rem(16);
-  // opacity: 0;
   visibility: hidden;
   @include mt(.1s);
 	@include media-breakpoint-up(md) {

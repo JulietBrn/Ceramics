@@ -47,7 +47,11 @@ function eventHandler() {
       labelTapToUndo: 'Нажмите для отмены'
 		}
 	);
-
+  /* preloader */
+  const pagePreloader = document.querySelector('#preloader')
+  if (pagePreloader) {
+    pagePreloader.classList.add('d-none')
+  }
 
 	let defaultSl = {
 		spaceBetween: 0,
