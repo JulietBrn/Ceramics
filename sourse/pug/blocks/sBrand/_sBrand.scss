@@ -5,6 +5,7 @@
   // max-height: rem(640);
   @include media-breakpoint-up(md) {
     // max-height: rem(700);
+    max-height: rem(720);
   }
   .video {
     position: absolute;
@@ -13,7 +14,6 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
-    // max-height: 100%;
     // width: 100%;
     height: 100%;
     @include media-breakpoint-up(md) {

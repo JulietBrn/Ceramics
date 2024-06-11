@@ -19,9 +19,11 @@
 	}
   
   .parallax-container {
-    min-height: 100vh;
+    height: 100vh;
+    max-height: rem(720);
     @include media-breakpoint-up(md) {
-      min-height: 100vh;
+      height: 100vh;
+      max-height: rem(720);
     }
   }
   .slider-auto--js {
@@ -69,9 +71,10 @@
     // }
   }
   .block1 .parallax-container {
-    min-height: 100vh;
+    height: 100vh;
+    max-height: rem(720);
     @include media-breakpoint-up(md) {
-      min-height: 100vh;
+      height: 100vh;
     }
   }
 }
