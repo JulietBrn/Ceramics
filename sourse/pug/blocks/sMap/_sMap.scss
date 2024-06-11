@@ -136,6 +136,7 @@
     .region-link {
       display: inline-block;
       max-width: 100%;
+      width: 100%;
       transform: translateX(0);
       margin-left: rem(20);
       &::before {
@@ -244,7 +245,7 @@
     margin-left: 0;
     @include media-breakpoint-up(md) {
       padding: rem(16) rem(16) rem(16) 0;
-      transform: translateX(0);
+      // transform: translateX(0);
       font-size: rem(16);
     }
   }
@@ -287,5 +288,6 @@
 
   .region-link--big {
     margin-bottom: 0;
+    padding-left: rem(20);
   }
 }

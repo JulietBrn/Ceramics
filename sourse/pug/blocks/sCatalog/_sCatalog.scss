@@ -22,13 +22,6 @@
 	&__slide{
 		height: auto;
 	}
-  .catalog-container {
-    max-width: 1920px;
-    @include media-breakpoint-up(lg) {
-      padding-left: calc(var(--bs-gutter-x)/2);
-      padding-right: calc(var(--bs-gutter-x)/2);
-    }
-  }
 
   &__catalog-container {
     display: grid;
