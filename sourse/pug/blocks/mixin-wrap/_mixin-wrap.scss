@@ -299,7 +299,8 @@
   }
   .swiper-button-hand {
     @include media-breakpoint-up(md) {
-    transform: translateY(-50%);
+      transform: translateY(-50%);
+      position: relative;
     }
     @include media-breakpoint-up(lg) {
     transform: translateY(0);
@@ -308,15 +309,36 @@
   .swiper-button-hand  .icon {
     @include media-breakpoint-up(md) {
     font-size: rem(38);
+    margin-right: 10px;
+    }
+  }
+  .swiper-button-hand-next {
+    @include media-breakpoint-up(md) {
+      right: 16px;
+    }
+    @include media-breakpoint-up(lg) {
+      right: 0;
     }
   }
   .icon-chevron-right {
     @include media-breakpoint-up(lg) {
       margin-left: 5px;
+      font-size: rem(48);
     }
 
   }
   .container-max {
     position: relative;
+  }
+  .arrow-container {
+    @include media-breakpoint-up(md) {
+      position: fixed;
+      width: 1920px;
+      max-width: 100%;
+      z-index: 4;
+      top: 48%;
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
