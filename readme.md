@@ -38,6 +38,7 @@
 2. <https://megafronteam.github.io/0044Ceramics/18-form-question.html>
 2. <https://megafronteam.github.io/0044Ceramics/18-form-photo.html>
 2. <https://megafronteam.github.io/0044Ceramics/18-form-apply.html>
+2. <https://megafronteam.github.io/0044Ceramics/19-policy.html>
 2. <https://megafronteam.github.io/0044Ceramics/15-card-product.html>
 
 <!-- in progress -->
