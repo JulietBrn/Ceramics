@@ -263,6 +263,14 @@
   z-index: 9999;
 }
 
+.main-page {
+  // padding-top: 44px;
+  // margin-top: -44px;
+  @include media-breakpoint-down(md) {
+    padding-top: 44px;
+    margin-top: -44px;
+  }
+}
 .main-page-slider {
   position: fixed;
   bottom: 0;

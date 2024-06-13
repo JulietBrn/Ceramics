@@ -53,6 +53,16 @@ function eventHandler() {
     pagePreloader.classList.add('d-none')
   }
 
+  /* backgr-attachment height */
+
+  // function setContainerHeight() {
+  //   const vh = window.innerHeight * 0.01;
+  //   document.documentElement.style.setProperty('--vh', `${vh}px`);
+  // }
+  // setContainerHeight();
+  // window.addEventListener('resize', setContainerHeight);
+
+  //
 	let defaultSl = {
 		spaceBetween: 0,
 		lazy: {
