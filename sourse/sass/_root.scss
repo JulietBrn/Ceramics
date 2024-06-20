@@ -91,8 +91,5 @@
 }
 .fancybox__caption {
   align-self: center;
-
-  @include media-breakpoint-up(sm) {
-    color: $gray-800;
-  }
+  color: $gray-800;
 }

@@ -95,6 +95,26 @@ body {
 		}
 	}
 }
+.fancybox__footer .is-nav-selected .f-thumbs__slide__button {
+  border: 2px solid $primary;
+  img {
+    opacity: .5;
+  }
+}
+
+.is-horizontal .f-carousel__nav .f-button.is-prev, .is-horizontal .fancybox__nav .f-button.is-prev {
+  @include media-breakpoint-down(md) {
+    left: -5px;
+  }
+}
+.is-horizontal .fancybox__nav .f-button.is-next {
+  @include media-breakpoint-down(md) {
+    right: -5px;
+  }
+}
+.is-compact .fancybox__footer {
+  background: transparent;
+}
 
 .container, .container-fluid, .container-md, .container-sm {
   // --bs-gutter-x: 2rem;

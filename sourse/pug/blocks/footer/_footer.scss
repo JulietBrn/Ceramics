@@ -26,6 +26,11 @@
     }
   }
 }
+.long-footer_large .footer {
+  @include media-breakpoint-down(md) {
+    --sPB: #{rem(130)};
+  }
+}
 
 .footer {
 		
@@ -34,6 +39,9 @@
   
 	--sPB: #{rem(0)};
 	// --sTPB: #{rem()};
+    // @include media-breakpoint-down(md) {
+    //   --sPB: #{rem(60)};
+    // }
 
   background: $gray-800;
   color: $white;
