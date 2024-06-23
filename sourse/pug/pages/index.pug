@@ -23,12 +23,17 @@ block pagecontent
 	
 	+parts('header')
 	main.main-page
-		.container-max
-			+block1(data, '')
-		+headerBlock3('main')
-		+sSlider
+		+b.main-slider--js.swiper
+			.swiper-wrapper
+				- for (var x = 0; x < 3; x++)
+					+e.slide.swiper-slide
+						+e.slider-inner
+							.container-max
+								+block1(data, '')
+							+headerBlock3('main')
+							+sSlider
+							.long-footer.long-footer--md
+								+parts('footer')
 		+cookie
 		+pagePreloader
 		+pageSlider()
-	.long-footer.long-footer--md
-		+parts('footer')
