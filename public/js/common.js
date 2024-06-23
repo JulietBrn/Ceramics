@@ -142,6 +142,8 @@ function eventHandler() {
 		watchOverflow: true,
 		loop: true,
 		speed: 1000,
+		allowTouchMove: false,
+
 		navigation: {
 			nextEl: ".arrow-container .swiper-button-next",
 			prevEl: ".arrow-container .swiper-button-prev",
