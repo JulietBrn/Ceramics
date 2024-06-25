@@ -5,7 +5,9 @@ mixin sBrand1(data)
 		.container-max
 			+block1(data, 'konigstein')
 			.block2
-				.parallax-container(style=`background-image:url(img/${data}-brand.png);`)
+				.parallax-container
+					.sticky-img-wrap
+						+img(`img/${data}-brand.png`, 'bg')
 				+e.content
 					+b.title-item
 						.h1 Покоряет дизайном
@@ -20,7 +22,7 @@ mixin sBrand2(data)
 	// start sBrand
 	+b.SECTION.sBrand--edelhaus.section#sBrand&attributes(attributes)
 		.container-max
-			+block1(data, 'edelhaus-light')
+			+block1(data, 'edelhaus-light','video/version2k.mp4')
 			+block2(data, 'Стойкость в его характере', 'Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочетание природных цветов и фактур с наивысшей стойкостью и долговечностью, с которыми неповторимые архитектурные образы создаются на века.')
 			+block3('', 'Бренд Edelhaus Klinker — активный, амбициозный, так же как и те, для кого он создан. Edelhaus Klinker сам себе задаёт высокую планку и идёт к новым — всё более смелым — целям.', 'Как и сам клинкерный кирпич, бренд Edelhaus Klinker олицетворяет собой стойкость, выдержку, постоянство, надёжность', '9', 'Харизматичный<br>и амбициозный', 'edelhaus-light', '')
 			+block4(data)
@@ -50,9 +52,9 @@ mixin sBrand4(data)
 	// end sBrand
 
 
-mixin block1(img, brand)
+mixin block1(img, brand, videoPath = 'video/brand.mp4')
 	.block1
-		<video autoplay loop muted class="video " src="video/brand.mp4"></video>
+		video(autoplay loop muted class="video " src=`${videoPath}`)
 		//- .parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 		if brand
 			.content
@@ -60,14 +62,18 @@ mixin block1(img, brand)
 
 mixin block2(img, title, text)
 	.block2
-		.parallax-container(style=`background-image:url(img/${img}-brand.png);`)
+		.parallax-container
+			.sticky-img-wrap
+				+img(`img/header-bg-${img}.png`, 'bg')
 		+e.content
 			+b.title-item
 				.h1=title
 			p=text
 
 mixin cardSquareBrand(i, text, icon, optionIcon)
-	+b.card-square-item--1(style=`background-image:url(img/card-sq-${i}.png);`)
+	+b.card-square-item--1
+		.sticky-img-wrap
+			+img(`img/card-sq-${i}.png`, 'bg')
 		.text-wrapper
 			if optionIcon
 				+img(src=`img/${optionIcon}.svg`, alt="").small-img

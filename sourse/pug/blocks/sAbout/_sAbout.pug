@@ -135,7 +135,9 @@ mixin advantageAbout(i, text)
 		.small= text
 
 mixin cardSquareEasy(i, text, icon)
-	+b.card-square-item--darken(style=`background-image:url(img/card-sq-${i}.png);`)
+	+b.card-square-item--darken()
+		.sticky-img-wrap
+			+img(`img/card-sq-${i}.png`, 'bg')
 		.h2.text-center!= text
 
 
@@ -201,7 +203,9 @@ mixin sAbout4(data)
 
 
 mixin cardSquareBrand2(i, text)
-	+b.card-square-item--1(style=`background-image:url(img/card-sq-${i}.png);`)
+	+b.card-square-item--1
+		.sticky-img-wrap
+			+img(`img/card-sq-${i}.png`, 'bg')
 		.text-wrapper
 			.h2.text-center!= text
 			+e.btn.btn.btn-primary Написать

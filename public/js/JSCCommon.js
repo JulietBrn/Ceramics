@@ -21,18 +21,36 @@ export default class JSCCommon {
 		const link = '[data-fancybox="modal"], .link-modal-js';
 		Fancybox.defaults.autoFocus = false;
 		Fancybox.defaults.placeFocusBack = false;
-    Fancybox.bind("[data-fancybox]", {
-      autoFocus: false,
-      placeFocusBack: false,
-      Toolbar: {
-        display: {
-          left: ["infobar"],
-          right: [
-            "iterateZoom",
-            "slideshow","fullscreen", "close"],
-        },
-      },
-    });
+		Fancybox.bind("[data-fancybox]", {
+			autoFocus: false,
+			placeFocusBack: false,
+			Toolbar: {
+				display: {
+					left: ["infobar"],
+					right: ["iterateZoom", "slideshow", "fullscreen", "close"],
+				},
+			},
+			on: {
+				"done Carousel.ready Carousel.change": fancybox => {
+					// Current slide
+					const slide = fancybox.getSlide();
+					console.log(slide);
+					const maxW = slide.el.querySelector(".fancybox__content").offsetWidth;
+					console.log("maxW", maxW);
+					console.log(slide.captionEl.querySelector(".caption-with-icon"));
+					slide.captionEl.querySelector(".caption-with-icon").style.width =
+						maxW + "px";
+					// The corresponding trigger element
+					// (i.e. the link that is clicked to launch Fancybox)
+					// const triggerEl = slide.triggerEl;
+
+					// // Data from the trigger element
+					// const title = triggerEl.dataset.title;
+
+					// alert(title);
+				},
+			},
+		});
 
 		Fancybox.bind(link, {
 			arrows: false,
@@ -94,32 +112,32 @@ export default class JSCCommon {
 		const logo = document.querySelector(".logo-wrap");
 		const toggle = document.querySelectorAll(".toggle-menu-mobile--js");
 		const menu = document.querySelector(".menu-mobile--js");
-    const subMenuVisible = document.querySelector(".sub-menu_visible");
-    const menuHidden = document.querySelector('.menu')
-    const iconBack = document.querySelector('.toggle-menu-mobile .icon-wrap')
+		const subMenuVisible = document.querySelector(".sub-menu_visible");
+		const menuHidden = document.querySelector(".menu");
+		const iconBack = document.querySelector(".toggle-menu-mobile .icon-wrap");
 
-    if(menuHidden) {
-      menuHidden.style.visibility = 'visible'
-    }
-    if (iconBack) {
-      iconBack.classList.add('icon-wrap_hidden')
-      iconBack.classList.remove('icon-wrap_visible')
-    }
+		if (menuHidden) {
+			menuHidden.style.visibility = "visible";
+		}
+		if (iconBack) {
+			iconBack.classList.add("icon-wrap_hidden");
+			iconBack.classList.remove("icon-wrap_visible");
+		}
 
-    if (subMenuVisible) {
-      subMenuVisible.classList.remove('sub-menu_visible');
-      subMenuVisible.classList.add('sub-menu_hidden');
-    }
+		if (subMenuVisible) {
+			subMenuVisible.classList.remove("sub-menu_visible");
+			subMenuVisible.classList.add("sub-menu_hidden");
+		}
 
-    if (window.innerWidth < 768) {
-      setTimeout(function() {
-        logo.classList.toggle("d-none")
-      }, 400);
-    }
+		if (window.innerWidth < 768) {
+			setTimeout(function () {
+				logo.classList.toggle("d-none");
+			}, 400);
+		}
 
 		this.toggleClass(toggle, "on");
 		menu.classList.toggle("active");
-    menu.classList.remove('sub-menu-active');
+		menu.classList.remove("sub-menu-active");
 		this.toggleClass([document.body, document.querySelector("html")], "fixed");
 	}
 	static closeMenu() {
@@ -143,9 +161,12 @@ export default class JSCCommon {
 				let toggle = event.target.closest(".toggle-menu-mobile--js");
 				if (toggle) this.toggleMenu();
 				if (!container && !toggle) this.closeMenu();
-        if (event.target instanceof HTMLElement && event.target.className.includes('menu-mobile--js')) {
-          this.closeMenu()
-        }
+				if (
+					event.target instanceof HTMLElement &&
+					event.target.className.includes("menu-mobile--js")
+				) {
+					this.closeMenu();
+				}
 			},
 			{passive: true}
 		);
@@ -454,7 +475,7 @@ export default class JSCCommon {
 			});
 		});
 	}
-  static setCustomScrollbar() {
+	static setCustomScrollbar() {
 		$(".custom-scroll").mCustomScrollbar({
 			theme: "minimal-dark",
 			alwaysShowScrollbar: true,
@@ -463,7 +484,7 @@ export default class JSCCommon {
 
 	static init() {
 		this.modalCall();
-		this.tabsCostume('tabs');
+		this.tabsCostume("tabs");
 		this.mobileMenu();
 		this.inputMask();
 		// this.sendForm();
@@ -474,7 +495,7 @@ export default class JSCCommon {
 		this.setScreen();
 		// JSCCommon.toggleShow(".catalog-block__toggle--desctop", '.catalog-block__dropdown');
 		this.animateScroll();
-    this.setCustomScrollbar();
+		this.setCustomScrollbar();
 
 		// JSCCommon.CustomInputFile();
 	}

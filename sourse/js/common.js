@@ -949,6 +949,31 @@ function eventHandler() {
 	//     onLeaveBack: () => elem.classList.remove("active"), // remove class
 	//   },
 	// });
+	gsap.utils
+		.toArray(".card-square-item, .parallax-container")
+		.forEach(container => {
+			const imgWrap = container.querySelector(".sticky-img-wrap");
+
+			// imgWraps.forEach(imgWrap => {
+			gsap.to(
+				imgWrap,
+				// {y: "0%"},
+				{
+					y: "-50%",
+					// duration: 1,s
+					// ease: no
+					// easy: "easy-in-out",
+					scrollTrigger: {
+						trigger: container,
+						start: "top bottom",
+						// end: "bottom top",
+						toggleActions: "play none none reverse",
+						scrub: true,
+					},
+				}
+			);
+			// });
+		});
 
 	gsap.utils.toArray("#sContentOven .card-square-item").forEach(container => {
 		const textCenters = container.querySelectorAll(".text-center");
