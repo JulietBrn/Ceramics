@@ -14,15 +14,15 @@ mixin sAbout(data)
 								.items.fw-600
 									.small шт
 									.small час
-				+cardSquareEasy('7', 'История завода')
+				+cardSquareEasy('7', 'История завода') 
 				+b.card-square-item--gray
 					.tabs
-						.sAbout__date-swiper--js.card-square-item-swiper
+						+b.sAbout__date-swiper--js.card-square-item-swiper.swiper(data-initialSlide="3")
 							.tabs__caption.swiper-wrapper
 								.tabs__btn.swiper-slide 2007
 								.tabs__btn.swiper-slide 2008
 								.tabs__btn.swiper-slide 2009
-								.tabs__btn.swiper-slide.active 2010
+								.tabs__btn.swiper-slide.active( ) 2010
 								.tabs__btn.swiper-slide 2011
 								.tabs__btn.swiper-slide 2012
 								.tabs__btn.swiper-slide 2013

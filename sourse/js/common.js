@@ -116,26 +116,36 @@ function eventHandler() {
 		},
 	});
 
-	const sProdSlider = new Swiper(".sAbout__date-swiper--js", {
-		spaceBetween: 32,
-		watchOverflow: true,
-		direction: "horizontal",
-		freeMode: true,
-		touchRatio: 0.4,
-		// slideToClickedSlide: true,
-		slidesPerView: "auto",
-		freeMode: true,
-		watchOverflow: true,
-		loop: true,
-		breakpoints: {
-			768: {
-				spaceBetween: 30,
-				direction: "vertical",
-				// slidesPerView: 'auto',
-				// watchOverflow: false,
+	const initSlide = document
+		.querySelector(".sAbout__date-swiper--js ")
+		.getAttribute("data-initialSlide");
+	console.log(initSlide);
+	if (initSlide) {
+		const sProdSlider = new Swiper(".sAbout__date-swiper--js", {
+			spaceBetween: 32,
+			watchOverflow: true,
+			direction: "horizontal",
+			freeMode: true,
+			touchRatio: 0.4,
+			slideToClickedSlide: true,
+			slidesPerView: "auto",
+			freeMode: true,
+			watchOverflow: true,
+			// loop: true,
+			slideToClickedSlide: true,
+			centerInsufficientSlides: true,
+			centeredSlides: true,
+			initialSlide: initSlide,
+			breakpoints: {
+				768: {
+					spaceBetween: 30,
+					direction: "vertical",
+					slidesPerView: 7,
+					// watchOverflow: false,
+				},
 			},
-		},
-	});
+		});
+	}
 
 	const mainSlider = new Swiper(".main-slider--js", {
 		spaceBetween: 0,
