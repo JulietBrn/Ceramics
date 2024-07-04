@@ -1,5 +1,5 @@
 /**
- * Swiper Custom Element 11.1.4
+ * Swiper Custom Element 11.1.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: May 30, 2024
+ * Released on: April 9, 2024
  */
 
 (function () {
@@ -1050,9 +1050,8 @@
         allSlidesSize += slideSizeValue + (spaceBetween || 0);
       });
       allSlidesSize -= spaceBetween;
-      const offsetSize = (params.slidesOffsetBefore || 0) + (params.slidesOffsetAfter || 0);
-      if (allSlidesSize + offsetSize < swiperSize) {
-        const allSlidesOffset = (swiperSize - allSlidesSize - offsetSize) / 2;
+      if (allSlidesSize < swiperSize) {
+        const allSlidesOffset = (swiperSize - allSlidesSize) / 2;
         snapGrid.forEach((snap, snapIndex) => {
           snapGrid[snapIndex] = snap - allSlidesOffset;
         });
@@ -1156,13 +1155,6 @@
     }
   }
 
-  const toggleSlideClasses$1 = (slideEl, condition, className) => {
-    if (condition && !slideEl.classList.contains(className)) {
-      slideEl.classList.add(className);
-    } else if (!condition && slideEl.classList.contains(className)) {
-      slideEl.classList.remove(className);
-    }
-  };
   function updateSlidesProgress(translate) {
     if (translate === void 0) {
       translate = this && this.translate || 0;
@@ -1178,6 +1170,11 @@
     if (typeof slides[0].swiperSlideOffset === 'undefined') swiper.updateSlidesOffset();
     let offsetCenter = -translate;
     if (rtl) offsetCenter = translate;
+
+    // Visible Slides
+    slides.forEach(slideEl => {
+      slideEl.classList.remove(params.slideVisibleClass, params.slideFullyVisibleClass);
+    });
     swiper.visibleSlidesIndexes = [];
     swiper.visibleSlides = [];
     let spaceBetween = params.spaceBetween;
@@ -1201,9 +1198,11 @@
       if (isVisible) {
         swiper.visibleSlides.push(slide);
         swiper.visibleSlidesIndexes.push(i);
+        slides[i].classList.add(params.slideVisibleClass);
       }
-      toggleSlideClasses$1(slide, isVisible, params.slideVisibleClass);
-      toggleSlideClasses$1(slide, isFullyVisible, params.slideFullyVisibleClass);
+      if (isFullyVisible) {
+        slides[i].classList.add(params.slideFullyVisibleClass);
+      }
       slide.progress = rtl ? -slideProgress : slideProgress;
       slide.originalProgress = rtl ? -originalSlideProgress : originalSlideProgress;
     }
@@ -2849,10 +2848,7 @@
       if (swiper.animating) {
         const evt = new window.CustomEvent('transitionend', {
           bubbles: true,
-          cancelable: true,
-          detail: {
-            bySwiperTouchMove: true
-          }
+          cancelable: true
         });
         swiper.wrapperEl.dispatchEvent(evt);
       }
@@ -3246,7 +3242,6 @@
     const capture = !!params.nested;
     const domMethod = method === 'on' ? 'addEventListener' : 'removeEventListener';
     const swiperMethod = method;
-    if (!el || typeof el === 'string') return;
 
     // Touch Events
     document[domMethod]('touchstart', swiper.onDocumentTouchStart, {
@@ -3523,7 +3518,6 @@
       el,
       classNames
     } = swiper;
-    if (!el || typeof el === 'string') return;
     el.classList.remove(...classNames);
     swiper.emitContainerClasses();
   }
@@ -4288,12 +4282,8 @@
       // Cleanup styles
       if (cleanStyles) {
         swiper.removeClasses();
-        if (el && typeof el !== 'string') {
-          el.removeAttribute('style');
-        }
-        if (wrapperEl) {
-          wrapperEl.removeAttribute('style');
-        }
+        el.removeAttribute('style');
+        wrapperEl.removeAttribute('style');
         if (slides && slides.length) {
           slides.forEach(slideEl => {
             slideEl.classList.remove(params.slideVisibleClass, params.slideFullyVisibleClass, params.slideActiveClass, params.slideNextClass, params.slidePrevClass);
@@ -4309,9 +4299,7 @@
         swiper.off(eventName);
       });
       if (deleteInstance !== false) {
-        if (swiper.el && typeof swiper.el !== 'string') {
-          swiper.el.swiper = null;
-        }
+        swiper.el.swiper = null;
         deleteProps(swiper);
       }
       swiper.destroyed = true;
@@ -5369,14 +5357,7 @@
       nextEl = makeElementsArray(nextEl);
       prevEl = makeElementsArray(prevEl);
       const targetEl = e.target;
-      let targetIsButton = prevEl.includes(targetEl) || nextEl.includes(targetEl);
-      if (swiper.isElement && !targetIsButton) {
-        const path = e.path || e.composedPath && e.composedPath();
-        if (path) {
-          targetIsButton = path.find(pathEl => nextEl.includes(pathEl) || prevEl.includes(pathEl));
-        }
-      }
-      if (swiper.params.navigation.hideOnClick && !targetIsButton) {
+      if (swiper.params.navigation.hideOnClick && !prevEl.includes(targetEl) && !nextEl.includes(targetEl)) {
         if (swiper.pagination && swiper.params.pagination && swiper.params.pagination.clickable && (swiper.pagination.el === targetEl || swiper.pagination.el.contains(targetEl))) return;
         let isHidden;
         if (nextEl.length) {
@@ -6591,6 +6572,10 @@
       // Define if we need image drag
       const scaledWidth = image.width * zoom.scale;
       const scaledHeight = image.height * zoom.scale;
+      if (scaledWidth < gesture.slideWidth && scaledHeight < gesture.slideHeight) {
+        allowTouchMove();
+        return;
+      }
       image.minX = Math.min(gesture.slideWidth / 2 - scaledWidth / 2, 0);
       image.maxX = -image.minX;
       image.minY = Math.min(gesture.slideHeight / 2 - scaledHeight / 2, 0);
@@ -7370,11 +7355,7 @@
       }
       requestAnimationFrame(() => {
         if (preventFocusHandler) return;
-        if (swiper.params.loop) {
-          swiper.slideToLoop(parseInt(slideEl.getAttribute('data-swiper-slide-index')), 0);
-        } else {
-          swiper.slideTo(swiper.slides.indexOf(slideEl), 0);
-        }
+        swiper.slideTo(swiper.slides.indexOf(slideEl), 0);
         preventFocusHandler = false;
       });
     };
@@ -7473,11 +7454,9 @@
       const document = getDocument();
       document.removeEventListener('visibilitychange', onVisibilityChange);
       // Tab focus
-      if (swiper.el && typeof swiper.el !== 'string') {
-        swiper.el.removeEventListener('focus', handleFocus, true);
-        swiper.el.removeEventListener('pointerdown', handlePointerDown, true);
-        swiper.el.removeEventListener('pointerup', handlePointerUp, true);
-      }
+      swiper.el.removeEventListener('focus', handleFocus, true);
+      swiper.el.removeEventListener('pointerdown', handlePointerDown, true);
+      swiper.el.removeEventListener('pointerup', handlePointerUp, true);
     }
     on('beforeInit', () => {
       liveRegion = createElement('span', swiper.params.a11y.notificationClass);
@@ -7777,7 +7756,7 @@
       if (!swiper || swiper.destroyed || !swiper.wrapperEl) return;
       if (e.target !== swiper.wrapperEl) return;
       swiper.wrapperEl.removeEventListener('transitionend', onTransitionEnd);
-      if (pausedByPointerEnter || e.detail && e.detail.bySwiperTouchMove) {
+      if (pausedByPointerEnter) {
         return;
       }
       resume();
@@ -7948,10 +7927,8 @@
       }
     };
     const detachMouseEvents = () => {
-      if (swiper.el && typeof swiper.el !== 'string') {
-        swiper.el.removeEventListener('pointerenter', onPointerEnter);
-        swiper.el.removeEventListener('pointerleave', onPointerLeave);
-      }
+      swiper.el.removeEventListener('pointerenter', onPointerEnter);
+      swiper.el.removeEventListener('pointerleave', onPointerLeave);
     };
     const attachDocumentEvents = () => {
       const document = getDocument();
@@ -9631,7 +9608,7 @@
   }
 
   /**
-   * Swiper 11.1.4
+   * Swiper 11.1.1
    * Most modern mobile touch slider and framework with hardware accelerated transitions
    * https://swiperjs.com
    *
@@ -9639,7 +9616,7 @@
    *
    * Released under the MIT License
    *
-   * Released on: May 30, 2024
+   * Released on: April 9, 2024
    */
 
 
@@ -9966,7 +9943,7 @@
   }
 
   /**
-   * Swiper Custom Element 11.1.4
+   * Swiper Custom Element 11.1.1
    * Most modern mobile touch slider and framework with hardware accelerated transitions
    * https://swiperjs.com
    *
@@ -9974,7 +9951,7 @@
    *
    * Released under the MIT License
    *
-   * Released on: May 30, 2024
+   * Released on: April 9, 2024
    */
 
 

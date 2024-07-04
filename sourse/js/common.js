@@ -116,9 +116,13 @@ function eventHandler() {
 		},
 	});
 
-	const initSlide = document
+  const isDateSlider = document.querySelector('.sAbout__date-swiper--js')
+  let initSlide
+  if (isDateSlider) {
+    initSlide = document
 		.querySelector(".sAbout__date-swiper--js ")
 		.getAttribute("data-initialSlide");
+  }
 	console.log(initSlide);
 	if (initSlide) {
 		const sProdSlider = new Swiper(".sAbout__date-swiper--js", {

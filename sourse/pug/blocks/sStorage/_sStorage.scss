@@ -14,6 +14,14 @@
       height: calc(100% - 30px);
     }
   }
+
+  .container-map {
+    @include media-breakpoint-down(md) {
+      max-width: none;
+      padding: 0;
+    }
+  }
+
 	&__row{
 		--bs-gutter-x: #{rem(0)};
 		// --bs-gutter-y: #{rem()};
@@ -168,7 +176,7 @@
       }
     }
   }
-  &__item:not(:last-child) {
+  &__item {
     margin-bottom: rem(42);
     @include media-breakpoint-up(md) {
       margin-bottom: rem(104);
@@ -439,4 +447,8 @@ ymaps .coord-item {
   .h5 {
     color: $white;
   }
+}
+
+#infoForDrivers {
+  margin-bottom: 0;
 }

@@ -7,6 +7,7 @@ mixin sStorage(data)
 					.tabs__btn.swiper-slide(href='#storage').active Схемы проезда
 					.tabs__btn.swiper-slide(href='#scheme') Склады «КС Керамик»
 					.tabs__btn.swiper-slide(href='#infoForDrivers') Информация для водителей
+		.container.container-map
 			+e.item#storage
 				+e.row.row
 					.col-12.col-md-8.order-md-2
@@ -17,10 +18,7 @@ mixin sStorage(data)
 							.title.fw-500 Склады «КС Керамик»
 							.custom-scroll()
 								.box
-								//- +distributorItem('Склад основной на заводе', 'Кирово-Чепецкий район, посёлок при станции Бумкомбинат, Кирпичный проезд, 1', '58.467892, 50.063425')
-								//- +distributorItem('Склад УМИАТ', 'Кирово-Чепецк, квартал Пригородный', '58.527740, 49.984161')
-								//- +distributorItem('Склад База ОРС', 'г. Кирово-Чепецк, квартал Цепели, 18', '58.517168, 50.004264')
-								//- +distributorItem('Склад «Славянский мир»', 'Москва, поселение Мосрентген, строительный рынок «Славянский мир»', '55.621473,37.450197')
+		.container
 			+e.item#scheme
 				h3 Схемы проезда к складам
 				+b.map-item
