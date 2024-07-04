@@ -328,6 +328,12 @@
 		}
 
 		.card-square-item {
+      p {
+        font-size: rem(18);
+				@include media-breakpoint-up(xl) {
+          font-size: rem(20);
+        }
+      }
 			&--1 {
 				&::after {
 					content: "";
