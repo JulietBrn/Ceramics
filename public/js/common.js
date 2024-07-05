@@ -116,13 +116,13 @@ function eventHandler() {
 		},
 	});
 
-  const isDateSlider = document.querySelector('.sAbout__date-swiper--js')
-  let initSlide
-  if (isDateSlider) {
-    initSlide = document
-		.querySelector(".sAbout__date-swiper--js ")
-		.getAttribute("data-initialSlide");
-  }
+	const isDateSlider = document.querySelector(".sAbout__date-swiper--js");
+	let initSlide;
+	if (isDateSlider) {
+		initSlide = document
+			.querySelector(".sAbout__date-swiper--js ")
+			.getAttribute("data-initialSlide");
+	}
 	if (initSlide) {
 		const sProdSlider = new Swiper(".sAbout__date-swiper--js", {
 			spaceBetween: 32,
@@ -1083,54 +1083,57 @@ function eventHandler() {
 		});
 
 	/* change top nav bg */
-	let scrollerGSAP = document.querySelector("body");
 	const nav = document.querySelector(".top-nav");
 
-	if (nav) {
-		let sections = document.querySelectorAll(".white-section");
-		if (!sections.length) return;
-		let headerHeight = nav.offsetHeight;
-		sections.forEach(section => {
-			// let className = "onWhiteBg "; // default color
+	console.log(11, document.querySelector(".arrow-container-main  "));
 
-			// if (section.classList.contains("white-section")) {
-			//   className = "onWhiteBg";
-			// } else {
-			//   className = " ";
-			// }
-			ScrollTrigger.create({
-				trigger: section,
-				scroller: scrollerGSAP,
-				start: `top-=${headerHeight / 2}   top`,
-				end: "bottom top",
-				onEnter: () => nav.classList.add("dark--js"),
-				onEnterBack: () => nav.classList.add("dark--js"),
-				onLeaveBack: () => nav.classList.remove("dark--js"),
-				onLeave: () => nav.classList.remove("dark--js"),
-				// toggleActions: "play none reverse none",
+	if (nav) {
+		let scrollerGSAP = document.querySelector("body");
+		let sections = document.querySelectorAll(".white-section");
+		if (sections.length) {
+			let headerHeight = nav.offsetHeight;
+			sections.forEach(section => {
+				// let className = "onWhiteBg "; // default color
+
+				// if (section.classList.contains("white-section")) {
+				//   className = "onWhiteBg";
+				// } else {
+				//   className = " ";
+				// }
+				ScrollTrigger.create({
+					trigger: section,
+					scroller: scrollerGSAP,
+					start: `top-=${headerHeight / 2}   top`,
+					end: "bottom top",
+					onEnter: () => nav.classList.add("dark--js"),
+					onEnterBack: () => nav.classList.add("dark--js"),
+					onLeaveBack: () => nav.classList.remove("dark--js"),
+					onLeave: () => nav.classList.remove("dark--js"),
+					// toggleActions: "play none reverse none",
+				});
 			});
-		});
+		}
 	}
 
-	const arrowsMainPage = document.querySelector(".arrow-container--js");
-  console.log(arrowsMainPage);
+	// const arrowsMainPage = document.querySelector(".arrow-container--js");
+	// console.log(arrowsMainPage);
 
 	// if (arrowsMainPage) {
-  //   console.log(arrowsMainPage);
+	//   console.log(arrowsMainPage);
 	// 	const footer = document.querySelector(".footer");
 	// 	if (!footer.length) return;
 	// 	let footerHeight = footer.offsetHeight;
-  //   ScrollTrigger.create({
-  //     trigger: footer,
-  //     scroller: scrollerGSAP,
-  //     start: `top-=${footerHeight / 2}   top`,
-  //     end: "bottom top",
-  //     onEnter: () => arrowsMainPage.classList.add("d-none"),
-  //     onEnterBack: () => arrowsMainPage.classList.add("d-none"),
-  //     onLeaveBack: () => arrowsMainPage.classList.remove("d-none"),
-  //     onLeave: () => arrowsMainPage.classList.remove("d-none"),
-  //     // toggleActions: "play none reverse none",
-  //   });
+	//   ScrollTrigger.create({
+	//     trigger: footer,
+	//     scroller: scrollerGSAP,
+	//     start: `top-=${footerHeight / 2}   top`,
+	//     end: "bottom top",
+	//     onEnter: () => arrowsMainPage.classList.add("d-none"),
+	//     onEnterBack: () => arrowsMainPage.classList.add("d-none"),
+	//     onLeaveBack: () => arrowsMainPage.classList.remove("d-none"),
+	//     onLeave: () => arrowsMainPage.classList.remove("d-none"),
+	//     // toggleActions: "play none reverse none",
+	//   });
 	// }
 }
 
