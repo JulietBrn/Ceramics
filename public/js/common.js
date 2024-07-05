@@ -1112,8 +1112,8 @@ function eventHandler() {
 		});
 	}
 
-	// const arrowsMainPage = document.querySelector(".arrow-container--js");
-  // console.log(arrowsMainPage);
+	const arrowsMainPage = document.querySelector(".arrow-container--js");
+  console.log(arrowsMainPage);
 
 	// if (arrowsMainPage) {
   //   console.log(arrowsMainPage);
