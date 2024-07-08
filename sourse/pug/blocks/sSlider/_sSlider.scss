@@ -65,14 +65,21 @@
 
 .main-page {
   .block1 {
+    max-height: none;
+    height: 100vh;
+    overflow: hidden;
     // min-height: 100vh;
     // @include media-breakpoint-up(md) {
     //   min-height: 100vh;
     // }
   }
+  .video {
+    height: 100% !important;
+    object-fit: cover;
+  }
   .block1 .parallax-container {
     height: 100vh;
-    max-height: rem(720);
+    max-height: none;
     @include media-breakpoint-up(md) {
       height: 100vh;
     }
