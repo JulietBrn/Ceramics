@@ -959,31 +959,31 @@ function eventHandler() {
 	//     onLeaveBack: () => elem.classList.remove("active"), // remove class
 	//   },
 	// });
-	gsap.utils
-		.toArray(".card-square-item, .parallax-container")
-		.forEach(container => {
-			const imgWrap = container.querySelector(".sticky-img-wrap");
+	// gsap.utils
+	// 	.toArray(".card-square-item, .parallax-container")
+	// 	.forEach(container => {
+	// 		const imgWrap = container.querySelector(".sticky-img-wrap");
 
-			// imgWraps.forEach(imgWrap => {
-			gsap.to(
-				imgWrap,
-				// {y: "0%"},
-				{
-					y: "-50%",
-					// duration: 1,s
-					// ease: no
-					// easy: "easy-in-out",
-					scrollTrigger: {
-						trigger: container,
-						start: "top bottom",
-						// end: "bottom top",
-						toggleActions: "play none none reverse",
-						scrub: true,
-					},
-				}
-			);
-			// });
-		});
+	// 		// imgWraps.forEach(imgWrap => {
+	// 		gsap.to(
+	// 			imgWrap,
+	// 			// {y: "0%"},
+	// 			{
+	// 				y: "-50%",
+	// 				// duration: 1,s
+	// 				// ease: no
+	// 				// easy: "easy-in-out",
+	// 				scrollTrigger: {
+	// 					trigger: container,
+	// 					start: "top bottom",
+	// 					// end: "bottom top",
+	// 					toggleActions: "play none none reverse",
+	// 					scrub: true,
+	// 				},
+	// 			}
+	// 		);
+	// 		// });
+	// 	});
 
 	gsap.utils.toArray("#sContentOven .card-square-item").forEach(container => {
 		const textCenters = container.querySelectorAll(".text-center");
@@ -1110,29 +1110,30 @@ function eventHandler() {
 		}
 	}
 
-	const arrowsMainPage = document.querySelectorAll(".main-page-slider--js .swiper-button-hand");
+	const arrowsMainPage = document.querySelectorAll(
+		".main-page-slider--js .swiper-button-hand"
+	);
 	console.log(arrowsMainPage);
 
 	if (arrowsMainPage.length) {
-    console.log(arrowsMainPage);
+		console.log(arrowsMainPage);
 		let scrollerGSAP = document.querySelector("body");
 		const footer = document.querySelector("footer");
-    console.dir(footer);
-    console.log(scrollerGSAP);
-    arrowsMainPage.forEach((arrow) => {
-      ScrollTrigger.create({
-        trigger: footer,
-        scroller: scrollerGSAP,
-        start: `top  top`,
-        end: " top bottom",
-        onEnter: () => arrow.classList.add("d-none"),
-        onLeave: () => arrow.classList.remove("d-none"),
-        onEnterBack: () => arrow.classList.add("d-none"),
-        onLeaveBack: () => arrow.classList.remove("d-none"),
-        // toggleActions: "play none reverse none",
-      });
-    })
-
+		console.dir(footer);
+		console.log(scrollerGSAP);
+		arrowsMainPage.forEach(arrow => {
+			ScrollTrigger.create({
+				trigger: footer,
+				scroller: scrollerGSAP,
+				start: `top  top`,
+				end: " top bottom",
+				onEnter: () => arrow.classList.add("d-none"),
+				onLeave: () => arrow.classList.remove("d-none"),
+				onEnterBack: () => arrow.classList.add("d-none"),
+				onLeaveBack: () => arrow.classList.remove("d-none"),
+				// toggleActions: "play none reverse none",
+			});
+		});
 	}
 }
 
