@@ -1115,26 +1115,26 @@ function eventHandler() {
 		}
 	}
 
-	// const arrowsMainPage = document.querySelector(".arrow-container--js");
-	// console.log(arrowsMainPage);
+	const arrowsMainPage = document.querySelector(".arrow-container--js");
+	console.log(arrowsMainPage);
 
-	// if (arrowsMainPage) {
-	//   console.log(arrowsMainPage);
-	// 	const footer = document.querySelector(".footer");
-	// 	if (!footer.length) return;
-	// 	let footerHeight = footer.offsetHeight;
-	//   ScrollTrigger.create({
-	//     trigger: footer,
-	//     scroller: scrollerGSAP,
-	//     start: `top-=${footerHeight / 2}   top`,
-	//     end: "bottom top",
-	//     onEnter: () => arrowsMainPage.classList.add("d-none"),
-	//     onEnterBack: () => arrowsMainPage.classList.add("d-none"),
-	//     onLeaveBack: () => arrowsMainPage.classList.remove("d-none"),
-	//     onLeave: () => arrowsMainPage.classList.remove("d-none"),
-	//     // toggleActions: "play none reverse none",
-	//   });
-	// }
+	if (arrowsMainPage) {
+    console.log(arrowsMainPage);
+		let scrollerGSAP = document.querySelector("body");
+		const footer = document.querySelector(".footer");
+		let footerHeight = footer.offsetHeight;
+    ScrollTrigger.create({
+      trigger: footer,
+      scroller: scrollerGSAP,
+      start: `top  50%`,
+      end: "bottom top",
+      onEnter: () => arrowsMainPage.classList.add("d-none"),
+      onEnterBack: () => arrowsMainPage.classList.add("d-none"),
+      onLeaveBack: () => arrowsMainPage.classList.remove("d-none"),
+      onLeave: () => arrowsMainPage.classList.remove("d-none"),
+	    // toggleActions: "play none reverse none",
+    });
+	}
 }
 
 if (document.readyState !== "loading") {

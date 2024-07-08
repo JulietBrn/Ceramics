@@ -337,14 +337,27 @@
     position: relative;
   }
   .arrow-container {
+    // @include media-breakpoint-up(md) {
+    //   position: fixed;
+    //   width: 1920px;
+    //   max-width: 100%;
+    //   z-index: 4;
+    //   top: 48%;
+    //   display: flex;
+    //   justify-content: space-between;
+    // }
     @include media-breakpoint-up(md) {
-      position: fixed;
-      width: 1920px;
-      max-width: 100%;
-      z-index: 4;
-      top: 48%;
-      display: flex;
-      justify-content: space-between;
+      .swiper-button-hand {
+        position: absolute;
+        top: -100vh;
+      }
     }
   }
+
+  .swiper-wrapper {
+    @include media-breakpoint-up(md) {
+      position: static;
+    }
+  }
+
 }
