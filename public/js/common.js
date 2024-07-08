@@ -163,11 +163,9 @@ function eventHandler() {
 		},
 		on: {
 			slideChangeTransitionEnd: function (swiper) {
-				console.log(swiper);
 				const slides = swiper.slidesEl.querySelectorAll(
 					".swiper-slide:not(.swiper-slide-active)"
 				);
-				console.log(slides);
 				slides.forEach(el => {
 					if (
 						el.classList.contains("swiper-slide-prev") ||
@@ -175,7 +173,6 @@ function eventHandler() {
 					) {
 						const inner = el.querySelector(".main-slider__slider-inner");
 						if (inner) {
-							console.log(inner);
 							inner.scrollTo(0, 0);
 						}
 					}
@@ -1085,8 +1082,6 @@ function eventHandler() {
 	/* change top nav bg */
 	const nav = document.querySelector(".top-nav");
 
-	console.log(11, document.querySelector(".arrow-container-main  "));
-
 	if (nav) {
 		let scrollerGSAP = document.querySelector("body");
 		let sections = document.querySelectorAll(".white-section");
@@ -1115,25 +1110,29 @@ function eventHandler() {
 		}
 	}
 
-	const arrowsMainPage = document.querySelector(".arrow-container--js");
+	const arrowsMainPage = document.querySelectorAll(".main-page-slider--js .swiper-button-hand");
 	console.log(arrowsMainPage);
 
-	if (arrowsMainPage) {
+	if (arrowsMainPage.length) {
     console.log(arrowsMainPage);
 		let scrollerGSAP = document.querySelector("body");
-		const footer = document.querySelector(".footer");
-		let footerHeight = footer.offsetHeight;
-    ScrollTrigger.create({
-      trigger: footer,
-      scroller: scrollerGSAP,
-      start: `top  50%`,
-      end: "bottom top",
-      onEnter: () => arrowsMainPage.classList.add("d-none"),
-      onEnterBack: () => arrowsMainPage.classList.add("d-none"),
-      onLeaveBack: () => arrowsMainPage.classList.remove("d-none"),
-      onLeave: () => arrowsMainPage.classList.remove("d-none"),
-	    // toggleActions: "play none reverse none",
-    });
+		const footer = document.querySelector("footer");
+    console.dir(footer);
+    console.log(scrollerGSAP);
+    arrowsMainPage.forEach((arrow) => {
+      ScrollTrigger.create({
+        trigger: footer,
+        scroller: scrollerGSAP,
+        start: `top  top`,
+        end: " top bottom",
+        onEnter: () => arrow.classList.add("d-none"),
+        onLeave: () => arrow.classList.remove("d-none"),
+        onEnterBack: () => arrow.classList.add("d-none"),
+        onLeaveBack: () => arrow.classList.remove("d-none"),
+        // toggleActions: "play none reverse none",
+      });
+    })
+
 	}
 }
 
