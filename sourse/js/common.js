@@ -163,11 +163,9 @@ function eventHandler() {
 		},
 		on: {
 			slideChangeTransitionEnd: function (swiper) {
-				console.log(swiper);
 				const slides = swiper.slidesEl.querySelectorAll(
 					".swiper-slide:not(.swiper-slide-active)"
 				);
-				console.log(slides);
 				slides.forEach(el => {
 					if (
 						el.classList.contains("swiper-slide-prev") ||
@@ -175,7 +173,6 @@ function eventHandler() {
 					) {
 						const inner = el.querySelector(".main-slider__slider-inner");
 						if (inner) {
-							console.log(inner);
 							inner.scrollTo(0, 0);
 						}
 					}
@@ -962,31 +959,31 @@ function eventHandler() {
 	//     onLeaveBack: () => elem.classList.remove("active"), // remove class
 	//   },
 	// });
-	gsap.utils
-		.toArray(".card-square-item, .parallax-container")
-		.forEach(container => {
-			const imgWrap = container.querySelector(".sticky-img-wrap");
+	// gsap.utils
+	// 	.toArray(".card-square-item, .parallax-container")
+	// 	.forEach(container => {
+	// 		const imgWrap = container.querySelector(".sticky-img-wrap");
 
-			// imgWraps.forEach(imgWrap => {
-			gsap.to(
-				imgWrap,
-				// {y: "0%"},
-				{
-					y: "-50%",
-					// duration: 1,s
-					// ease: no
-					// easy: "easy-in-out",
-					scrollTrigger: {
-						trigger: container,
-						start: "top bottom",
-						// end: "bottom top",
-						toggleActions: "play none none reverse",
-						scrub: true,
-					},
-				}
-			);
-			// });
-		});
+	// 		// imgWraps.forEach(imgWrap => {
+	// 		gsap.to(
+	// 			imgWrap,
+	// 			// {y: "0%"},
+	// 			{
+	// 				y: "-50%",
+	// 				// duration: 1,s
+	// 				// ease: no
+	// 				// easy: "easy-in-out",
+	// 				scrollTrigger: {
+	// 					trigger: container,
+	// 					start: "top bottom",
+	// 					// end: "bottom top",
+	// 					toggleActions: "play none none reverse",
+	// 					scrub: true,
+	// 				},
+	// 			}
+	// 		);
+	// 		// });
+	// 	});
 
 	gsap.utils.toArray("#sContentOven .card-square-item").forEach(container => {
 		const textCenters = container.querySelectorAll(".text-center");
@@ -1085,8 +1082,6 @@ function eventHandler() {
 	/* change top nav bg */
 	const nav = document.querySelector(".top-nav");
 
-	console.log(11, document.querySelector(".arrow-container-main  "));
-
 	if (nav) {
 		let scrollerGSAP = document.querySelector("body");
 		let sections = document.querySelectorAll(".white-section");
@@ -1115,26 +1110,31 @@ function eventHandler() {
 		}
 	}
 
-	// const arrowsMainPage = document.querySelector(".arrow-container--js");
-	// console.log(arrowsMainPage);
+	const arrowsMainPage = document.querySelectorAll(
+		".main-page-slider--js .swiper-button-hand"
+	);
+	console.log(arrowsMainPage);
 
-	// if (arrowsMainPage) {
-	//   console.log(arrowsMainPage);
-	// 	const footer = document.querySelector(".footer");
-	// 	if (!footer.length) return;
-	// 	let footerHeight = footer.offsetHeight;
-	//   ScrollTrigger.create({
-	//     trigger: footer,
-	//     scroller: scrollerGSAP,
-	//     start: `top-=${footerHeight / 2}   top`,
-	//     end: "bottom top",
-	//     onEnter: () => arrowsMainPage.classList.add("d-none"),
-	//     onEnterBack: () => arrowsMainPage.classList.add("d-none"),
-	//     onLeaveBack: () => arrowsMainPage.classList.remove("d-none"),
-	//     onLeave: () => arrowsMainPage.classList.remove("d-none"),
-	//     // toggleActions: "play none reverse none",
-	//   });
-	// }
+	if (arrowsMainPage.length) {
+		console.log(arrowsMainPage);
+		let scrollerGSAP = document.querySelector("body");
+		const footer = document.querySelector("footer");
+		console.dir(footer);
+		console.log(scrollerGSAP);
+		arrowsMainPage.forEach(arrow => {
+			ScrollTrigger.create({
+				trigger: footer,
+				scroller: scrollerGSAP,
+				start: `top  top`,
+				end: " top bottom",
+				onEnter: () => arrow.classList.add("d-none"),
+				onLeave: () => arrow.classList.remove("d-none"),
+				onEnterBack: () => arrow.classList.add("d-none"),
+				onLeaveBack: () => arrow.classList.remove("d-none"),
+				// toggleActions: "play none reverse none",
+			});
+		});
+	}
 }
 
 if (document.readyState !== "loading") {
