@@ -605,9 +605,8 @@ function updateSlides() {
       allSlidesSize += slideSizeValue + (spaceBetween || 0);
     });
     allSlidesSize -= spaceBetween;
-    const offsetSize = (params.slidesOffsetBefore || 0) + (params.slidesOffsetAfter || 0);
-    if (allSlidesSize + offsetSize < swiperSize) {
-      const allSlidesOffset = (swiperSize - allSlidesSize - offsetSize) / 2;
+    if (allSlidesSize < swiperSize) {
+      const allSlidesOffset = (swiperSize - allSlidesSize) / 2;
       snapGrid.forEach((snap, snapIndex) => {
         snapGrid[snapIndex] = snap - allSlidesOffset;
       });
@@ -711,13 +710,6 @@ function updateSlidesOffset() {
   }
 }
 
-const toggleSlideClasses$1 = (slideEl, condition, className) => {
-  if (condition && !slideEl.classList.contains(className)) {
-    slideEl.classList.add(className);
-  } else if (!condition && slideEl.classList.contains(className)) {
-    slideEl.classList.remove(className);
-  }
-};
 function updateSlidesProgress(translate) {
   if (translate === void 0) {
     translate = this && this.translate || 0;
@@ -733,6 +725,11 @@ function updateSlidesProgress(translate) {
   if (typeof slides[0].swiperSlideOffset === 'undefined') swiper.updateSlidesOffset();
   let offsetCenter = -translate;
   if (rtl) offsetCenter = translate;
+
+  // Visible Slides
+  slides.forEach(slideEl => {
+    slideEl.classList.remove(params.slideVisibleClass, params.slideFullyVisibleClass);
+  });
   swiper.visibleSlidesIndexes = [];
   swiper.visibleSlides = [];
   let spaceBetween = params.spaceBetween;
@@ -756,9 +753,11 @@ function updateSlidesProgress(translate) {
     if (isVisible) {
       swiper.visibleSlides.push(slide);
       swiper.visibleSlidesIndexes.push(i);
+      slides[i].classList.add(params.slideVisibleClass);
     }
-    toggleSlideClasses$1(slide, isVisible, params.slideVisibleClass);
-    toggleSlideClasses$1(slide, isFullyVisible, params.slideFullyVisibleClass);
+    if (isFullyVisible) {
+      slides[i].classList.add(params.slideFullyVisibleClass);
+    }
     slide.progress = rtl ? -slideProgress : slideProgress;
     slide.originalProgress = rtl ? -originalSlideProgress : originalSlideProgress;
   }
@@ -2404,10 +2403,7 @@ function onTouchMove(event) {
     if (swiper.animating) {
       const evt = new window.CustomEvent('transitionend', {
         bubbles: true,
-        cancelable: true,
-        detail: {
-          bySwiperTouchMove: true
-        }
+        cancelable: true
       });
       swiper.wrapperEl.dispatchEvent(evt);
     }
@@ -2801,7 +2797,6 @@ const events = (swiper, method) => {
   const capture = !!params.nested;
   const domMethod = method === 'on' ? 'addEventListener' : 'removeEventListener';
   const swiperMethod = method;
-  if (!el || typeof el === 'string') return;
 
   // Touch Events
   document[domMethod]('touchstart', swiper.onDocumentTouchStart, {
@@ -3078,7 +3073,6 @@ function removeClasses() {
     el,
     classNames
   } = swiper;
-  if (!el || typeof el === 'string') return;
   el.classList.remove(...classNames);
   swiper.emitContainerClasses();
 }
@@ -3843,12 +3837,8 @@ class Swiper {
     // Cleanup styles
     if (cleanStyles) {
       swiper.removeClasses();
-      if (el && typeof el !== 'string') {
-        el.removeAttribute('style');
-      }
-      if (wrapperEl) {
-        wrapperEl.removeAttribute('style');
-      }
+      el.removeAttribute('style');
+      wrapperEl.removeAttribute('style');
       if (slides && slides.length) {
         slides.forEach(slideEl => {
           slideEl.classList.remove(params.slideVisibleClass, params.slideFullyVisibleClass, params.slideActiveClass, params.slideNextClass, params.slidePrevClass);
@@ -3864,9 +3854,7 @@ class Swiper {
       swiper.off(eventName);
     });
     if (deleteInstance !== false) {
-      if (swiper.el && typeof swiper.el !== 'string') {
-        swiper.el.swiper = null;
-      }
+      swiper.el.swiper = null;
       deleteProps(swiper);
     }
     swiper.destroyed = true;

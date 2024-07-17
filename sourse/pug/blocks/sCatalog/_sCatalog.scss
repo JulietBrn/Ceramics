@@ -417,8 +417,10 @@
     padding: 0;
   }
   @include media-breakpoint-up(lg) {
-    right: -180px;
-
+    right: -212px;
+  }
+  @include media-breakpoint-up(xxl) {
+    right: -220px;
   }
   // @include media-breakpoint-up(xxl) {
   //   right: calc(20vw - 500px);
