@@ -34,9 +34,13 @@
     overflow: hidden;
     .btn {
       position: absolute;
-      bottom: rem(32);
+      bottom: rem(10);
       left: 50%;
+      min-width: max-content;
       transform: translateX(-50%);
+      @include media-breakpoint-up(lg) {
+        bottom: rem(32);
+      }
     }
   }
 
