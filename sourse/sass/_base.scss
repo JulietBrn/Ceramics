@@ -133,7 +133,7 @@ body {
 }
 
 .container-max {
-	max-width: 1920px !important;
+	// max-width: 1920px !important;
 	margin: auto;
 	@include media-breakpoint-up(lg) {
 		--spacing-container: 24px;

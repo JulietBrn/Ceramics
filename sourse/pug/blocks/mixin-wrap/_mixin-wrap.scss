@@ -183,9 +183,9 @@
     width: auto;
     box-shadow: none;
   }
-  @media (min-width: 1940px) {
-    right: calc(50vw - 930px);
-  }
+  // @media (min-width: 1940px) {
+  //   right: calc(50vw - 930px);
+  // }
   @include media-breakpoint-up(xxl) {
     // position: absolute;
   }
