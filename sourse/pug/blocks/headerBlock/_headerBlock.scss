@@ -232,6 +232,8 @@
 			top: auto;
 			z-index: 20;
 			right: 0 !important;
+      opacity: 1;
+      visibility: visible;
 		}
 		span {
 			font-size: rem(12);
@@ -294,9 +296,14 @@
 	}
 
 	.filter__wrap {
-		height: max-content;
-		right: 0 !important;
-		top: -100000%;
+    height: auto;
+    transition: none;
+    top: auto;
+    opacity: 0;
+    visibility: hidden;
+		// height: max-content;
+		// right: 0 !important;
+		// top: -100000%;
 		input {
 			// opacity: 0;
 			display: none;
