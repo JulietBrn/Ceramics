@@ -232,8 +232,10 @@
 			top: auto;
 			z-index: 20;
 			right: 0 !important;
-      opacity: 1;
-      visibility: visible;
+      // opacity: 1;
+      // z-index: 2;
+      display: block;
+      // visibility: visible;
 		}
 		span {
 			font-size: rem(12);
@@ -299,8 +301,10 @@
     height: auto;
     transition: none;
     top: auto;
-    opacity: 0;
-    visibility: hidden;
+    display: none;
+    // opacity: 0;
+    // z-index: -5;
+    // visibility: hidden;
 		// height: max-content;
 		// right: 0 !important;
 		// top: -100000%;
