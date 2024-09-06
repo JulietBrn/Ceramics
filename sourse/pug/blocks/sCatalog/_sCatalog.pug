@@ -10,7 +10,7 @@ mixin product-item(i, brand, brandlight, t)
 
 mixin sCatalog()
 	// start sCatalog
-	+b.sCatalog.section&attributes(attributes)
+	+b.sCatalog.section.white-section&attributes(attributes)
 		.btn-container
 			.container
 				.btn.btn-price.btn-primary.btn-reverse(href='#') Скачать прайс-лист
@@ -143,7 +143,7 @@ mixin sCatalogEmpty()
 
 mixin sCatalog2()
 	// start sCatalog
-	+b.sCatalog.section&attributes(attributes)
+	+b.sCatalog.section.white-section&attributes(attributes)
 		.btn-container
 			.container
 				.btn.btn-price.btn-primary.btn-reverse(href='#') Скачать прайс-лист

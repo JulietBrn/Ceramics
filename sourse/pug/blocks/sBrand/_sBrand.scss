@@ -23,6 +23,14 @@
 			max-height: none;
 		}
 	}
+
+  // &__btn {
+  //   position: absolute;
+  //   left: 50%;
+  //   bottom: 0;
+  //   z-index: 2;
+  //   transform: translateX(-50%);
+  // }
 	.parallax-container {
 		min-height: rem(640);
 		// max-height: rem(640);
@@ -212,6 +220,23 @@
 			}
 		}
 	}
+
+  .block1 .btn {
+    position: absolute;
+    bottom: rem(24);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    @include media-breakpoint-up(md) {
+      bottom: rem(32);
+    }
+    @include media-breakpoint-down(md) {
+      width: calc(100% - rem(32));
+      padding-top: rem(7);
+      padding-bottom: rem(9);
+    }
+
+  }
 
 	@include media-breakpoint-up(xl) {
 	}

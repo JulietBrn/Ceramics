@@ -92,7 +92,7 @@ function eventHandler() {
 			enabled: false,
 		},
 		autoplay: {
-			delay: 3000,
+			delay: 15000,
 			disableOnInteraction: false,
 		},
 		speed: 900,
