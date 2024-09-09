@@ -82,11 +82,58 @@ mixin colorInput(color, text, name)
 		span.custom-input__img(style=`background-color:${color};`)
 		span.custom-input__text.form-check-label!= text
 
-mixin headerBlock3(img)
-	// start headerBlock
+//- mixin headerBlock3(img)
+//- 	// start headerBlock 3
+//- 	.container-max
+//- 		.block1
+//- 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
+//- 	// end headerBlock
+
+mixin headerBlockAnimated(img)
+	// start headerBlock anim
 	.container-max
-		.block1
+		.block1.block-anim
+			.block-anim__content-wrap
+				.block-anim__title-wrap: .block-anim__title Мы не просто производим облицовочный кирпич
+				ul.block-anim__list
+					li мастерство
+					li этичность
+					li эстетичность
+				.block-anim__footer
+					.bricks
+						.brick
+						.brick
+						.brick
+						.brick
+						.brick
+					.text мы создаём, воплощаем, творим. совершенствуем мастерство. технику. технологии. уникальный дизайн. неповторимую эстетику.
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
+	// end headerBlock
 
 
+mixin headerBlockAnimatedEdelhaus1(img)
+	// start headerBlock anim
+	.container-max
+		.block1.block-anim-edelhaus-1
+			.inner-container
+				.block-anim-edelhaus-1__title-wrap
+					.block-anim-edelhaus-1__title.title_top харизматичный
+					.block-anim-edelhaus-1__title.title_bottom и амбициозный
+				.block-anim-edelhaus-1__content-wrap
+					.text Бренд Edelhaus Klinker — активный, амбициозный, так же как и те, для кого он. Edelhaus Klinker сам себе задает высокую планку и идет к новым - все более смелым — целям. Как и сам клинкерный кирпич, бренд Edelhaus Klinker олицетвоярет собой стойкость, выдержку, постоянство, надежность
+				+img(src=`img/edelhaus-light.svg`, alt="").brand
+				+img(src=`img/brick.png`, alt="").brick
+			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
+	// end headerBlock
+
+mixin headerBlockAnimatedEdelhaus2(img)
+	// start headerBlock anim
+	.container-max
+		.block1.block-anim-edelhaus-2
+			.block-anim__content-wrap
+				.block-anim__title-wrap: .block-anim-edelhaus-2__title Стойкость в его характере
+				.block-anim-edelhaus-2__footer
+					.text Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочета- ние природных цветов и фактур с наивысшей стойкостью и долговеч- ностью, с которыми неповторимые архитек- турные образы создаются на века.
+					.text.text-transform Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочета- ние природных цветов и фактур с наивысшей стойкостью и долговеч- ностью, с которыми неповторимые архитек- турные образы создаются на века.
+			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock

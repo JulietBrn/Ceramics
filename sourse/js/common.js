@@ -672,25 +672,6 @@ function eventHandler() {
 			}
 		}
 
-		// document.addEventListener('click', function(event) {
-		//   menuItems.forEach(item => {
-		//     const subMenu = item.querySelector('.sub-menu');
-		//     if (subMenu && !item.contains(event.target)) {
-		//       subMenu.classList.remove('active');
-		//     }
-		//   });
-		// });
-	}
-
-	// document.addEventListener('click', function(event) {
-	//   let filterElements = document.querySelectorAll('#product-filter .filter');
-	//   if (!filterElements) return
-	//   filterElements.forEach(function(element) {
-	//       if (!element.contains(event.target)) {
-	//           element.classList.remove('show');
-	//       }
-	//   });
-	// });
 	document.addEventListener("click", function (event) {
 		let filters = document.querySelectorAll("#product-filter .filter");
 		filters.forEach(filter => {
@@ -854,87 +835,163 @@ function eventHandler() {
 
 	gsap.registerPlugin(ScrollTrigger);
 
-	// gsap.utils.toArray('#sContentOven .parallax-container').forEach((section, i) => {
-	//   section.bg = section.querySelector(".parallax-bg");
-	//   section.bg.style.backgroundImage = `url("img/card-sq-${i + 1}.png")`;
-	//   if(section.bg) {
-	//     section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
+  /* animation */
+  const trigger = {
+    trigger: ".block1.block-anim",
+    start: "top 80%",
+    toggleActions: "play none none none"
+  }
+  const triggerSettings = {
+    scrollTrigger: trigger,
+    repeat: -1, // Бесконечное повторение
+    repeatDelay: 0 // Задержка перед повтором
+  }
 
-	//     gsap.to(section.bg, {
-	//       backgroundPosition: `50% ${-innerHeight / 2 + 10}`,
-	//       ease: "none",
-	//       scrollTrigger: {
-	//         trigger: section,
-	//         scrub: true,
-	//       }
-	//     });
-	//   }
+  function animateListItems() {
+    const title = document.querySelector(".block-anim__title-wrap")
+    const footer = document.querySelector(".block-anim__footer")
 
-	//   else {
-	//     section.bg.style.backgroundPosition = "50% 0px";
+    if (window.innerWidth >= 1024) {
+      const tl = gsap.timeline(trigger);
+      const tlList = gsap.timeline(trigger);
+      // const tl = gsap.timeline(triggerSettings);
+      // const tlList = gsap.timeline(triggerSettings);
 
-	//     gsap.to(section.bg, {
-	//       backgroundPosition: `50% ${-innerHeight / 2 + 10}px`,
-	//       ease: "none",
-	//       scrollTrigger: {
-	//         trigger: section,
-	//         start: "top top",
-	//         scrub: true
-	//       }
-	//     });
-	// }
-	// });
-	// Setup
-	// let scroller = document.querySelector(".scroller"),
-	// scrollerGSAP = document.querySelector("body"),
-	// tween;
+      tl.fromTo([title, footer], 
+        { opacity: 0 }, 
+        { opacity: 1, duration: 1.5, delay: .5,
+          easy: "easy-in",
+        }
+      );
 
-	// let bodyScrollBar = window.Scrollbar;
-	// let bodyScrollBarY = 0;
-	// const bodyScrollBar = Scrollbar.init(scroller, { damping: 0.1, delegateTo: document, alwaysShowTracks: true });
-	// ScrollTrigger.scrollerProxy(".scroller", {
-	//   scrollTop(value) {
-	//     if (arguments.length) {
-	//       bodyScrollBar.scrollTop = value;
-	//     }
-	//     return bodyScrollBar.scrollTop;
-	//   }
-	// });
+      // // Задержка перед исчезновением
+      // tl.to([title, footer], 
+      //   { opacity: 0, duration: 1,
+          // easy: "easy-out", }, "+=3.4"
+      // );
 
-	// bodyScrollBar.addListener(ScrollTrigger.update);
+      tlList.fromTo(".block-anim__list li",
+        { opacity: 0, x: -60 },
+        { opacity: 1, x: 0, duration: 1, stagger: .6, delay: 1.2,
+          easy: "easy-in", }
+      );
 
-	// ScrollTrigger.defaults({ scroller: scroller });
+      // Исчезновение элементов списка
+      // tlList.to(".block-anim__list li",
+      //   { opacity: 0, duration: 1,
+          // easy: "easy-out", }, "+=2"
+      // );
 
-	// gsap.utils.toArray('.sBlackList .parallax-container').forEach((section, i) => {
-	//   section.bg = section.querySelector(".parallax-bg");
+    } else {
+      const tl = gsap.timeline(triggerSettings);
+      const tlList = gsap.timeline(triggerSettings);
 
-	//   if(section.bg) {
-	//     section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
+      tl.fromTo([title, footer], 
+        { opacity: 0 }, 
+        { opacity: 1, duration: 1, delay: .5,
+          easy: "easy-in", }
+      );
 
-	//     gsap.to(section.bg, {
-	//       backgroundPosition: `50% ${-innerHeight / 2 + 10}`,
-	//       ease: "none",
-	//       scrollTrigger: {
-	//         trigger: section,
-	//         scrub: true,
-	//       }
-	//     });
-	//   }
+      // Задержка перед исчезновением
+      tl.to([title, footer], 
+        { opacity: 0, duration: 1,
+          easy: "easy-out", }, "+=5"
+      );
 
-	//   else {
-	//     section.bg.style.backgroundPosition = "50% 0px";
+      tlList.fromTo(".block-anim__list li",
+        { opacity: 0 },
+        { opacity: 1, duration: 1, stagger: 1, delay: 1.5,
+          easy: "easy-in", }
+      );
 
-	//     gsap.to(section.bg, {
-	//       backgroundPosition: `50% ${-innerHeight / 2 + 10}px`,
-	//       ease: "none",
-	//       scrollTrigger: {
-	//         trigger: section,
-	//         start: "top top",
-	//         scrub: true
-	//       }
-	//     });
-	// }
-	// });
+      // Исчезновение элементов списка
+      tlList.to(".block-anim__list li",
+        { opacity: 0, duration: 1,
+          easy: "easy-out", }, "+=2"
+      );
+    }
+  }
+
+  function animateEdelhaus1() {
+    const trigger = {
+      trigger: ".block-anim-edelhaus-1",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    }
+    const tl = gsap.timeline(trigger);
+
+    const titlewrap = document.querySelector(".block-anim-edelhaus-1__title-wrap")
+
+    const title1 = document.querySelector(".block-anim-edelhaus-1 .title_top")
+    const title2 = document.querySelector(".block-anim-edelhaus-1 .title_bottom")
+    const footer = document.querySelector(".block-anim-edelhaus-1 .brand")
+
+    const content = document.querySelector(".block-anim-edelhaus-1__content-wrap")
+    const text = document.querySelector(".block-anim-edelhaus-1__content-wrap .text")
+    
+    if (window.innerWidth >= 768) {
+
+      tl.fromTo([footer],
+        { opacity: 0, y: 60, },
+        { opacity: 1, y: 0, duration: 1, delay: 1,
+          easy: "easy-in", }
+      );
+      tl.fromTo(
+        title1,
+        { opacity: 0, y: 60 },
+        { opacity: 1, y: 0, duration: 1, ease: "ease-in" },
+        "-=0.5"
+      );
+
+      tl.fromTo(
+        title2,
+        { opacity: 0, y: -60 },
+        { opacity: 1, y: 0, duration: 1, ease: "ease-in" },
+        "-=1"
+      );
+
+      tl.fromTo(content,
+        { opacity: 0, },
+        { opacity: 1, duration: 1, delay: 1,
+          easy: "easy-in", },
+        "-=1"
+      );
+      tl.fromTo(text,
+        { opacity: 0, y: 40,  },
+        { opacity: 1, y: 0,  duration: 1,
+          easy: "easy-in", },
+        "-=1.5"
+      );
+    } else {
+
+      tl.fromTo([titlewrap, text, footer ],
+        { opacity: 0, y: -30 },
+        { opacity: 1, y: 0, duration: 1, stagger: .8, delay: .5,
+          easy: "easy-in", }
+      );
+    }
+  }
+
+  function animateEdelhaus2() {
+    const tl = gsap.timeline(trigger);
+
+    const title = document.querySelector(".block-anim-edelhaus-2__title")
+    const footer = document.querySelector(".block-anim-edelhaus-2__footer")
+
+    tl.fromTo([title, footer],
+      { opacity: 0, y: 60, },
+      { opacity: 1, y: 0, duration: 1, stagger: 1, delay: 1.5,
+        easy: "easy-in", }
+    );
+  }
+
+  window.addEventListener("load", function() {
+    animateListItems();
+    animateEdelhaus1();
+    animateEdelhaus2();
+  });
+
+  window.addEventListener("resize", animateListItems);
 
 	gsap.to(".container-wrapper", {
 		opacity: 1,
@@ -946,44 +1003,6 @@ function eventHandler() {
 			toggleActions: "play none none reverse",
 		},
 	});
-	// let headerHeight = 100
-	// let elem = document.querySelector('.container-wrapper')
-	// const trigger = document.querySelector('.parallax-container')
-
-	// gsap.to(trigger, {
-	//   scrollTrigger: {
-	//     trigger: trigger,
-	//     start: "top top", // when the top of the trigger hits the center of the viewport
-	//     end: "bottom top", // when the bottom of the trigger hits the center of the viewport
-	//     onEnter: () => elem.classList.add("active"), // add class
-	//     onLeaveBack: () => elem.classList.remove("active"), // remove class
-	//   },
-	// });
-	// gsap.utils
-	// 	.toArray(".card-square-item, .parallax-container")
-	// 	.forEach(container => {
-	// 		const imgWrap = container.querySelector(".sticky-img-wrap");
-
-	// 		// imgWraps.forEach(imgWrap => {
-	// 		gsap.to(
-	// 			imgWrap,
-	// 			// {y: "0%"},
-	// 			{
-	// 				y: "-50%",
-	// 				// duration: 1,s
-	// 				// ease: no
-	// 				// easy: "easy-in-out",
-	// 				scrollTrigger: {
-	// 					trigger: container,
-	// 					start: "top bottom",
-	// 					// end: "bottom top",
-	// 					toggleActions: "play none none reverse",
-	// 					scrub: true,
-	// 				},
-	// 			}
-	// 		);
-	// 		// });
-	// 	});
 
 	gsap.utils.toArray("#sContentOven .card-square-item").forEach(container => {
 		const textCenters = container.querySelectorAll(".text-center");
@@ -1113,14 +1132,10 @@ function eventHandler() {
 	const arrowsMainPage = document.querySelectorAll(
 		".main-page-slider--js .swiper-button-hand"
 	);
-	console.log(arrowsMainPage);
 
 	if (arrowsMainPage.length) {
-		console.log(arrowsMainPage);
 		let scrollerGSAP = document.querySelector("body");
 		const footer = document.querySelector("footer");
-		console.dir(footer);
-		console.log(scrollerGSAP);
 		arrowsMainPage.forEach(arrow => {
 			ScrollTrigger.create({
 				trigger: footer,
@@ -1136,6 +1151,7 @@ function eventHandler() {
 		});
 	}
 }
+}
 
 if (document.readyState !== "loading") {
 	eventHandler();
@@ -1143,10 +1159,3 @@ if (document.readyState !== "loading") {
 	document.addEventListener("DOMContentLoaded", eventHandler);
 }
 
-// window.onload = function () {
-// 	document.body.classList.add('loaded_hiding');
-// 	window.setTimeout(function () {
-// 		document.body.classList.add('loaded');
-// 		document.body.classList.remove('loaded_hiding');
-// 	}, 500);
-// }

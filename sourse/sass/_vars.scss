@@ -123,7 +123,7 @@ $pink-900: shade-color($pink, 80%) !default;
 
 $red-100: tint-color($red, 80%) !default;
 $red-200: tint-color($red, 60%) !default;
-$red-300: tint-color($red, 40%) !default;
+$red-300: #D2252F;
 $red-400: #FF000F; //hover
 $red-500: $red !default;
 $red-600: shade-color($red, 20%) !default;
