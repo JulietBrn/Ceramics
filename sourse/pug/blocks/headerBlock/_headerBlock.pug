@@ -137,3 +137,46 @@ mixin headerBlockAnimatedEdelhaus2(img)
 					.text.text-transform Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочета- ние природных цветов и фактур с наивысшей стойкостью и долговеч- ностью, с которыми неповторимые архитек- турные образы создаются на века.
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
+
+
+mixin headerBlockAnimatedMK(img)
+	// start headerBlock anim
+	.container-max
+		.block1.block-anim-mk.block-anim-mk-1
+			.inner-container
+				+img(src=`img/master.svg`, alt="").brand.up-down
+				.block-anim-mk__title-wrap
+					.block-anim-mk__title.up-down храним тепло традиций
+				.block-anim-mk__content-wrap.up-down
+					.text Классическое сочетание традиционного дизайна и современных технологий, доведенное до совершенства. А коллекции — полнотельный и пустотелый лицевой кирпич.
+			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
+	// end headerBlock
+
+mixin headerBlockAnimatedMK2(img)
+	// start headerBlock anim
+	.container-max
+		.block1.block-anim-mk.block-anim-mk-2
+			.inner-container
+				.block-anim-mk-2__title-wrap.up-down
+					.block-anim-mk-2__title.title_top традиции
+					.block-anim-mk-2__title.title_span и
+					.block-anim-mk-2__title.title_bottom преемственность
+				.block-anim-mk-2__content-wrap
+					.text.up-down.text_left Бренд Мастер Керамик основывается на глубоких ценностях, которые формируют характер настоящего мастера: Мастера, который любит свое дело, развивает мастерство и ценит человеческие отношения.
+					.text.up-down.text_right Как мастер внедряет современные технологии в старинные методы печной кладки, так и бренд Мастер Керамик объединяет прошлое и будущее, сохраняя и развивая традиции печного мастерства.
+			+img(src=`img/master-crop.svg`, alt="").brand.up-down
+			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
+	// end headerBlock
+
+mixin headerBlockAnimatedKonig(img)
+	// start headerBlock anim
+	.container-max
+		.block1.block-anim-konig
+			.inner-container.inner-container-center-anim.up-down.left-to-right
+				.block-anim-konig__title-wrap.left-to-right
+					.block-anim-konig__title.title_top.up-down покоряет
+					.block-anim-konig__title.title_bottom.up-down дизайном
+				.block-anim-konig__content-wrap
+					.text.up-down.left-to-right Мы создали в сотрудничестве с европейскими мастерами уникальную коллекцию лицевого полнотелого и пустотелого кирпича для фасадов, каминов и печей. <br> Это воплощение качества и дизайна, которым можно гордиться.
+			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
+	// end headerBlock

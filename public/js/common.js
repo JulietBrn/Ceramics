@@ -883,31 +883,32 @@ function eventHandler() {
       // );
 
     } else {
-      const tl = gsap.timeline(triggerSettings);
-      const tlList = gsap.timeline(triggerSettings);
+      // Настраиваем общий таймлайн
+      const tla = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".block1.block-anim",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        repeat: -1, // Бесконечное повторение
+        repeatDelay: 0 // Задержка перед повтором
+      });
 
-      tl.fromTo([title, footer], 
-        { opacity: 0 }, 
-        { opacity: 1, duration: 1, delay: .5,
-          easy: "easy-in", }
-      );
+      tla.set(".block-anim__list li", { opacity: 0 });
 
-      // Задержка перед исчезновением
-      tl.to([title, footer], 
-        { opacity: 0, duration: 1,
-          easy: "easy-out", }, "+=5"
-      );
-
-      tlList.fromTo(".block-anim__list li",
+      tla.fromTo([title, footer],
         { opacity: 0 },
-        { opacity: 1, duration: 1, stagger: 1, delay: 1.5,
-          easy: "easy-in", }
+        { opacity: 1, duration: 1, delay: 0.5, ease: "ease-in", }
       );
 
-      // Исчезновение элементов списка
-      tlList.to(".block-anim__list li",
-        { opacity: 0, duration: 1,
-          easy: "easy-out", }, "+=2"
+      tla.fromTo(".block-anim__list li",
+        { opacity: 0 },
+        { opacity: 1, duration: 1, stagger: 1, ease: "ease-in",  },
+        "-=0.5"
+      );
+
+      tla.to([title, footer, ".block-anim__list li"],
+        { opacity: 0, duration: 1, ease: "ease-out" }, "-=1"
       );
     }
   }
@@ -985,10 +986,81 @@ function eventHandler() {
     );
   }
 
+  function animateMK() {
+    const tl = gsap.timeline(trigger);
+
+    tl.fromTo('.block-anim-mk-1 .up-down',
+      { opacity: 0, y: -30, },
+      { opacity: 1, y: 0, duration: .8, stagger: 1, delay: 1,
+        easy: "easy-in", }
+    );
+
+  }
+
+  function animateMK2() {
+    const tl = gsap.timeline(trigger);
+
+    if (window.innerWidth >= 768) {
+      tl.fromTo('.block-anim-mk-2__title',
+        { opacity: 0, y: -20, },
+        { opacity: 1, y: 0, duration: .8, stagger: .3, delay: 1,
+          easy: "easy-in", }
+      );
+
+      tl.fromTo('.block-anim-mk-2 .text_left',
+        { opacity: 0, x: 20,  },
+        { opacity: 1, x: 0,  duration: 1,
+          easy: "easy-in", },
+        "-=1.5"
+      );
+      tl.fromTo('.block-anim-mk-2 .text_right',
+        { opacity: 0, x: -20,  },
+        { opacity: 1, x: 0,  duration: 1,
+          easy: "easy-in", },
+        "-=1.5"
+      );
+      tl.fromTo('.block-anim-mk-2 .brand',
+        { opacity: 0, y: -20, },
+        { opacity: 1, y: 0, duration: .8,
+          easy: "easy-in", },
+        "-=.5"
+      );
+
+    } else {
+      tl.fromTo('.block-anim-mk-2 .up-down',
+        { opacity: 0, y: -30, },
+        { opacity: 1, y: 0, duration: .8, stagger: 1, delay: 1,
+          easy: "easy-in", }
+      );
+    }
+  }
+
+  function animateKonig() {
+    const tl = gsap.timeline(trigger);
+
+    if (window.innerWidth >= 768) {
+      tl.fromTo('.block-anim-konig .left-to-right',
+        { opacity: 0, x: -20, },
+        { opacity: 1, x: 0, duration: .4, stagger: .4, delay: 1,
+          easy: "easy-in", }
+      );
+
+    } else {
+      tl.fromTo('.block-anim-konig .up-down',
+        { opacity: 0, y: -20, },
+        { opacity: 1, y: 0, duration: .4, stagger: .4, delay: 1,
+          easy: "easy-in", }
+      );
+    }
+  }
+
   window.addEventListener("load", function() {
     animateListItems();
-    animateEdelhaus1();
-    animateEdelhaus2();
+    // animateEdelhaus1();
+    // animateEdelhaus2();
+    // animateMK();
+    // animateMK2();
+    // animateKonig();
   });
 
   window.addEventListener("resize", animateListItems);
