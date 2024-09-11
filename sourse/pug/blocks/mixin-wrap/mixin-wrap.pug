@@ -67,7 +67,9 @@ mixin cookie()
 
 mixin pagePreloader()
 	#preloader
-		+img(src="img/svg/logo.svg", alt="")
+		.wrapper
+			span.flash-effect.active
+			+img(src="img/svg/logo.svg", alt="")
 
 mixin pageSlider()
 	.main-page-slider

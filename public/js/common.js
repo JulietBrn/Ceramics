@@ -1217,14 +1217,14 @@ function eventHandler() {
   }
 
   window.addEventListener("load", function() {
-    // animateListItems();
-    // animateEdelhaus1();
-    // animateEdelhaus2();
-    // animateMK();
-    // animateMK2();
-    // animateKonig();
-    // animateKonig2();
-    // animateMF()
+    animateListItems();
+    animateEdelhaus1();
+    animateEdelhaus2();
+    animateMK();
+    animateMK2();
+    animateKonig();
+    animateKonig2();
+    animateMF()
     animateListItems2()
     animateMF2()
   });
