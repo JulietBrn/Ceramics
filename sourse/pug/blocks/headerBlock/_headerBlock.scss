@@ -671,11 +671,6 @@
   flex-direction: column;
   align-items: center;
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
 }
 
 .block-anim-mk {
@@ -812,7 +807,7 @@
     content: none;
   }
 
-  .parallax-container {
+  &-1 .parallax-container {
     @include media-breakpoint-up(md) {
       background-position: 80%;
     }
@@ -823,29 +818,39 @@
   @include media-breakpoint-up(md) {
     text-align: left;
   }
+  &-1 {
+    .inner-container {
+      @include media-breakpoint-up(md) {
+        width: 76vw;
+        right: 0;
+        left: auto;
+        top: auto;
+        bottom: 20%;
+        transform: translate(0%,0%) !important;
+      }
+      @include media-breakpoint-up(lg) {
+        width: 52.4vw;
+      }
+      @include media-breakpoint-up(xl) {
+        width: 44vw;
+      }
+    }
 
+  }
   .inner-container {
     width: 100vw;
-    padding: rem(49) rem(14) rem(42);
     background: linear-gradient(270deg, rgba(27, 15, 15, 0.2) 0%, rgba(27, 15, 15, 0.7) 100%);
-    gap: rem(29);
-    @include media-breakpoint-up(md) {
-      padding: 0 rem(14) rem(42) rem(2);
-      align-items: flex-start;
-      gap: rem(36);
-      width: 76vw;
 
-      right: 0;
-      left: auto;
-      top: auto;
-      bottom: 20%;
-      transform: translate(0%,0%) !important;
-    }
-    @include media-breakpoint-up(lg) {
-      width: 52.4vw;
-    }
-    @include media-breakpoint-up(xxl) {
-      width: 44vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  &-2 {
+    .inner-container {
+      background: linear-gradient(270deg, #1d1003 0%, rgba(29, 16, 3, 0.4) 100%);
     }
   }
 
@@ -886,6 +891,510 @@
     }
     @include media-breakpoint-up(lg) {
       max-width: rem(737);
+    }
+  }
+  .wrapper {
+    position: relative;
+    gap: rem(29);
+    padding: rem(49) rem(14) rem(42);
+    @include media-breakpoint-up(md) {
+      padding: 0 rem(14) rem(42) rem(2);
+      height: 100%;
+      align-items: flex-start;
+      gap: rem(36);
+    }
+    &:after {
+      content: '';
+      // clip-path: polygon(66% 0%, 100% 0%, 100% 100%, 0% 100%);
+      background: linear-gradient(270deg, rgba(27, 15, 15, 0.2) 0%, rgba(27, 15, 15, 0.8) 100%);
+      position: absolute;
+      top: 0;
+      right: 100%;
+      height: 100%;
+      // width: 340px;
+      width: 60vw;
+    }
+  }
+
+  &-2 {
+    .block-anim-konig__title {
+      font-size: rem(26);
+      font-weight: 400;
+      @include media-breakpoint-up(md) {
+        font-size: rem(28);
+        @media (orientation: landscape) {
+          font-size: 3.1vw;
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        font-size: rem(32);
+      }
+      @include media-breakpoint-up(xxl) {
+        font-weight: 300;
+        font-size: rem(52);
+      }
+    }
+    .inner-container {
+      @include media-breakpoint-up(md) {
+        background: transparent;
+        @media (orientation: landscape) {
+          top: 65%;
+        }
+        @media (orientation: portrait) {
+          top: 55%;
+        }
+      }
+
+    }
+
+    .title_top {
+      letter-spacing: 0.45em;
+      @include media-breakpoint-up(xl) {
+        letter-spacing: 0.29em;
+      }
+    }
+    .title_bottom {
+      letter-spacing: 0.27em;
+      @include media-breakpoint-up(md) {
+        @media (orientation: landscape) {
+          letter-spacing: 0.24em;
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        letter-spacing: 0.3em;
+      }
+    }
+
+    .text {
+      font-size: rem(14);
+      font-weight: 400;
+      color: #F3E8DA;
+      @include media-breakpoint-up(xl) {
+        font-size: rem(19);
+        line-height: 142%;
+      }
+    }
+    .wrapper {
+      @include media-breakpoint-up(md) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        position: relative;
+        .lg-before {
+          content: '';
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: 50%;
+          z-index: -1;
+        }
+
+        @media (orientation: landscape) {
+          padding: rem(23) rem(30) rem(10);
+          align-items: center;
+
+          .lg-before_left {
+            left: 0;
+            background: linear-gradient(270deg, #1d1003 0%, rgba(29, 16, 3, 0.1) 100%);
+          }
+
+          .lg-before_right {
+            right: 0;
+            background: linear-gradient(270deg, rgba(29, 16, 3, 0.1) 0%, rgba(29, 16, 3, 0.2) 100%);
+          }
+
+          .block-anim-konig-2__title-wrap {
+
+            text-align: end;
+            .title_top {
+              margin-right: rem(-4px);
+              @include media-breakpoint-up(xl) {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+
+        @media (orientation: portrait) {
+          padding: rem(39) rem(14) rem(12) rem(28);
+          row-gap: 10vh;
+          column-gap: 0;
+          max-width: rem(768);
+          margin: auto;
+
+          .lg-before_left {
+            left: 0;
+            background: linear-gradient(270deg, #1d1003 0%, rgba(29, 16, 3, 0.1) 100%);
+          }
+
+          .lg-before_right {
+            right: 0;
+            background: linear-gradient(270deg, rgba(29, 16, 3, 0.1) 0%, rgba(29, 16, 3, 0.2) 100%);
+          }
+          .block-anim-konig-2__content-wrap {
+            grid-column: 1/-1;
+            .text {
+              max-width: rem(695);
+              padding-left: rem(26);
+              font-size: rem(19);
+            }
+          }
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        max-width: rem(1024);
+        margin: auto;
+      }
+      @include media-breakpoint-up(xl) {
+        max-width: rem(1416);
+      }
+    }
+  }
+
+  .lg-after {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 20vw;
+  }
+  .lg-after_left {
+    right: 100%;
+    background: linear-gradient(270deg, rgba(47, 30, 9, 0.2) 0%, rgba(52, 43, 33, 0.6) 100%);
+    transform: rotate(-180deg);
+  }
+  .lg-after_right {
+    background: linear-gradient(270deg, rgba(29, 16, 3, 0.3) 19.32%, rgba(87, 77, 65, 0.1) 100%);
+    transform: rotate(180deg);
+    left: 100%;
+  }
+
+  .brand-wrap {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .brand {
+    width: rem(143);
+    @include media-breakpoint-up(lg) {
+      width: rem(169);
+    }
+  }
+}
+
+.block1.block-anim-mf {
+
+  .inner-container {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 2;
+    height: 70%;
+
+    justify-content: space-between;
+    @include media-breakpoint-up(md) {
+      width: 100vw;
+      transform: translate(0,0);
+      left: 0;
+      top: 0;
+    }
+  }
+  &-2 {
+    .inner-container {
+      width: rem(335);
+      max-width: rem(335);
+      justify-content: flex-start;
+      gap: rem(41);
+      @include media-breakpoint-up(md) {
+        // height: auto;
+        
+        height: 60%;
+        justify-content: space-between;
+        width: rem(258);
+        max-width: none;
+        top: 10%;
+        left: 16vw;
+        gap: rem(60);
+        align-items: start;
+      }
+      @include media-breakpoint-up(lg) {
+        @media (orientation: landscape) {
+          width: rem(304);
+          gap: rem(80);
+        }
+        @media (orientation: portrait) {
+          width: rem(337);
+          left: 20vw;
+          height: 70%;
+          justify-content: space-between;
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        width: rem(337);
+        height: 75%;
+        justify-content: space-between;
+      }
+      @include media-breakpoint-up(xxl) {
+        height: 80%;
+      }
+    }
+    &:after {
+      background: linear-gradient(180deg, rgba(0,0,0,0.5) 50%, rgba(0,52,102,0) 100%);
+      height: 100%;
+      width: 50%;
+      top: auto;
+      bottom: 0;
+      z-index: 0;
+      @include media-breakpoint-up(md) {
+        background: linear-gradient(180deg, rgba(0,0,0,0.5) 70%, rgba(0,52,102,0) 100%);
+        width: 55%;
+      }
+      @include media-breakpoint-up(xxl) {
+        content: none
+      }
+    }
+    .block-anim-mf__title {
+      font-weight: 300;
+      font-size: rem(28);
+      line-height: 132%;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ead5c4;
+      @include media-breakpoint-up(md) {
+        font-size: rem(64);
+        letter-spacing: 0.08em;
+      }
+      @include media-breakpoint-up(lg) {
+        @media (orientation: landscape) {
+          font-size: rem(56);
+        }
+        @media (orientation: portrait) {
+          font-size: rem(96);
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: rem(80);
+      }
+      @include media-breakpoint-up(xxl) {
+        // font-size: rem(90);
+      }
+    }
+
+    .title_top {
+      letter-spacing: 0.18em;
+      span {
+        margin-left: rem(20);
+        @include media-breakpoint-up(md) {
+          margin-left: rem(40);
+        }
+      }
+    }
+    .block-anim-mf__title-wrap {
+      @include media-breakpoint-up(md) {
+        position: absolute;
+        z-index: 1;
+        left: 38vw;
+        top: 0;
+        transform:  rotate(-90deg) translateX(-28%) translateY(-80%);
+        .title_top {
+          margin-bottom: rem(52);
+        }
+      }
+      @include media-breakpoint-up(lg) {
+        @media (orientation: portrait) {
+          transform: rotate(-90deg) translateX(-28%) translateY(-94%);
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        transform: rotate(-90deg) translateX(-28%) translateY(-94%);
+      }
+      @include media-breakpoint-up(xxl) {
+        transform: rotate(-90deg) translateX(-28%) translateY(-9%);
+      }
+    }
+
+    .text {
+      line-height: 150%;
+      letter-spacing: 0.06em;
+      @include media-breakpoint-up(md) {
+        font-size: rem(24);
+        line-height: 129%;
+      }
+      @include media-breakpoint-up(lg) {
+        @media (orientation: landscape) {
+          font-size: rem(20);
+          line-height: 140%;
+          letter-spacing: 0.05em;
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: rem(24);
+      }
+    }
+
+    .parallax-container {
+      background-position-x: 76%;
+      @include media-breakpoint-up(lg) {
+        @media (orientation: landscape) {
+          height: 156vh;
+          background-position-x: 83%;
+        }
+        @media (orientation: portrait) {
+          background-position-x: 73%;
+        }
+      }
+      @include media-breakpoint-up(xxl) {
+          background-position-x: 50%;
+          height: 100vh;
+      }
+    }
+  }
+
+  .text {
+    color: #f3e8da;
+  }
+
+  &-1 {
+    &:after {
+      background: linear-gradient(179deg, rgba(29, 16, 3, 0) 0%, rgba(27, 15, 15, 0.5) 51.77%);
+      height: 60%;
+      top: auto;
+      bottom: 0;
+      z-index: 0;
+      @include media-breakpoint-up(md) {
+        content: none;
+      }
+    }
+    .text {
+      font-size: rem(15);
+      line-height: 140%;
+      letter-spacing: 0.07em;
+      text-align: center;
+      @include media-breakpoint-up(md) {
+        text-align: start;
+        @media (orientation: portrait) {
+          max-width: rem(198);
+        }
+        @media (orientation: landscape) {
+          max-width: rem(323);
+        }
+      }
+      @include media-breakpoint-up(lg) {
+        @media (orientation: portrait) {
+          max-width: rem(240);
+          font-size: rem(19);
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: rem(19);
+        max-width: rem(510);
+        line-height: 142%;
+        letter-spacing: 0.05em;
+      }
+    }
+
+    .block-anim-mf__title-wrap {
+      @include media-breakpoint-up(md) {
+        transform: rotate(-90deg);
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        bottom: 0;
+        transform:  rotate(-90deg) translateX(21%) translateY(-65%);
+        .title_top {
+          margin-bottom: rem(87);
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        transform: rotate(-90deg) translateX(8%) translateY(-6%);
+        z-index: 1;
+      }
+
+    }
+
+    .block-anim-mf__title {
+      font-weight: 400;
+      font-size: rem(30);
+      line-height: 123%;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      text-align: center;
+
+      @include media-breakpoint-up(md) {
+        text-align: end;
+        font-weight: 300;
+        letter-spacing: 0.06em;
+        @media (orientation: portrait) {
+          font-size: rem(79);
+        }
+        @media (orientation: landscape) {
+          font-size: rem(63);
+        }
+      }
+      @include media-breakpoint-up(lg) {
+        @media (orientation: portrait) {
+          font-size: rem(95);
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: rem(87);
+      }
+    }
+
+    .block-anim-mf__content-wrap {
+      @include media-breakpoint-up(md) {
+        position: absolute;
+        left: 64vw;
+        bottom: 20%;
+        z-index: 1;
+      }
+      @include media-breakpoint-up(lg) {
+        @media (orientation: landscape) {
+          bottom: 6%;
+          left: 68vw;
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        bottom: -18%;
+        left: 51vw;
+      }
+    }
+    .parallax-container {
+      @include media-breakpoint-down(md) {
+        background-attachment:unset;
+        background-position-x: 93%;
+        background-position-y: top;
+      }
+      @include media-breakpoint-up(md) {
+        @media (orientation: portrait) {
+          background-position-x: 19%;
+        }
+      }
+      // transform: scale(1.5);
+    }
+  }
+
+  .brand-wrap {
+    position: absolute;
+    bottom: 6.5%;
+    left: 50%;
+    transform: translateX(-40%);
+    z-index: 2;
+    @include media-breakpoint-up(md) {
+      position: static;
+      transform: translateX(0);
+    }
+  }
+
+  .brand {
+    width: rem(209);
+    margin-top: rem(10);
+    @include media-breakpoint-up(md) {
+      width: rem(229);
     }
   }
 }
