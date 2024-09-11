@@ -913,6 +913,76 @@ function eventHandler() {
     }
   }
 
+  function animateListItems2() {
+
+    const tla = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".block1.block-anim2",
+        start: "top 80%",
+        toggleActions: "play none none none"
+      },
+      repeat: -1,
+      repeatDelay: 0
+    });
+
+    if (window.innerWidth >= 1024 && window.matchMedia("(orientation: landscape)").matches) {
+
+        tla.set([
+          ".block-anim2 li",
+          ".block-anim2 .line",
+          ".block-anim2 .bg-gr"
+        ], { opacity: 0});
+
+        tla.fromTo(".block-anim2 .line",
+          { opacity: 0, x: -500 },
+          { opacity: 1, x: 0, duration: 1.5, delay: 1, ease: "ease-in" },
+        );
+        tla.fromTo(".block-anim2 .bg-gr",
+          { opacity: 0, },
+          { opacity: 1, duration: 1, ease: "ease-in" }, "-=1"
+        );
+        tla.fromTo(".block-anim2 li",
+          { opacity: 0, x: -100 },
+          { opacity: 1, x: 0, duration: 1, ease: "ease-in" }, "-=1"
+        );
+        tla.to({}, { duration: 2 }); // Пауза на 2 секунды
+
+        tla.fromTo([".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr"],
+          { opacity: 1, x: 0 },
+          { opacity: 0, x: 100, duration: 1, ease: "ease-in" }, 
+        );
+
+    } else {
+
+      tla.set(".block-anim2__list", { opacity: 0, x: -20 });
+
+      tla.fromTo(".block-anim2__list.list-1",
+        { opacity: 0, x: -20 },
+        { opacity: 1, x: 0, duration: 1, ease: "ease-in" }, "0"
+      );
+      tla.fromTo(".block-anim2__list.list-2",
+        { opacity: 1, x: 0 },
+        { opacity: 0, x: 20, duration: 1, ease: "ease-out" }, "0"
+      );
+  
+      // Задержка в 2 секунды, пока первый список остаётся видимым
+      tla.to({}, { duration: 2 }); // Пауза на 2 секунды
+
+      // Появление второго списка и одновременное исчезновение первого
+      tla.fromTo(".block-anim2__list.list-2",
+        { opacity: 0, x: -20 },
+        { opacity: 1, x: 0, duration: 1, ease: "ease-in" }, "+=0"
+      );
+      tla.fromTo(".block-anim2__list.list-1",
+        { opacity: 1, x: 0 },
+        { opacity: 0, x: 20, duration: 1, ease: "ease-out" }, "-=1"
+      );
+    
+      // Задержка в 2 секунды, пока второй список остаётся видимым
+      tla.to({}, { duration: 2 }); // Пауза на 2 секунды
+    }
+  }
+
   function animateEdelhaus1() {
     const trigger = {
       trigger: ".block-anim-edelhaus-1",
@@ -1155,6 +1225,7 @@ function eventHandler() {
     // animateKonig();
     // animateKonig2();
     // animateMF()
+    animateListItems2()
     animateMF2()
   });
 
