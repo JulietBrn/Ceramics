@@ -41,6 +41,19 @@
 2. <https://megafronteam.github.io/0044Ceramics/19-policy.html>
 2. <https://megafronteam.github.io/0044Ceramics/15-card-product.html>
 
-<!-- in progress -->
 1. <https://megafronteam.github.io/0044Ceramics/>
+
+<!-- animation pages -->
+
+2. <https://megafronteam.github.io/0044Ceramics/24-animation-1.html>
+2. <https://megafronteam.github.io/0044Ceramics/24-animation-2.html>
+2. <https://megafronteam.github.io/0044Ceramics/24-animation-3.html>
+2. <https://megafronteam.github.io/0044Ceramics/24-animation-4.html>
+2. <https://megafronteam.github.io/0044Ceramics/24-animation-5.html>
+2. <https://megafronteam.github.io/0044Ceramics/24-animation-6.html>
+2. <https://megafronteam.github.io/0044Ceramics/24-animation-7.html>
+2. <https://megafronteam.github.io/0044Ceramics/24-animation-8.html>
+2. <https://megafronteam.github.io/0044Ceramics/24-animation-9.html>
+2. <https://megafronteam.github.io/0044Ceramics/24-animation-10.html>
+
 

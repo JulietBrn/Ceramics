@@ -799,7 +799,7 @@
       width: 70vw;
     }
     @include media-breakpoint-up(xxl) {
-      max-width: 80vw;
+      max-width: 1280px;
       width: 80vw;
     }
     @include media-breakpoint-down(md) {
@@ -814,18 +814,37 @@
     text-align: center;
     text-wrap: nowrap;
     @include media-breakpoint-up(md) {
+      --gap-title: 30%;
       font-size: 8.2vw;
       position: absolute;
-      top: 30%;
       left: 50%;
       transform: translate(-50%, -30%);
       font-weight: 250;
       line-height: 1;
-      &.title_bottom {
-        bottom: 30%;
-        transform: translate(-50%, 30%);
-        top: auto;
+      &.title_top {
+        top: var(--gap-title);
       }
+      &.title_bottom {
+        bottom: var(--gap-title);
+        transform: translate(-50%, 30%);
+      }
+      @media (orientation: portrait) {
+        --gap-title: 33.5%;
+      }
+    }
+    @include media-breakpoint-up(lg) {
+      @media (orientation: landscape) {
+        --gap-title: 26%;
+      }
+      @media (orientation: portrait) {
+        --gap-title: 36.5%;
+      }
+    }
+    @include media-breakpoint-up(xl) {
+      --gap-title: 28.5%;
+    }
+    @include media-breakpoint-up(xxl) {
+      --gap-title: 24%;
     }
   }
   &__content-wrap {
@@ -844,6 +863,14 @@
       width: 90vw;
       max-width: rem(850);
       z-index: 5;
+    }
+    @include media-breakpoint-up(lg) {
+      @media (orientation: portrait) {
+        top: 50%;
+      }
+    }
+    @include media-breakpoint-up(xl) {
+      top: 50%;
     }
 
   }
@@ -1562,7 +1589,6 @@
 
     .block-anim-mf__title-wrap {
       @include media-breakpoint-up(md) {
-        transform: rotate(-90deg);
         position: absolute;
         z-index: 1;
         left: 0;
@@ -1571,10 +1597,25 @@
         .title_top {
           margin-bottom: rem(87);
         }
+        @media (orientation: landscape) {
+        transform:  rotate(-90deg) translateX(21%) translateY(-26%);
+        }
+      }
+      @include media-breakpoint-up(lg) {
+      
+        @media (orientation: portrait) {
+          transform:  rotate(-90deg) translateX(28%) translateY(-55%);
+        }
+        @media (orientation: landscape) {
+          transform:  rotate(-90deg) translateX(18%) translateY(-46%);
+        }
       }
       @include media-breakpoint-up(xl) {
-        transform: rotate(-90deg) translateX(8%) translateY(-6%);
+        transform: rotate(-90deg) translateX(13%) translateY(-58%);
         z-index: 1;
+      }
+      @include media-breakpoint-up(xxl) {
+        transform: rotate(-90deg) translateX(8%) translateY(-18%);
       }
 
     }
@@ -1592,19 +1633,31 @@
         font-weight: 300;
         letter-spacing: 0.06em;
         @media (orientation: portrait) {
-          font-size: rem(79);
+          font-size: 7.7vh;
         }
         @media (orientation: landscape) {
-          font-size: rem(63);
+          font-size: 7vh;
         }
       }
       @include media-breakpoint-up(lg) {
         @media (orientation: portrait) {
-          font-size: rem(95);
+          font-size: 7vh;
+          &.title_top {
+            margin-bottom: rem(130);
+          }
+        }
+        @media (orientation: landscape) {
+          font-size: 8.1vh;
+          &.title_top {
+            margin-bottom: rem(70);
+          }
         }
       }
       @include media-breakpoint-up(xl) {
-        font-size: rem(87);
+        font-size: 8.5vh;
+      }
+      @include media-breakpoint-up(xxl) {
+        font-size: 9.3vh;
       }
     }
 
@@ -1614,30 +1667,49 @@
         left: 64vw;
         bottom: 20%;
         z-index: 1;
+        @media (orientation: portrait) {
+          bottom: 0%;
+        }
       }
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-only(lg) {
         @media (orientation: landscape) {
-          bottom: 6%;
-          left: 68vw;
+          bottom: 0;
+          transform: translateY(100%);
+          left: 58vw;
+        }
+        @media (orientation: portrait) {
+          bottom: 0;
         }
       }
       @include media-breakpoint-up(xl) {
         bottom: -18%;
+        left: 56vw;
+      }
+      @include media-breakpoint-up(xxl) {
         left: 51vw;
       }
     }
     .parallax-container {
       @include media-breakpoint-down(md) {
         background-attachment:unset;
-        background-position-x: 93%;
-        background-position-y: top;
+        background-position-x: 87%;
+        background-position-y: 0%;
+        height: 171vh;
       }
       @include media-breakpoint-up(md) {
+        background-position-x: 19%;
+      }
+      @include media-breakpoint-up(lg) {
         @media (orientation: portrait) {
           background-position-x: 19%;
         }
+        @media (orientation: landscape) {
+          background-position-x: 29%;
+        }
       }
-      // transform: scale(1.5);
+      @include media-breakpoint-up(xl) {
+        background-position-x: 34%;
+      }
     }
   }
 

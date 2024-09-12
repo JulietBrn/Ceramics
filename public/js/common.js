@@ -848,7 +848,9 @@ function eventHandler() {
   // }
 
   function animateListItems() {
-    
+    const animatedBlock = document.querySelector('.block1.block-anim')
+    if (!animatedBlock) return
+
     const trigger = {
       trigger: ".block1.block-anim",
       start: "top 80%",
@@ -969,12 +971,15 @@ function eventHandler() {
       );
 
       tla.to([title, footer, ".block-anim__list li"],
-        { opacity: 0, duration: 1, ease: "ease-out" }, "-=0"
+        { opacity: 0, duration: 1, delay:2, ease: "ease-out" }, "-=0"
       );
     }
   }
 
   function animateListItems2() {
+    const animatedBlock = document.querySelector('.block1.block-anim2')
+    if (!animatedBlock) return
+
 
     const tla = gsap.timeline({
       scrollTrigger: {
@@ -1045,6 +1050,9 @@ function eventHandler() {
   }
 
   function animateEdelhaus1() {
+    const animatedBlock = document.querySelector('.block-anim-edelhaus-1')
+    if (!animatedBlock) return
+
     const triggerSettings = {
       trigger: ".block-anim-edelhaus-1",
       start: "top 90%",
@@ -1109,6 +1117,9 @@ function eventHandler() {
   }
 
   function animateEdelhaus2() {
+    const animatedBlock = document.querySelector('.block-anim-edelhaus-2')
+    if (!animatedBlock) return
+
     const triggerSettings = {
       trigger: ".block-anim-edelhaus-2",
       start: "top 90%",
@@ -1130,6 +1141,9 @@ function eventHandler() {
   }
 
   function animateMK() {
+    const animatedBlock = document.querySelector('.block-anim-mk-1')
+    if (!animatedBlock) return
+
     const triggerSettings = {
       trigger: ".block-anim-mk-1",
       start: "top 90%",
@@ -1149,6 +1163,9 @@ function eventHandler() {
   }
 
   function animateMK2() {
+    const animatedBlock = document.querySelector('.block-anim-mk-2')
+    if (!animatedBlock) return
+
     const triggerSettings = {
       trigger: ".block-anim-mk-2",
       start: "top 90%",
@@ -1170,31 +1187,34 @@ function eventHandler() {
         { opacity: 0, x: 20,  },
         { opacity: 1, x: 0,  duration: 1,
           ease: "ease-in", },
-        "-=1.5"
+        "-=0"
       );
       tl.fromTo('.block-anim-mk-2 .text_right',
         { opacity: 0, x: -20,  },
         { opacity: 1, x: 0,  duration: 1,
           ease: "ease-in", },
-        "-=1.5"
+        "-=1"
       );
       tl.fromTo('.block-anim-mk-2 .brand',
         { opacity: 0, y: -20, },
         { opacity: 1, y: 0, duration: .8,
           ease: "ease-in", },
-        "-=.5"
+        "-=0"
       );
 
     } else {
       tl.fromTo('.block-anim-mk-2 .up-down',
         { opacity: 0, y: -30, },
-        { opacity: 1, y: 0, duration: .8, stagger: 1, delay: 1,
+        { opacity: 1, y: 0, duration: .8, stagger: .6, delay: 1,
           ease: "ease-in", }
       );
     }
   }
 
   function animateKonig() {
+    const animatedBlock = document.querySelector('.block-anim-konig-1')
+    if (!animatedBlock) return
+
     const triggerSettings = {
       trigger: ".block-anim-konig-1",
       start: "top 90%",
@@ -1215,13 +1235,16 @@ function eventHandler() {
     } else {
       tl.fromTo('.block-anim-konig-1 .up-down',
         { opacity: 0, y: -20, },
-        { opacity: 1, y: 0, duration: .4, stagger: .4, delay: 1,
+        { opacity: 1, y: 0, duration: .6, stagger: .4, delay: 1,
           ease: "ease-in", }
       );
     }
   }
 
   function animateKonig2() {
+    const animatedBlock = document.querySelector('.block-anim-konig-2')
+    if (!animatedBlock) return
+
     const triggerSettings = {
       trigger: ".block-anim-konig-2",
       start: "top 90%",
@@ -1250,19 +1273,22 @@ function eventHandler() {
         { opacity: 0, x: -60, },
         { opacity: 1, x: 0, duration: .6, stagger: .6,
           ease: "ease-in", },
-        "-=1.8"
+        "-=1.3"
       );
 
     } else {
       tl.fromTo('.block-anim-konig-2 .up-down',
         { opacity: 0, y: -20, },
-        { opacity: 1, y: 0, duration: .4, stagger: .4, delay: 1,
+        { opacity: 1, y: 0, duration: .6, stagger: .4, delay: 1,
           ease: "ease-in", }
       );
     }
   }
 
   function animateMF() {
+    const animatedBlock = document.querySelector('.block-anim-mf-1')
+    if (!animatedBlock) return
+
     const triggerSettings = {
       trigger: ".block-anim-mf-1",
       start: "top 90%",
@@ -1286,7 +1312,7 @@ function eventHandler() {
         { opacity: 0, x: -30, },
         { opacity: 1, x: 0, duration: .8,
           ease: "ease-in", },
-        "-=2"
+        // "-=2"
       );
 
     } else {
@@ -1299,6 +1325,9 @@ function eventHandler() {
   }
 
   function animateMF2() {
+    const animatedBlock = document.querySelector('.block-anim-mf-2')
+    if (!animatedBlock) return
+
 
     const triggerSettings = {
       trigger: ".block-anim-mf-2",
@@ -1324,9 +1353,9 @@ function eventHandler() {
         '.block-anim-mf-2 .brand-wrap',
       ],
         { opacity: 0, x: -30, },
-        { opacity: 1, x: 0, duration: .8, stagger: .1,
+        { opacity: 1, x: 0, duration: .8, stagger: .3,
           ease: "ease-in", },
-        "-=2.5"
+        // "-=2.5"
       );
 
     } else {
@@ -1339,8 +1368,9 @@ function eventHandler() {
   }
 
   window.addEventListener("load", function() {
-    const slider = this.document.querySelector('.main-slider--js')
-    if (!slider) return
+    const animatedBlock = document.querySelector('.block1-anim')
+    if (!animatedBlock) return
+
     animateListItems();
     animateListItems2()
     animateEdelhaus1();
