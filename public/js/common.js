@@ -914,11 +914,7 @@ function eventHandler() {
       start: "top 80%",
       toggleActions: "play none none none"
     }
-    const triggerSettings = {
-      scrollTrigger: trigger,
-      repeat: -1, // Бесконечное повторение
-      repeatDelay: 0 // Задержка перед повтором
-    }
+
       const tlList = gsap.timeline(trigger);
       const tl = gsap.timeline(trigger);
 
@@ -1343,6 +1339,8 @@ function eventHandler() {
   }
 
   window.addEventListener("load", function() {
+    const slider = this.document.querySelector('.main-slider--js')
+    if (!slider) return
     animateListItems();
     animateListItems2()
     animateEdelhaus1();
