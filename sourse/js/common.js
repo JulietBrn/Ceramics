@@ -836,18 +836,29 @@ function eventHandler() {
 	gsap.registerPlugin(ScrollTrigger);
 
   /* animation */
-  const trigger = {
-    trigger: ".block1.block-anim",
-    start: "top 80%",
-    toggleActions: "play none none none"
-  }
-  const triggerSettings = {
-    scrollTrigger: trigger,
-    repeat: -1, // Бесконечное повторение
-    repeatDelay: 0 // Задержка перед повтором
-  }
+  // const trigger = {
+  //   trigger: ".block1.block-anim",
+  //   start: "top 80%",
+  //   toggleActions: "play none none none"
+  // }
+  // const triggerSettings = {
+  //   scrollTrigger: trigger,
+  //   repeat: -1, // Бесконечное повторение
+  //   repeatDelay: 0 // Задержка перед повтором
+  // }
 
   function animateListItems() {
+    
+    const trigger = {
+      trigger: ".block1.block-anim",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    }
+    const triggerSettings = {
+      scrollTrigger: trigger,
+      repeat: -1, // Бесконечное повторение
+      repeatDelay: 0 // Задержка перед повтором
+    }
     const title = document.querySelector(".block-anim__title-wrap")
     const footer = document.querySelector(".block-anim__footer")
 
@@ -860,26 +871,26 @@ function eventHandler() {
       tl.fromTo([title, footer], 
         { opacity: 0 }, 
         { opacity: 1, duration: 1.5, delay: .5,
-          easy: "easy-in",
+          ease: "ease-in",
         }
       );
 
       // // Задержка перед исчезновением
       // tl.to([title, footer], 
       //   { opacity: 0, duration: 1,
-          // easy: "easy-out", }, "+=3.4"
+          // ease: "ease-out", }, "+=3.4"
       // );
 
       tlList.fromTo(".block-anim__list li",
         { opacity: 0, x: -60 },
         { opacity: 1, x: 0, duration: 1, stagger: .6, delay: 1.2,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
 
       // Исчезновение элементов списка
       // tlList.to(".block-anim__list li",
       //   { opacity: 0, duration: 1,
-          // easy: "easy-out", }, "+=2"
+          // ease: "ease-out", }, "+=2"
       // );
 
     } else {
@@ -908,7 +919,7 @@ function eventHandler() {
       );
 
       tla.to([title, footer, ".block-anim__list li"],
-        { opacity: 0, duration: 1, ease: "ease-out" }, "-=1"
+        { opacity: 0, duration: 1, ease: "ease-out" }, "-=0"
       );
     }
   }
@@ -984,12 +995,16 @@ function eventHandler() {
   }
 
   function animateEdelhaus1() {
-    const trigger = {
+    const triggerSettings = {
       trigger: ".block-anim-edelhaus-1",
-      start: "top 80%",
-      toggleActions: "play none none none"
-    }
-    const tl = gsap.timeline(trigger);
+      start: "top 90%",
+      toggleActions: "play none none none",
+    };
+
+    const tl = gsap.timeline({
+      scrollTrigger: triggerSettings
+    });
+
 
     const titlewrap = document.querySelector(".block-anim-edelhaus-1__title-wrap")
 
@@ -1005,7 +1020,7 @@ function eventHandler() {
       tl.fromTo([footer],
         { opacity: 0, y: 60, },
         { opacity: 1, y: 0, duration: 1, delay: 1,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
       tl.fromTo(
         title1,
@@ -1024,13 +1039,13 @@ function eventHandler() {
       tl.fromTo(content,
         { opacity: 0, },
         { opacity: 1, duration: 1, delay: 1,
-          easy: "easy-in", },
+          ease: "ease-in", },
         "-=1"
       );
       tl.fromTo(text,
         { opacity: 0, y: 40,  },
         { opacity: 1, y: 0,  duration: 1,
-          easy: "easy-in", },
+          ease: "ease-in", },
         "-=1.5"
       );
     } else {
@@ -1038,13 +1053,21 @@ function eventHandler() {
       tl.fromTo([titlewrap, text, footer ],
         { opacity: 0, y: -30 },
         { opacity: 1, y: 0, duration: 1, stagger: .8, delay: .5,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
     }
   }
 
   function animateEdelhaus2() {
-    const tl = gsap.timeline(trigger);
+    const triggerSettings = {
+      trigger: ".block-anim-edelhaus-2",
+      start: "top 90%",
+      toggleActions: "play none none none",
+    };
+
+    const tl = gsap.timeline({
+      scrollTrigger: triggerSettings
+    });
 
     const title = document.querySelector(".block-anim-edelhaus-2__title")
     const footer = document.querySelector(".block-anim-edelhaus-2__footer")
@@ -1052,47 +1075,63 @@ function eventHandler() {
     tl.fromTo([title, footer],
       { opacity: 0, y: 60, },
       { opacity: 1, y: 0, duration: 1, stagger: 1, delay: 1.5,
-        easy: "easy-in", }
+        ease: "ease-in", }
     );
   }
 
   function animateMK() {
-    const tl = gsap.timeline(trigger);
+    const triggerSettings = {
+      trigger: ".block-anim-mk-1",
+      start: "top 90%",
+      toggleActions: "play none none none",
+    };
+
+    const tl = gsap.timeline({
+      scrollTrigger: triggerSettings
+    });
 
     tl.fromTo('.block-anim-mk-1 .up-down',
       { opacity: 0, y: -30, },
       { opacity: 1, y: 0, duration: .8, stagger: 1, delay: 1,
-        easy: "easy-in", }
+        ease: "ease-in", }
     );
 
   }
 
   function animateMK2() {
-    const tl = gsap.timeline(trigger);
+    const triggerSettings = {
+      trigger: ".block-anim-mk-2",
+      start: "top 90%",
+      toggleActions: "play none none none",
+    };
+
+    const tl = gsap.timeline({
+      scrollTrigger: triggerSettings
+    });
 
     if (window.innerWidth >= 768) {
       tl.fromTo('.block-anim-mk-2__title',
         { opacity: 0, y: -20, },
         { opacity: 1, y: 0, duration: .8, stagger: .3, delay: 1,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
 
       tl.fromTo('.block-anim-mk-2 .text_left',
         { opacity: 0, x: 20,  },
         { opacity: 1, x: 0,  duration: 1,
-          easy: "easy-in", },
+          ease: "ease-in", },
         "-=1.5"
       );
       tl.fromTo('.block-anim-mk-2 .text_right',
         { opacity: 0, x: -20,  },
         { opacity: 1, x: 0,  duration: 1,
-          easy: "easy-in", },
+          ease: "ease-in", },
         "-=1.5"
       );
       tl.fromTo('.block-anim-mk-2 .brand',
         { opacity: 0, y: -20, },
         { opacity: 1, y: 0, duration: .8,
-          easy: "easy-in", },
+          ease: "ease-in", },
         "-=.5"
       );
 
@@ -1100,32 +1139,48 @@ function eventHandler() {
       tl.fromTo('.block-anim-mk-2 .up-down',
         { opacity: 0, y: -30, },
         { opacity: 1, y: 0, duration: .8, stagger: 1, delay: 1,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
     }
   }
 
   function animateKonig() {
-    const tl = gsap.timeline(trigger);
+    const triggerSettings = {
+      trigger: ".block-anim-konig-1",
+      start: "top 90%",
+      toggleActions: "play none none none",
+    };
+
+    const tl = gsap.timeline({
+      scrollTrigger: triggerSettings
+    });
 
     if (window.innerWidth >= 768) {
       tl.fromTo('.block-anim-konig-1 .left-to-right',
         { opacity: 0, x: -60, },
         { opacity: 1, x: 0, duration: .6, stagger: .4, delay: 1,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
 
     } else {
       tl.fromTo('.block-anim-konig-1 .up-down',
         { opacity: 0, y: -20, },
         { opacity: 1, y: 0, duration: .4, stagger: .4, delay: 1,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
     }
   }
 
   function animateKonig2() {
-    const tl = gsap.timeline(trigger);
+    const triggerSettings = {
+      trigger: ".block-anim-konig-2",
+      start: "top 90%",
+      toggleActions: "play none none none",
+    };
+
+    const tl = gsap.timeline({
+      scrollTrigger: triggerSettings
+    });
 
     if (window.innerWidth >= 768) {
       tl.fromTo([
@@ -1137,14 +1192,14 @@ function eventHandler() {
       ],
         { opacity: 0, x: -60, },
         { opacity: 1, x: 0, duration: .6, stagger: .1, delay: 1,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
 
       tl.fromTo(
         '.block-anim-konig-2 .lg-before',
         { opacity: 0, x: -60, },
         { opacity: 1, x: 0, duration: .6, stagger: .6,
-          easy: "easy-in", },
+          ease: "ease-in", },
         "-=1.8"
       );
 
@@ -1152,27 +1207,35 @@ function eventHandler() {
       tl.fromTo('.block-anim-konig-2 .up-down',
         { opacity: 0, y: -20, },
         { opacity: 1, y: 0, duration: .4, stagger: .4, delay: 1,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
     }
   }
 
   function animateMF() {
-    const tl = gsap.timeline(trigger);
+    const triggerSettings = {
+      trigger: ".block-anim-mf-1",
+      start: "top 90%",
+      toggleActions: "play none none none",
+    };
+
+    const tl = gsap.timeline({
+      scrollTrigger: triggerSettings
+    });
 
     if (window.innerWidth >= 768) {
       tl.fromTo(
         '.block-anim-mf-1 .block-anim-mf__title',
         { opacity: 0, x: -20, },
         { opacity: 1, x: 0, duration: .8, stagger: .6, delay: 1,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
 
       tl.fromTo(
         '.block-anim-mf-1 .block-anim-mf__content-wrap',
         { opacity: 0, x: -30, },
         { opacity: 1, x: 0, duration: .8,
-          easy: "easy-in", },
+          ease: "ease-in", },
         "-=2"
       );
 
@@ -1180,13 +1243,22 @@ function eventHandler() {
       tl.fromTo('.block-anim-mf-1 .down-up',
         { opacity: 0, y: 20, },
         { opacity: 1, y: 0, duration: .6, stagger: .6, delay: 1,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
     }
   }
 
   function animateMF2() {
-    const tl = gsap.timeline(trigger);
+
+    const triggerSettings = {
+      trigger: ".block-anim-mf-2",
+      start: "top 90%",
+      toggleActions: "play none none none",
+    };
+
+    const tl = gsap.timeline({
+      scrollTrigger: triggerSettings
+    });
 
     if (window.innerWidth >= 768) {
       tl.fromTo([
@@ -1194,7 +1266,7 @@ function eventHandler() {
       ],
         { opacity: 0, y: -20, },
         { opacity: 1, y: 0, duration: .8, stagger: .6, delay: 1,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
 
       tl.fromTo([
@@ -1203,7 +1275,7 @@ function eventHandler() {
       ],
         { opacity: 0, x: -30, },
         { opacity: 1, x: 0, duration: .8, stagger: .1,
-          easy: "easy-in", },
+          ease: "ease-in", },
         "-=2.5"
       );
 
@@ -1211,13 +1283,15 @@ function eventHandler() {
       tl.fromTo('.block-anim-mf-2 .down-up',
         { opacity: 0, y: 20, },
         { opacity: 1, y: 0, duration: .6, stagger: .4, delay: 1,
-          easy: "easy-in", }
+          ease: "ease-in", }
       );
     }
   }
 
   window.addEventListener("load", function() {
+    // gsap.registerPlugin();
     animateListItems();
+    animateListItems2()
     animateEdelhaus1();
     animateEdelhaus2();
     animateMK();
@@ -1225,7 +1299,6 @@ function eventHandler() {
     animateKonig();
     animateKonig2();
     animateMF()
-    animateListItems2()
     animateMF2()
   });
 
@@ -1250,7 +1323,7 @@ function eventHandler() {
 				opacity: 1,
 				x: "-50%",
 				duration: 1,
-				easy: "easy-in",
+				ease: "ease-in",
 				scrollTrigger: {
 					trigger: container,
 					start: "bottom bottom",
@@ -1268,7 +1341,7 @@ function eventHandler() {
 				opacity: 1,
 				x: "-50%",
 				duration: 1,
-				easy: "easy-in",
+				ease: "ease-in",
 				scrollTrigger: {
 					trigger: container,
 					start: "bottom bottom",
@@ -1286,7 +1359,7 @@ function eventHandler() {
 				opacity: 1,
 				x: "-50%",
 				duration: 1,
-				easy: "easy-in",
+				ease: "ease-in",
 				scrollTrigger: {
 					trigger: container,
 					start: "bottom bottom",
@@ -1306,7 +1379,7 @@ function eventHandler() {
 					opacity: 1,
 					x: "-50%",
 					duration: 1,
-					easy: "easy-in",
+					ease: "ease-in",
 					scrollTrigger: {
 						trigger: container,
 						start: "bottom bottom",
@@ -1326,7 +1399,7 @@ function eventHandler() {
 					opacity: 1,
 					x: "-50%",
 					duration: 1,
-					easy: "easy-in",
+					ease: "ease-in",
 					scrollTrigger: {
 						trigger: container,
 						start: "bottom bottom",
