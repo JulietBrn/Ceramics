@@ -875,6 +875,19 @@ function eventHandler() {
         }
       );
 
+      tl.fromTo(".block-anim__line", 
+        { opacity: 0 }, 
+        { opacity: 1, duration: 0.3,
+          ease: "ease-in",
+        },
+        "-=1.2"
+      );
+
+      tl.to(".block-anim__line .line", 
+        { x: "100%", duration: 4,
+        },
+        "-=1.2"
+      );
       // // Задержка перед исчезновением
       // tl.to([title, footer], 
       //   { opacity: 0, duration: 1,
@@ -893,8 +906,49 @@ function eventHandler() {
           // ease: "ease-out", }, "+=2"
       // );
 
+    } else if (window.innerWidth < 1024 && window.innerWidth >= 768) {
+
+
+    const trigger = {
+      trigger: ".block1.block-anim",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    }
+    const triggerSettings = {
+      scrollTrigger: trigger,
+      repeat: -1, // Бесконечное повторение
+      repeatDelay: 0 // Задержка перед повтором
+    }
+      const tlList = gsap.timeline(trigger);
+      const tl = gsap.timeline(trigger);
+
+      tl.fromTo([title, footer], 
+        { opacity: 0 }, 
+        { opacity: 1, duration: 1.5, delay: .5,
+          ease: "ease-in",
+        }
+      );
+
+      tl.fromTo(".block-anim__line", 
+        { opacity: 0 }, 
+        { opacity: 1, duration: 0.3,
+          ease: "ease-in",
+        },
+        "-=1.2"
+      );
+
+      tl.to(".block-anim__line .line", 
+        { x: "100%", duration: 4,
+        },
+        "-=1.2"
+      );
+
+      tlList.fromTo(".block-anim__list li",
+        { opacity: 0, x: -60 },
+        { opacity: 1, x: 0, duration: 1, stagger: .6, delay: 1.2,
+          ease: "ease-in", }
+      );
     } else {
-      // Настраиваем общий таймлайн
       const tla = gsap.timeline({
         scrollTrigger: {
           trigger: ".block1.block-anim",
@@ -1289,7 +1343,6 @@ function eventHandler() {
   }
 
   window.addEventListener("load", function() {
-    // gsap.registerPlugin();
     animateListItems();
     animateListItems2()
     animateEdelhaus1();
@@ -1302,7 +1355,7 @@ function eventHandler() {
     animateMF2()
   });
 
-  window.addEventListener("resize", animateListItems);
+  // window.addEventListener("resize", animateListItems);
 
 	gsap.to(".container-wrapper", {
 		opacity: 1,
