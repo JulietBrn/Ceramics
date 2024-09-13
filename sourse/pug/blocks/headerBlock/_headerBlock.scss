@@ -1164,6 +1164,11 @@
     .inner-container {
       background: linear-gradient(270deg, #1d1003 0%, rgba(29, 16, 3, 0.4) 100%);
     }
+    .brand {
+      // @include media-breakpoint-down(md) {
+      //   transform: ;
+      // }
+    }
   }
 
   &__title {
@@ -1185,6 +1190,7 @@
       font-weight: 300;
     }
   }
+
 
   .title_top {
     margin-bottom: rem(11);
@@ -1610,6 +1616,9 @@
     }
 
     .block-anim-mf__title-wrap {
+      @include media-breakpoint-down(md) {
+        // transform:  rotate(0deg) !important;
+      }
       @include media-breakpoint-up(md) {
         position: absolute;
         z-index: 1;

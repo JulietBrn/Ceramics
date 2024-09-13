@@ -1180,6 +1180,12 @@ function eventHandler() {
   function animateMK() {
     const animatedBlock = document.querySelector('.block-anim-mk-1')
     if (!animatedBlock) return
+    
+    ScrollTrigger.getAll().forEach(st => {
+      if (st.trigger === animatedBlock) st.kill();
+    });
+
+    gsap.killTweensOf(animatedBlock);
 
     const triggerSettings = {
       trigger: ".block-anim-mk-1",
@@ -1202,6 +1208,12 @@ function eventHandler() {
   function animateMK2() {
     const animatedBlock = document.querySelector('.block-anim-mk-2')
     if (!animatedBlock) return
+    
+    ScrollTrigger.getAll().forEach(st => {
+      if (st.trigger === animatedBlock) st.kill();
+    });
+
+    gsap.killTweensOf(animatedBlock);
 
     const triggerSettings = {
       trigger: ".block-anim-mk-2",
@@ -1214,6 +1226,9 @@ function eventHandler() {
     });
 
     if (window.innerWidth >= 768) {
+      tl.set('.block-anim-mk-2 .block-anim-mk-2__title-wrap',
+        { opacity: 1, y: 0, },
+      )
       tl.fromTo('.block-anim-mk-2__title',
         { opacity: 0, y: -20, },
         { opacity: 1, y: 0, duration: .8, stagger: .3, delay: 1,
@@ -1240,6 +1255,12 @@ function eventHandler() {
       );
 
     } else {
+      tl.set('.block-anim-mk-2__title',
+        { opacity: 1, y: 0, },
+      )
+      tl.set('.block-anim-mk-2__content-wrap .text',
+        { opacity: 0, x: 0, },
+      )
       tl.fromTo('.block-anim-mk-2 .up-down',
         { opacity: 0, y: -30, },
         { opacity: 1, y: 0, duration: .8, stagger: .6, delay: 1,
@@ -1297,17 +1318,30 @@ function eventHandler() {
     const animatedBlock = document.querySelector('.block-anim-konig-2')
     if (!animatedBlock) return
 
+    ScrollTrigger.getAll().forEach(st => {
+      if (st.trigger === animatedBlock) st.kill();
+    });
+
+    gsap.killTweensOf(animatedBlock);
+
     const triggerSettings = {
       trigger: ".block-anim-konig-2",
       start: "top 90%",
       toggleActions: "play none none none",
     };
 
-    const tl = gsap.timeline({
-      scrollTrigger: triggerSettings
-    });
-
     if (window.innerWidth >= 768) {
+
+      const tl = gsap.timeline({
+        scrollTrigger: triggerSettings
+      });
+      tl.set('.block-anim-konig-2 .up-down',
+        { opacity: 1, y: 0, },
+      )
+      tl.set('.block-anim-konig-2 .brand.left-to-right',
+        { opacity: 0, x: 0, },
+      )
+
       tl.fromTo([
         '.block-anim-konig-2 .lg-after_left.left-to-right',
         '.block-anim-konig-2 .block-anim-konig-2__title-wrap.left-to-right',
@@ -1329,6 +1363,22 @@ function eventHandler() {
       );
 
     } else {
+
+      const tl = gsap.timeline({
+        scrollTrigger: triggerSettings
+      });
+      tl.set([
+        '.block-anim-konig-2 .lg-after_left.left-to-right',
+        '.block-anim-konig-2 .block-anim-konig-2__title-wrap.left-to-right',
+        '.block-anim-konig-2 .block-anim-konig-2__content-wrap.left-to-right',
+        '.block-anim-konig-2 .lg-after_right.left-to-right',
+      ],
+        { opacity: 1, x: 0, },
+      )
+
+      tl.set('.block-anim-konig-2 .brand.left-to-right',
+        { opacity: 0, x: 0, },
+      )
       tl.fromTo('.block-anim-konig-2 .up-down',
         { opacity: 0, y: -20, },
         { opacity: 1, y: 0, duration: .6, stagger: .4, delay: 1,
@@ -1340,6 +1390,11 @@ function eventHandler() {
   function animateMF() {
     const animatedBlock = document.querySelector('.block-anim-mf-1')
     if (!animatedBlock) return
+    ScrollTrigger.getAll().forEach(st => {
+      if (st.trigger === animatedBlock) st.kill();
+    });
+
+    gsap.killTweensOf(animatedBlock);
 
     const triggerSettings = {
       trigger: ".block-anim-mf-1",
@@ -1347,11 +1402,18 @@ function eventHandler() {
       toggleActions: "play none none none",
     };
 
-    const tl = gsap.timeline({
-      scrollTrigger: triggerSettings
-    });
 
     if (window.innerWidth >= 768) {
+      const tl = gsap.timeline({
+        scrollTrigger: triggerSettings
+      });
+      tl.set('.block-anim-mf-1 .block-anim-mf__title-wrap',
+        { opacity: 1, y: 0, rotate: -90 },
+      )
+      tl.set('.block-anim-mf-1 .block-anim-mf__content-wrap',
+        { opacity: 0, y: 0, },
+      )
+
       tl.fromTo(
         '.block-anim-mf-1 .block-anim-mf__title',
         { opacity: 0, x: -20, },
@@ -1368,6 +1430,24 @@ function eventHandler() {
       );
 
     } else {
+      const tl = gsap.timeline({
+        scrollTrigger: triggerSettings
+      });
+      tl.set('.block-anim-mf-1 .block-anim-mf__content-wrap',
+        { opacity: 0, y: 0, x: 0 },
+      )
+
+      tl.set(['.block-anim-mf-1 .block-anim-mf__title'],
+        { opacity: 1, x: 0, },
+      )
+      tl.set(['.block-anim-mf-1 .block-anim-mf__title-wrap.down-up'],
+        { opacity: 0, x: 0, rotate: 0, y: 20 },
+      )
+      
+      // tl.set('.block-anim-mf-1 .block-anim-mf__content-wrap',
+      //   { opacity: 0, y: 0, },
+      // )
+
       tl.fromTo('.block-anim-mf-1 .down-up',
         { opacity: 0, y: 20, },
         { opacity: 1, y: 0, duration: .6, stagger: .6, delay: 1,
@@ -1380,6 +1460,11 @@ function eventHandler() {
     const animatedBlock = document.querySelector('.block-anim-mf-2')
     if (!animatedBlock) return
 
+    ScrollTrigger.getAll().forEach(st => {
+      if (st.trigger === animatedBlock) st.kill();
+    });
+
+    gsap.killTweensOf(animatedBlock);
 
     const triggerSettings = {
       trigger: ".block-anim-mf-2",
@@ -1387,11 +1472,12 @@ function eventHandler() {
       toggleActions: "play none none none",
     };
 
-    const tl = gsap.timeline({
-      scrollTrigger: triggerSettings
-    });
-
     if (window.innerWidth >= 768) {
+
+      const tl = gsap.timeline({
+        scrollTrigger: triggerSettings
+      });
+
       tl.fromTo([
         '.block-anim-mf-2 .block-anim-mf__title',
       ],
@@ -1411,6 +1497,17 @@ function eventHandler() {
       );
 
     } else {
+
+      const tl = gsap.timeline({
+        scrollTrigger: triggerSettings
+      });
+      tl.set('.block-anim-mf-2 .block-anim-mf__content-wrap',
+        { opacity: 0, x: 0, },
+      )
+      tl.set('.block-anim-mf-2 .brand-wrap',
+        { opacity: 1, x: '-40%', },
+      )
+
       tl.fromTo('.block-anim-mf-2 .down-up',
         { opacity: 0, y: 20, },
         { opacity: 1, y: 0, duration: .6, stagger: .4, delay: 1,
