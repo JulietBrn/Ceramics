@@ -850,6 +850,12 @@ function eventHandler() {
   function animateListItems() {
     const animatedBlock = document.querySelector('.block1.block-anim')
     if (!animatedBlock) return
+    
+    ScrollTrigger.getAll().forEach(st => {
+      if (st.trigger === animatedBlock) st.kill();
+    });
+
+    gsap.killTweensOf(animatedBlock);
 
     const trigger = {
       trigger: ".block1.block-anim",
@@ -885,7 +891,8 @@ function eventHandler() {
         "-=1.2"
       );
 
-      tl.to(".block-anim__line .line", 
+      tl.fromTo(".block-anim__line .line", 
+        { x: "-100%", }, 
         { x: "100%", duration: 4,
         },
         "-=1.2"
@@ -979,13 +986,18 @@ function eventHandler() {
   function animateListItems2() {
     const animatedBlock = document.querySelector('.block1.block-anim2')
     if (!animatedBlock) return
+    ScrollTrigger.getAll().forEach(st => {
+      if (st.trigger === animatedBlock) st.kill();
+    });
 
+    gsap.killTweensOf(animatedBlock);
 
     const tla = gsap.timeline({
       scrollTrigger: {
         trigger: ".block1.block-anim2",
         start: "top 80%",
-        toggleActions: "play none none none"
+        toggleActions: "play none none none",
+        invalidateOnRefresh: true 
       },
       repeat: -1,
       repeatDelay: 0
@@ -998,6 +1010,8 @@ function eventHandler() {
           ".block-anim2 .line",
           ".block-anim2 .bg-gr"
         ], { opacity: 0});
+        
+        tla.set(".block-anim2__list", { opacity: 1,});
 
         tla.fromTo(".block-anim2 .line",
           { opacity: 0, x: -500 },
@@ -1020,7 +1034,14 @@ function eventHandler() {
 
     } else {
 
-      tla.set(".block-anim2__list", { opacity: 0, x: -20 });
+      tla.set(".block-anim2__list", { opacity: 0, x: -20, y: '-50%' });
+      
+      tla.set([
+        ".block-anim2 li",
+        ".block-anim2 .line",
+        ".block-anim2 .bg-gr"
+      ], { opacity: 1, x:0});
+      
 
       tla.fromTo(".block-anim2__list.list-1",
         { opacity: 0, x: -20 },
@@ -1052,17 +1073,18 @@ function eventHandler() {
   function animateEdelhaus1() {
     const animatedBlock = document.querySelector('.block-anim-edelhaus-1')
     if (!animatedBlock) return
+    
+    ScrollTrigger.getAll().forEach(st => {
+      if (st.trigger === animatedBlock) st.kill();
+    });
+
+    gsap.killTweensOf(animatedBlock);
 
     const triggerSettings = {
       trigger: ".block-anim-edelhaus-1",
       start: "top 90%",
       toggleActions: "play none none none",
     };
-
-    const tl = gsap.timeline({
-      scrollTrigger: triggerSettings
-    });
-
 
     const titlewrap = document.querySelector(".block-anim-edelhaus-1__title-wrap")
 
@@ -1072,8 +1094,17 @@ function eventHandler() {
 
     const content = document.querySelector(".block-anim-edelhaus-1__content-wrap")
     const text = document.querySelector(".block-anim-edelhaus-1__content-wrap .text")
-    
+
     if (window.innerWidth >= 768) {
+      gsap.set([footer], { opacity: 1, x: '-50%', });
+      gsap.set([ content], { opacity: 1, x: '-50%', y: '-50%'});
+      gsap.set(titlewrap, { opacity: 1, });
+      
+      gsap.set(title1, { x: '-50%', y: '-0%' });
+      gsap.set(title2, { x: '-50%', y: '-0%' });
+      const tl = gsap.timeline({
+        scrollTrigger: triggerSettings
+      });
 
       tl.fromTo([footer],
         { opacity: 0, y: 60, },
@@ -1082,15 +1113,15 @@ function eventHandler() {
       );
       tl.fromTo(
         title1,
-        { opacity: 0, y: 60 },
-        { opacity: 1, y: 0, duration: 1, ease: "ease-in" },
+        { opacity: 0, y: '-0%' },
+        { opacity: 1, y: '-30%', duration: 1, ease: "ease-in" },
         "-=0.5"
       );
 
       tl.fromTo(
         title2,
-        { opacity: 0, y: -60 },
-        { opacity: 1, y: 0, duration: 1, ease: "ease-in" },
+        { opacity: 0, y: '0%' },
+        { opacity: 1, y: '30%', duration: 1, ease: "ease-in" },
         "-=1"
       );
 
@@ -1107,6 +1138,12 @@ function eventHandler() {
         "-=1.5"
       );
     } else {
+      gsap.set([title1, title2, content], { opacity: 1, y: 0, x:0});
+      gsap.set(title2, { x:0});
+      gsap.set(footer, { x:0});
+      const tl = gsap.timeline({
+        scrollTrigger: triggerSettings
+      });
 
       tl.fromTo([titlewrap, text, footer ],
         { opacity: 0, y: -30 },
@@ -1215,25 +1252,40 @@ function eventHandler() {
     const animatedBlock = document.querySelector('.block-anim-konig-1')
     if (!animatedBlock) return
 
+    ScrollTrigger.getAll().forEach(st => {
+      if (st.trigger === animatedBlock) st.kill();
+    });
+
+    gsap.killTweensOf(animatedBlock);
+
     const triggerSettings = {
       trigger: ".block-anim-konig-1",
       start: "top 90%",
       toggleActions: "play none none none",
+      invalidateOnRefresh: true
     };
 
-    const tl = gsap.timeline({
-      scrollTrigger: triggerSettings
-    });
-
     if (window.innerWidth >= 768) {
-      tl.fromTo('.block-anim-konig-1 .left-to-right',
+      gsap.set('.block-anim-konig-1 .left-to-right', { opacity: 0, x: -60 });
+      gsap.set('.block-anim-konig-1 .up-down', { opacity: 1, y: 0 });
+
+      const tl1 = gsap.timeline({
+        scrollTrigger: triggerSettings
+      });
+      tl1.fromTo('.block-anim-konig-1 .left-to-right',
         { opacity: 0, x: -60, },
         { opacity: 1, x: 0, duration: .6, stagger: .4, delay: 1,
           ease: "ease-in", }
       );
 
     } else {
-      tl.fromTo('.block-anim-konig-1 .up-down',
+      gsap.set('.block-anim-konig-1 .up-down', { opacity: 0, y: -20 });
+      gsap.set('.block-anim-konig-1 .left-to-right', { opacity: 1, x: 0 });
+
+      const tl2 = gsap.timeline({
+        scrollTrigger: triggerSettings
+      });
+      tl2.fromTo('.block-anim-konig-1 .up-down',
         { opacity: 0, y: -20, },
         { opacity: 1, y: 0, duration: .6, stagger: .4, delay: 1,
           ease: "ease-in", }
@@ -1383,7 +1435,22 @@ function eventHandler() {
     animateMF2()
   });
 
-  // window.addEventListener("resize", animateListItems);
+  window.addEventListener("resize", function() {
+    const animatedBlock = document.querySelector('.block1-anim')
+    if (!animatedBlock) return
+    // ScrollTrigger.killAll( );
+
+    animateListItems();
+    animateListItems2()
+    animateEdelhaus1();
+    animateEdelhaus2();
+    animateMK();
+    animateMK2();
+    animateKonig();
+    animateKonig2();
+    animateMF()
+    animateMF2()
+  });
 
 	gsap.to(".container-wrapper", {
 		opacity: 1,
