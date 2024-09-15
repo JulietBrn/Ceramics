@@ -163,6 +163,8 @@ function eventHandler() {
 		},
 		on: {
 			slideChangeTransitionEnd: function (swiper) {
+				const activeSlide = swiper.slides[swiper.activeIndex];
+
 				const slides = swiper.slidesEl.querySelectorAll(
 					".swiper-slide:not(.swiper-slide-active)"
 				);
@@ -177,6 +179,29 @@ function eventHandler() {
 						}
 					}
 				});
+
+				const container = activeSlide.querySelector(
+					"   .main-slider__slider-inner"
+				);
+
+				if (container) {
+					container.addEventListener("scroll", () => {
+						onContainerScroll(activeSlide);
+					});
+				}
+			},
+			init(swiper) {
+				const activeSlide = swiper.slides[swiper.activeIndex];
+				const container = activeSlide.querySelector(
+					"   .main-slider__slider-inner"
+				);
+				console.log(container);
+
+				container.addEventListener("scroll", () => {
+					onContainerScroll(activeSlide);
+				});
+
+				onContainerScroll(activeSlide);
 			},
 		},
 	});
@@ -672,951 +697,989 @@ function eventHandler() {
 			}
 		}
 
-	document.addEventListener("click", function (event) {
-		let filters = document.querySelectorAll("#product-filter .filter");
-		filters.forEach(filter => {
-			if (!filter.contains(event.target)) {
-				const filterTitle = filter.querySelector(".filter__title");
-				filterTitle.classList.remove("show");
-			}
-		});
-	});
-
-	const productFilters = document.querySelectorAll(
-		"#product-filter .filter--img"
-	);
-
-	productFilters.forEach(filter => {
-		const filterTitleImg = filter.querySelector(".filter__title img");
-		const filterTitleText = filter.querySelector(".filter__title .title__text");
-		const labels = filter.querySelectorAll(".filter__wrap label");
-
-		const updateTitle = () => {
-			const checkedInput = filter.querySelector(".filter__wrap input:checked");
-			if (checkedInput) {
-				const label = checkedInput.closest("label");
-				const newImgSrc = label.querySelector("img").src;
-				const newText = label.querySelector(".custom-input__text").innerText;
-				filterTitleImg.src = newImgSrc;
-				filterTitleText.innerText = newText;
-			}
-		};
-
-		// Initialize title on page load
-		updateTitle();
-
-		labels.forEach(label => {
-			label.addEventListener("click", function () {
-				updateTitle();
+		document.addEventListener("click", function (event) {
+			let filters = document.querySelectorAll("#product-filter .filter");
+			filters.forEach(filter => {
+				if (!filter.contains(event.target)) {
+					const filterTitle = filter.querySelector(".filter__title");
+					filterTitle.classList.remove("show");
+				}
 			});
 		});
-	});
 
-	const productFiltersColor = document.querySelectorAll(
-		"#product-filter .filter--colors"
-	);
-
-	productFiltersColor.forEach(filter => {
-		const filterTitleImg = filter.querySelector(
-			".filter__title .custom-input__img"
+		const productFilters = document.querySelectorAll(
+			"#product-filter .filter--img"
 		);
-		const filterTitleText = filter.querySelector(".custom-input__text");
-		const labels = filter.querySelectorAll(".filter__wrap label");
 
-		const updateTitle = () => {
-			const checkedInput = filter.querySelector(".filter__wrap input:checked");
-			if (checkedInput) {
-				const label = checkedInput.closest("label");
-				const newImgSrc =
-					label.querySelector(".custom-input__img").style.backgroundColor;
-				const newText = label.querySelector(".custom-input__text").innerText;
-				filterTitleImg.style.backgroundColor = newImgSrc;
-				filterTitleText.innerText = newText;
-			}
-		};
-
-		// Initialize title on page load
-		updateTitle();
-
-		labels.forEach(label => {
-			label.addEventListener("click", function () {
-				updateTitle();
-			});
-		});
-	});
-
-	var sectionTitle = document.querySelector(".headerBlock .section-title");
-	if (sectionTitle) {
-		sectionTitle.classList.add("loaded");
-	}
-
-	/* close all filters except current */
-	document.addEventListener("click", function (event) {
-		let filterElements = document.querySelectorAll(".filter");
-		if (!filterElements) return;
-		filterElements.forEach(function (element) {
-			if (!element.contains(event.target)) {
-				element.classList.remove("show");
-			}
-		});
-	});
-
-	$(".form-wrap__input-wrap").each(function () {
-		let self = $(this);
-		let floatLabel;
-		// let placeholderName = $(this)[0].querySelector("select").getAttribute('data-placeholder');
-		// let floatDiv = '<div class="float-select"><span class="name">' + placeholderName + '</span></div>';
-		const tags = self.find("select").data("tags");
-		let select = self.find("select").select2({
-			dropdownParent: self,
-			language: "ru",
-		});
-
-		select.one("select2:open", function (e) {
-			// console.log(self.find("select")[0].dataset);
-
-			$("input.select2-search__field").prop(
-				"placeholder",
-				tags === true ? "Поиск или введите свой вариант ответа" : " Поиск"
+		productFilters.forEach(filter => {
+			const filterTitleImg = filter.querySelector(".filter__title img");
+			const filterTitleText = filter.querySelector(
+				".filter__title .title__text"
 			);
+			const labels = filter.querySelectorAll(".filter__wrap label");
+
+			const updateTitle = () => {
+				const checkedInput = filter.querySelector(
+					".filter__wrap input:checked"
+				);
+				if (checkedInput) {
+					const label = checkedInput.closest("label");
+					const newImgSrc = label.querySelector("img").src;
+					const newText = label.querySelector(".custom-input__text").innerText;
+					filterTitleImg.src = newImgSrc;
+					filterTitleText.innerText = newText;
+				}
+			};
+
+			// Initialize title on page load
+			updateTitle();
+
+			labels.forEach(label => {
+				label.addEventListener("click", function () {
+					updateTitle();
+				});
+			});
 		});
-		// console.log(select2);
-	});
 
-	const selectAllBtn = document.querySelector(".btn-select-all--js input");
-	const removeBtn = document.querySelector(".btn-remove--js .small");
+		const productFiltersColor = document.querySelectorAll(
+			"#product-filter .filter--colors"
+		);
 
-	function updateRemoveButtonText() {
-		if (selectAllBtn.checked) {
-			removeBtn.textContent = "Удалить все";
-		} else {
-			removeBtn.textContent = "Удалить выбранные";
+		productFiltersColor.forEach(filter => {
+			const filterTitleImg = filter.querySelector(
+				".filter__title .custom-input__img"
+			);
+			const filterTitleText = filter.querySelector(".custom-input__text");
+			const labels = filter.querySelectorAll(".filter__wrap label");
+
+			const updateTitle = () => {
+				const checkedInput = filter.querySelector(
+					".filter__wrap input:checked"
+				);
+				if (checkedInput) {
+					const label = checkedInput.closest("label");
+					const newImgSrc =
+						label.querySelector(".custom-input__img").style.backgroundColor;
+					const newText = label.querySelector(".custom-input__text").innerText;
+					filterTitleImg.style.backgroundColor = newImgSrc;
+					filterTitleText.innerText = newText;
+				}
+			};
+
+			// Initialize title on page load
+			updateTitle();
+
+			labels.forEach(label => {
+				label.addEventListener("click", function () {
+					updateTitle();
+				});
+			});
+		});
+
+		var sectionTitle = document.querySelector(".headerBlock .section-title");
+		if (sectionTitle) {
+			sectionTitle.classList.add("loaded");
 		}
-	}
 
-	if (selectAllBtn) {
-		updateRemoveButtonText();
-		selectAllBtn.addEventListener("change", updateRemoveButtonText);
-	}
-
-	const coordinationElements = document.querySelectorAll(".coordination");
-
-	if (coordinationElements) {
-		coordinationElements.forEach(function (coordinationElement) {
-			const coordinates = coordinationElement.textContent.trim().split(": ")[1];
-
-			coordinationElement.addEventListener("click", function () {
-				const textarea = document.createElement("textarea");
-				textarea.value = coordinates;
-				document.body.appendChild(textarea);
-				textarea.select();
-				document.execCommand("copy");
-				document.body.removeChild(textarea);
+		/* close all filters except current */
+		document.addEventListener("click", function (event) {
+			let filterElements = document.querySelectorAll(".filter");
+			if (!filterElements) return;
+			filterElements.forEach(function (element) {
+				if (!element.contains(event.target)) {
+					element.classList.remove("show");
+				}
 			});
 		});
-	}
 
-	const tabs = document.querySelectorAll(".sGallery .tabs__btn");
-	tabs.forEach(tab => {
-		tab.addEventListener("click", () => {
-			const dataContent = tab.getAttribute("data-content");
-			if (window.innerWidth >= 768) {
-				if (dataContent === "photo") {
-					filters.classList.remove("d-md-none");
-					videoFilter.classList.add("d-md-none");
-				}
-				if (dataContent === "video") {
-					filters.classList.add("d-md-none");
-					videoFilter.classList.remove("d-md-none");
-				}
+		$(".form-wrap__input-wrap").each(function () {
+			let self = $(this);
+			let floatLabel;
+			// let placeholderName = $(this)[0].querySelector("select").getAttribute('data-placeholder');
+			// let floatDiv = '<div class="float-select"><span class="name">' + placeholderName + '</span></div>';
+			const tags = self.find("select").data("tags");
+			let select = self.find("select").select2({
+				dropdownParent: self,
+				language: "ru",
+			});
+
+			select.one("select2:open", function (e) {
+				// console.log(self.find("select")[0].dataset);
+
+				$("input.select2-search__field").prop(
+					"placeholder",
+					tags === true ? "Поиск или введите свой вариант ответа" : " Поиск"
+				);
+			});
+			// console.log(select2);
+		});
+
+		const selectAllBtn = document.querySelector(".btn-select-all--js input");
+		const removeBtn = document.querySelector(".btn-remove--js .small");
+
+		function updateRemoveButtonText() {
+			if (selectAllBtn.checked) {
+				removeBtn.textContent = "Удалить все";
+			} else {
+				removeBtn.textContent = "Удалить выбранные";
 			}
-		});
-	});
-
-	gsap.registerPlugin(ScrollTrigger);
-
-  /* animation */
-  // const trigger = {
-  //   trigger: ".block1.block-anim",
-  //   start: "top 80%",
-  //   toggleActions: "play none none none"
-  // }
-  // const triggerSettings = {
-  //   scrollTrigger: trigger,
-  //   repeat: -1, // Бесконечное повторение
-  //   repeatDelay: 0 // Задержка перед повтором
-  // }
-
-  function animateListItems() {
-    const animatedBlock = document.querySelector('.block1.block-anim')
-    if (!animatedBlock) return
-    
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.trigger === animatedBlock) st.kill();
-    });
-
-    gsap.killTweensOf(animatedBlock);
-
-    const trigger = {
-      trigger: ".block1.block-anim",
-      start: "top 80%",
-      toggleActions: "play none none none"
-    }
-    const triggerSettings = {
-      scrollTrigger: trigger,
-      repeat: -1, // Бесконечное повторение
-      repeatDelay: 0 // Задержка перед повтором
-    }
-    const title = document.querySelector(".block-anim__title-wrap")
-    const footer = document.querySelector(".block-anim__footer")
-
-    if (window.innerWidth >= 1024) {
-      const tl = gsap.timeline(trigger);
-      const tlList = gsap.timeline(trigger);
-      // const tl = gsap.timeline(triggerSettings);
-      // const tlList = gsap.timeline(triggerSettings);
-
-      tl.fromTo([title, footer], 
-        { opacity: 0 }, 
-        { opacity: 1, duration: 1.5, delay: .5,
-          ease: "ease-in",
-        }
-      );
-
-      tl.fromTo(".block-anim__line", 
-        { opacity: 0 }, 
-        { opacity: 1, duration: 0.3,
-          ease: "ease-in",
-        },
-        "-=1.2"
-      );
-
-      tl.fromTo(".block-anim__line .line", 
-        { x: "-100%", }, 
-        { x: "100%", duration: 4,
-        },
-        "-=1.2"
-      );
-      // // Задержка перед исчезновением
-      // tl.to([title, footer], 
-      //   { opacity: 0, duration: 1,
-          // ease: "ease-out", }, "+=3.4"
-      // );
-
-      tlList.fromTo(".block-anim__list li",
-        { opacity: 0, x: -60 },
-        { opacity: 1, x: 0, duration: 1, stagger: .6, delay: 1.2,
-          ease: "ease-in", }
-      );
-
-      // Исчезновение элементов списка
-      // tlList.to(".block-anim__list li",
-      //   { opacity: 0, duration: 1,
-          // ease: "ease-out", }, "+=2"
-      // );
-
-    } else if (window.innerWidth < 1024 && window.innerWidth >= 768) {
-
-
-    const trigger = {
-      trigger: ".block1.block-anim",
-      start: "top 80%",
-      toggleActions: "play none none none"
-    }
-
-      const tlList = gsap.timeline(trigger);
-      const tl = gsap.timeline(trigger);
-
-      tl.fromTo([title, footer], 
-        { opacity: 0 }, 
-        { opacity: 1, duration: 1.5, delay: .5,
-          ease: "ease-in",
-        }
-      );
-
-      tl.fromTo(".block-anim__line", 
-        { opacity: 0 }, 
-        { opacity: 1, duration: 0.3,
-          ease: "ease-in",
-        },
-        "-=1.2"
-      );
-
-      tl.to(".block-anim__line .line", 
-        { x: "100%", duration: 4,
-        },
-        "-=1.2"
-      );
-
-      tlList.fromTo(".block-anim__list li",
-        { opacity: 0, x: -60 },
-        { opacity: 1, x: 0, duration: 1, stagger: .6, delay: 1.2,
-          ease: "ease-in", }
-      );
-    } else {
-      const tla = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".block1.block-anim",
-          start: "top 80%",
-          toggleActions: "play none none none"
-        },
-        repeat: -1, // Бесконечное повторение
-        repeatDelay: 0 // Задержка перед повтором
-      });
-
-      tla.set(".block-anim__list li", { opacity: 0 });
-
-      tla.fromTo([title, footer],
-        { opacity: 0 },
-        { opacity: 1, duration: 1, delay: 0.5, ease: "ease-in", }
-      );
-
-      tla.fromTo(".block-anim__list li",
-        { opacity: 0 },
-        { opacity: 1, duration: 1, stagger: 1, ease: "ease-in",  },
-        "-=0.5"
-      );
-
-      tla.to([title, footer, ".block-anim__list li"],
-        { opacity: 0, duration: 1, delay:2, ease: "ease-out" }, "-=0"
-      );
-    }
-  }
-
-  function animateListItems2() {
-    const animatedBlock = document.querySelector('.block1.block-anim2')
-    if (!animatedBlock) return
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.trigger === animatedBlock) st.kill();
-    });
-
-    gsap.killTweensOf(animatedBlock);
-
-    const tla = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".block1.block-anim2",
-        start: "top 80%",
-        toggleActions: "play none none none",
-        invalidateOnRefresh: true 
-      },
-      repeat: -1,
-      repeatDelay: 0
-    });
-
-    if (window.innerWidth >= 1024 && window.matchMedia("(orientation: landscape)").matches) {
-
-        tla.set([
-          ".block-anim2 li",
-          ".block-anim2 .line",
-          ".block-anim2 .bg-gr"
-        ], { opacity: 0});
-        
-        tla.set(".block-anim2__list", { opacity: 1,});
-
-        tla.fromTo(".block-anim2 .line",
-          { opacity: 0, x: -500 },
-          { opacity: 1, x: 0, duration: 1.5, delay: 1, ease: "ease-in" },
-        );
-        tla.fromTo(".block-anim2 .bg-gr",
-          { opacity: 0, },
-          { opacity: 1, duration: 1, ease: "ease-in" }, "-=1"
-        );
-        tla.fromTo(".block-anim2 li",
-          { opacity: 0, x: -100 },
-          { opacity: 1, x: 0, duration: 1, ease: "ease-in" }, "-=1"
-        );
-        tla.to({}, { duration: 2 }); // Пауза на 2 секунды
-
-        tla.fromTo([".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr"],
-          { opacity: 1, x: 0 },
-          { opacity: 0, x: 100, duration: 1, ease: "ease-in" }, 
-        );
-
-    } else {
-
-      tla.set(".block-anim2__list", { opacity: 0, x: -20, y: '-50%' });
-      
-      tla.set([
-        ".block-anim2 li",
-        ".block-anim2 .line",
-        ".block-anim2 .bg-gr"
-      ], { opacity: 1, x:0});
-      
-
-      tla.fromTo(".block-anim2__list.list-1",
-        { opacity: 0, x: -20 },
-        { opacity: 1, x: 0, duration: 1, ease: "ease-in" }, "0"
-      );
-      tla.fromTo(".block-anim2__list.list-2",
-        { opacity: 1, x: 0 },
-        { opacity: 0, x: 20, duration: 1, ease: "ease-out" }, "0"
-      );
-  
-      // Задержка в 2 секунды, пока первый список остаётся видимым
-      tla.to({}, { duration: 2 }); // Пауза на 2 секунды
-
-      // Появление второго списка и одновременное исчезновение первого
-      tla.fromTo(".block-anim2__list.list-2",
-        { opacity: 0, x: -20 },
-        { opacity: 1, x: 0, duration: 1, ease: "ease-in" }, "+=0"
-      );
-      tla.fromTo(".block-anim2__list.list-1",
-        { opacity: 1, x: 0 },
-        { opacity: 0, x: 20, duration: 1, ease: "ease-out" }, "-=1"
-      );
-    
-      // Задержка в 2 секунды, пока второй список остаётся видимым
-      tla.to({}, { duration: 2 }); // Пауза на 2 секунды
-    }
-  }
-
-  function animateEdelhaus1() {
-    const animatedBlock = document.querySelector('.block-anim-edelhaus-1')
-    if (!animatedBlock) return
-    
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.trigger === animatedBlock) st.kill();
-    });
-
-    gsap.killTweensOf(animatedBlock);
-
-    const triggerSettings = {
-      trigger: ".block-anim-edelhaus-1",
-      start: "top 90%",
-      toggleActions: "play none none none",
-    };
-
-    const titlewrap = document.querySelector(".block-anim-edelhaus-1__title-wrap")
-
-    const title1 = document.querySelector(".block-anim-edelhaus-1 .title_top")
-    const title2 = document.querySelector(".block-anim-edelhaus-1 .title_bottom")
-    const footer = document.querySelector(".block-anim-edelhaus-1 .brand")
-
-    const content = document.querySelector(".block-anim-edelhaus-1__content-wrap")
-    const text = document.querySelector(".block-anim-edelhaus-1__content-wrap .text")
-
-    if (window.innerWidth >= 768) {
-      gsap.set([footer], { opacity: 1, x: '-50%', });
-      gsap.set([ content], { opacity: 1, x: '-50%', y: '-50%'});
-      gsap.set(titlewrap, { opacity: 1, });
-      
-      gsap.set(title1, { x: '-50%', y: '-0%' });
-      gsap.set(title2, { x: '-50%', y: '-0%' });
-      const tl = gsap.timeline({
-        scrollTrigger: triggerSettings
-      });
-
-      tl.fromTo([footer],
-        { opacity: 0, y: 60, },
-        { opacity: 1, y: 0, duration: 1, delay: 1,
-          ease: "ease-in", }
-      );
-      tl.fromTo(
-        title1,
-        { opacity: 0, y: '-0%' },
-        { opacity: 1, y: '-30%', duration: 1, ease: "ease-in" },
-        "-=0.5"
-      );
-
-      tl.fromTo(
-        title2,
-        { opacity: 0, y: '0%' },
-        { opacity: 1, y: '30%', duration: 1, ease: "ease-in" },
-        "-=1"
-      );
-
-      tl.fromTo(content,
-        { opacity: 0, },
-        { opacity: 1, duration: 1, delay: 1,
-          ease: "ease-in", },
-        "-=1"
-      );
-      tl.fromTo(text,
-        { opacity: 0, y: 40,  },
-        { opacity: 1, y: 0,  duration: 1,
-          ease: "ease-in", },
-        "-=1.5"
-      );
-    } else {
-      gsap.set([title1, title2, content], { opacity: 1, y: 0, x:0});
-      gsap.set(title2, { x:0});
-      gsap.set(footer, { x:0});
-      const tl = gsap.timeline({
-        scrollTrigger: triggerSettings
-      });
-
-      tl.fromTo([titlewrap, text, footer ],
-        { opacity: 0, y: -30 },
-        { opacity: 1, y: 0, duration: 1, stagger: .8, delay: .5,
-          ease: "ease-in", }
-      );
-    }
-  }
-
-  function animateEdelhaus2() {
-    const animatedBlock = document.querySelector('.block-anim-edelhaus-2')
-    if (!animatedBlock) return
-
-    const triggerSettings = {
-      trigger: ".block-anim-edelhaus-2",
-      start: "top 90%",
-      toggleActions: "play none none none",
-    };
-
-    const tl = gsap.timeline({
-      scrollTrigger: triggerSettings
-    });
-
-    const title = document.querySelector(".block-anim-edelhaus-2__title")
-    const footer = document.querySelector(".block-anim-edelhaus-2__footer")
-
-    tl.fromTo([title, footer],
-      { opacity: 0, y: 60, },
-      { opacity: 1, y: 0, duration: 1, stagger: 1, delay: 1.5,
-        ease: "ease-in", }
-    );
-  }
-
-  function animateMK() {
-    const animatedBlock = document.querySelector('.block-anim-mk-1')
-    if (!animatedBlock) return
-    
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.trigger === animatedBlock) st.kill();
-    });
-
-    gsap.killTweensOf(animatedBlock);
-
-    const triggerSettings = {
-      trigger: ".block-anim-mk-1",
-      start: "top 90%",
-      toggleActions: "play none none none",
-    };
-
-    const tl = gsap.timeline({
-      scrollTrigger: triggerSettings
-    });
-
-    tl.fromTo('.block-anim-mk-1 .up-down',
-      { opacity: 0, y: -30, },
-      { opacity: 1, y: 0, duration: .8, stagger: 1, delay: 1,
-        ease: "ease-in", }
-    );
-
-  }
-
-  function animateMK2() {
-    const animatedBlock = document.querySelector('.block-anim-mk-2')
-    if (!animatedBlock) return
-    
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.trigger === animatedBlock) st.kill();
-    });
-
-    gsap.killTweensOf(animatedBlock);
-
-    const triggerSettings = {
-      trigger: ".block-anim-mk-2",
-      start: "top 90%",
-      toggleActions: "play none none none",
-    };
-
-    const tl = gsap.timeline({
-      scrollTrigger: triggerSettings
-    });
-
-    if (window.innerWidth >= 768) {
-      tl.set('.block-anim-mk-2 .block-anim-mk-2__title-wrap',
-        { opacity: 1, y: 0, },
-      )
-      tl.fromTo('.block-anim-mk-2__title',
-        { opacity: 0, y: -20, },
-        { opacity: 1, y: 0, duration: .8, stagger: .3, delay: 1,
-          ease: "ease-in", }
-      );
-
-      tl.fromTo('.block-anim-mk-2 .text_left',
-        { opacity: 0, x: 20,  },
-        { opacity: 1, x: 0,  duration: 1,
-          ease: "ease-in", },
-        "-=0"
-      );
-      tl.fromTo('.block-anim-mk-2 .text_right',
-        { opacity: 0, x: -20,  },
-        { opacity: 1, x: 0,  duration: 1,
-          ease: "ease-in", },
-        "-=1"
-      );
-      tl.fromTo('.block-anim-mk-2 .brand',
-        { opacity: 0, y: -20, },
-        { opacity: 1, y: 0, duration: .8,
-          ease: "ease-in", },
-        "-=0"
-      );
-
-    } else {
-      tl.set('.block-anim-mk-2__title',
-        { opacity: 1, y: 0, },
-      )
-      tl.set('.block-anim-mk-2__content-wrap .text',
-        { opacity: 0, x: 0, },
-      )
-      tl.fromTo('.block-anim-mk-2 .up-down',
-        { opacity: 0, y: -30, },
-        { opacity: 1, y: 0, duration: .8, stagger: .6, delay: 1,
-          ease: "ease-in", }
-      );
-    }
-  }
-
-  function animateKonig() {
-    const animatedBlock = document.querySelector('.block-anim-konig-1')
-    if (!animatedBlock) return
-
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.trigger === animatedBlock) st.kill();
-    });
-
-    gsap.killTweensOf(animatedBlock);
-
-    const triggerSettings = {
-      trigger: ".block-anim-konig-1",
-      start: "top 90%",
-      toggleActions: "play none none none",
-      invalidateOnRefresh: true
-    };
-
-    if (window.innerWidth >= 768) {
-      gsap.set('.block-anim-konig-1 .left-to-right', { opacity: 0, x: -60 });
-      gsap.set('.block-anim-konig-1 .up-down', { opacity: 1, y: 0 });
-
-      const tl1 = gsap.timeline({
-        scrollTrigger: triggerSettings
-      });
-      tl1.fromTo('.block-anim-konig-1 .left-to-right',
-        { opacity: 0, x: -60, },
-        { opacity: 1, x: 0, duration: .6, stagger: .4, delay: 1,
-          ease: "ease-in", }
-      );
-
-    } else {
-      gsap.set('.block-anim-konig-1 .up-down', { opacity: 0, y: -20 });
-      gsap.set('.block-anim-konig-1 .left-to-right', { opacity: 1, x: 0 });
-
-      const tl2 = gsap.timeline({
-        scrollTrigger: triggerSettings
-      });
-      tl2.fromTo('.block-anim-konig-1 .up-down',
-        { opacity: 0, y: -20, },
-        { opacity: 1, y: 0, duration: .6, stagger: .4, delay: 1,
-          ease: "ease-in", }
-      );
-    }
-  }
-
-  function animateKonig2() {
-    const animatedBlock = document.querySelector('.block-anim-konig-2')
-    if (!animatedBlock) return
-
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.trigger === animatedBlock) st.kill();
-    });
-
-    gsap.killTweensOf(animatedBlock);
-
-    const triggerSettings = {
-      trigger: ".block-anim-konig-2",
-      start: "top 90%",
-      toggleActions: "play none none none",
-    };
-
-    if (window.innerWidth >= 768) {
-
-      const tl = gsap.timeline({
-        scrollTrigger: triggerSettings
-      });
-      tl.set('.block-anim-konig-2 .up-down',
-        { opacity: 1, y: 0, },
-      )
-      tl.set('.block-anim-konig-2 .brand.left-to-right',
-        { opacity: 0, x: 0, },
-      )
-
-      tl.fromTo([
-        '.block-anim-konig-2 .lg-after_left.left-to-right',
-        '.block-anim-konig-2 .block-anim-konig-2__title-wrap.left-to-right',
-        '.block-anim-konig-2 .brand.left-to-right',
-        '.block-anim-konig-2 .block-anim-konig-2__content-wrap.left-to-right',
-        '.block-anim-konig-2 .lg-after_right.left-to-right',
-      ],
-        { opacity: 0, x: -60, },
-        { opacity: 1, x: 0, duration: .6, stagger: .1, delay: 1,
-          ease: "ease-in", }
-      );
-
-      tl.fromTo(
-        '.block-anim-konig-2 .lg-before',
-        { opacity: 0, x: -60, },
-        { opacity: 1, x: 0, duration: .6, stagger: .6,
-          ease: "ease-in", },
-        "-=1.3"
-      );
-
-    } else {
-
-      const tl = gsap.timeline({
-        scrollTrigger: triggerSettings
-      });
-      tl.set([
-        '.block-anim-konig-2 .lg-after_left.left-to-right',
-        '.block-anim-konig-2 .block-anim-konig-2__title-wrap.left-to-right',
-        '.block-anim-konig-2 .block-anim-konig-2__content-wrap.left-to-right',
-        '.block-anim-konig-2 .lg-after_right.left-to-right',
-      ],
-        { opacity: 1, x: 0, },
-      )
-
-      tl.set('.block-anim-konig-2 .brand.left-to-right',
-        { opacity: 0, x: 0, },
-      )
-      tl.fromTo('.block-anim-konig-2 .up-down',
-        { opacity: 0, y: -20, },
-        { opacity: 1, y: 0, duration: .6, stagger: .4, delay: 1,
-          ease: "ease-in", }
-      );
-    }
-  }
-
-  function animateMF() {
-    const animatedBlock = document.querySelector('.block-anim-mf-1')
-    if (!animatedBlock) return
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.trigger === animatedBlock) st.kill();
-    });
-
-    gsap.killTweensOf(animatedBlock);
-
-    const triggerSettings = {
-      trigger: ".block-anim-mf-1",
-      start: "top 90%",
-      toggleActions: "play none none none",
-    };
-
-
-    if (window.innerWidth >= 768) {
-      const tl = gsap.timeline({
-        scrollTrigger: triggerSettings
-      });
-      tl.set('.block-anim-mf-1 .block-anim-mf__title-wrap',
-        { opacity: 1, y: 0, rotate: -90 },
-      )
-      tl.set('.block-anim-mf-1 .block-anim-mf__content-wrap',
-        { opacity: 0, y: 0, },
-      )
-
-      tl.fromTo(
-        '.block-anim-mf-1 .block-anim-mf__title',
-        { opacity: 0, x: -20, },
-        { opacity: 1, x: 0, duration: .8, stagger: .6, delay: 1,
-          ease: "ease-in", }
-      );
-
-      tl.fromTo(
-        '.block-anim-mf-1 .block-anim-mf__content-wrap',
-        { opacity: 0, x: -30, },
-        { opacity: 1, x: 0, duration: .8,
-          ease: "ease-in", },
-        // "-=2"
-      );
-
-    } else {
-      const tl = gsap.timeline({
-        scrollTrigger: triggerSettings
-      });
-      tl.set('.block-anim-mf-1 .block-anim-mf__content-wrap',
-        { opacity: 0, y: 0, x: 0 },
-      )
-
-      tl.set(['.block-anim-mf-1 .block-anim-mf__title'],
-        { opacity: 1, x: 0, },
-      )
-      tl.set(['.block-anim-mf-1 .block-anim-mf__title-wrap.down-up'],
-        { opacity: 0, x: 0, rotate: 0, y: 20 },
-      )
-      
-      // tl.set('.block-anim-mf-1 .block-anim-mf__content-wrap',
-      //   { opacity: 0, y: 0, },
-      // )
-
-      tl.fromTo('.block-anim-mf-1 .down-up',
-        { opacity: 0, y: 20, },
-        { opacity: 1, y: 0, duration: .6, stagger: .6, delay: 1,
-          ease: "ease-in", }
-      );
-    }
-  }
-
-  function animateMF2() {
-    const animatedBlock = document.querySelector('.block-anim-mf-2')
-    if (!animatedBlock) return
-
-    ScrollTrigger.getAll().forEach(st => {
-      if (st.trigger === animatedBlock) st.kill();
-    });
-
-    gsap.killTweensOf(animatedBlock);
-
-    const triggerSettings = {
-      trigger: ".block-anim-mf-2",
-      start: "top 90%",
-      toggleActions: "play none none none",
-    };
-
-    if (window.innerWidth >= 768) {
-
-      const tl = gsap.timeline({
-        scrollTrigger: triggerSettings
-      });
-
-      tl.fromTo([
-        '.block-anim-mf-2 .block-anim-mf__title',
-      ],
-        { opacity: 0, y: -20, },
-        { opacity: 1, y: 0, duration: .8, stagger: .6, delay: 1,
-          ease: "ease-in", }
-      );
-
-      tl.fromTo([
-        '.block-anim-mf-2 .block-anim-mf__content-wrap',
-        '.block-anim-mf-2 .brand-wrap',
-      ],
-        { opacity: 0, x: -30, },
-        { opacity: 1, x: 0, duration: .8, stagger: .3,
-          ease: "ease-in", },
-        // "-=2.5"
-      );
-
-    } else {
-
-      const tl = gsap.timeline({
-        scrollTrigger: triggerSettings
-      });
-      tl.set('.block-anim-mf-2 .block-anim-mf__content-wrap',
-        { opacity: 0, x: 0, },
-      )
-      tl.set('.block-anim-mf-2 .brand-wrap',
-        { opacity: 1, x: '-40%', },
-      )
-
-      tl.fromTo('.block-anim-mf-2 .down-up',
-        { opacity: 0, y: 20, },
-        { opacity: 1, y: 0, duration: .6, stagger: .4, delay: 1,
-          ease: "ease-in", }
-      );
-    }
-  }
-
-  window.addEventListener("load", function() {
-    const animatedBlock = document.querySelector('.block1-anim')
-    if (!animatedBlock) return
-
-    animateListItems();
-    animateListItems2()
-    animateEdelhaus1();
-    animateEdelhaus2();
-    animateMK();
-    animateMK2();
-    animateKonig();
-    animateKonig2();
-    animateMF()
-    animateMF2()
-  });
-
-  window.addEventListener("resize", function() {
-    const animatedBlock = document.querySelector('.block1-anim')
-    if (!animatedBlock) return
-    // ScrollTrigger.killAll( );
-
-    animateListItems();
-    animateListItems2()
-    animateEdelhaus1();
-    animateEdelhaus2();
-    animateMK();
-    animateMK2();
-    animateKonig();
-    animateKonig2();
-    animateMF()
-    animateMF2()
-  });
-
-	gsap.to(".container-wrapper", {
-		opacity: 1,
-		x: "-50%",
-		duration: 1,
-		scrollTrigger: {
-			trigger: ".parallax-container",
-			start: "bottom bottom",
-			toggleActions: "play none none reverse",
-		},
-	});
-
-	gsap.utils.toArray("#sContentOven .card-square-item").forEach(container => {
-		const textCenters = container.querySelectorAll(".text-center");
-
-		textCenters.forEach(textCenter => {
-			gsap.to(textCenter, {
-				opacity: 1,
-				x: "-50%",
-				duration: 1,
-				ease: "ease-in",
-				scrollTrigger: {
-					trigger: container,
-					start: "bottom bottom",
-					toggleActions: "play none none reverse",
-				},
+		}
+
+		if (selectAllBtn) {
+			updateRemoveButtonText();
+			selectAllBtn.addEventListener("change", updateRemoveButtonText);
+		}
+
+		const coordinationElements = document.querySelectorAll(".coordination");
+
+		if (coordinationElements) {
+			coordinationElements.forEach(function (coordinationElement) {
+				const coordinates = coordinationElement.textContent
+					.trim()
+					.split(": ")[1];
+
+				coordinationElement.addEventListener("click", function () {
+					const textarea = document.createElement("textarea");
+					textarea.value = coordinates;
+					document.body.appendChild(textarea);
+					textarea.select();
+					document.execCommand("copy");
+					document.body.removeChild(textarea);
+				});
+			});
+		}
+
+		const tabs = document.querySelectorAll(".sGallery .tabs__btn");
+		tabs.forEach(tab => {
+			tab.addEventListener("click", () => {
+				const dataContent = tab.getAttribute("data-content");
+				if (window.innerWidth >= 768) {
+					if (dataContent === "photo") {
+						filters.classList.remove("d-md-none");
+						videoFilter.classList.add("d-md-none");
+					}
+					if (dataContent === "video") {
+						filters.classList.add("d-md-none");
+						videoFilter.classList.remove("d-md-none");
+					}
+				}
 			});
 		});
-	});
 
-	gsap.utils.toArray("#sAbout .card-square-item").forEach(container => {
-		const textCenters = container.querySelectorAll(".text-center");
+		gsap.registerPlugin(ScrollTrigger);
 
-		textCenters.forEach(textCenter => {
-			gsap.to(textCenter, {
-				opacity: 1,
-				x: "-50%",
-				duration: 1,
-				ease: "ease-in",
-				scrollTrigger: {
-					trigger: container,
-					start: "bottom bottom",
-					toggleActions: "play none none reverse",
-				},
+		/* animation */
+		// const trigger = {
+		//   trigger: ".block1.block-anim",
+		//   start: "top 80%",
+		//   toggleActions: "play none none none"
+		// }
+		// const triggerSettings = {
+		//   scrollTrigger: trigger,
+		//   repeat: -1, // Бесконечное повторение
+		//   repeatDelay: 0 // Задержка перед повтором
+		// }
+
+		function animateListItems() {
+			const animatedBlock = document.querySelector(".block1.block-anim");
+			if (!animatedBlock) return;
+
+			ScrollTrigger.getAll().forEach(st => {
+				if (st.trigger === animatedBlock) st.kill();
 			});
-		});
-	});
 
-	gsap.utils.toArray("#sBrand .card-square-item").forEach(container => {
-		const textCenters = container.querySelectorAll(".text-wrapper");
+			gsap.killTweensOf(animatedBlock);
 
-		textCenters.forEach(textCenter => {
-			gsap.to(textCenter, {
-				opacity: 1,
-				x: "-50%",
-				duration: 1,
-				ease: "ease-in",
-				scrollTrigger: {
-					trigger: container,
-					start: "bottom bottom",
-					toggleActions: "play none none reverse",
-				},
+			const trigger = {
+				trigger: ".block1.block-anim",
+				start: "top 80%",
+				toggleActions: "play none none none",
+			};
+			const triggerSettings = {
+				scrollTrigger: trigger,
+				repeat: -1, // Бесконечное повторение
+				repeatDelay: 0, // Задержка перед повтором
+			};
+			const title = document.querySelector(".block-anim__title-wrap");
+			const footer = document.querySelector(".block-anim__footer");
+
+			if (window.innerWidth >= 1024) {
+				const tl = gsap.timeline(trigger);
+				const tlList = gsap.timeline(trigger);
+				// const tl = gsap.timeline(triggerSettings);
+				// const tlList = gsap.timeline(triggerSettings);
+
+				tl.fromTo(
+					[title, footer],
+					{opacity: 0},
+					{opacity: 1, duration: 1.5, delay: 0.5, ease: "ease-in"}
+				);
+
+				tl.fromTo(
+					".block-anim__line",
+					{opacity: 0},
+					{opacity: 1, duration: 0.3, ease: "ease-in"},
+					"-=1.2"
+				);
+
+				tl.fromTo(
+					".block-anim__line .line",
+					{x: "-100%"},
+					{x: "100%", duration: 4},
+					"-=1.2"
+				);
+				// // Задержка перед исчезновением
+				// tl.to([title, footer],
+				//   { opacity: 0, duration: 1,
+				// ease: "ease-out", }, "+=3.4"
+				// );
+
+				tlList.fromTo(
+					".block-anim__list li",
+					{opacity: 0, x: -60},
+					{
+						opacity: 1,
+						x: 0,
+						duration: 1,
+						stagger: 0.6,
+						delay: 1.2,
+						ease: "ease-in",
+					}
+				);
+
+				// Исчезновение элементов списка
+				// tlList.to(".block-anim__list li",
+				//   { opacity: 0, duration: 1,
+				// ease: "ease-out", }, "+=2"
+				// );
+			} else if (window.innerWidth < 1024 && window.innerWidth >= 768) {
+				const trigger = {
+					trigger: ".block1.block-anim",
+					start: "top 80%",
+					toggleActions: "play none none none",
+				};
+
+				const tlList = gsap.timeline(trigger);
+				const tl = gsap.timeline(trigger);
+
+				tl.fromTo(
+					[title, footer],
+					{opacity: 0},
+					{opacity: 1, duration: 1.5, delay: 0.5, ease: "ease-in"}
+				);
+
+				tl.fromTo(
+					".block-anim__line",
+					{opacity: 0},
+					{opacity: 1, duration: 0.3, ease: "ease-in"},
+					"-=1.2"
+				);
+
+				tl.to(".block-anim__line .line", {x: "100%", duration: 4}, "-=1.2");
+
+				tlList.fromTo(
+					".block-anim__list li",
+					{opacity: 0, x: -60},
+					{
+						opacity: 1,
+						x: 0,
+						duration: 1,
+						stagger: 0.6,
+						delay: 1.2,
+						ease: "ease-in",
+					}
+				);
+			} else {
+				const tla = gsap.timeline({
+					scrollTrigger: {
+						trigger: ".block1.block-anim",
+						start: "top 80%",
+						toggleActions: "play none none none",
+					},
+					repeat: -1, // Бесконечное повторение
+					repeatDelay: 0, // Задержка перед повтором
+				});
+
+				tla.set(".block-anim__list li", {opacity: 0});
+
+				tla.fromTo(
+					[title, footer],
+					{opacity: 0},
+					{opacity: 1, duration: 1, delay: 0.5, ease: "ease-in"}
+				);
+
+				tla.fromTo(
+					".block-anim__list li",
+					{opacity: 0},
+					{opacity: 1, duration: 1, stagger: 1, ease: "ease-in"},
+					"-=0.5"
+				);
+
+				tla.to(
+					[title, footer, ".block-anim__list li"],
+					{opacity: 0, duration: 1, delay: 2, ease: "ease-out"},
+					"-=0"
+				);
+			}
+		}
+
+		function animateListItems2() {
+			const animatedBlock = document.querySelector(".block1.block-anim2");
+			if (!animatedBlock) return;
+			ScrollTrigger.getAll().forEach(st => {
+				if (st.trigger === animatedBlock) st.kill();
 			});
-		});
-	});
 
-	gsap.utils
-		.toArray("#sCareer .design-block--1 .card-square-item")
-		.forEach(container => {
+			gsap.killTweensOf(animatedBlock);
+
+			const tla = gsap.timeline({
+				scrollTrigger: {
+					trigger: ".block1.block-anim2",
+					start: "top 80%",
+					toggleActions: "play none none none",
+					invalidateOnRefresh: true,
+				},
+				repeat: -1,
+				repeatDelay: 0,
+			});
+
+			if (
+				window.innerWidth >= 1024 &&
+				window.matchMedia("(orientation: landscape)").matches
+			) {
+				tla.set(
+					[".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr"],
+					{opacity: 0}
+				);
+
+				tla.set(".block-anim2__list", {opacity: 1});
+
+				tla.fromTo(
+					".block-anim2 .line",
+					{opacity: 0, x: -500},
+					{opacity: 1, x: 0, duration: 1.5, delay: 1, ease: "ease-in"}
+				);
+				tla.fromTo(
+					".block-anim2 .bg-gr",
+					{opacity: 0},
+					{opacity: 1, duration: 1, ease: "ease-in"},
+					"-=1"
+				);
+				tla.fromTo(
+					".block-anim2 li",
+					{opacity: 0, x: -100},
+					{opacity: 1, x: 0, duration: 1, ease: "ease-in"},
+					"-=1"
+				);
+				tla.to({}, {duration: 2}); // Пауза на 2 секунды
+
+				tla.fromTo(
+					[".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr"],
+					{opacity: 1, x: 0},
+					{opacity: 0, x: 100, duration: 1, ease: "ease-in"}
+				);
+			} else {
+				tla.set(".block-anim2__list", {opacity: 0, x: -20, y: "-50%"});
+
+				tla.set(
+					[".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr"],
+					{opacity: 1, x: 0}
+				);
+
+				tla.fromTo(
+					".block-anim2__list.list-1",
+					{opacity: 0, x: -20},
+					{opacity: 1, x: 0, duration: 1, ease: "ease-in"},
+					"0"
+				);
+				tla.fromTo(
+					".block-anim2__list.list-2",
+					{opacity: 1, x: 0},
+					{opacity: 0, x: 20, duration: 1, ease: "ease-out"},
+					"0"
+				);
+
+				// Задержка в 2 секунды, пока первый список остаётся видимым
+				tla.to({}, {duration: 2}); // Пауза на 2 секунды
+
+				// Появление второго списка и одновременное исчезновение первого
+				tla.fromTo(
+					".block-anim2__list.list-2",
+					{opacity: 0, x: -20},
+					{opacity: 1, x: 0, duration: 1, ease: "ease-in"},
+					"+=0"
+				);
+				tla.fromTo(
+					".block-anim2__list.list-1",
+					{opacity: 1, x: 0},
+					{opacity: 0, x: 20, duration: 1, ease: "ease-out"},
+					"-=1"
+				);
+
+				// Задержка в 2 секунды, пока второй список остаётся видимым
+				tla.to({}, {duration: 2}); // Пауза на 2 секунды
+			}
+		}
+
+		function animateEdelhaus1() {
+			const animatedBlock = document.querySelector(".block-anim-edelhaus-1");
+			if (!animatedBlock) return;
+
+			ScrollTrigger.getAll().forEach(st => {
+				if (st.trigger === animatedBlock) st.kill();
+			});
+
+			gsap.killTweensOf(animatedBlock);
+
+			const triggerSettings = {
+				trigger: ".block-anim-edelhaus-1",
+				start: "top 90%",
+				toggleActions: "play none none none",
+			};
+
+			const titlewrap = document.querySelector(
+				".block-anim-edelhaus-1__title-wrap"
+			);
+
+			const title1 = document.querySelector(
+				".block-anim-edelhaus-1 .title_top"
+			);
+			const title2 = document.querySelector(
+				".block-anim-edelhaus-1 .title_bottom"
+			);
+			const footer = document.querySelector(".block-anim-edelhaus-1 .brand");
+
+			const content = document.querySelector(
+				".block-anim-edelhaus-1__content-wrap"
+			);
+			const text = document.querySelector(
+				".block-anim-edelhaus-1__content-wrap .text"
+			);
+
+			if (window.innerWidth >= 768) {
+				gsap.set([footer], {opacity: 1, x: "-50%"});
+				gsap.set([content], {opacity: 1, x: "-50%", y: "-50%"});
+				gsap.set(titlewrap, {opacity: 1});
+
+				gsap.set(title1, {x: "-50%", y: "-0%"});
+				gsap.set(title2, {x: "-50%", y: "-0%"});
+				const tl = gsap.timeline({
+					scrollTrigger: triggerSettings,
+				});
+
+				tl.fromTo(
+					[footer],
+					{opacity: 0, y: 60},
+					{opacity: 1, y: 0, duration: 1, delay: 1, ease: "ease-in"}
+				);
+				tl.fromTo(
+					title1,
+					{opacity: 0, y: "-0%"},
+					{opacity: 1, y: "-30%", duration: 1, ease: "ease-in"},
+					"-=0.5"
+				);
+
+				tl.fromTo(
+					title2,
+					{opacity: 0, y: "0%"},
+					{opacity: 1, y: "30%", duration: 1, ease: "ease-in"},
+					"-=1"
+				);
+
+				tl.fromTo(
+					content,
+					{opacity: 0},
+					{opacity: 1, duration: 1, delay: 1, ease: "ease-in"},
+					"-=1"
+				);
+				tl.fromTo(
+					text,
+					{opacity: 0, y: 40},
+					{opacity: 1, y: 0, duration: 1, ease: "ease-in"},
+					"-=1.5"
+				);
+			} else {
+				gsap.set([title1, title2, content], {opacity: 1, y: 0, x: 0});
+				gsap.set(title2, {x: 0});
+				gsap.set(footer, {x: 0});
+				const tl = gsap.timeline({
+					scrollTrigger: triggerSettings,
+				});
+
+				tl.fromTo(
+					[titlewrap, text, footer],
+					{opacity: 0, y: -30},
+					{
+						opacity: 1,
+						y: 0,
+						duration: 1,
+						stagger: 0.8,
+						delay: 0.5,
+						ease: "ease-in",
+					}
+				);
+			}
+		}
+
+		function animateEdelhaus2() {
+			const animatedBlock = document.querySelector(".block-anim-edelhaus-2");
+			if (!animatedBlock) return;
+
+			const triggerSettings = {
+				trigger: ".block-anim-edelhaus-2",
+				start: "top 90%",
+				toggleActions: "play none none none",
+			};
+
+			const tl = gsap.timeline({
+				scrollTrigger: triggerSettings,
+			});
+
+			const title = document.querySelector(".block-anim-edelhaus-2__title");
+			const footer = document.querySelector(".block-anim-edelhaus-2__footer");
+
+			tl.fromTo(
+				[title, footer],
+				{opacity: 0, y: 60},
+				{opacity: 1, y: 0, duration: 1, stagger: 1, delay: 1.5, ease: "ease-in"}
+			);
+		}
+
+		function animateMK() {
+			const animatedBlock = document.querySelector(".block-anim-mk-1");
+			if (!animatedBlock) return;
+
+			ScrollTrigger.getAll().forEach(st => {
+				if (st.trigger === animatedBlock) st.kill();
+			});
+
+			gsap.killTweensOf(animatedBlock);
+
+			const triggerSettings = {
+				trigger: ".block-anim-mk-1",
+				start: "top 90%",
+				toggleActions: "play none none none",
+			};
+
+			const tl = gsap.timeline({
+				scrollTrigger: triggerSettings,
+			});
+
+			tl.fromTo(
+				".block-anim-mk-1 .up-down",
+				{opacity: 0, y: -30},
+				{opacity: 1, y: 0, duration: 0.8, stagger: 1, delay: 1, ease: "ease-in"}
+			);
+		}
+
+		function animateMK2() {
+			const animatedBlock = document.querySelector(".block-anim-mk-2");
+			if (!animatedBlock) return;
+
+			ScrollTrigger.getAll().forEach(st => {
+				if (st.trigger === animatedBlock) st.kill();
+			});
+
+			gsap.killTweensOf(animatedBlock);
+
+			const triggerSettings = {
+				trigger: ".block-anim-mk-2",
+				start: "top 90%",
+				toggleActions: "play none none none",
+			};
+
+			const tl = gsap.timeline({
+				scrollTrigger: triggerSettings,
+			});
+
+			if (window.innerWidth >= 768) {
+				tl.set(".block-anim-mk-2 .block-anim-mk-2__title-wrap", {
+					opacity: 1,
+					y: 0,
+				});
+				tl.fromTo(
+					".block-anim-mk-2__title",
+					{opacity: 0, y: -20},
+					{
+						opacity: 1,
+						y: 0,
+						duration: 0.8,
+						stagger: 0.3,
+						delay: 1,
+						ease: "ease-in",
+					}
+				);
+
+				tl.fromTo(
+					".block-anim-mk-2 .text_left",
+					{opacity: 0, x: 20},
+					{opacity: 1, x: 0, duration: 1, ease: "ease-in"},
+					"-=0"
+				);
+				tl.fromTo(
+					".block-anim-mk-2 .text_right",
+					{opacity: 0, x: -20},
+					{opacity: 1, x: 0, duration: 1, ease: "ease-in"},
+					"-=1"
+				);
+				tl.fromTo(
+					".block-anim-mk-2 .brand",
+					{opacity: 0, y: -20},
+					{opacity: 1, y: 0, duration: 0.8, ease: "ease-in"},
+					"-=0"
+				);
+			} else {
+				tl.set(".block-anim-mk-2__title", {opacity: 1, y: 0});
+				tl.set(".block-anim-mk-2__content-wrap .text", {opacity: 0, x: 0});
+				tl.fromTo(
+					".block-anim-mk-2 .up-down",
+					{opacity: 0, y: -30},
+					{
+						opacity: 1,
+						y: 0,
+						duration: 0.8,
+						stagger: 0.6,
+						delay: 1,
+						ease: "ease-in",
+					}
+				);
+			}
+		}
+
+		function animateKonig() {
+			const animatedBlock = document.querySelector(".block-anim-konig-1");
+			if (!animatedBlock) return;
+
+			ScrollTrigger.getAll().forEach(st => {
+				if (st.trigger === animatedBlock) st.kill();
+			});
+
+			gsap.killTweensOf(animatedBlock);
+
+			const triggerSettings = {
+				trigger: ".block-anim-konig-1",
+				start: "top 90%",
+				toggleActions: "play none none none",
+				invalidateOnRefresh: true,
+			};
+
+			if (window.innerWidth >= 768) {
+				gsap.set(".block-anim-konig-1 .left-to-right", {opacity: 0, x: -60});
+				gsap.set(".block-anim-konig-1 .up-down", {opacity: 1, y: 0});
+
+				const tl1 = gsap.timeline({
+					scrollTrigger: triggerSettings,
+				});
+				tl1.fromTo(
+					".block-anim-konig-1 .left-to-right",
+					{opacity: 0, x: -60},
+					{
+						opacity: 1,
+						x: 0,
+						duration: 0.6,
+						stagger: 0.4,
+						delay: 1,
+						ease: "ease-in",
+					}
+				);
+			} else {
+				gsap.set(".block-anim-konig-1 .up-down", {opacity: 0, y: -20});
+				gsap.set(".block-anim-konig-1 .left-to-right", {opacity: 1, x: 0});
+
+				const tl2 = gsap.timeline({
+					scrollTrigger: triggerSettings,
+				});
+				tl2.fromTo(
+					".block-anim-konig-1 .up-down",
+					{opacity: 0, y: -20},
+					{
+						opacity: 1,
+						y: 0,
+						duration: 0.6,
+						stagger: 0.4,
+						delay: 1,
+						ease: "ease-in",
+					}
+				);
+			}
+		}
+
+		function animateKonig2() {
+			const animatedBlock = document.querySelector(".block-anim-konig-2");
+			if (!animatedBlock) return;
+
+			ScrollTrigger.getAll().forEach(st => {
+				if (st.trigger === animatedBlock) st.kill();
+			});
+
+			gsap.killTweensOf(animatedBlock);
+
+			const triggerSettings = {
+				trigger: ".block-anim-konig-2",
+				start: "top 90%",
+				toggleActions: "play none none none",
+			};
+
+			if (window.innerWidth >= 768) {
+				const tl = gsap.timeline({
+					scrollTrigger: triggerSettings,
+				});
+				tl.set(".block-anim-konig-2 .up-down", {opacity: 1, y: 0});
+				tl.set(".block-anim-konig-2 .brand.left-to-right", {opacity: 0, x: 0});
+
+				tl.fromTo(
+					[
+						".block-anim-konig-2 .lg-after_left.left-to-right",
+						".block-anim-konig-2 .block-anim-konig-2__title-wrap.left-to-right",
+						".block-anim-konig-2 .brand.left-to-right",
+						".block-anim-konig-2 .block-anim-konig-2__content-wrap.left-to-right",
+						".block-anim-konig-2 .lg-after_right.left-to-right",
+					],
+					{opacity: 0, x: -60},
+					{
+						opacity: 1,
+						x: 0,
+						duration: 0.6,
+						stagger: 0.1,
+						delay: 1,
+						ease: "ease-in",
+					}
+				);
+
+				tl.fromTo(
+					".block-anim-konig-2 .lg-before",
+					{opacity: 0, x: -60},
+					{opacity: 1, x: 0, duration: 0.6, stagger: 0.6, ease: "ease-in"},
+					"-=1.3"
+				);
+			} else {
+				const tl = gsap.timeline({
+					scrollTrigger: triggerSettings,
+				});
+				tl.set(
+					[
+						".block-anim-konig-2 .lg-after_left.left-to-right",
+						".block-anim-konig-2 .block-anim-konig-2__title-wrap.left-to-right",
+						".block-anim-konig-2 .block-anim-konig-2__content-wrap.left-to-right",
+						".block-anim-konig-2 .lg-after_right.left-to-right",
+					],
+					{opacity: 1, x: 0}
+				);
+
+				tl.set(".block-anim-konig-2 .brand.left-to-right", {opacity: 0, x: 0});
+				tl.fromTo(
+					".block-anim-konig-2 .up-down",
+					{opacity: 0, y: -20},
+					{
+						opacity: 1,
+						y: 0,
+						duration: 0.6,
+						stagger: 0.4,
+						delay: 1,
+						ease: "ease-in",
+					}
+				);
+			}
+		}
+
+		function animateMF() {
+			const animatedBlock = document.querySelector(".block-anim-mf-1");
+			if (!animatedBlock) return;
+			ScrollTrigger.getAll().forEach(st => {
+				if (st.trigger === animatedBlock) st.kill();
+			});
+
+			gsap.killTweensOf(animatedBlock);
+
+			const triggerSettings = {
+				trigger: ".block-anim-mf-1",
+				start: "top 90%",
+				toggleActions: "play none none none",
+			};
+
+			if (window.innerWidth >= 768) {
+				const tl = gsap.timeline({
+					scrollTrigger: triggerSettings,
+				});
+				tl.set(".block-anim-mf-1 .block-anim-mf__title-wrap", {
+					opacity: 1,
+					y: 0,
+					rotate: -90,
+				});
+				tl.set(".block-anim-mf-1 .block-anim-mf__content-wrap", {
+					opacity: 0,
+					y: 0,
+				});
+
+				tl.fromTo(
+					".block-anim-mf-1 .block-anim-mf__title",
+					{opacity: 0, x: -20},
+					{
+						opacity: 1,
+						x: 0,
+						duration: 0.8,
+						stagger: 0.6,
+						delay: 1,
+						ease: "ease-in",
+					}
+				);
+
+				tl.fromTo(
+					".block-anim-mf-1 .block-anim-mf__content-wrap",
+					{opacity: 0, x: -30},
+					{opacity: 1, x: 0, duration: 0.8, ease: "ease-in"}
+					// "-=2"
+				);
+			} else {
+				const tl = gsap.timeline({
+					scrollTrigger: triggerSettings,
+				});
+				tl.set(".block-anim-mf-1 .block-anim-mf__content-wrap", {
+					opacity: 0,
+					y: 0,
+					x: 0,
+				});
+
+				tl.set([".block-anim-mf-1 .block-anim-mf__title"], {opacity: 1, x: 0});
+				tl.set([".block-anim-mf-1 .block-anim-mf__title-wrap.down-up"], {
+					opacity: 0,
+					x: 0,
+					rotate: 0,
+					y: 20,
+				});
+
+				// tl.set('.block-anim-mf-1 .block-anim-mf__content-wrap',
+				//   { opacity: 0, y: 0, },
+				// )
+
+				tl.fromTo(
+					".block-anim-mf-1 .down-up",
+					{opacity: 0, y: 20},
+					{
+						opacity: 1,
+						y: 0,
+						duration: 0.6,
+						stagger: 0.6,
+						delay: 1,
+						ease: "ease-in",
+					}
+				);
+			}
+		}
+
+		function animateMF2() {
+			const animatedBlock = document.querySelector(".block-anim-mf-2");
+			if (!animatedBlock) return;
+
+			ScrollTrigger.getAll().forEach(st => {
+				if (st.trigger === animatedBlock) st.kill();
+			});
+
+			gsap.killTweensOf(animatedBlock);
+
+			const triggerSettings = {
+				trigger: ".block-anim-mf-2",
+				start: "top 90%",
+				toggleActions: "play none none none",
+			};
+
+			if (window.innerWidth >= 768) {
+				const tl = gsap.timeline({
+					scrollTrigger: triggerSettings,
+				});
+
+				tl.fromTo(
+					[".block-anim-mf-2 .block-anim-mf__title"],
+					{opacity: 0, y: -20},
+					{
+						opacity: 1,
+						y: 0,
+						duration: 0.8,
+						stagger: 0.6,
+						delay: 1,
+						ease: "ease-in",
+					}
+				);
+
+				tl.fromTo(
+					[
+						".block-anim-mf-2 .block-anim-mf__content-wrap",
+						".block-anim-mf-2 .brand-wrap",
+					],
+					{opacity: 0, x: -30},
+					{opacity: 1, x: 0, duration: 0.8, stagger: 0.3, ease: "ease-in"}
+					// "-=2.5"
+				);
+			} else {
+				const tl = gsap.timeline({
+					scrollTrigger: triggerSettings,
+				});
+				tl.set(".block-anim-mf-2 .block-anim-mf__content-wrap", {
+					opacity: 0,
+					x: 0,
+				});
+				tl.set(".block-anim-mf-2 .brand-wrap", {opacity: 1, x: "-40%"});
+
+				tl.fromTo(
+					".block-anim-mf-2 .down-up",
+					{opacity: 0, y: 20},
+					{
+						opacity: 1,
+						y: 0,
+						duration: 0.6,
+						stagger: 0.4,
+						delay: 1,
+						ease: "ease-in",
+					}
+				);
+			}
+		}
+
+		window.addEventListener("load", function () {
+			const animatedBlock = document.querySelector(".block1-anim");
+			if (!animatedBlock) return;
+
+			animateListItems();
+			animateListItems2();
+			animateEdelhaus1();
+			animateEdelhaus2();
+			animateMK();
+			animateMK2();
+			animateKonig();
+			animateKonig2();
+			animateMF();
+			animateMF2();
+		});
+
+		window.addEventListener("resize", function () {
+			const animatedBlock = document.querySelector(".block1-anim");
+			if (!animatedBlock) return;
+			// ScrollTrigger.killAll( );
+
+			animateListItems();
+			animateListItems2();
+			animateEdelhaus1();
+			animateEdelhaus2();
+			animateMK();
+			animateMK2();
+			animateKonig();
+			animateKonig2();
+			animateMF();
+			animateMF2();
+		});
+
+		gsap.to(".container-wrapper", {
+			opacity: 1,
+			x: "-50%",
+			duration: 1,
+			scrollTrigger: {
+				trigger: ".parallax-container",
+				start: "bottom bottom",
+				toggleActions: "play none none reverse",
+			},
+		});
+
+		gsap.utils.toArray("#sContentOven .card-square-item").forEach(container => {
 			const textCenters = container.querySelectorAll(".text-center");
 
 			textCenters.forEach(textCenter => {
@@ -1634,9 +1697,25 @@ function eventHandler() {
 			});
 		});
 
-	gsap.utils
-		.toArray("#sCareer .design-block--2 .card-square-item")
-		.forEach(container => {
+		gsap.utils.toArray("#sAbout .card-square-item").forEach(container => {
+			const textCenters = container.querySelectorAll(".text-center");
+
+			textCenters.forEach(textCenter => {
+				gsap.to(textCenter, {
+					opacity: 1,
+					x: "-50%",
+					duration: 1,
+					ease: "ease-in",
+					scrollTrigger: {
+						trigger: container,
+						start: "bottom bottom",
+						toggleActions: "play none none reverse",
+					},
+				});
+			});
+		});
+
+		gsap.utils.toArray("#sBrand .card-square-item").forEach(container => {
 			const textCenters = container.querySelectorAll(".text-wrapper");
 
 			textCenters.forEach(textCenter => {
@@ -1654,59 +1733,99 @@ function eventHandler() {
 			});
 		});
 
-	/* change top nav bg */
-	const nav = document.querySelector(".top-nav");
+		gsap.utils
+			.toArray("#sCareer .design-block--1 .card-square-item")
+			.forEach(container => {
+				const textCenters = container.querySelectorAll(".text-center");
 
-	if (nav) {
-		let scrollerGSAP = document.querySelector("body");
-		let sections = document.querySelectorAll(".white-section");
-		if (sections.length) {
-			let headerHeight = nav.offsetHeight;
-			sections.forEach(section => {
-				// let className = "onWhiteBg "; // default color
+				textCenters.forEach(textCenter => {
+					gsap.to(textCenter, {
+						opacity: 1,
+						x: "-50%",
+						duration: 1,
+						ease: "ease-in",
+						scrollTrigger: {
+							trigger: container,
+							start: "bottom bottom",
+							toggleActions: "play none none reverse",
+						},
+					});
+				});
+			});
 
-				// if (section.classList.contains("white-section")) {
-				//   className = "onWhiteBg";
-				// } else {
-				//   className = " ";
-				// }
+		gsap.utils
+			.toArray("#sCareer .design-block--2 .card-square-item")
+			.forEach(container => {
+				const textCenters = container.querySelectorAll(".text-wrapper");
+
+				textCenters.forEach(textCenter => {
+					gsap.to(textCenter, {
+						opacity: 1,
+						x: "-50%",
+						duration: 1,
+						ease: "ease-in",
+						scrollTrigger: {
+							trigger: container,
+							start: "bottom bottom",
+							toggleActions: "play none none reverse",
+						},
+					});
+				});
+			});
+
+		/* change top nav bg */
+		const nav = document.querySelector(".top-nav");
+
+		if (nav) {
+			let scrollerGSAP = document.querySelector("body");
+			let sections = document.querySelectorAll(".white-section");
+			if (sections.length) {
+				let headerHeight = nav.offsetHeight;
+				sections.forEach(section => {
+					// let className = "onWhiteBg "; // default color
+
+					// if (section.classList.contains("white-section")) {
+					//   className = "onWhiteBg";
+					// } else {
+					//   className = " ";
+					// }
+					ScrollTrigger.create({
+						trigger: section,
+						scroller: scrollerGSAP,
+						start: `top-=${headerHeight / 2}   top`,
+						end: "bottom top",
+						onEnter: () => nav.classList.add("dark--js"),
+						onEnterBack: () => nav.classList.add("dark--js"),
+						onLeaveBack: () => nav.classList.remove("dark--js"),
+						onLeave: () => nav.classList.remove("dark--js"),
+						// toggleActions: "play none reverse none",
+					});
+				});
+			}
+		}
+
+		const arrowsMainPage = document.querySelectorAll(
+			".main-page-slider--js .swiper-button-hand"
+		);
+
+		if (arrowsMainPage.length) {
+			let scrollerGSAP = document.querySelector("body");
+			const footer = document.querySelector("footer");
+			arrowsMainPage.forEach(arrow => {
 				ScrollTrigger.create({
-					trigger: section,
+					trigger: footer,
 					scroller: scrollerGSAP,
-					start: `top-=${headerHeight / 2}   top`,
-					end: "bottom top",
-					onEnter: () => nav.classList.add("dark--js"),
-					onEnterBack: () => nav.classList.add("dark--js"),
-					onLeaveBack: () => nav.classList.remove("dark--js"),
-					onLeave: () => nav.classList.remove("dark--js"),
+					start: `top  top`,
+					end: " top bottom",
+					onEnter: () => arrow.classList.add("d-none"),
+					onLeave: () => arrow.classList.remove("d-none"),
+					onEnterBack: () => arrow.classList.add("d-none"),
+					onLeaveBack: () => arrow.classList.remove("d-none"),
 					// toggleActions: "play none reverse none",
 				});
 			});
 		}
 	}
-
-	const arrowsMainPage = document.querySelectorAll(
-		".main-page-slider--js .swiper-button-hand"
-	);
-
-	if (arrowsMainPage.length) {
-		let scrollerGSAP = document.querySelector("body");
-		const footer = document.querySelector("footer");
-		arrowsMainPage.forEach(arrow => {
-			ScrollTrigger.create({
-				trigger: footer,
-				scroller: scrollerGSAP,
-				start: `top  top`,
-				end: " top bottom",
-				onEnter: () => arrow.classList.add("d-none"),
-				onLeave: () => arrow.classList.remove("d-none"),
-				onEnterBack: () => arrow.classList.add("d-none"),
-				onLeaveBack: () => arrow.classList.remove("d-none"),
-				// toggleActions: "play none reverse none",
-			});
-		});
-	}
-}
 }
 
 if (document.readyState !== "loading") {
@@ -1715,3 +1834,32 @@ if (document.readyState !== "loading") {
 	document.addEventListener("DOMContentLoaded", eventHandler);
 }
 
+// Функция для проверки, находится ли элемент в зоне видимости внутри контейнера
+function isElementInContainerViewport(el) {
+	const rect = el.getBoundingClientRect();
+
+	console.log(rect);
+
+	return (
+		rect.top <= rect.height / 4 &&
+		rect.bottom >= (rect.height * 3) / 4 &&
+		rect.left === 0
+	);
+}
+
+// Функция для обработки скролла внутри контейнера
+function onContainerScroll(activeSlide) {
+	const container = activeSlide.querySelector(" .main-slider__body");
+	console.log(activeSlide);
+	const elements = container.querySelectorAll(" .block-with-animation-js");
+
+	elements.forEach((element, i) => {
+		if (isElementInContainerViewport(element)) {
+			console.log("Элемент в зоне видимости контейнера", i, element);
+			// Добавьте ваш код здесь, если элемент в зоне видимости контейнера
+		} else {
+			console.log("Элемент не в зоне видимости контейнера");
+			// Добавьте ваш код здесь, если элемент не в зоне видимости контейнера
+		}
+	});
+}

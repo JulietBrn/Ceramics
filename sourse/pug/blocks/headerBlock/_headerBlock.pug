@@ -77,10 +77,7 @@ mixin imgInput(img, text, name)
 		+img(src=`img/${img}.svg`, alt="")
 		span.custom-input__text.form-check-label= text
 
-mixin colorInput(color, text, name)
-	+in-c("radio", '', name)
-		span.custom-input__img(style=`background-color:${color};`)
-		span.custom-input__text.form-check-label!= text
+
 
 //- mixin headerBlock3(img)
 //- 	// start headerBlock 3
@@ -91,7 +88,7 @@ mixin colorInput(color, text, name)
 
 mixin headerBlockAnimated(img)
 	// start headerBlock anim
-	.container-max
+	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim
 			.block-anim__content-wrap
 				.block-anim__title-wrap: .block-anim__title Мы не просто производим облицовочный кирпич
@@ -113,7 +110,7 @@ mixin headerBlockAnimated(img)
 
 mixin headerBlockAnimated2(img)
 	// start headerBlock anim
-	.container-max
+	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim2
 			.block-anim2__content-wrap
 				.line.line-1
@@ -134,7 +131,7 @@ mixin headerBlockAnimated2(img)
 
 mixin headerBlockAnimatedEdelhaus1(img)
 	// start headerBlock anim
-	.container-max
+	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim-edelhaus-1
 			.inner-container
 				.block-anim-edelhaus-1__title-wrap
@@ -149,7 +146,7 @@ mixin headerBlockAnimatedEdelhaus1(img)
 
 mixin headerBlockAnimatedEdelhaus2(img)
 	// start headerBlock anim
-	.container-max
+	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim-edelhaus-2
 			.block-anim__content-wrap
 				.block-anim__title-wrap: .block-anim-edelhaus-2__title Стойкость в его характере
@@ -162,7 +159,7 @@ mixin headerBlockAnimatedEdelhaus2(img)
 
 mixin headerBlockAnimatedMK(img)
 	// start headerBlock anim
-	.container-max
+	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim-mk.block-anim-mk-1
 			.inner-container
 				+img(src=`img/master.svg`, alt="").brand.up-down
@@ -175,7 +172,7 @@ mixin headerBlockAnimatedMK(img)
 
 mixin headerBlockAnimatedMK2(img)
 	// start headerBlock anim
-	.container-max
+	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim-mk.block-anim-mk-2
 			.inner-container
 				.block-anim-mk-2__title-wrap.up-down
@@ -191,7 +188,7 @@ mixin headerBlockAnimatedMK2(img)
 
 mixin headerBlockAnimatedKonig(img)
 	// start headerBlock anim
-	.container-max
+	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim-konig.block-anim-konig-1
 			.inner-container.up-down.left-to-right
 				.wrapper.inner-container-center-anim
@@ -205,7 +202,7 @@ mixin headerBlockAnimatedKonig(img)
 
 mixin headerBlockAnimatedKonig2(img)
 	// start headerBlock anim
-	.container-max
+	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim-konig.block-anim-konig-2
 			.inner-container
 				.wrapper.inner-container-center-anim
@@ -225,7 +222,7 @@ mixin headerBlockAnimatedKonig2(img)
 
 mixin headerBlockAnimatedMF(img)
 	// start headerBlock anim
-	.container-max
+	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim-mf.block-anim-mf-1
 			.inner-container.inner-container-center-anim
 				.block-anim-mf__title-wrap.down-up
@@ -238,7 +235,7 @@ mixin headerBlockAnimatedMF(img)
 
 mixin headerBlockAnimatedMF2(img)
 	// start headerBlock anim
-	.container-max
+	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim-mf.block-anim-mf-2
 			.inner-container.inner-container-center-anim
 				.block-anim-mf__title-wrap
@@ -249,3 +246,9 @@ mixin headerBlockAnimatedMF2(img)
 				.brand-wrap: +img(src=`img/modformat.svg`, alt="").brand
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
+
+
+mixin colorInput(color, text, name)
+	+in-c("radio", '', name)
+		span.custom-input__img(style=`background-color:${color};`)
+		span.custom-input__text.form-check-label!= text

@@ -27,16 +27,17 @@ block pagecontent
 			.swiper-wrapper
 				+e.slide.swiper-slide
 					+e.slider-inner
-						.container-max
-							+block1(data, '')
-								+e.btn.btn.btn-primary(href='#') Перейти в каталог
-						+headerBlockAnimated('main-anim')
-						+headerBlockAnimated2('main-anim2')
-						+sSlider
-						.long-footer.long-footer--md
-							+parts('footer')
+						+e.body
+							.container-max
+								+block1(data, '')
+									+e.btn.btn.btn-primary(href='#') Перейти в каталог
+							+headerBlockAnimated('main-anim')
+							+headerBlockAnimated2('main-anim2')
+							+sSlider
+							.long-footer.long-footer--md
+								+parts('footer')
 				+e.slide.swiper-slide
-					+e.slider-inner
+					+e.slider-inner: +e.body
 						.container-max
 							+block1(data, 'edelhaus-light')
 						+headerBlockAnimatedEdelhaus1('edelhaus-1')
@@ -45,7 +46,7 @@ block pagecontent
 						.long-footer.long-footer--md
 							+parts('footer')
 				+e.slide.swiper-slide
-					+e.slider-inner
+					+e.slider-inner: +e.body
 						.container-max
 							+block1(data, 'konigstein')
 						+headerBlockAnimatedKonig('konig')
@@ -54,7 +55,7 @@ block pagecontent
 						.long-footer.long-footer--md
 							+parts('footer')
 				+e.slide.swiper-slide
-					+e.slider-inner
+					+e.slider-inner: +e.body
 						.container-max
 							+block1(data, 'modformat')
 						+headerBlockAnimatedMF('mf')
@@ -63,7 +64,7 @@ block pagecontent
 						.long-footer.long-footer--md
 							+parts('footer')
 				+e.slide.swiper-slide
-					+e.slider-inner
+					+e.slider-inner: +e.body
 						.container-max
 							+block1(data, 'master-ceramic')
 						+headerBlockAnimatedMK('mk')
