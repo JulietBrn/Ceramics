@@ -120,7 +120,7 @@ function animateListItems() {
       repeatDelay: 0, // Задержка перед повтором
     });
 
-    tla.set(".block-anim__list li", {opacity: 0});
+    tla.set([".block-anim__list li", title], {opacity: 0});
 
     tla.fromTo(
       [title, footer],
@@ -503,6 +503,7 @@ function animateKonig() {
       }
     );
   } else {
+    gsap.set(".block-anim-konig-1 .inner-container", {x: "-50%", y: "-50%"});
     gsap.set(".block-anim-konig-1 .up-down", {opacity: 0, y: -20});
     gsap.set(".block-anim-konig-1 .left-to-right", {opacity: 1, x: 0});
 
