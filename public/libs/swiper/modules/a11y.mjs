@@ -20,11 +20,9 @@ function A11y(_ref) {
       slideLabelMessage: '{{index}} / {{slidesLength}}',
       containerMessage: null,
       containerRoleDescriptionMessage: null,
-      containerRole: null,
       itemRoleDescriptionMessage: null,
       slideRole: 'group',
-      id: null,
-      scrollOnFocus: true
+      id: null
     }
   });
   swiper.a11y = {
@@ -220,7 +218,7 @@ function A11y(_ref) {
     visibilityChangedTimestamp = new Date().getTime();
   };
   const handleFocus = e => {
-    if (swiper.a11y.clicked || !swiper.params.a11y.scrollOnFocus) return;
+    if (swiper.a11y.clicked) return;
     if (new Date().getTime() - visibilityChangedTimestamp < 100) return;
     const slideEl = e.target.closest(`.${swiper.params.slideClass}, swiper-slide`);
     if (!slideEl || !swiper.slides.includes(slideEl)) return;
@@ -236,11 +234,7 @@ function A11y(_ref) {
     }
     requestAnimationFrame(() => {
       if (preventFocusHandler) return;
-      if (swiper.params.loop) {
-        swiper.slideToLoop(parseInt(slideEl.getAttribute('data-swiper-slide-index')), 0);
-      } else {
-        swiper.slideTo(swiper.slides.indexOf(slideEl), 0);
-      }
+      swiper.slideTo(swiper.slides.indexOf(slideEl), 0);
       preventFocusHandler = false;
     });
   };
@@ -272,9 +266,6 @@ function A11y(_ref) {
     }
     if (params.containerMessage) {
       addElLabel(containerEl, params.containerMessage);
-    }
-    if (params.containerRole) {
-      addElRole(containerEl, params.containerRole);
     }
 
     // Wrapper
@@ -342,11 +333,9 @@ function A11y(_ref) {
     const document = getDocument();
     document.removeEventListener('visibilitychange', onVisibilityChange);
     // Tab focus
-    if (swiper.el && typeof swiper.el !== 'string') {
-      swiper.el.removeEventListener('focus', handleFocus, true);
-      swiper.el.removeEventListener('pointerdown', handlePointerDown, true);
-      swiper.el.removeEventListener('pointerup', handlePointerUp, true);
-    }
+    swiper.el.removeEventListener('focus', handleFocus, true);
+    swiper.el.removeEventListener('pointerdown', handlePointerDown, true);
+    swiper.el.removeEventListener('pointerup', handlePointerUp, true);
   }
   on('beforeInit', () => {
     liveRegion = createElement('span', swiper.params.a11y.notificationClass);

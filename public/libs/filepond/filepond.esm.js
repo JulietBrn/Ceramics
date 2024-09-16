@@ -1,5 +1,5 @@
 /*!
- * FilePond 4.31.3
+ * FilePond 4.31.1
  * Licensed under MIT, https://opensource.org/licenses/MIT/
  * Please visit https://pqina.nl/filepond/ for details.
  */
@@ -6957,6 +6957,9 @@ const create$b = ({ root, props }) => {
     // use for labeling file input (aria-labelledby on file input)
     attr(label, 'id', `filepond--drop-label-${props.id}`);
 
+    // hide the label for screenreaders, the input element will read the contents of the label when it's focussed. If we don't set aria-hidden the screenreader will also navigate the contents of the label separately from the input.
+    attr(label, 'aria-hidden', 'true');
+
     // handle keys
     root.ref.handleKeyDown = e => {
         const isActivationKey = e.keyCode === Key.ENTER || e.keyCode === Key.SPACE;
@@ -7149,6 +7152,7 @@ const didAddItem = ({ root, action }) => {
     const dataContainer = createElement$1('input');
     dataContainer.type = shouldUseFileInput ? 'file' : 'hidden';
     dataContainer.name = root.query('GET_NAME');
+    dataContainer.disabled = root.query('GET_DISABLED');
     root.ref.fields[action.id] = dataContainer;
     syncFieldPositionsWithItems(root);
 };
@@ -8060,8 +8064,9 @@ const create$e = ({ root, props }) => {
     if (hasCredits) {
         const frag = document.createElement('a');
         frag.className = 'filepond--credits';
+        frag.setAttribute('aria-hidden', 'true');
         frag.href = credits[0];
-        frag.tabIndex = -1;
+        frag.tabindex = -1;
         frag.target = '_blank';
         frag.rel = 'noopener noreferrer';
         frag.textContent = credits[1];

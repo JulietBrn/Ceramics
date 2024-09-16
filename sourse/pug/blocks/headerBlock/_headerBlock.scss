@@ -365,6 +365,22 @@
 	@include media-breakpoint-down(xs) {
 	}
 }
+.block1-anim {
+  .inner-container,
+  .block-anim__content-wrap,
+  .block-anim2__content-wrap  {
+    opacity: 0;
+  }
+  &.is-visible {
+    .inner-container,
+    .block-anim__content-wrap,
+    .block-anim2__content-wrap  {
+      opacity: 1;
+    }
+    
+  }
+}
+
 .main-slider__slider-inner {
   
   .block1 .content {
