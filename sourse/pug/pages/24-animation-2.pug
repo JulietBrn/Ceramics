@@ -23,7 +23,11 @@ block pagecontent
 	
 	+parts('header')
 	main.main-page
-		+headerBlockAnimated2('main-anim2')
+		+b.main-slider--js.swiper
+			.swiper-wrapper
+				+e.slide.swiper-slide
+					+e.slider-inner: +e.body
+						+headerBlockAnimated2('main-anim2')
 		//- +cookie
 		+pagePreloader
 		+pageSlider()

@@ -23,7 +23,11 @@ block pagecontent
 	
 	+parts('header')
 	main.main-page
-		+headerBlockAnimatedKonig('konig')
+		+b.main-slider--js.swiper
+			.swiper-wrapper
+				+e.slide.swiper-slide
+					+e.slider-inner: +e.body
+						+headerBlockAnimatedKonig('konig')
 		//- +cookie
 		+pagePreloader
 		+pageSlider()

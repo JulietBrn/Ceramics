@@ -23,7 +23,11 @@ block pagecontent
 	
 	+parts('header')
 	main.main-page
-		+headerBlockAnimatedEdelhaus1('edelhaus-1')
+		+b.main-slider--js.swiper
+			.swiper-wrapper
+				+e.slide.swiper-slide
+					+e.slider-inner: +e.body
+						+headerBlockAnimatedEdelhaus1('edelhaus-1')
 		//- +cookie
 		+pagePreloader
 		+pageSlider()
