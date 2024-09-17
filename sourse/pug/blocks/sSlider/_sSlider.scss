@@ -3,21 +3,20 @@
 	--sPT: #{rem(0)};
 	--sPB: #{rem(0)};
 	// --sTPB: #{rem()};
-	
-	&__row{
-		// --bs-gutter-x: #{rem()};
-		// --bs-gutter-y: #{rem()};
-	}
-	.section-title{
-		
-	}
-	&__col{
-		
-	}
-	&__item{
-		
-	}
-  
+
+	.btn-primary {
+    position: absolute;
+    bottom: rem(24);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    @include media-breakpoint-up(md) {
+      bottom: rem(32);
+    }
+    @include media-breakpoint-down(md) {
+      width: calc(100% - rem(32));
+    }
+  }
   .parallax-container {
     height: 100vh;
     max-height: rem(720);

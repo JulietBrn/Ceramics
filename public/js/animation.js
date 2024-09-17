@@ -23,11 +23,9 @@ function animateListItems() {
   const title = document.querySelector(".block-anim__title-wrap");
   const footer = document.querySelector(".block-anim__footer");
 
-  if (window.innerWidth >= 1024) {
+  if ((window.innerWidth >= 992 && window.matchMedia("(orientation: landscape)").matches) || (window.innerWidth >= 1280)) {
     const tl = gsap.timeline(trigger);
     const tlList = gsap.timeline(trigger);
-    // const tl = gsap.timeline(triggerSettings);
-    // const tlList = gsap.timeline(triggerSettings);
 
     tl.fromTo(
       [title, footer],
@@ -48,11 +46,6 @@ function animateListItems() {
       {x: "100%", duration: 4},
       "-=1.2"
     );
-    // // Задержка перед исчезновением
-    // tl.to([title, footer],
-    //   { opacity: 0, duration: 1,
-    // ease: "ease-out", }, "+=3.4"
-    // );
 
     tlList.fromTo(
       ".block-anim__list li",
@@ -67,49 +60,7 @@ function animateListItems() {
       }
     );
 
-    // Исчезновение элементов списка
-    // tlList.to(".block-anim__list li",
-    //   { opacity: 0, duration: 1,
-    // ease: "ease-out", }, "+=2"
-    // );
-  } else if (window.innerWidth < 1024 && window.innerWidth >= 768) {
-    const trigger = {
-      trigger: ".block1.block-anim",
-      start: "top 80%",
-      toggleActions: "play none none none",
-    };
-
-    const tlList = gsap.timeline(trigger);
-    const tl = gsap.timeline(trigger);
-
-    tl.fromTo(
-      [title, footer],
-      {opacity: 0},
-      {opacity: 1, duration: 1.5, delay: 0.5, ease: "ease-in"}
-    );
-
-    tl.fromTo(
-      ".block-anim__line",
-      {opacity: 0},
-      {opacity: 1, duration: 0.3, ease: "ease-in"},
-      "-=1.2"
-    );
-
-    tl.to(".block-anim__line .line", {x: "100%", duration: 4}, "-=1.2");
-
-    tlList.fromTo(
-      ".block-anim__list li",
-      {opacity: 0, x: -60},
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        stagger: 0.6,
-        delay: 1.2,
-        ease: "ease-in",
-      }
-    );
-  } else {
+  } else if (window.innerWidth < 768) {
     const tla = gsap.timeline({
       scrollTrigger: {
         trigger: ".block1.block-anim",
@@ -140,7 +91,43 @@ function animateListItems() {
       {opacity: 0, duration: 1, delay: 2, ease: "ease-out"},
       "-=0"
     );
-  }
+  } else {
+    const trigger = {
+      trigger: ".block1.block-anim",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    };
+
+    const tlList = gsap.timeline(trigger);
+    const tl = gsap.timeline(trigger);
+
+    tl.fromTo(
+      [title, footer],
+      {opacity: 0},
+      {opacity: 1, duration: 1.5, delay: 0.5, ease: "ease-in"}
+    );
+
+    tl.fromTo(
+      ".block-anim__line",
+      {opacity: 0},
+      {opacity: 1, duration: 0.3, ease: "ease-in"},
+      "-=1.2"
+    );
+
+    tl.to(".block-anim__line .line", {x: "100%", duration: 4}, "-=1.2");
+
+    tlList.fromTo(
+      ".block-anim__list li",
+      {opacity: 0},
+      {
+        opacity: 1,
+        duration: 1,
+        stagger: 1,
+        delay: 1.2,
+        ease: "ease-in",
+      }
+    );
+  } 
 }
 
 function animateListItems2() {
@@ -164,11 +151,11 @@ function animateListItems2() {
   });
 
   if (
-    window.innerWidth >= 1024 &&
+    window.innerWidth >= 992 &&
     window.matchMedia("(orientation: landscape)").matches
   ) {
     tla.set(
-      [".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr"],
+      [".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr--js"],
       {opacity: 0}
     );
 
@@ -180,7 +167,7 @@ function animateListItems2() {
       {opacity: 1, x: 0, duration: 1.5, delay: 1, ease: "ease-in"}
     );
     tla.fromTo(
-      ".block-anim2 .bg-gr",
+      ".block-anim2 .bg-gr--js",
       {opacity: 0},
       {opacity: 1, duration: 1, ease: "ease-in"},
       "-=1"
@@ -194,7 +181,7 @@ function animateListItems2() {
     tla.to({}, {duration: 2}); // Пауза на 2 секунды
 
     tla.fromTo(
-      [".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr"],
+      [".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr--js"],
       {opacity: 1, x: 0},
       {opacity: 0, x: 100, duration: 1, ease: "ease-in"}
     );
@@ -202,7 +189,7 @@ function animateListItems2() {
     tla.set(".block-anim2__list", {opacity: 0, x: -20, y: "-50%"});
 
     tla.set(
-      [".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr"],
+      [".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr--js"],
       {opacity: 1, x: 0}
     );
 
@@ -356,12 +343,20 @@ function animateEdelhaus2() {
   });
 
   const title = document.querySelector(".block-anim-edelhaus-2__title");
-  const footer = document.querySelector(".block-anim-edelhaus-2__footer");
+  const footer = document.querySelector(".block-anim-edelhaus-2__footer .text-top");
+  const textTransform = document.querySelector(".block-anim-edelhaus-2__footer .text-transform");
 
   tl.fromTo(
     [title, footer],
     {opacity: 0, y: 60},
     {opacity: 1, y: 0, duration: 1, stagger: 1, delay: 1.5, ease: "ease-in"}
+  );
+
+  tl.fromTo(
+    textTransform,
+    {opacity: 0, y: -20},
+    {opacity: 0.5, y: 0, duration: 1, delay: 0, ease: "ease-in"},
+      "-=1"
   );
 }
 

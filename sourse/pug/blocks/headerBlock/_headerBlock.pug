@@ -116,9 +116,14 @@ mixin headerBlockAnimated2(img)
 				.line.line-1
 				.line.line-2
 				.line.line-3
-				.bg-gr.bg-gr-1
-				.bg-gr.bg-gr-2
-				.bg-gr.bg-gr-3
+				.bg-gr.bg-gr-1.bg-gr--js
+				.bg-gr.bg-gr-2.bg-gr--js
+				.bg-gr.bg-gr-3.bg-gr--js
+				.bg-gr-add.bg-gr-5.bg-gr--js
+				.bg-gr-add.bg-gr-6.bg-gr--js
+				.bg-gr-add.bg-gr-7.bg-gr--js
+				.bg-gr-add.bg-gr-8.bg-gr--js
+				.bg-gr-add.bg-gr-9.bg-gr--js
 				ul.block-anim2__list.list-1
 					li Эталонное качество
 					li оперативное решение вопросов
@@ -138,10 +143,11 @@ mixin headerBlockAnimatedEdelhaus1(img)
 					.block-anim-edelhaus-1__title.title_top харизматичный
 					.block-anim-edelhaus-1__title.title_bottom и амбициозный
 				.block-anim-edelhaus-1__content-wrap
-					.text Бренд Edelhaus Klinker — активный, амбициозный, так же как и те, для кого он. Edelhaus Klinker сам себе задает высокую планку и идет к новым - все более смелым — целям. Как и сам клинкерный кирпич, бренд Edelhaus Klinker олицетвоярет собой стойкость, выдержку, постоянство, надежность
+					.text Бренд Edelhaus Klinker&nbsp;&mdash; активный, амбициозный, так&nbsp;же как и&nbsp;те, для кого&nbsp;он. Edelhaus Klinker сам себе задает высокую планку и&nbsp;идет к&nbsp;новым&nbsp;&mdash; все более смелым&nbsp;&mdash; целям. Как и&nbsp;сам клинкерный кирпич, бренд Edelhaus Klinker олицетвоярет собой стойкость, выдержку, постоянство, надежность
 				+img(src=`img/edelhaus-light.svg`, alt="").brand
 				+img(src=`img/brick.png`, alt="").brick
-			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
+			.parallax-container(style=`background-image:url(img/brand-header-${img}-m.png);`).d-md-none
+			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`).d-none.d-md-block
 	// end headerBlock
 
 mixin headerBlockAnimatedEdelhaus2(img)
@@ -151,8 +157,8 @@ mixin headerBlockAnimatedEdelhaus2(img)
 			.block-anim__content-wrap
 				.block-anim__title-wrap: .block-anim-edelhaus-2__title Стойкость в его характере
 				.block-anim-edelhaus-2__footer
-					.text Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочетание природных цветов и фактур с наивысшей стойкостью и долговечностью, с которыми неповторимые архитектурные образы создаются на века.
-					.text.text-transform Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочетание природных цветов и фактур с наивысшей стойкостью и долговечностью, с которыми неповторимые архитектурные образы создаются на века.
+					.text.text-top Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочетание природных цветов и фактур с наивысшей стойкостью и долговечностью, с которыми неповторимые архитектурные образы создаются на&nbsp;века.
+					.text.text-transform Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочетание природных цветов и фактур с наивысшей стойкостью и долговечностью, с которыми неповторимые архитектурные образы создаются на&nbsp;века.
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
 
@@ -166,7 +172,7 @@ mixin headerBlockAnimatedMK(img)
 				.block-anim-mk__title-wrap
 					.block-anim-mk__title.up-down храним тепло традиций
 				.block-anim-mk__content-wrap.up-down
-					.text Классическое сочетание традиционного дизайна и современных технологий, доведенное до совершенства. А коллекции — полнотельный и пустотелый лицевой кирпич.
+					.text Классическое сочетание традиционного дизайна и&nbsp;современных технологий, доведенное до&nbsp;совершенства. А&nbsp;коллекции&nbsp;&mdash; полнотельный и&nbsp;пустотелый лицевой кирпич.
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
 
@@ -180,8 +186,8 @@ mixin headerBlockAnimatedMK2(img)
 					.block-anim-mk-2__title.title_span и
 					.block-anim-mk-2__title.title_bottom преемственность
 				.block-anim-mk-2__content-wrap
-					.text.up-down.text_left Бренд Мастер Керамик основывается на глубоких ценностях, которые формируют характер настоящего мастера: Мастера, который любит свое дело, развивает мастерство и ценит человеческие отношения.
-					.text.up-down.text_right Как мастер внедряет современные технологии в старинные методы печной кладки, так и бренд Мастер Керамик объединяет прошлое и будущее, сохраняя и развивая традиции печного мастерства.
+					.text.up-down.text_left Бренд Мастер Керамик основывается на&nbsp;глубоких ценностях, которые формируют характер настоящего мастера: Мастера, который любит свое дело, развивает мастерство и&nbsp;ценит человеческие отношения.
+					.text.up-down.text_right Как мастер внедряет современные технологии в&nbsp;старинные методы печной кладки, так и&nbsp;бренд Мастер Керамик объединяет прошлое и&nbsp;будущее, сохраняя и&nbsp;развивая традиции печного мастерства.
 			+img(src=`img/master-crop.svg`, alt="").brand.up-down
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
@@ -210,7 +216,7 @@ mixin headerBlockAnimatedKonig2(img)
 					.lg-before.lg-before_left.d-none.d-md-inline-block.left-to-right
 					.lg-before.lg-before_right.d-none.d-md-inline-block.left-to-right
 					.block-anim-konig-2__title-wrap.left-to-right
-						.block-anim-konig__title.title_top.up-down статусный и
+						.block-anim-konig__title.title_top.up-down статусный #[span и]
 						.block-anim-konig__title.title_bottom.up-down рациональный
 					.block-anim-konig-2__content-wrap.left-to-right
 						.text.up-down Дизайн кирпича бренда Königstein отличает богатство цвета, фактурность и красота поверхности. <br> Как и сам кирпич, бренд Königstein сочетает в себе эстетику и современность, статусность и рациональность. <br> Из этих сочетаний складывается уникальный характер бренда.
@@ -229,7 +235,7 @@ mixin headerBlockAnimatedMF(img)
 					.block-anim-mf__title.title_top пространство
 					.block-anim-mf__title.title_bottom творить
 				.block-anim-mf__content-wrap.down-up
-					.text В бренде ModFormat есть особенные ценности, которые задают уникальный характер свободной, творческой личности, которая не боится экспериментировать и создавать что-то новое.
+					.text В&nbsp;бренде ModFormat есть особенные ценности, которые задают уникальный характер свободной, творческой личности, которая не&nbsp;боится экспериментировать и&nbsp;создавать что-то новое.
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
 
@@ -242,7 +248,7 @@ mixin headerBlockAnimatedMF2(img)
 					.block-anim-mf__title.title_top.down-up утонченный #[span и]
 					.block-anim-mf__title.title_bottom.down-up неповторимый
 				.block-anim-mf__content-wrap.down-up
-					.text Утонченный и неповторимый дизайн коллекции лицевого пустотелого кирпича и плитки ModFormat меняет представления об эстетике, форме и пространстве.<br>Воплощает самые смелые авторские замыслы и творческие эксперименты — в полном объёме.
+					.text Утонченный и&nbsp;неповторимый дизайн коллекции лицевого пустотелого кирпича и&nbsp;плитки ModFormat меняет представления об&nbsp;эстетике, форме и&nbsp;пространстве.<br>Воплощает самые смелые авторские замыслы и&nbsp;творческие эксперименты &mdash; в&nbsp;полном объёме.
 				.brand-wrap: +img(src=`img/modformat.svg`, alt="").brand
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock

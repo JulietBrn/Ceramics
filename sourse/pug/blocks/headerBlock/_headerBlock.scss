@@ -302,14 +302,7 @@
     transition: none;
     top: auto;
     display: none;
-    // opacity: 0;
-    // z-index: -5;
-    // visibility: hidden;
-		// height: max-content;
-		// right: 0 !important;
-		// top: -100000%;
 		input {
-			// opacity: 0;
 			display: none;
 		}
 	}
@@ -319,52 +312,8 @@
 
 	@include media-breakpoint-up(lg) {
 	}
-
-	@include media-breakpoint-up(md) {
-	}
-
-	@include media-breakpoint-up(sm) {
-	}
-
-	@include media-breakpoint-up(xs) {
-	}
-
-	//
-	@include media-breakpoint-between(md, xl) {
-	}
-
-	//
-	@include media-breakpoint-only(xs) {
-	}
-
-	@include media-breakpoint-only(sm) {
-	}
-
-	@include media-breakpoint-only(md) {
-	}
-
-	@include media-breakpoint-only(lg) {
-	}
-
-	@include media-breakpoint-only(xl) {
-	}
-
-	//
-	@include media-breakpoint-down(xl) {
-	}
-
-	@include media-breakpoint-down(lg) {
-	}
-
-	@include media-breakpoint-down(md) {
-	}
-
-	@include media-breakpoint-down(sm) {
-	}
-
-	@include media-breakpoint-down(xs) {
-	}
 }
+
 .block1-anim {
   .inner-container,
   .block-anim__content-wrap,
@@ -377,7 +326,6 @@
     .block-anim2__content-wrap  {
       opacity: 1;
     }
-    
   }
 }
 
@@ -409,16 +357,20 @@
 
 // end.headerBlock
 .block-anim {
+  &:after {
+    content: none !important;
+  }
 
   &__line {
     @include media-breakpoint-up(md) {
       height: 4px;
       background: #261D1D;
       max-width: rem(672);
-      margin: auto;
+      width: 90vw;
+      margin: 0 auto;
+      margin-top: rem(32);
       position: relative;
       overflow: hidden;
-      margin-top: rem(32);
       .line {
         position: absolute;
         left: -100%;
@@ -437,17 +389,31 @@
     }
     @include media-breakpoint-up(xl) {
       max-width: rem(817);
-      margin-top: 6.5vh;
+      margin-top: 71px;
     }
   }
+
   &__content-wrap {
     position: absolute;
-    top: 20%;
+    --top-gap: 20%;
+    top: var(--top-gap);
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
+    height: calc(100% - var(--top-gap) - 66px);
+    display: flex;
+    flex-direction: column;
     @include media-breakpoint-up(md) {
-      top: 17%;
+      --top-gap: 16%;
+    }
+    @include media-breakpoint-up(lg) {
+      height: calc(100% - var(--top-gap) - 80px);
+    }
+    @include media-breakpoint-only(xl) {
+      --top-gap: 17%;
+    }
+    @include media-breakpoint-up(xxl) {
+      height: calc(101% - var(--top-gap) - 80px);
     }
   }
 
@@ -462,14 +428,22 @@
     margin-bottom: rem(50);
 
     @include media-breakpoint-up(md) {
-      line-height: 87%;
-      margin-bottom: rem(68);
+      margin-bottom: rem(65);
+      line-height: 105%;
     }
     @include media-breakpoint-up(lg) {
       margin-bottom: rem(8);
+      line-height: 100%;
       @media (orientation: portrait) {
-        margin-bottom: 9.5%;
+        margin-bottom: 11%;
       }
+    }
+    @include media-breakpoint-only(xl) {
+      font-size: 10.3vw;
+    }
+    @include media-breakpoint-up(xxl) {
+      line-height: 86%;
+      margin-bottom: 8px;
     }
   }
 
@@ -481,7 +455,7 @@
     text-align: center;
     color: $white;
     list-style-type: none;
-    margin-bottom: rem(50);
+    margin-bottom: rem(10);
     @include media-breakpoint-up(md) {
       font-size: rem(40);
       margin-bottom: rem(59);
@@ -497,7 +471,7 @@
 
         width: 100vw;
         position: absolute;
-        top: 33%;
+        top: 34%;
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
@@ -505,13 +479,35 @@
     }
     @include media-breakpoint-up(xl) {
       font-size: 2.64vw;
-      top: 35%;
+      top: 34.5%;
+      max-width: rem(1260);
     }
     @include media-breakpoint-up(xxl) {
-      top: 37%;
+      top: 36%;
+      max-width: rem(1330);
     }
     li {
       margin-bottom: rem(20);
+      @include media-breakpoint-only(md) {
+        @media (orientation: portrait) {
+          margin-bottom: rem(40);
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+      @include media-breakpoint-only(lg) {
+        @media (orientation: portrait) {
+          margin-bottom: rem(64);
+          font-size: 48px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+      @include media-breakpoint-up(xxl) {
+        font-size: 42px;
+      }
     }
   }
 
@@ -519,6 +515,8 @@
     position: relative;
     max-width: 100vw;
     overflow: hidden;
+    margin-top: auto;
+    min-height: rem(86);
 
     .text {
       font-weight: 600;
@@ -538,9 +536,13 @@
         text-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.25);
         opacity: 0.9;
       }
-    @include media-breakpoint-up(lg) {
-      max-width: rem(800);
-    }
+      @include media-breakpoint-up(lg) {
+        max-width: rem(800);
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: 24px;
+        max-width: rem(1112);
+      }
 
       position: absolute;
       top: 50%;
@@ -679,6 +681,95 @@
       }
     }
   }
+
+  .bg-gr-add {
+    @include media-breakpoint-up(lg) {
+      @media (orientation: landscape) {
+        position: absolute;
+        z-index: 0;
+        filter: blur(2px);
+        &.bg-gr-5 {
+          top: -170px;
+          width: 14vw;
+          height: 250px;
+          left: -14vw;
+          @include media-breakpoint-up(xl) {
+            height: 280px;
+          }
+          @include media-breakpoint-up(xxl) {
+            height: 347px;
+          }
+          background: linear-gradient(90deg, rgba(153, 153, 153, 0.15) 0%, rgba(111, 75, 57, 0.15) 100%);
+        }
+        &.bg-gr-6 {
+          top: 100%;
+          width: 14vw;
+          left: -14vw;
+          height: 250px;
+          background: linear-gradient(90deg, rgba(153, 153, 153, 0.25) 0%, rgba(111, 75, 57, 0.25) 100%);
+          @include media-breakpoint-up(xl) {
+            height: 280px;
+          }
+          @include media-breakpoint-up(xxl) {
+            height: 347px;
+          }
+        }
+        &.bg-gr-7 {
+          --width-7: 180px;
+          height: calc(100%/4 + 20px);
+          top: calc(100%/4 - 55px);
+          left: calc(var(--left-gap-1) - var(--width-7));
+          width: var(--width-7);
+          @include media-breakpoint-up(xl) {
+            --width-7: 170px;
+          }
+          @include media-breakpoint-up(xxl) {
+            height: 223px;
+            --width-7: 260px;
+            top: calc(100%/4 - 35px);
+          }
+          background: linear-gradient(90deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 43%);
+        }
+
+        &.bg-gr-8 {
+          --width-8: 120px;
+          width: var(--width-8);
+          top: calc(100%/4*2 - 30px);
+          left: calc(var(--left-gap-2) + 90px);
+          height: calc(100%/4 + 30px);
+          @include media-breakpoint-up(xl) {
+            --width-8: 202px;
+          }
+          @include media-breakpoint-up(xxl) {
+            --width-8: 260px;
+            left: calc(var(--left-gap-2) + 130px);
+          }
+          background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 43%);
+        }
+
+        &.bg-gr-9 {
+          --width-9: 207px;
+          width: var(--width-9);
+          height: 50%;
+          left: 33.5%;
+          bottom: -25%;
+          @include media-breakpoint-up(xl) {
+            height: 50%;
+            left: 33%;
+            bottom: -25%;
+            --width-9: 252px;
+          }
+          @include media-breakpoint-up(xxl) {
+            --width-9: 260px;
+            left: 39%;
+          }
+          background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 43%);
+        }
+      }
+    }
+
+  }
+
   --left-gap-1: 49vw;
   --left-gap-2: 14vw;
   --left-gap-3: 18vw;
@@ -701,8 +792,9 @@
         background: linear-gradient(90deg, rgba(185, 134, 108, 0.4) 0%, rgba(111, 75, 57, 0.4) 100%); 
         z-index: 0;
         @include media-breakpoint-up(xl) {
-          height: 170px;
+          height: 184px;
           width: 330px;
+          // bottom: 12px;
         }
         @include media-breakpoint-up(xxl) {
           height: 225px;
@@ -714,8 +806,10 @@
         bottom: auto;
         left: var(--left-gap-1);
         height: 200px;
+        background: linear-gradient(90deg, rgba(111, 75, 57, 0.5) 0%, rgba(153, 153, 153, 0.2) 70%, rgba(153, 153, 153, 0) 100%);
         @include media-breakpoint-up(xl) {
           height: 300px;
+          bottom: auto;
           top: -170px;
         }
         @include media-breakpoint-up(xxl) {
@@ -790,8 +884,9 @@
     transform: translate(-50%, -50%);
     z-index: 2;
     width: 90vw;
-    height: max-content;
-    padding: rem(55) rem(14) rem(14);
+    // height: max-content;
+    height: calc(100% - 47px*2);
+    padding: rem(55) rem(22) rem(14);
     background: rgba(32, 24, 16, 0.5);
 
     display: flex;
@@ -809,10 +904,12 @@
       left: 50%;
       transform: translate(-50%,-50%);
       // max-width: rem(918);
-      height: 30vh;
+      // height: 30vh;
+      max-width: rem(680);
     }
     @include media-breakpoint-up(lg) {
-      height: 31vh;
+      max-width: rem(870);
+      // height: 31vh;
     }
     @include media-breakpoint-up(xl) {
       max-width: 90vw;
@@ -821,7 +918,9 @@
     }
     @include media-breakpoint-up(xxl) {
       max-width: 1280px;
-      width: 81vw;
+      // width: 81vw;
+      // max-width: none;
+      height: 31vh;
     }
     @include media-breakpoint-down(md) {
       display: none;
@@ -834,6 +933,7 @@
     text-transform: uppercase;
     text-align: center;
     text-wrap: nowrap;
+    font-weight: 300;
     @include media-breakpoint-down(md) {
       &.title_bottom {
         transform: translate(0, 0) !important;
@@ -841,41 +941,40 @@
     }
     @include media-breakpoint-up(md) {
       --gap-title: 30%;
-      font-size: 8.2vw;
+      font-size: 9.7vw;
       position: absolute;
       left: 50%;
       font-weight: 250;
       line-height: 1;
+      @media (orientation: portrait) {
+        --gap-title: 38%;
+      }
       &.title_top {
-        // transform: translate(-50%, -30%);
         top: var(--gap-title) !important;
       }
       &.title_bottom {
         bottom: var(--gap-title) !important;
-        // transform: translate(-50%, 30%);
-      }
-      @media (orientation: portrait) {
-        --gap-title: 29.5%;
       }
     }
     @include media-breakpoint-up(lg) {
+      font-size: 8.8vw;
       @media (orientation: landscape) {
-        --gap-title: 26%;
+        --gap-title: 29%;
       }
       @media (orientation: portrait) {
-        --gap-title: 63.5%;
+        --gap-title: 38%;
       }
     }
     @include media-breakpoint-up(xl) {
       --gap-title: 28.5%;
     }
     @include media-breakpoint-up(xxl) {
-      --gap-title: 24%;
+      --gap-title: 28%;
+      font-size: 156px;
     }
   }
 
   &__title-wrap {
-    
     @include media-breakpoint-up(md) {
       transform: none !important;
     }
@@ -885,42 +984,80 @@
     margin-bottom: 20%;
     color: $white;
     @include media-breakpoint-up(md) {
-      padding: rem(25) rem(48);
+      padding: rem(21) rem(5);
       background: rgba(32, 24, 16, 0.5);
       margin-bottom: 0;
       margin-top: 0;
       position: absolute;
-      top: 52%;
+      top: 51%;
       left: 50%;
-      // transform: translate(-50%,-50%);
       width: 90vw;
-      max-width: rem(850);
+      max-width: rem(633);
       z-index: 5;
     }
     @include media-breakpoint-up(lg) {
+      padding: rem(25) rem(48);
+      max-width: rem(850);
       @media (orientation: portrait) {
         top: 50%;
+        padding: rem(16);
+        max-width: rem(707);
+      }
+      @media (orientation: landscape) {
+
       }
     }
     @include media-breakpoint-up(xl) {
+      max-width: rem(1071);
       top: 50%;
+    }
+    @include media-breakpoint-up(xxl) {
+      max-width: rem(1056);
     }
 
   }
   .brand {
     margin: auto;
+    margin-bottom: 0;
+    width: rem(142);
     @include media-breakpoint-up(md) {
       position: absolute;
-      bottom: 5%;
+      bottom: rem(78);
       left: 50%;
-      // transform: translateX(-50%);
+      width: rem(184);
+    }
+    @include media-breakpoint-up(lg) {
+      bottom: rem(61);
+      @media (orientation: portrait) {
+        width: rem(226);
+        bottom: rem(114);
+      }
+    }
+    @include media-breakpoint-up(xl) {
+      width: rem(226);
+      bottom: rem(91);
+    }
+    @include media-breakpoint-up(xxl) {
+      bottom: rem(112);
     }
   }
 
   .text {
     text-align: center;
+    @include media-breakpoint-only(md) {
+      letter-spacing: -0.05em;
+    }
     @include media-breakpoint-up(md) {
-      text-align: start;
+      // text-align: start;
+      text-align: justify;
+    }
+    @include media-breakpoint-up(lg) {
+      letter-spacing: -0.03em;
+      font-size: 20px;
+      line-height: 125%;
+    }
+    @include media-breakpoint-only(xl) {
+      letter-spacing: -0.04em;
     }
   }
 }
@@ -988,7 +1125,10 @@
       opacity: .5;
       top: 100%;
       left: 0;
+      padding: rem(10) rem(6);
+      @include media-breakpoint-up(md) {
       padding: rem(17) rem(12);
+      }
       width: 100%;
       transform: scaleY(-1);
     }
@@ -1051,7 +1191,16 @@
     width: rem(60);
   }
   &-1 .inner-container {
+    @include media-breakpoint-down(md) {
+      width: rem(320);
+    }
     @include media-breakpoint-up(md) {
+      width: 80vw;
+    }
+    @include media-breakpoint-up(lg) {
+      max-width: rem(679);
+    }
+    @include media-breakpoint-up(xxl) {
       max-width: rem(730);
     }
   }
@@ -1059,19 +1208,32 @@
     width: rem(160);
 
     position: absolute;
-    bottom: 5%;
+    bottom: 48px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 4;
     @include media-breakpoint-up(md) {
+      bottom: 64px;
       width: rem(272);
+    }
+    @include media-breakpoint-up(xxl) {
+      bottom: 80px;
     }
   }
   &-2 {
     .inner-container {
+      @include media-breakpoint-only(md) {
+        top: 52%;
+      }
+      @include media-breakpoint-only(lg) {
+        top: 53%;
+      }
       @include media-breakpoint-up(lg) {
         width: rem(1303);
         max-width: rem(1303);
+      }
+      @include media-breakpoint-up(xxl) {
+        top: 53%;
       }
     }
     .title_span {
@@ -1096,6 +1258,8 @@
       text-transform: uppercase;
       @include media-breakpoint-up(md) {
         font-size: rem(45);
+        letter-spacing: 0.2em;
+        line-height: 100%;
       }
     }
 
@@ -1104,27 +1268,67 @@
     }
 
     &__content-wrap {
+      font-weight: 500;
       @include media-breakpoint-up(md) {
         display: flex;
         gap: rem(57);
-        transform: translateX(-4px);
+        transform: translateX(-6px);
         .text {
-          max-width: 30vw;
+          letter-spacing: 0.06em;
         }
         .text:first-child {
           text-align: right;
+          width: rem(300);
+          max-width: rem(300);
         }
         .text:last-child {
           text-align: left;
+          width: rem(290);
+          max-width: rem(290);
         }
       }
       @include media-breakpoint-up(lg) {
-        .text {
-          max-width: 40vw;
+        transform: translateX(-24px);
+        .text:first-child {
+          width: rem(448);
+          max-width: rem(448);
+        }
+        .text:last-child {
+          width: rem(401);
+          max-width: rem(401);
+        }
+        @media (orientation: portrait) {
+          transform: translateX(-10px);
+          gap: rem(80);
+          .text:first-child {
+            width: rem(379);
+            max-width: rem(379);
+          }
+          .text:last-child {
+            width: rem(365);
+            max-width: rem(365);
+          }
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        transform: translateX(-11px);
+        .text:first-child {
+          width: rem(534);
+          max-width: none;
+        }
+        .text:last-child {
+          width: rem(516);
+          max-width: none;
         }
       }
       @include media-breakpoint-up(xxl) {
-        transform: translateX(-10px);
+        transform: translateX(0px);
+        .text:first-child {
+          width: 632px;
+        }
+        .text:last-child {
+          width: 637px;
+        }
       }
     }
   }
@@ -1178,6 +1382,13 @@
 
   &-2 {
     .inner-container {
+      @include media-breakpoint-down(md) {
+        top: 45.5%;
+        .wrapper {
+          padding-top: rem(18);
+          padding-bottom: rem(35);
+        }
+      }
       background: linear-gradient(270deg, #1d1003 0%, rgba(29, 16, 3, 0.4) 100%);
     }
     .brand {
@@ -1264,9 +1475,14 @@
       @include media-breakpoint-up(lg) {
         font-size: rem(32);
       }
+
+      @include media-breakpoint-only(xl) {
+        text-align: start;
+        margin-left: rem(50);
+      }
       @include media-breakpoint-up(xxl) {
         font-weight: 300;
-        font-size: rem(52);
+        font-size: 52px;
       }
     }
     .inner-container {
@@ -1279,23 +1495,40 @@
           top: 55%;
         }
       }
-
     }
 
     .title_top {
       letter-spacing: 0.45em;
-      @include media-breakpoint-up(xl) {
-        letter-spacing: 0.29em;
+      @include media-breakpoint-up(lg) {
+        letter-spacing: .41em;
+      }
+      @include media-breakpoint-only(xl) {
+        letter-spacing: 0.38em;
+        span {
+          margin-left: 36px;
+        }
+      }
+      @include media-breakpoint-up(xxl) {
+        letter-spacing: 0.3em;
       }
     }
     .title_bottom {
       letter-spacing: 0.27em;
       @include media-breakpoint-up(md) {
+        letter-spacing: 0.24em;
         @media (orientation: landscape) {
           letter-spacing: 0.24em;
         }
       }
-      @include media-breakpoint-up(xl) {
+      @include media-breakpoint-up(lg) {
+        @media (orientation: landscape) {
+          letter-spacing: 0.20em;
+        }
+      }
+      @include media-breakpoint-only(xl) {
+        letter-spacing: 0.27em;
+      }
+      @include media-breakpoint-up(xxl) {
         letter-spacing: 0.3em;
       }
     }
@@ -1304,12 +1537,51 @@
       font-size: rem(14);
       font-weight: 400;
       color: #F3E8DA;
+      @include media-breakpoint-down(md) {
+        line-height: 157%;
+        width: rem(308);
+      }
       @include media-breakpoint-up(xl) {
+        line-height: 157%;
+      }
+      @include media-breakpoint-up(xxl) {
         font-size: rem(19);
         line-height: 142%;
       }
     }
+
+    @include media-breakpoint-only(lg) {
+      .inner-container {
+        @media (orientation: portrait) {
+          top: 65%;
+        }
+      }
+    }
+
     .wrapper {
+      @include media-breakpoint-down(md) {
+        gap: rem(48);
+      }
+      @include media-breakpoint-only(md) {
+        column-gap: 20px;
+
+        .block-anim-konig-2__content-wrap {
+          grid-column: 1/-1;
+          .text {
+            max-width: rem(695);
+            padding-left: rem(26);
+            font-size: rem(19);
+          }
+        }
+      }
+      @include media-breakpoint-only(lg) {
+        
+        @media (orientation: portrait) {
+          height: 250px;
+        }
+      }
+
+
       @include media-breakpoint-up(md) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -1321,6 +1593,10 @@
           height: 100%;
           width: 50%;
           z-index: -1;
+        }
+
+        .block-anim-konig-2__title-wrap {
+          text-align: end;
         }
 
         @media (orientation: landscape) {
@@ -1339,7 +1615,6 @@
 
           .block-anim-konig-2__title-wrap {
 
-            text-align: end;
             .title_top {
               margin-right: rem(-4px);
               @include media-breakpoint-up(xl) {
@@ -1352,7 +1627,6 @@
         @media (orientation: portrait) {
           padding: rem(39) rem(14) rem(12) rem(28);
           row-gap: 10vh;
-          column-gap: 0;
           max-width: rem(768);
           margin: auto;
 
@@ -1365,14 +1639,6 @@
             right: 0;
             background: linear-gradient(270deg, rgba(29, 16, 3, 0.1) 0%, rgba(29, 16, 3, 0.2) 100%);
           }
-          .block-anim-konig-2__content-wrap {
-            grid-column: 1/-1;
-            .text {
-              max-width: rem(695);
-              padding-left: rem(26);
-              font-size: rem(19);
-            }
-          }
         }
       }
 
@@ -1380,7 +1646,14 @@
         max-width: rem(1024);
         margin: auto;
       }
+      @include media-breakpoint-only(xl) {
+        padding-top: rem(31);
+      }
       @include media-breakpoint-up(xl) {
+        height: 190px;
+        align-items: start;
+      }
+      @include media-breakpoint-up(xxl) {
         max-width: rem(1416);
       }
     }
@@ -1405,15 +1678,34 @@
 
   .brand-wrap {
     position: absolute;
-    bottom: 7%;
+    bottom: rem(88);
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    @include media-breakpoint-up(md) {
+      bottom: rem(120);
+    }
+    @include media-breakpoint-up(lg) {
+      @media (orientation: landscape) {
+        bottom: rem(94);
+      }
+      @media (orientation: portrait) {
+        bottom: rem(134);
+      }
+    }
+    @include media-breakpoint-up(xxl) {
+      bottom: rem(160);
+    }
   }
 
   .brand {
     width: rem(143);
     @include media-breakpoint-up(lg) {
+      @media (orientation: portrait) {
+        width: rem(169);
+      }
+    }
+    @include media-breakpoint-up(xl) {
       width: rem(169);
     }
   }
@@ -1458,7 +1750,7 @@
       @include media-breakpoint-up(lg) {
         @media (orientation: landscape) {
           width: rem(304);
-          gap: rem(80);
+          gap: rem(127);
         }
         @media (orientation: portrait) {
           width: rem(337);
@@ -1469,11 +1761,13 @@
       }
       @include media-breakpoint-up(xl) {
         width: rem(337);
-        height: 75%;
+        height: 78%;
         justify-content: space-between;
       }
       @include media-breakpoint-up(xxl) {
-        height: 80%;
+        height: 91%;
+        top: 4%;
+        left: 19.5vw;
       }
     }
     &:after {
@@ -1486,6 +1780,14 @@
       @include media-breakpoint-up(md) {
         background: linear-gradient(180deg, rgba(0,0,0,0.5) 70%, rgba(0,52,102,0) 100%);
         width: 55%;
+      }
+      @include media-breakpoint-only(lg) {
+        @media (orientation: landscape) {
+          width: 47%;
+        }
+      }
+      @include media-breakpoint-up(xl) {
+        width: 46.5%;
       }
       @include media-breakpoint-up(xxl) {
         content: none
@@ -1514,7 +1816,8 @@
         font-size: rem(80);
       }
       @include media-breakpoint-up(xxl) {
-        font-size: 7.8vh;
+        font-size: 8.9vh;
+        letter-spacing: 0.05em;
       }
     }
 
@@ -1524,6 +1827,12 @@
         margin-left: rem(20);
         @include media-breakpoint-up(md) {
           margin-left: rem(40);
+        }
+        @include media-breakpoint-up(lg) {
+          margin-left: rem(50);
+        }
+        @include media-breakpoint-up(xl) {
+          margin-left: rem(62);
         }
       }
     }
@@ -1536,6 +1845,10 @@
         transform:  rotate(-90deg) translateX(-28%) translateY(-80%);
         .title_top {
           margin-bottom: rem(52);
+          @include media-breakpoint-up(xxl) {
+            margin-bottom: rem(34);
+          }
+
         }
       }
       @include media-breakpoint-up(lg) {
@@ -1547,6 +1860,8 @@
         transform: rotate(-90deg) translateX(-28%) translateY(-94%);
       }
       @include media-breakpoint-up(xxl) {
+        left: 32.5vw;
+        top: 68px;
         transform: rotate(-90deg) translateX(-28%) translateY(-9%);
       }
     }
@@ -1567,6 +1882,12 @@
       }
       @include media-breakpoint-up(xl) {
         font-size: rem(24);
+      }
+      @include media-breakpoint-up(xxl) {
+        font-size: 24px;
+        max-width: rem(258);
+        letter-spacing: 0.04em;
+        line-height: 129%;
       }
     }
 
@@ -1628,6 +1949,12 @@
         max-width: rem(510);
         line-height: 142%;
         letter-spacing: 0.05em;
+        @media (orientation: landscape) {
+          max-width: rem(400);
+        }
+      }
+      @include media-breakpoint-up(xxl) {
+        max-width: rem(510);
       }
     }
 
@@ -1638,31 +1965,34 @@
       @include media-breakpoint-up(md) {
         position: absolute;
         z-index: 1;
-        left: 0;
-        bottom: 0;
-        transform:  rotate(-90deg) translateX(21%) translateY(-65%);
+        left: -179px;
+        bottom: 23%;
+        transform:  rotate(-90deg);
         .title_top {
           margin-bottom: rem(87);
         }
         @media (orientation: landscape) {
-        transform:  rotate(-90deg) translateX(21%) translateY(-26%);
+          // transform:  rotate(-90deg);
         }
       }
       @include media-breakpoint-up(lg) {
       
         @media (orientation: portrait) {
-          transform:  rotate(-90deg) translateX(28%) translateY(-55%);
+          bottom: 29%;
+          left: -200px;
         }
         @media (orientation: landscape) {
-          transform:  rotate(-90deg) translateX(18%) translateY(-46%);
+          left: -98px;
         }
       }
       @include media-breakpoint-up(xl) {
-        transform: rotate(-90deg) translateX(13%) translateY(-58%);
+        bottom: 21%;
+        left: -175px;
         z-index: 1;
       }
       @include media-breakpoint-up(xxl) {
-        transform: rotate(-90deg) translateX(8%) translateY(-18%);
+        bottom: 11%;
+        left: -62px;
       }
 
     }
@@ -1715,12 +2045,12 @@
         bottom: 20%;
         z-index: 1;
         @media (orientation: portrait) {
-          bottom: 0%;
+          bottom: -97px;
         }
       }
       @include media-breakpoint-only(lg) {
         @media (orientation: landscape) {
-          bottom: 0;
+          bottom: -26%;
           transform: translateY(100%);
           left: 58vw;
         }
@@ -1729,10 +2059,11 @@
         }
       }
       @include media-breakpoint-up(xl) {
-        bottom: -18%;
+        bottom: -24%;
         left: 56vw;
       }
       @include media-breakpoint-up(xxl) {
+        bottom: -18%;
         left: 51vw;
       }
     }
@@ -1762,7 +2093,7 @@
 
   .brand-wrap {
     position: absolute;
-    bottom: 6.5%;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-40%);
     z-index: 2;

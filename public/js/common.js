@@ -1061,7 +1061,7 @@ if (document.readyState !== "loading") {
 function isElementInContainerViewport(el) {
 	const rect = el.getBoundingClientRect();
 
-	console.log(rect);
+	// console.log(rect);
 
 	return (
 		(rect.top <= rect.height / 4 &&
@@ -1073,7 +1073,7 @@ function isElementInContainerViewport(el) {
 // Функция для обработки скролла внутри контейнера
 function onContainerScroll(activeSlide) {
 	const container = activeSlide.querySelector(" .main-slider__body");
-	console.log(activeSlide);
+	// console.log(activeSlide);
 	const elements = container.querySelectorAll(".block1-anim");
 
 	elements.forEach((element, i) => {
@@ -1108,7 +1108,7 @@ function onContainerScroll(activeSlide) {
 			if (element.classList.contains("is-visible")) {
 				// element.classList.remove("is-visible");
 
-				console.log("Элемент не в зоне видимости контейнера", i, element);
+				// console.log("Элемент не в зоне видимости контейнера", i, element);
 			}
 		}
 	});
