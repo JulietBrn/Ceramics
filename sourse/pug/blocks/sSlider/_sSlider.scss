@@ -25,6 +25,9 @@
       max-height: rem(720);
     }
   }
+  .parallax-container-top {
+    background-position-y: 0;
+  }
   .slider-auto--js {
     overflow: hidden;
     .parallax-container {

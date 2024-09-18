@@ -264,10 +264,15 @@
   .wrapper {
     position: relative;
     overflow: hidden;
-    height: min-content;
+    height: 20px;
     width: min-content;
   }
+  img {
+    vertical-align: top;
+    height: 100%;
+  }
 }
+
 
 .flash-effect {
   position: absolute;
@@ -278,12 +283,11 @@
   width: 30px;
   background: linear-gradient(
     180deg,
-    hsla(0, 0%, 100%, 0.7),
-    #fff 50%,
-    hsla(0, 0%, 100%, 0.7)
+    rgba(255, 255, 255, 0),
+    hsla(0, 0%, 100%, 0.71)
   );
   display: block;
-  opacity: 0.3;
+  opacity: 0.4;
   transform: rotate(45deg);
   transition: none;
 }
@@ -297,7 +301,7 @@
   }
 }
 
-.flash-effect.active {
+#preloader:not(.d-none) .flash-effect.active {
   animation: flash 1.5s;
   animation-iteration-count: 30;
 }

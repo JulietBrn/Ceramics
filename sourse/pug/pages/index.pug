@@ -48,7 +48,11 @@ block pagecontent
 				+e.slide.swiper-slide
 					+e.slider-inner: +e.body
 						.container-max
-							+block1(data, 'konigstein')
+							.block1
+								.parallax-container(style=`background-image:url(img/brand-header-konig-img.png);`)
+								.content
+									+img(src=`img/konigstein.svg`, alt="").brand.brand_large
+								+e.btn.btn.btn-primary(href='#') Перейти в каталог
 						+headerBlockAnimatedKonig('konig')
 						+headerBlockAnimatedKonig2('konig2')
 						+sSlider
@@ -57,7 +61,11 @@ block pagecontent
 				+e.slide.swiper-slide
 					+e.slider-inner: +e.body
 						.container-max
-							+block1(data, 'modformat')
+							.block1
+								.parallax-container(style=`background-image:url(img/brand-header-mf-img.png);`)
+								.content
+									+img(src=`img/modformat.svg`, alt="").brand.brand_large.brand_right
+								+e.btn.btn.btn-primary(href='#') Перейти в каталог
 						+headerBlockAnimatedMF('mf')
 						+headerBlockAnimatedMF2('mf2')
 						+sSlider
@@ -66,7 +74,11 @@ block pagecontent
 				+e.slide.swiper-slide
 					+e.slider-inner: +e.body
 						.container-max
-							+block1(data, 'master-ceramic')
+							.block1
+								.parallax-container(style=`background-image:url(img/brand-header-mk-img.png);`)
+								.content
+									+img(src=`img/master-ceramic.svg`, alt="").brand
+								+e.btn.btn.btn-primary(href='#') Перейти в каталог
 						+headerBlockAnimatedMK('mk')
 						+headerBlockAnimatedMK2('mk2')
 						+sSlider

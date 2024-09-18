@@ -314,6 +314,8 @@
 	}
 }
 
+
+
 .block1-anim {
   .inner-container,
   .block-anim__content-wrap,
@@ -333,10 +335,19 @@
   
   .block1 .content {
     position: absolute;
-    top: rem(50);
+    top: rem(61);
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
+    .brand {
+      min-width: rem(140);
+    }
+    .brand_large {
+      min-width: rem(176);
+    }
+    .brand_right {
+      margin-left: rem(20);
+    }
   }
   .block1 .btn {
     position: absolute;
@@ -481,6 +492,8 @@
       font-size: 2.64vw;
       top: 34.5%;
       max-width: rem(1260);
+      margin-left: auto;
+      margin-right: auto;
     }
     @include media-breakpoint-up(xxl) {
       top: 36%;
@@ -878,6 +891,7 @@
     content: none;
   }
   .inner-container {
+    transition: opacity .4s;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -903,8 +917,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
-      // max-width: rem(918);
-      // height: 30vh;
+      z-index: 2;
       max-width: rem(680);
     }
     @include media-breakpoint-up(lg) {
