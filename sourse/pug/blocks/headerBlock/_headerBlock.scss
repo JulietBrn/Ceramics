@@ -1817,6 +1817,7 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #ead5c4;
+      text-wrap: nowrap;
       @include media-breakpoint-up(md) {
         font-size: rem(64);
         letter-spacing: 0.08em;
@@ -1846,7 +1847,7 @@
           margin-left: rem(40);
         }
         @include media-breakpoint-up(lg) {
-          margin-left: rem(50);
+          margin-left: rem(40);
         }
         @include media-breakpoint-up(xl) {
           margin-left: rem(62);
