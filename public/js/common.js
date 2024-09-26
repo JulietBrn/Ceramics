@@ -1061,11 +1061,9 @@ if (document.readyState !== "loading") {
 function isElementInContainerViewport(el) {
 	const rect = el.getBoundingClientRect();
 
-	// console.log(rect);
-
 	return (
 		(rect.top <= rect.height / 4 &&
-		// rect.bottom >= (rect.height * 3) / 4 &&
+		rect.bottom >= (rect.height * 3) / 4 &&
 		rect.left === 0)
 	);
 }
@@ -1080,7 +1078,7 @@ function onContainerScroll(activeSlide) {
 		if (isElementInContainerViewport(element)) {
 			if (!element.classList.contains("is-visible")) {
 				element.classList.add("is-visible");
-				console.log("Элемент в зоне видимости контейнера", i, element);
+				// console.log("Элемент в зоне видимости контейнера", i, element);
 
 				if (element.classList.contains("block-anim")) {
 					animation.animateListItems();
@@ -1106,7 +1104,7 @@ function onContainerScroll(activeSlide) {
       }
 		} else {
 			if (element.classList.contains("is-visible")) {
-				// element.classList.remove("is-visible");
+				element.classList.remove("is-visible");
 
 				// console.log("Элемент не в зоне видимости контейнера", i, element);
 			}
