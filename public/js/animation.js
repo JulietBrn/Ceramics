@@ -139,21 +139,29 @@ function animateListItems2() {
 
   gsap.killTweensOf(animatedBlock);
 
-  const tla = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".block1.block-anim2",
-      start: "top 80%",
-      toggleActions: "play none none none",
-      invalidateOnRefresh: true,
-    },
-    repeat: -1,
-    repeatDelay: 0,
-  });
+  // const tla = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: ".block1.block-anim2",
+  //     start: "top 80%",
+  //     toggleActions: "play none none none",
+  //     invalidateOnRefresh: true,
+  //   },
+  //   repeat: -1,
+  //   repeatDelay: 0,
+  // });
 
   if (
     window.innerWidth >= 992 &&
     window.matchMedia("(orientation: landscape)").matches
   ) {
+    const tla = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".block1.block-anim2",
+        start: "top 80%",
+        toggleActions: "play none none none",
+        invalidateOnRefresh: true,
+      },
+    });
     tla.set(
       [".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr--js"],
       {opacity: 0}
@@ -178,14 +186,24 @@ function animateListItems2() {
       {opacity: 1, x: 0, duration: 1, ease: "ease-in"},
       "-=1"
     );
-    tla.to({}, {duration: 2}); // Пауза на 2 секунды
+    // tla.to({}, {duration: 2});
 
-    tla.fromTo(
-      [".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr--js"],
-      {opacity: 1, x: 0},
-      {opacity: 0, x: 100, duration: 1, ease: "ease-in"}
-    );
+    // tla.fromTo(
+    //   [".block-anim2 li", ".block-anim2 .line", ".block-anim2 .bg-gr--js"],
+    //   {opacity: 1, x: 0},
+    //   {opacity: 0, x: 100, duration: 1, ease: "ease-in"}
+    // );
   } else {
+    const tla = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".block1.block-anim2",
+        start: "top 80%",
+        toggleActions: "play none none none",
+        invalidateOnRefresh: true,
+      },
+      repeat: -1,
+      repeatDelay: 0,
+    });
     tla.set(".block-anim2__list", {opacity: 0, x: -20, y: "-50%"});
 
     tla.set(
