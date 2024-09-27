@@ -114,7 +114,7 @@ mixin headerBlockAnimated2(img)
 	// start headerBlock anim
 	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim2
-			.block-anim2__content-wrap
+			.block-anim2__content-wrap: .anim-wr
 				.line.line-1
 				.line.line-2
 				.line.line-3
@@ -190,7 +190,7 @@ mixin headerBlockAnimatedMK2(img)
 				.block-anim-mk-2__content-wrap
 					.text.up-down.text_left Бренд Мастер Керамик основывается на&nbsp;глубоких ценностях, которые формируют характер настоящего мастера: Мастера, который любит свое дело, развивает мастерство и&nbsp;ценит человеческие отношения.
 					.text.up-down.text_right Как мастер внедряет современные технологии в&nbsp;старинные методы печной кладки, так и&nbsp;бренд Мастер Керамик объединяет прошлое и&nbsp;будущее, сохраняя и&nbsp;развивая традиции печного мастерства.
-			+img(src=`img/master-crop.svg`, alt="").brand.up-down
+			.br: +img(src=`img/master-crop.svg`, alt="").brand.up-down
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
 
@@ -198,8 +198,8 @@ mixin headerBlockAnimatedKonig(img)
 	// start headerBlock anim
 	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim-konig.block-anim-konig-1
-			.inner-container.up-down.left-to-right
-				.wrapper.inner-container-center-anim
+			.inner-container
+				.wrapper.inner-container-center-anim.up-down.left-to-right
 					.block-anim-konig__title-wrap.left-to-right
 						.block-anim-konig__title.title_top.up-down покоряет
 						.block-anim-konig__title.title_bottom.up-down дизайном
@@ -223,7 +223,7 @@ mixin headerBlockAnimatedKonig2(img)
 					.block-anim-konig-2__content-wrap.left-to-right
 						.text.up-down Дизайн кирпича бренда Königstein отличает богатство цвета, фактурность и красота поверхности. <br> Как и сам кирпич, бренд Königstein сочетает в себе эстетику и современность, статусность и рациональность. <br> Из этих сочетаний складывается уникальный характер бренда.
 					.lg-after.lg-after_right.d-none.d-lg-inline-block.left-to-right
-			.brand-wrap: +img(src=`img/konigstein-crop.svg`, alt="").brand.up-down.left-to-right
+			.brand-wrap.br: +img(src=`img/konigstein-crop.svg`, alt="").brand.up-down.left-to-right
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
 

@@ -516,7 +516,7 @@ function animateKonig() {
       }
     );
   } else {
-    gsap.set(".block-anim-konig-1 .inner-container", {x: "-50%", y: "-50%"});
+    gsap.set(".block-anim-konig-1 .wrapper", {x: "-50%", y: "-50%"});
     gsap.set(".block-anim-konig-1 .up-down", {opacity: 0, y: -20});
     gsap.set(".block-anim-konig-1 .left-to-right", {opacity: 1, x: 0});
 

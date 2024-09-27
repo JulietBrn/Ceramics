@@ -318,14 +318,19 @@
 
 .block1-anim {
   .inner-container,
-  .block-anim__content-wrap,
-  .block-anim2__content-wrap  {
+  .br,
+  .wrapper,
+  .anim-wr,
+  .block-anim__content-wrap  {
     opacity: 0;
+    transition: opacity 0.4s ease;
   }
   &.is-visible {
     .inner-container,
-    .block-anim__content-wrap,
-    .block-anim2__content-wrap  {
+    .br,
+    .wrapper,
+    .anim-wr,
+    .block-anim__content-wrap {
       opacity: 1;
     }
   }
@@ -1494,9 +1499,11 @@
     }
 
   }
+  .wrapper {
+    background: linear-gradient(270deg, rgba(27, 15, 15, 0.2) 0%, rgba(27, 15, 15, 0.7) 100%);
+  }
   .inner-container {
     width: 100vw;
-    background: linear-gradient(270deg, rgba(27, 15, 15, 0.2) 0%, rgba(27, 15, 15, 0.7) 100%);
 
     position: absolute;
     top: 50%;
