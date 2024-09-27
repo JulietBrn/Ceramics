@@ -20,8 +20,8 @@ function animateListItems() {
     repeat: -1, // Бесконечное повторение
     repeatDelay: 0, // Задержка перед повтором
   };
-  const title = document.querySelector(".block-anim__title-wrap");
-  const footer = document.querySelector(".block-anim__footer");
+  const title = document.querySelector(".block1-anim .block-anim__title-wrap");
+  const footer = document.querySelector(".block1-anim .block-anim__footer");
 
   if ((window.innerWidth >= 992 && window.matchMedia("(orientation: landscape)").matches) || (window.innerWidth >= 1280)) {
     const tl = gsap.timeline(trigger);
