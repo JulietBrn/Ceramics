@@ -3,7 +3,7 @@
 // import {speed} from "jquery";
 // import Swiper from '../libs/swiper/swiper-bundle.min.mjs';
 import JSCCommon from "./JSCCommon.js";
-import * as animation from './animation.js'
+import * as animation from "./animation.js";
 
 const $ = jQuery;
 
@@ -1062,9 +1062,9 @@ function isElementInContainerViewport(el) {
 	const rect = el.getBoundingClientRect();
 
 	return (
-		(rect.top <= rect.height / 4 &&
-		rect.bottom >= (rect.height * 3) / 4 &&
-		rect.left === 0)
+		rect.top <= rect.height / 4 &&
+		rect.bottom >= (rect.height * 1.5) / 4 &&
+		rect.left === 0
 	);
 }
 
@@ -1101,7 +1101,7 @@ function onContainerScroll(activeSlide) {
 				} else if (element.classList.contains("block-anim-mf-2")) {
 					animation.animateMF2();
 				}
-      }
+			}
 		} else {
 			if (element.classList.contains("is-visible")) {
 				element.classList.remove("is-visible");
