@@ -1,5 +1,5 @@
 /*!
- * FilePond 4.31.3
+ * FilePond 4.32.7
  * Licensed under MIT, https://opensource.org/licenses/MIT/
  * Please visit https://pqina.nl/filepond/ for details.
  */
@@ -4878,9 +4878,14 @@
             var headers =
                 typeof action.headers === 'function'
                     ? action.headers(file, metadata)
-                    : Object.assign({}, action.headers, {
-                          'Upload-Length': file.size,
-                      });
+                    : Object.assign(
+                          {},
+
+                          action.headers,
+                          {
+                              'Upload-Length': file.size,
+                          }
+                      );
 
             var requestParams = Object.assign({}, action, {
                 headers: headers,
@@ -4917,7 +4922,11 @@
             var headers =
                 typeof action.headers === 'function'
                     ? action.headers(state.serverId)
-                    : Object.assign({}, action.headers);
+                    : Object.assign(
+                          {},
+
+                          action.headers
+                      );
 
             var requestParams = {
                 headers: headers,
@@ -5009,6 +5018,7 @@
                 function(res) {
                     return null;
                 };
+            var onload = chunkServer.onload || function() {};
 
             // send request object
             var requestUrl = buildURL(apiUrl, chunkServer.url, state.serverId);
@@ -5016,12 +5026,17 @@
             var headers =
                 typeof chunkServer.headers === 'function'
                     ? chunkServer.headers(chunk)
-                    : Object.assign({}, chunkServer.headers, {
-                          'Content-Type': 'application/offset+octet-stream',
-                          'Upload-Offset': chunk.offset,
-                          'Upload-Length': file.size,
-                          'Upload-Name': file.name,
-                      });
+                    : Object.assign(
+                          {},
+
+                          chunkServer.headers,
+                          {
+                              'Content-Type': 'application/offset+octet-stream',
+                              'Upload-Offset': chunk.offset,
+                              'Upload-Length': file.size,
+                              'Upload-Name': file.name,
+                          }
+                      );
 
             var request = (chunk.request = sendRequest(
                 ondata(chunk.data),
@@ -5031,7 +5046,10 @@
                 })
             ));
 
-            request.onload = function() {
+            request.onload = function(xhr) {
+                // allow hooking into request result
+                onload(xhr, chunk.index, chunks.length);
+
                 // done!
                 chunk.status = ChunkStatus.COMPLETE;
 
@@ -9436,7 +9454,6 @@
     var create$a = function create(_ref) {
         var root = _ref.root,
             props = _ref.props;
-
         // set id so can be referenced from outside labels
         root.element.id = 'filepond--browser-' + props.id;
 
@@ -9551,6 +9568,19 @@
         if (root.query('GET_TOTAL_ITEMS') > 0) {
             attrToggle(element, 'required', false);
             attrToggle(element, 'name', false);
+
+            // still has items
+            var activeItems = root.query('GET_ACTIVE_ITEMS');
+            var hasInvalidField = false;
+            for (var i = 0; i < activeItems.length; i++) {
+                if (activeItems[i].status === ItemStatus.LOAD_ERROR) {
+                    hasInvalidField = true;
+                }
+            }
+            // set validity status
+            root.element.setCustomValidity(
+                hasInvalidField ? root.query('GET_LABEL_INVALID_FIELD') : ''
+            );
         } else {
             // add name attribute
             attrToggle(element, 'name', true, root.query('GET_NAME'));
@@ -9804,7 +9834,10 @@
 
     var create$c = function create(_ref) {
         var root = _ref.root;
-        return (root.ref.fields = {});
+        root.ref.fields = {};
+        var legend = document.createElement('legend');
+        legend.textContent = 'Files';
+        root.element.appendChild(legend);
     };
 
     var getField = function getField(root, id) {
@@ -10505,7 +10538,12 @@
     var handlePaste = function handlePaste(e) {
         // if is pasting in input or textarea and the target is outside of a filepond scope, ignore
         var activeEl = document.activeElement;
-        if (activeEl && /textarea|input/i.test(activeEl.nodeName)) {
+        var isActiveElementEditable =
+            activeEl &&
+            (/textarea|input/i.test(activeEl.nodeName) ||
+                activeEl.getAttribute('contenteditable') === 'true');
+
+        if (isActiveElementEditable) {
             // test textarea or input is contained in filepond root
             var inScope = false;
             var element = activeEl;
@@ -10585,7 +10623,7 @@
         var root = _ref.root,
             props = _ref.props;
         root.element.id = 'filepond--assistant-' + props.id;
-        attr(root.element, 'role', 'status');
+        attr(root.element, 'role', 'alert');
         attr(root.element, 'aria-live', 'polite');
         attr(root.element, 'aria-relevant', 'additions');
     };
@@ -10643,7 +10681,6 @@
         clearTimeout(addFilesNotificationTimeout);
         addFilesNotificationTimeout = setTimeout(function() {
             listModified(root, filenames.join(', '), root.query('GET_LABEL_FILE_ADDED'));
-
             filenames.length = 0;
         }, 750);
     };
@@ -10862,7 +10899,7 @@
             frag.href = credits[0];
             frag.tabIndex = -1;
             frag.target = '_blank';
-            frag.rel = 'noopener noreferrer';
+            frag.rel = 'noopener noreferrer nofollow';
             frag.textContent = credits[1];
             root.element.appendChild(frag);
             root.ref.credits = frag;
