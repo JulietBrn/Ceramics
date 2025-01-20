@@ -15,13 +15,13 @@ block variables
 	- let  bg= null
 
 block title
-	- let  title= index.head.title
+	- let  title= 'Animation'
 	title= title
 block pagecontent
 	//- +mob-mnu()
 	
 	
-	+parts('header')
+	//- +parts('header')
 	main.main-page
 		+b.main-slider--js.swiper
 			.swiper-wrapper
@@ -29,5 +29,5 @@ block pagecontent
 					+e.slider-inner: +e.body
 						+headerBlockAnimated('main-anim')
 		//- +cookie
-		+pagePreloader
-		+pageSlider()
+		//- // +pagePreloader
+		//- // +pageSlider()

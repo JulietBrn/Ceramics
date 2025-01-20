@@ -59,7 +59,7 @@ mixin block1(img, brand, videoPath = 'video/brand.mp4')
 		if brand
 			.content
 				+img(src=`img/${brand}.svg`, alt="").brand
-			+e.btn.btn.btn-primary(href='#') Перейти в каталог
+			+e.btn.btn.btn-primary(href='#') Catalog
 		if block
 			block
 
@@ -101,4 +101,4 @@ mixin block4(img)
 		+e.img-wrap.bg-wrap
 			+img(`img/${img}-bg.png`, 'bg')
 		.content
-			+e.btn.btn.btn-primary(href='#') Перейти в каталог
+			+e.btn.btn.btn-primary(href='#') Catalog

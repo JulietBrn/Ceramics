@@ -85,19 +85,41 @@ mixin headerBlock3(img, brand)
 			if brand
 				.content
 					+img(src=`img/${brand}.svg`, alt="").brand
-				+e.btn.btn.btn-primary(href='#') Перейти в каталог
+				+e.btn.btn.btn-primary(href='#') Catalog
 	// end headerBlock
+
+//- mixin headerBlockAnimated(img)
+//- 	// start headerBlock anim
+//- 	.container-max.block-with-animation-js
+//- 		.block1.block1-anim.block-anim
+//- 			.block-anim__content-wrap
+//- 				.block-anim__title-wrap: .block-anim__title Мы не просто производим облицовочный кирпич
+//- 				ul.block-anim__list
+//- 					li мастерство
+//- 					li этичность
+//- 					li эстетичность
+//- 				.block-anim__footer
+//- 					.bricks
+//- 						.brick
+//- 						.brick
+//- 						.brick
+//- 						.brick
+//- 						.brick
+//- 					.text мы создаём, воплощаем, творим. совершенствуем мастерство. технику. технологии. уникальный дизайн. неповторимую эстетику.
+//- 				.block-anim__line: .line
+//- 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
+//- 	// end headerBlock
 
 mixin headerBlockAnimated(img)
 	// start headerBlock anim
 	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim
 			.block-anim__content-wrap
-				.block-anim__title-wrap: .block-anim__title Мы не просто производим облицовочный кирпич
+				.block-anim__title-wrap: .block-anim__title We do not just produce facing brick
 				ul.block-anim__list
-					li мастерство
-					li этичность
-					li эстетичность
+					li Mastery
+					li Ethics
+					li Aesthetics
 				.block-anim__footer
 					.bricks
 						.brick
@@ -105,10 +127,37 @@ mixin headerBlockAnimated(img)
 						.brick
 						.brick
 						.brick
-					.text мы создаём, воплощаем, творим. совершенствуем мастерство. технику. технологии. уникальный дизайн. неповторимую эстетику.
+					.text We create, embody, innovate. We perfect craftsmanship, technique, and technology. Unique design, unparalleled aesthetics.
 				.block-anim__line: .line
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
+
+//- mixin headerBlockAnimated2(img)
+//- 	// start headerBlock anim
+//- 	.container-max.block-with-animation-js
+//- 		.block1.block1-anim.block-anim2
+//- 			.block-anim2__content-wrap: .anim-wr
+//- 				.line.line-1
+//- 				.line.line-2
+//- 				.line.line-3
+//- 				.bg-gr.bg-gr-1.bg-gr--js
+//- 				.bg-gr.bg-gr-2.bg-gr--js
+//- 				.bg-gr.bg-gr-3.bg-gr--js
+//- 				.bg-gr-add.bg-gr-5.bg-gr--js
+//- 				.bg-gr-add.bg-gr-6.bg-gr--js
+//- 				.bg-gr-add.bg-gr-7.bg-gr--js
+//- 				.bg-gr-add.bg-gr-8.bg-gr--js
+//- 				.bg-gr-add.bg-gr-9.bg-gr--js
+//- 				.lists
+//- 					ul.block-anim2__list.list-1
+//- 						li Эталонное качество
+//- 						li оперативное решение вопросов
+//- 						li Развитие с учетом трендов
+//- 					ul.block-anim2__list.list-2
+//- 						li современное оборудование
+//- 						li соблюдение сроков поставки
+//- 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
+//- 	// end headerBlock
 
 mixin headerBlockAnimated2(img)
 	// start headerBlock anim
@@ -128,12 +177,12 @@ mixin headerBlockAnimated2(img)
 				.bg-gr-add.bg-gr-9.bg-gr--js
 				.lists
 					ul.block-anim2__list.list-1
-						li Эталонное качество
-						li оперативное решение вопросов
-						li Развитие с учетом трендов
+						li Benchmark quality
+						li Prompt<br>issue<br>resolution
+						li Development aligned with trends
 					ul.block-anim2__list.list-2
-						li современное оборудование
-						li соблюдение сроков поставки
+						li Modern equipment
+						li On-time<br>delivery compliance
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
 
@@ -143,10 +192,10 @@ mixin headerBlockAnimatedEdelhaus1(img)
 		.block1.block1-anim.block-anim-edelhaus-1
 			.inner-container
 				.block-anim-edelhaus-1__title-wrap
-					.block-anim-edelhaus-1__title.title_top харизматичный
-					.block-anim-edelhaus-1__title.title_bottom и амбициозный
+					.block-anim-edelhaus-1__title.title_top Charismatic
+					.block-anim-edelhaus-1__title.title_bottom And ambitious
 				.block-anim-edelhaus-1__content-wrap
-					.text Бренд Edelhaus Klinker&nbsp;&mdash; активный, амбициозный, так&nbsp;же как и&nbsp;те, для кого&nbsp;он. Edelhaus Klinker сам себе задает высокую планку и&nbsp;идет к&nbsp;новым&nbsp;&mdash; все более смелым&nbsp;&mdash; целям. Как и&nbsp;сам клинкерный кирпич, бренд Edelhaus Klinker олицетвоярет собой стойкость, выдержку, постоянство, надежность
+					.text The brand Edelhaus Klinker is active, ambitious, and represents those who share these qualities. Edelhaus Klinker sets high standards for itself and strives towards new, bolder goals. Like the clinker brick itself, the Edelhaus Klinker brand embodies resilience, endurance, consistency, and reliability.
 				+img(src=`img/edelhaus-light.svg`, alt="").brand
 				+img(src=`img/brick.png`, alt="").brick
 			.parallax-container(style=`background-image:url(img/brand-header-${img}-m.png);`).d-md-none
@@ -158,10 +207,10 @@ mixin headerBlockAnimatedEdelhaus2(img)
 	.container-max.block-with-animation-js
 		.block1.block1-anim.block-anim-edelhaus-2
 			.block-anim__content-wrap
-				.block-anim__title-wrap: .block-anim-edelhaus-2__title Стойкость в его характере
+				.block-anim__title-wrap: .block-anim-edelhaus-2__title Resilience is in its character
 				.block-anim-edelhaus-2__footer
-					.text.text-top Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочетание природных цветов и фактур с наивысшей стойкостью и долговечностью, с которыми неповторимые архитектурные образы создаются на&nbsp;века.
-					.text.text-transform Коллекции клинкерного кирпича и плитки Edelhaus Klinker — это уникальное сочетание природных цветов и фактур с наивысшей стойкостью и долговечностью, с которыми неповторимые архитектурные образы создаются на&nbsp;века.
+					.text.text-top The collections of clinker bricks and tiles by Edelhaus Klinker are a unique blend of natural colors and textures with the highest resilience and durability, creating timeless architectural designs that last for centuries.
+					.text.text-transform The collections of clinker bricks and tiles by Edelhaus Klinker are a unique blend of natural colors and textures with the highest resilience and durability, creating timeless architectural designs that last for centuries.
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
 
@@ -173,9 +222,9 @@ mixin headerBlockAnimatedMK(img)
 			.inner-container
 				+img(src=`img/master.svg`, alt="").brand.up-down
 				.block-anim-mk__title-wrap
-					.block-anim-mk__title.up-down храним тепло традиций
+					.block-anim-mk__title.up-down keep the warmth of traditions
 				.block-anim-mk__content-wrap.up-down
-					.text Классическое сочетание традиционного дизайна и&nbsp;современных технологий, доведенное до&nbsp;совершенства. А&nbsp;коллекции&nbsp;&mdash; полнотельный и&nbsp;пустотелый лицевой кирпич.
+					.text The classic combination of traditional design and modern technologies, brought to perfection. And the collections are a full and hollow front brick.
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
 
@@ -185,12 +234,12 @@ mixin headerBlockAnimatedMK2(img)
 		.block1.block1-anim.block-anim-mk.block-anim-mk-2
 			.inner-container
 				.block-anim-mk-2__title-wrap.up-down
-					.block-anim-mk-2__title.title_top традиции
-					.block-anim-mk-2__title.title_span и
-					.block-anim-mk-2__title.title_bottom преемственность
+					.block-anim-mk-2__title.title_top traditions
+					.block-anim-mk-2__title.title_span and
+					.block-anim-mk-2__title.title_bottom continuity
 				.block-anim-mk-2__content-wrap
-					.text.up-down.text_left Бренд Мастер Керамик основывается на&nbsp;глубоких ценностях, которые формируют характер настоящего мастера: Мастера, который любит свое дело, развивает мастерство и&nbsp;ценит человеческие отношения.
-					.text.up-down.text_right Как мастер внедряет современные технологии в&nbsp;старинные методы печной кладки, так и&nbsp;бренд Мастер Керамик объединяет прошлое и&nbsp;будущее, сохраняя и&nbsp;развивая традиции печного мастерства.
+					.text.up-down.text_left The brand master of ceramics is based on the deep values ​​that form the character of a real master: a master who loves his job, develops skill and appreciates human relations.
+					.text.up-down.text_right As the master introduces modern technologies into ancient methods of stove masonry, so the brand master of ceramic combines the past and future.
 			.br: +img(src=`img/master-crop.svg`, alt="").brand.up-down
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
@@ -202,10 +251,10 @@ mixin headerBlockAnimatedKonig(img)
 			.inner-container
 				.wrapper.inner-container-center-anim.up-down.left-to-right
 					.block-anim-konig__title-wrap.left-to-right
-						.block-anim-konig__title.title_top.up-down покоряет
-						.block-anim-konig__title.title_bottom.up-down дизайном
+						.block-anim-konig__title.title_top.up-down Conquers
+						.block-anim-konig__title.title_bottom.up-down with design
 					.block-anim-konig__content-wrap
-						.text.up-down.left-to-right Мы создали в сотрудничестве с европейскими мастерами уникальную коллекцию лицевого полнотелого и пустотелого кирпича для фасадов, каминов и печей. <br> Это воплощение качества и дизайна, которым можно гордиться.
+						.text.up-down.left-to-right We created in cooperation with European masters a unique collection of facade and hollow bricks for facades, fireplaces and furnaces. <br> This is the embodiment of quality and design that you can be proud of.
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
 
@@ -219,10 +268,10 @@ mixin headerBlockAnimatedKonig2(img)
 					.lg-before.lg-before_left.d-none.d-md-inline-block.left-to-right
 					.lg-before.lg-before_right.d-none.d-md-inline-block.left-to-right
 					.block-anim-konig-2__title-wrap.left-to-right
-						.block-anim-konig__title.title_top.up-down статусный #[span и]
-						.block-anim-konig__title.title_bottom.up-down рациональный
+						.block-anim-konig__title.title_top.up-down Status-driven #[span and]
+						.block-anim-konig__title.title_bottom.up-down rational
 					.block-anim-konig-2__content-wrap.left-to-right
-						.text.up-down Дизайн кирпича бренда Königstein отличает богатство цвета, фактурность и красота поверхности. <br> Как и сам кирпич, бренд Königstein сочетает в себе эстетику и современность, статусность и рациональность. <br> Из этих сочетаний складывается уникальный характер бренда.
+						.text.up-down Königstein brand brick design is distinguished by color wealth, texture and beauty beauty. <br> Like the brick itself, the Königstein brand combines aesthetics and modernity, status and rationality.<br> Of these combinations, the unique nature of the brand is formed.
 					.lg-after.lg-after_right.d-none.d-lg-inline-block.left-to-right
 			.brand-wrap.br: +img(src=`img/konigstein-crop.svg`, alt="").brand.up-down.left-to-right
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
@@ -235,10 +284,10 @@ mixin headerBlockAnimatedMF(img)
 		.block1.block1-anim.block-anim-mf.block-anim-mf-1
 			.inner-container.inner-container-center-anim
 				.block-anim-mf__title-wrap.down-up
-					.block-anim-mf__title.title_top пространство
-					.block-anim-mf__title.title_bottom творить
+					.block-anim-mf__title.title_top space to
+					.block-anim-mf__title.title_bottom create
 				.block-anim-mf__content-wrap.down-up
-					.text В&nbsp;бренде ModFormat есть особенные ценности, которые задают уникальный характер свободной, творческой личности, которая не&nbsp;боится экспериментировать и&nbsp;создавать что-то новое.
+					.text The Modformat brand has special values ​​that set the unique character of a free, creative person who is not afraid to experiment and create something new.
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)
 	// end headerBlock
 
@@ -248,10 +297,10 @@ mixin headerBlockAnimatedMF2(img)
 		.block1.block1-anim.block-anim-mf.block-anim-mf-2
 			.inner-container.inner-container-center-anim
 				.block-anim-mf__title-wrap
-					.block-anim-mf__title.title_top.down-up утонченный #[span и]
-					.block-anim-mf__title.title_bottom.down-up неповторимый
+					.block-anim-mf__title.title_top.down-up refined #[span and]
+					.block-anim-mf__title.title_bottom.down-up unrepeatable
 				.block-anim-mf__content-wrap.down-up
-					.text Утонченный и&nbsp;неповторимый дизайн коллекции лицевого пустотелого кирпича и&nbsp;плитки ModFormat меняет представления об&nbsp;эстетике, форме и&nbsp;пространстве.<br>Воплощает самые смелые авторские замыслы и&nbsp;творческие эксперименты &mdash; в&nbsp;полном объёме.
+					.text The sophisticated and unique design of the collection of celestial brick and tiles Modformat changes ideas about aesthetics, shape and space.<br>Embodies the most daring author’s ideas and creative experiments - in full.
 				.br
 					.brand-wrap: +img(src=`img/modformat.svg`, alt="").brand
 			.parallax-container(style=`background-image:url(img/brand-header-${img}.png);`)

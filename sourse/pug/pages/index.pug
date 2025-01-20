@@ -15,7 +15,7 @@ block variables
 	- let  bg= null
 
 block title
-	- let  title= index.head.title
+	- let  title= 'Main'
 	title= title
 block pagecontent
 	//- +mob-mnu()
@@ -30,7 +30,7 @@ block pagecontent
 						+e.body
 							.container-max
 								+block1(data, '')
-									+e.btn.btn.btn-primary(href='#') Перейти в каталог
+									+e.btn.btn.btn-primary(href='#') Catalog
 							+headerBlockAnimated('main-anim')
 							+headerBlockAnimated2('main-anim2')
 							+sSlider
@@ -52,7 +52,7 @@ block pagecontent
 								.parallax-container(style=`background-image:url(img/brand-header-konig-img.png);`)
 								.content
 									+img(src=`img/konigstein.svg`, alt="").brand.brand_large
-								+e.btn.btn.btn-primary(href='#') Перейти в каталог
+								+e.btn.btn.btn-primary(href='#') Catalog
 						+headerBlockAnimatedKonig('konig')
 						+headerBlockAnimatedKonig2('konig2')
 						+sSlider
@@ -65,7 +65,7 @@ block pagecontent
 								.parallax-container(style=`background-image:url(img/brand-header-mf-img.png);`)
 								.content
 									+img(src=`img/modformat.svg`, alt="").brand.brand_large.brand_right
-								+e.btn.btn.btn-primary(href='#') Перейти в каталог
+								+e.btn.btn.btn-primary(href='#') Catalog
 						+headerBlockAnimatedMF('mf')
 						+headerBlockAnimatedMF2('mf2')
 						+sSlider
@@ -78,12 +78,12 @@ block pagecontent
 								.parallax-container(style=`background-image:url(img/brand-header-mk-img.png);`)
 								.content
 									+img(src=`img/master-ceramic.svg`, alt="").brand
-								+e.btn.btn.btn-primary(href='#') Перейти в каталог
+								+e.btn.btn.btn-primary(href='#') Catalog
 						+headerBlockAnimatedMK('mk')
 						+headerBlockAnimatedMK2('mk2')
 						+sSlider
 						.long-footer.long-footer--md
 							+parts('footer')
 		//- +cookie
-		+pagePreloader
+		// +pagePreloader
 		+pageSlider()
